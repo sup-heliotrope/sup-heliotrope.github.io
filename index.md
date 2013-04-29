@@ -54,4 +54,4 @@ that would connect to Heliotrope and interact with mail.
  * [Issues](https://github.com/sup-heliotrope/sup/issues)
 
 ### Authors and Contributors
-Sup is brought to you by [a cast of hackers.](https://github.com/sup-heliotrope/sup/blob/master/CONTRIBUTORS)
+Sup is brought to you by [a cast of hackers.](https://github.com/sup-heliotrope/sup/wiki/Development:-Administration-and-Team)
