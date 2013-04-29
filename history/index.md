@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: narrow_page
+
 ---
 
 ## # History

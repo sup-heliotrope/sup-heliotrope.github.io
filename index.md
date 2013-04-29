@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: narrow_page
+
 ---
 ## # [sup](https://github.com/sup-heliotrope/sup/)
 [Sup](https://github.com/sup-heliotrope/sup/) is a console-based email client for people with a lot of email.
@@ -19,8 +20,9 @@ If you're the type of person who treats email as an extension of your long-term 
  * Organize email with user-defined labels, automatically track recent contacts, and much more!
 
 ## # Sub-projects
-### sup
-sup is the original curses email client, full-text index, and hook system.
+### [sup](https://github.com/sup-heliotrope/sup)
+[sup](https://github.com/sup-heliotrope/sup) is the original curses email
+client, full-text index, and hook system.
 
 ### [Heliotrope](https://github.com/sup-heliotrope/heliotrope)
 [Heliotrope](https://github.com/sup-heliotrope/heliotrope) is an architectural
