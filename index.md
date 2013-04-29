@@ -1,5 +1,8 @@
 ---
 layout: narrow_page
+screenshots: 
+ - /images/old_screenshot_1.png
+ - /images/old_screenshot_3.png
 
 ---
 ## # [sup](https://github.com/sup-heliotrope/sup/)
@@ -9,6 +12,12 @@ It presents an interface of a list of threads, which are each hierarchical colle
 Threads can have multiple tags applied to them.
 It supports a very fast full-text search, automatic contact-list management, custom code insertion via a Ruby hook system, and more.
 If you're the type of person who treats email as an extension of your long-term memory, Sup is for you.
+
+{% for shot in page.screenshots %}
+<a href="{{shot}}">
+  <img src="{{shot}}"/>
+</a>
+{% endfor %}
 
 ## # Features
  * Handle massive amounts of email.
