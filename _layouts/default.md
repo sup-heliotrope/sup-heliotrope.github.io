@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
     <title>sup</title>
+    <meta name="viewport" content="width=device-width" />
   </head>
   <body>
     <header>
