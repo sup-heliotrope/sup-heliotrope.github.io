@@ -19,6 +19,16 @@ If you're the type of person who treats email as an extension of your long-term 
 </a>
 {% endfor %}
 
+## # Installation
+Install the sup rubygem and run the sup-config utility to build a configuration:
+
+<pre>
+$ gem install sup
+$ sup-config
+</pre>
+
+More documentation on getting started [is available in the wiki.](https://github.com/sup-heliotrope/sup/wiki#installation)
+
 ## # Features
  * Handle massive amounts of email.
  * Fast, local full-text index of messages.
