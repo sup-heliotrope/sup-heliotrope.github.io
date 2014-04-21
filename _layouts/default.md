@@ -23,13 +23,14 @@
         <a href="https://github.com/sup-heliotrope/sup/issues" class="btn">Issues</a>
         <a href="/history/" class="btn">History</a>
         <a href="/screenshots/" class="btn">Screenshots</a>
+        <a href="https://github.com/sup-heliotrope/sup-colors" class="btn">Color schemes</a>
         </section>
       </div>
     </header>
 
     {{ content }}
 
-    
+
   </body>
 </html>
 
