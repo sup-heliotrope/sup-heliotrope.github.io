@@ -1,6 +1,6 @@
 ---
 layout: narrow_page
-screenshots: 
+screenshots:
  - /images/old_screenshot_1.png
  - /images/old_screenshot_3.png
 
@@ -37,27 +37,6 @@ More documentation on getting started [is available in the wiki.](https://github
  * Handle multiple accounts. Replying to email sent to a particular account will use the correct SMTP server, signature, and from address.
  * Add custom code to handle certain types of messages or to handle certain types of text within messages.
  * Organize email with user-defined labels, automatically track recent contacts, and much more!
-
-## # Sub-projects
-### [sup](https://github.com/sup-heliotrope/sup)
-[sup](https://github.com/sup-heliotrope/sup) is the original curses email
-client, full-text index, and hook system.
-
-### [Heliotrope](https://github.com/sup-heliotrope/heliotrope)
-[Heliotrope](https://github.com/sup-heliotrope/heliotrope) is an architectural
-shift from sup that maintains many of the same concepts, but separates out a
-server and client.
-Contrast to what is done in sup, where one large client installation has all
-the mail documents and indexes locally, Heliotrope provides a server-side
-service that indexes mail.
-
-In this way, remote clients can connect up and interact with their mail stores
-in a sup-like way, while keeping the mobile install slim.
-This is a lifesaver when switching from machine to machine.
-
-### [Turnsole](https://github.com/sup-heliotrope/turnsole)
-[Turnsole](https://github.com/sup-heliotrope/turnsole) is an example client
-that would connect to Heliotrope and interact with mail.
 
 ### Resources
  * [wiki](https://github.com/sup-heliotrope/sup/wiki)
