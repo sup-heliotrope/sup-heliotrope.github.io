@@ -1,0 +1,151 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] turnsole crash on start up -->
+<!--X-From-R13: Vnzvfu <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Mon, 2 May 2011 16:13:49 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1304373950&#45;sup&#45;1962@whisper -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] turnsole crash on start up</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00644.html">Date Prev</a>][<a href="msg00747.html">Date Next</a>][<a href="msg00105.html">Thread Prev</a>][<a href="msg00711.html">Thread Next</a>][<a href="maillist.html#00730">Date Index</a>][<a href="threads.html#00730">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] turnsole crash on start up</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] turnsole crash on start up</li>
+<li><em>From</em>: Hamish &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 02 May 2011 23:17:56 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:content-type:subject:from:to:date:message-id	:user-agent:content-transfer-encoding;	bh=za+wBPHACXEP/Ix6Q8Wd92Y87XWjH5FqsJZADvkoQ38=;	b=t1lFnZqHgwZ1YmMjRKzUha7o1vpoxGbDQn7CHMuhBLlCtCeb7MuGnscGiYyLWB9Qr0	CJxNy/x9c9lkY7O1cnwfLQqBQ6ALgtkvpIp9o9r56itP4s19hOgHfKkWHYSJ1xGPEihM	DS1oNI4mrKnmOS0PPqneSVRU2U4b7KRKmsX1g=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=Jt8yOiH0eTYJbVPt4JngyABru14j5kSjVnMWbhHXvions4MjSVADjkFfbbo2iIMb2M	0l9AuZxUUdoHgyOMiCHVyKjaCb4UoN6u0zcKcTFFlzHh1GG24wdA9s6YmVSSDF439pxX	W1m3JcmqGmU/gd8IG57HvulSqs2mt75W8TxiE=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I've finally got around to playing with turnsole, and it crashes out
+immediately :/
+
+$ ruby1.9.1 -Ilib -I../heliotrope/lib bin/turnsole 
+/home/mish/dev/sup/turnsole/lib/turnsole/models.rb:88:in `at': can't convert String into an exact number (TypeError)
+        from /home/mish/dev/sup/turnsole/lib/turnsole/models.rb:88:in `initialize'
+        from /home/mish/dev/sup/turnsole/lib/turnsole/client.rb:34:in `new'
+        from /home/mish/dev/sup/turnsole/lib/turnsole/client.rb:34:in `block (2 levels) in search'
+        from /home/mish/dev/sup/turnsole/lib/turnsole/client.rb:34:in `map'
+        from /home/mish/dev/sup/turnsole/lib/turnsole/client.rb:34:in `block in search'
+        from /home/mish/dev/sup/turnsole/lib/turnsole/ui.rb:76:in `call'
+        from /home/mish/dev/sup/turnsole/lib/turnsole/ui.rb:76:in `step'
+        from bin/turnsole:134:in `&lt;main&gt;'
+
+I tried in the web browser, and a search appears to work fine (and is
+impressively quick :) for a couple of terms I tried. But when I click on
+the inbox link, I go to URL:
+
+<a  rel="nofollow" href="http://localhost:8042/search?q=~inbox">http://localhost:8042/search?q=~inbox</a>
+
+and get a big old error page :( The relevant parts are:
+
+TypeError at /search
+false can't be coerced into Fixnum
+file: heliotrope-server location: - line: 377
+
+[snip]
+
+bin/heliotrope-server in -
+377.    date = escape_html Time.at(thread[:date]).strftime(&quot;%Y/%m/%d %H:%M&quot;)
+bin/heliotrope-server in strftime
+377.    date = escape_html Time.at(thread[:date]).strftime(&quot;%Y/%m/%d %H:%M&quot;)
+bin/heliotrope-server in threadinfo_to_html
+377.    date = escape_html Time.at(thread[:date]).strftime(&quot;%Y/%m/%d %H:%M&quot;)
+bin/heliotrope-server in block (2 levels) in &lt;class:HeliotropeServer&gt;
+157.        results.map { |r| threadinfo_to_html r }.join +
+bin/heliotrope-server in map
+157.        results.map { |r| threadinfo_to_html r }.join +
+bin/heliotrope-server in block in &lt;class:HeliotropeServer&gt;
+157.        results.map { |r| threadinfo_to_html r }.join +
+/usr/lib/ruby/1.9.1/webrick/httpserver.rb in service
+111.      si.service(req, res)
+/usr/lib/ruby/1.9.1/webrick/httpserver.rb in run
+70.          server.service(req, res)
+/usr/lib/ruby/1.9.1/webrick/server.rb in block in start_thread
+183.          block ? block.call(sock) : run(sock)
+
+[snip]
+
+Any ideas? Does heliotrope have a console like sup that I could try
+tracking down which message this would be? (I'm using maildir in case it
+makes a difference).
+
+Hamish Downer
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00711" href="msg00711.html">Re: [sup-devel] turnsole crash on start up</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00644.html">[sup-devel] [PATCH] Fix problem with time parsing</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00747.html">Re: [sup-devel] Cannot query Japanese characters</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00105.html">Re: [sup-devel] [PATCH] Fix problem with time parsing</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00711.html">Re: [sup-devel] turnsole crash on start up</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00730"><strong>Date</strong></a></li>
+<li><a href="threads.html#00730"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] new branch: keybindings -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Sun, 13 Feb 2011 09:59:50 &#45;0800 (PST) -->
+<!--X-Message-Id: 1297620229&#45;sup&#45;1485@zyrg.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1296187729&#45;sup&#45;7405@zyrg.net -->
+<!--X-Reference: 1297152028&#45;sup&#45;5512@qwerzila -->
+<!--X-Reference: 1297152370&#45;sup&#45;4647@qwerzila -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] new branch: keybindings</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00658.html">Date Prev</a>][<a href="msg00594.html">Date Next</a>][<a href="msg00697.html">Thread Prev</a>][<a href="msg00570.html">Thread Next</a>][<a href="maillist.html#00712">Date Index</a>][<a href="threads.html#00712">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] new branch: keybindings</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] new branch: keybindings</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Sun, 13 Feb 2011 13:05:40 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:rlane%40zyrg.net">rlane@zyrg.net</a> designates 128.237.157.88 as permitted sender) smtp.mail=<a href="mailto:rlane%40zyrg.net">rlane@zyrg.net</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>In-reply-to</em>: &lt;1297152370-sup-4647@qwerzila&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00456.html">1296187729-sup-7405@zyrg.net</a>&gt; &lt;1297152028-sup-5512@qwerzila&gt; &lt;1297152370-sup-4647@qwerzila&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Gaute Hope's message of 2011-02-08 03:07:31 -0500:
+&gt; Excerpts from Gaute Hope's message of 2011-02-08 09:01:44 +0100:
+&gt; &gt; Excerpts from Rich Lane's message of 2011-01-28 05:26:38 +0100:
+&gt; &gt; Could it be that this broke continue buffer search key 'n' ?
+&gt; &gt; 
+&gt; &gt; lib/sup/buffer.rb:171
+&gt; &gt; 
+&gt; &gt; This doesn't work for me anymore, could anyone confirm that?
+&gt; 
+&gt; Ah - I just noticed that I have to move down one line before I can hit
+&gt; 'n' to search for the next occurrence. I don't think this was the
+&gt; original, or desired, behaviour?
+
+I did a git bisect and had to stop at the last index format change in
+May 2010. It looks like 'n' has been broken for a long time.
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00456" href="msg00456.html">[sup-devel] new branch: keybindings</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="00480" href="msg00480.html">Re: [sup-devel] new branch: keybindings</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00697" href="msg00697.html">Re: [sup-devel] new branch: keybindings</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00658.html">[sup-devel] [bug] two more different traces: RuntimeError from	thread: poll after loading inbox</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00594.html">[sup-devel] Sup crash when trying to view full headers on deleted	message.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00697.html">Re: [sup-devel] new branch: keybindings</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00570.html">[sup-devel] Bug: UTF-8 error when sending messages</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00712"><strong>Date</strong></a></li>
+<li><a href="threads.html#00712"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

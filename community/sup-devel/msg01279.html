@@ -1,0 +1,123 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] prevent "year too big to marshal" crashes -->
+<!--X-From-R13: Sevp Eurezna <ulcreobyvfgNtznvy.pbz> -->
+<!--X-Date: Fri, 5 Feb 2010 08:43:54 &#45;0800 (PST) -->
+<!--X-Message-Id: 1265386698&#45;sup&#45;8060@changeling.local -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] prevent &quot;year too big to marshal&quot; crashes</title>
+<link rev="made" href="mailto:hyperbolist@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01195.html">Date Prev</a>][<a href="msg01405.html">Date Next</a>][<a href="msg01117.html">Thread Prev</a>][<a href="msg00854.html">Thread Next</a>][<a href="maillist.html#01279">Date Index</a>][<a href="threads.html#01279">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] prevent &quot;year too big to marshal&quot; crashes</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [PATCH] prevent &quot;year too big to marshal&quot; crashes</li>
+<li><em>From</em>: Eric Sherman &lt;<a href="mailto:hyperbolist%40gmail.com">hyperbolist@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 05 Feb 2010 11:19:03 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:date:message-id:user-agent:content-transfer-encoding;	bh=Fr9DAplezKpGqbuCcAll9VyBJbh8ARnZeKqgm7ymR1Q=;	b=jP5uZoV3YP2Jss4BEsASbz97OzxM5dBCWb3SCimgO1HNzsIXGbw1aOKcBHZsfbxZ8A	zJMom9d7ccRJYODbj0RUKDUa6yAr1fiiTMymNimht+2vh9oxUDmldnnIuGfUXgZd5ivn	3qUHNwBT/vZYSQ1GA6jMflXDMCuRcPJjrnpDM=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=TCMKkACa11cf9N05ul7hr51cCnqstjsQHmuG2ZIVmVLjK3n7ccO3CX0N+1XdZs0TWi	yzjwCG1hlxl2PIN26T4FhjiXmGm1ny+JoeEQ8tpG2F6wwUGMBsFKBPg80tzltymNgOPG	9ZGIVRR917/+lmE1lq3x4bTnnsOBRQcH2dong=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Xapian::Document#entry= performs a Marshal.dump which was throwing a
+&quot;year too big to marshal&quot; when adding a new message.  I just
+truncate_date'd the message's date when the entry hash is created in
+sync_message and this problem went away for me.
+
+It was a spam message, as the MIN_DATE/MAX_DATE comments hinted.
+---
+ lib/sup/xapian_index.rb |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/xapian_index.rb b/lib/sup/xapian_index.rb
+index 443b88d..44531a2 100644
+--- a/lib/sup/xapian_index.rb
++++ b/lib/sup/xapian_index.rb
+@@ -435,7 +435,7 @@ EOS
+       :message_id =&gt; m.id,
+       :source_id =&gt; m.source.id,
+       :source_info =&gt; m.source_info,
+-      :date =&gt; m.date,
++      :date =&gt; truncate_date(m.date),
+       :snippet =&gt; snippet,
+       :labels =&gt; m.labels.to_a,
+       :from =&gt; [m.from.email, m.from.name],
+-- 
+1.6.6
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00854" href="msg00854.html">Re: [sup-devel] [PATCH] prevent &quot;year too big to marshal&quot; crashes</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01195.html">[sup-devel] [issue63] Attachment filenames: RFC2184 and extension	guessing</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01405.html">[sup-devel] [issue64] Crash on sup start</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01117.html">Re: [sup-devel] [PATCH] Add config option to limit text wrapping	width</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00854.html">Re: [sup-devel] [PATCH] prevent &quot;year too big to marshal&quot; crashes</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01279"><strong>Date</strong></a></li>
+<li><a href="threads.html#01279"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

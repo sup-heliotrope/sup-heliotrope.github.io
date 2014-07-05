@@ -1,0 +1,37 @@
+From 8d18bd3147c7acaa43f76915bdf99bbf10429851 Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Thu, 7 Oct 2010 17:24:38 +0200
+Subject: [PATCH] =?UTF-8?q?Bugfix:=20Don=E2=80=99t=20display=20thread=20participants=20twice?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+When a participant of a thread uses different email addresses, but the same
+name, he would be displayed twice in the list:
+Participants:
+ • foo <foo@bar.com>
+ • foo <foo@qux.bar.com>
+ • bar <bar@bar.com>
+would lead to: "foo, bar, foo"
+---
+ lib/sup/modes/thread-index-mode.rb |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index 0c7a3f2..b3f6c77 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -792,8 +792,8 @@ protected
+     authors = t.map do |m, *o|
+       next unless m && m.from
+       new[m.from] ||= m.has_label?(:unread)
+-      next if seen[m.from]
+-      seen[m.from] = true
++      next if seen[m.from.mediumname]
++      seen[m.from.mediumname] = true
+       m.from
+     end.compact
+ 
+-- 
+1.7.1
+

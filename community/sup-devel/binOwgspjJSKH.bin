@@ -1,0 +1,37 @@
+From fe724f923cff437cbaaf227d3bfebfeba4a076cd Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Tue, 9 Mar 2010 18:01:49 +0100
+Subject: [PATCH] Correctly pad date strings, as they might contain utf-8 characters
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+sprintf is not utf8-aware and thus the output gets a wrong padding
+(correct in terms of bytes, not correct in terms of visible characters).
+You can notice this using a german locale (de_DE) and viewing mails
+from march (abbreviated "Mär" in german).
+---
+ lib/sup/modes/thread-index-mode.rb |    7 +++++--
+ 1 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index f53001f..90bb80a 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -878,8 +878,11 @@ protected
+ 
+     snippet = t.snippet + (t.snippet.empty? ? "" : "...")
+ 
+-    size_widget_text = sprintf "%#{ @size_widget_width}s", size_widget
+-    date_widget_text = sprintf "%#{ @date_widget_width}s", date_widget
++    size_padding = @size_widget_width - size_widget.display_length
++    size_widget_text = sprintf "%#{size_padding}s%s", "", size_widget
++
++    date_padding = @date_widget_width - date_widget.display_length
++    date_widget_text = sprintf "%#{date_padding}s%s", "", date_widget
+ 
+     [ 
+       [:tagged_color, @tags.tagged?(t) ? ">" : " "],
+-- 
+1.6.5
+

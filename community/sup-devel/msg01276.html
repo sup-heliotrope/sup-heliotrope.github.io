@@ -1,0 +1,140 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Thu, 31 Dec 2009 11:42:15 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262287125&#45;sup&#45;5933@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1261485246&#45;sup&#45;4236@tilus.net -->
+<!--X-Reference: 1261938751&#45;sup&#45;9421@zyrg.net -->
+<!--X-Reference: 1262136474&#45;sup&#45;312@tilus.net -->
+<!--X-Reference: 1262182085&#45;sup&#45;1405@masanjin.net -->
+<!--X-Reference: 1262190807&#45;sup&#45;434@zyrg.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01289.html">Date Prev</a>][<a href="msg01352.html">Date Next</a>][<a href="msg01190.html">Thread Prev</a>][<a href="msg01313.html">Thread Next</a>][<a href="maillist.html#01276">Date Index</a>][<a href="threads.html#01276">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 31 Dec 2009 11:41:16 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01190.html">1262190807-sup-434@zyrg.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1261485246-sup-4236@tilus.net&gt; &lt;<a href="msg01294.html">1261938751-sup-9421@zyrg.net</a>&gt;	&lt;<a href="msg01391.html">1262136474-sup-312@tilus.net</a>&gt; &lt;<a href="msg01218.html">1262182085-sup-1405@masanjin.net</a>&gt;	&lt;<a href="msg01190.html">1262190807-sup-434@zyrg.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Reformatted excerpts from Rich Lane's message of 2009-12-30:
+&gt; I'm assuming you're talking about each_message_in_thread_for, since
+&gt; that's the only Index method that deals with threading.
+
+Yes, I suppose. In my mind the Xapian index had replaced the ThreadSet
+threading entirely, but perhaps that's not the case.
+
+&gt; In what order does ThreadSet#add_message expect to get messages in?
+
+Arbitrary.
+
+&gt; AFAICT JWZ's algorithm should work regardless of the order messages
+&gt; handed to it.
+
+That's my understanding too.
+
+I don't like adding date as a component for threading (because it's just
+asking for a screwey date to wreak havok, just as a screwey References:
+header wreaks havok now). I don't like playing around with the threading
+algorithm, not in the least because we don't have a good test harness
+that lets us know if we screw something up. So I'm inclined to sit on
+this patch.
+
+Out of curiousity, Tero, could the problem also be solved by giving the
+in-reply-to header precedence over the references header?
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01313" href="msg01313.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01294" href="msg01294.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01391" href="msg01391.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+<li><strong><a name="01218" href="msg01218.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01190" href="msg01190.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01289.html">Re: [sup-devel] [PATCH] reuse old account info with --foce-account	user@hostname option</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01352.html">Re: [sup-devel] [PATCH] fixed a typo in parse_header</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01190.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01313.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01276"><strong>Date</strong></a></li>
+<li><a href="threads.html#01276"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

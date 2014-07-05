@@ -1,0 +1,144 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] Sync and update other threads when Maildir	sync&#45;back changes location. -->
+<!--X-From-R13: "Sqjneq L. Knat" <rmlnatN[WF.SRG> -->
+<!--X-Date: Tue, 21 Aug 2012 12:44:07 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1345578187&#45;sup&#45;5921@javelin -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1345576796&#45;31445&#45;1&#45;git&#45;send&#45;email&#45;ezyang@mit.edu -->
+<!--X-Reference: 1345577064&#45;sup&#45;4877@javelin -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] Sync and update other threads when Maildir	sync-back changes location.</title>
+<link rev="made" href="mailto:ezyang@MIT.EDU">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00128.html">Date Prev</a>][<a href="msg00332.html">Date Next</a>][<a href="msg00128.html">Thread Prev</a>][<a href="msg00393.html">Thread Next</a>][<a href="maillist.html#00349">Date Index</a>][<a href="threads.html#00349">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] Sync and update other threads when Maildir	sync-back changes location.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;damien.leone&quot; &lt;<a href="mailto:damien.leone%40fensalir.fr">damien.leone@fensalir.fr</a>&gt;,	sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] Sync and update other threads when Maildir	sync-back changes location.</li>
+<li><em>From</em>: &quot;Edward Z. Yang&quot; &lt;<a href="mailto:ezyang%40MIT.EDU">ezyang@MIT.EDU</a>&gt;</li>
+<li><em>Date</em>: Tue, 21 Aug 2012 15:43:47 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1345577064-sup-4877@javelin&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00125.html">1345576796-31445-1-git-send-email-ezyang@mit.edu</a>&gt;	&lt;1345577064-sup-4877@javelin&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Aaand here's an even prettier version.
+
+commit f7d30410d946418a885929f20a498c10e4058243
+Author: Edward Z. Yang &lt;ezyang@mit.edu&gt;
+Date:   Tue Aug 21 15:19:11 2012 -0400
+
+    Sync and update other threads when Maildir sync-back changes location.
+    
+    Signed-off-by: Edward Z. Yang &lt;ezyang@mit.edu&gt;
+
+diff --git a/lib/sup/maildir.rb b/lib/sup/maildir.rb
+index 0c8c563..050cfaf 100644
+--- a/lib/sup/maildir.rb
++++ b/lib/sup/maildir.rb
+@@ -226,7 +226,7 @@ private
+       new_base = (flags.include?(&quot;S&quot;)) ? &quot;cur&quot; : &quot;new&quot;
+       md_base, md_ver, md_flags = maildir_data orig_path
+ 
+-      return orig_path if md_flags == flags
++      return if md_flags == flags
+ 
+       new_loc = File.join new_base, &quot;#{md_base}:#{md_ver},#{flags}&quot;
+       orig_path = File.join @dir, orig_path
+diff --git a/lib/sup/message.rb b/lib/sup/message.rb
+index 0616f75..3eeea66 100644
+--- a/lib/sup/message.rb
++++ b/lib/sup/message.rb
+@@ -286,10 +286,11 @@ EOS
+   end
+ 
+   def sync_back
+-    @locations.each do |l|
+-      if l.valid?
+-        l.sync_back @labels if $config[:sync_back_to_maildir] and l.source.is_a? Maildir
+-      end
++    if @locations.map { |l|
++      l.sync_back @labels if l.valid? and $config[:sync_back_to_maildir] and l.source.is_a? Maildir
++    }.any?
++      Index.sync_message self, true
++      UpdateManager.relay self, :updated, self
+     end
+   end
+ 
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00125" href="msg00125.html">[sup-devel] [PATCH] Sync and update other threads when Maildir	sync-back changes location.</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+<li><strong><a name="00128" href="msg00128.html">Re: [sup-devel] [PATCH] Sync and update other threads when Maildir	sync-back changes location.</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00128.html">Re: [sup-devel] [PATCH] Sync and update other threads when Maildir	sync-back changes location.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00332.html">[sup-devel] [PATCH] Implement moving message between Maildir	sources based on label.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00128.html">Re: [sup-devel] [PATCH] Sync and update other threads when Maildir	sync-back changes location.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00393.html">[sup-devel] [PATCH] Handle drafts with high ID numbers.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00349"><strong>Date</strong></a></li>
+<li><a href="threads.html#00349"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

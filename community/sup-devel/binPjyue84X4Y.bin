@@ -1,0 +1,31 @@
+From 9fd7a4f11709399219395320c9cdbf93c33f87fe Mon Sep 17 00:00:00 2001
+From: Tero Tilus <tero@tilus.net>
+Date: Fri, 31 Dec 2010 03:42:49 +0200
+Subject: [PATCH] Improve Singleton performance
+
+---
+ lib/sup/util.rb |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/util.rb b/lib/sup/util.rb
+index 3681180..f74ec6a 100644
+--- a/lib/sup/util.rb
++++ b/lib/sup/util.rb
+@@ -536,6 +536,14 @@ module Singleton
+       ## special-case every call to a Singleton object
+       return nil if @instance.nil?
+ 
++      # Speed up further calls by defining a shortcut around method_missing
++      if meth.to_s[-1,1] == '='
++        # Argh! Inconsistency! Setters do not work like all the other methods.
++        class_eval "def self.#{meth}(a); @instance.send :#{meth}, a; end"
++      else
++        class_eval "def self.#{meth}(*a, &b); @instance.send :#{meth}, *a, &b; end"
++      end
++
+       @instance.send meth, *a, &b
+     end
+     def init *args
+-- 
+1.5.6.5
+

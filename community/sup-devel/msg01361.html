@@ -1,0 +1,555 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] Saved Search Support -->
+<!--X-From-R13: Sevp Eurezna <ulcreobyvfgNtznvy.pbz> -->
+<!--X-Date: Mon, 18 Jan 2010 15:44:46 &#45;0800 (PST) -->
+<!--X-Message-Id: 1263858172&#45;sup&#45;547@changeling.local -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] Saved Search Support</title>
+<link rev="made" href="mailto:hyperbolist@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01179.html">Date Prev</a>][<a href="msg01354.html">Date Next</a>][<a href="msg01179.html">Thread Prev</a>][<a href="msg01354.html">Thread Next</a>][<a href="maillist.html#01361">Date Index</a>][<a href="threads.html#01361">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] Saved Search Support</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [PATCH] Saved Search Support</li>
+<li><em>From</em>: Eric Sherman &lt;<a href="mailto:hyperbolist%40gmail.com">hyperbolist@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 18 Jan 2010 18:44:37 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:date:message-id:user-agent:content-transfer-encoding;	bh=xqF0LCvu36Y9b4/hql/cZEtHDYDyBl2AogWGaoFo2vc=;	b=xJmDOFWuA0mGX66mOmpTVlryMaj2W7Cn1M0QgUzB4VcptU3eGYcpe9oHVK1BwovFbN	9FXSi7+uqtoxTtxj8lHsGpIhiXgFpeT61LOzTtzf2x27iCQkfqFQ09XA7cTeyuiSfc+a	RAoZGZep2D9clcf8uhP/rk4jCM2C+mAKfIenQ=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=cFj0ZBznYV1k3KxgheqSV+TADd0uAhSLBOwT9O/Fs2gYyrCSL3Fg4SSz8cIioWaibX	oFefGzuecAqP71bEwOy24zXe+BtAi1y1ZSRO1lINTx4JZSMDa0DQu5MDFx4aL+5d0eKB	DNMxNHzTUVl1J6irFIUBVIoSFWoVDUVRvzsuY=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Start an index search with a \ backslash and press enter to get a list
+of searches that were previously saved from search-results-mode with %
+percent or added from search-list-mode directly.  Saved searches may be
+used in other searches by enclosing their names in {} curly braces.
+Search names may contain letters, numbers, underscores and dashes.
+
+New Key Bindings
+global
+  \&lt;CR&gt; open search-list-mode
+search-list-mode
+  X     Delete selected search
+  r     Rename selected search
+  e     Edit selected search
+  a     Add new search
+search-results-mode
+  %     Save search
+
+New Hooks
+search-list-filter
+search-list-format
+
+Search String Expansion
+Include saved searches in other searches by enclosing their names in {}
+curly braces.  The name and enclosing braces are replaced by the actual
+search string.  When expanded, they are enclosed within parens to
+preserve logic.
+
+    low_traffic: has:foo OR has:bar
+    a_slow_week: {low_traffic} AND after:(7 days ago)
+
+{a_slow_week} expands to &quot;(has:foo OR has:bar) AND after:(7 days ago)&quot;
+and may be used in a global search, a refinement or another saved
+search.  If a string enclosed in {} curly braces does not match a saved
+search name it is ignored.
+
+There is no nesting limit and searches are always expanded completely
+before they are turned into proper queries for the index.
+
+Shrinking Search Strings
+Search strings are kept as short as possible when displayed or saved.
+So a search string of &quot;has:foo OR has:bar OR has:baz&quot; added with the
+above searches would be saved as &quot;{low_traffic} OR has:baz&quot;.  This may
+or may not always be desirable, but it generally makes things easier.
+
+Editing, Renaming, Deleting
+Editing a search string that has been included in other searches will
+have no effect on those other searches' search strings, but they will
+expand with its new contents.
+
+Renaming a search that has been included in other searches will cause
+each occurrence in those other searches to be renamed as well.
+
+Deleting a search that has been included in other searches will cause it
+to expand into those other searches to prevent breaking them.
+
+Save File Format
+Searches are read from ~/.sup/searches.txt on startup and saved at exit.
+The format is &quot;name: search_string&quot;.  Here's a silly example:
+
+    core: {me} AND NOT {crap} AND NOT {weak}
+    crap: is:leadlogger OR is:alert OR is:rzp
+    me: to:me OR from:me
+    recently: after:(14 days ago)
+    top: {core} AND {recently}
+    weak: is:feed OR is:list OR is:ham
+
+FLAG_PURE_NOT
+I also added FLAG_PURE_NOT to the xapian parse_query requests to allow a
+query in the form of &quot;NOT &lt;expression&gt;&quot;, which is of questionable
+usefulness but at least sup won't bomb when this happens.
+---
+ bin/sup                              |   11 ++-
+ lib/sup.rb                           |    5 +
+ lib/sup/modes/search-list-mode.rb    |  164 ++++++++++++++++++++++++++++++++++
+ lib/sup/modes/search-results-mode.rb |   14 +++-
+ lib/sup/search.rb                    |   87 ++++++++++++++++++
+ lib/sup/xapian_index.rb              |    2 +-
+ 6 files changed, 276 insertions(+), 7 deletions(-)
+ create mode 100644 lib/sup/modes/search-list-mode.rb
+ create mode 100644 lib/sup/search.rb
+
+diff --git a/bin/sup b/bin/sup
+index 19b2a87..b865b6d 100755
+--- a/bin/sup
++++ b/bin/sup
+@@ -317,9 +317,14 @@ begin
+       b, new = bm.spawn_unless_exists(&quot;Contact List&quot;) { ContactListMode.new }
+       b.mode.load_in_background if new
+     when :search
+-      query = BufferManager.ask :search, &quot;search all messages: &quot;
+-      next unless query &amp;&amp; query !~ /^\s*$/
+-      SearchResultsMode.spawn_from_query query
++      query = BufferManager.ask :search, &quot;Search all messages (enter for saved searches): &quot;
++      unless query.nil?
++        if query.empty?
++          bm.spawn_unless_exists(&quot;Saved searches&quot;) { SearchListMode.new }
++        else
++          SearchResultsMode.spawn_from_query query
++        end
++      end
+     when :search_unread
+       SearchResultsMode.spawn_from_query &quot;is:unread&quot;
+     when :list_labels
+diff --git a/lib/sup.rb b/lib/sup.rb
+index b83bbe7..b8a0977 100644
+--- a/lib/sup.rb
++++ b/lib/sup.rb
+@@ -50,6 +50,7 @@ module Redwood
+   LOCK_FN    = File.join(BASE_DIR, &quot;lock&quot;)
+   SUICIDE_FN = File.join(BASE_DIR, &quot;please-kill-yourself&quot;)
+   HOOK_DIR   = File.join(BASE_DIR, &quot;hooks&quot;)
++  SEARCH_FN  = File.join(BASE_DIR, &quot;searches.txt&quot;)
+ 
+   YAML_DOMAIN = &quot;masanjin.net&quot;
+   YAML_DATE = &quot;2006-10-01&quot;
+@@ -131,12 +132,14 @@ module Redwood
+     Redwood::CryptoManager.init
+     Redwood::UndoManager.init
+     Redwood::SourceManager.init
++    Redwood::SearchManager.init Redwood::SEARCH_FN
+   end
+ 
+   def finish
+     Redwood::LabelManager.save if Redwood::LabelManager.instantiated?
+     Redwood::ContactManager.save if Redwood::ContactManager.instantiated?
+     Redwood::BufferManager.deinstantiate! if Redwood::BufferManager.instantiated?
++    Redwood::SearchManager.save if Redwood::SearchManager.instantiated?
+   end
+ 
+   ## not really a good place for this, so I'll just dump it here.
+@@ -311,6 +314,8 @@ require &quot;sup/modes/file-browser-mode&quot;
+ require &quot;sup/modes/completion-mode&quot;
+ require &quot;sup/modes/console-mode&quot;
+ require &quot;sup/sent&quot;
++require &quot;sup/search&quot;
++require &quot;sup/modes/search-list-mode&quot;
+ 
+ $:.each do |base|
+   d = File.join base, &quot;sup/share/modes/&quot;
+diff --git a/lib/sup/modes/search-list-mode.rb b/lib/sup/modes/search-list-mode.rb
+new file mode 100644
+index 0000000..09d081c
+--- /dev/null
++++ b/lib/sup/modes/search-list-mode.rb
+@@ -0,0 +1,164 @@
++module Redwood
++
++class SearchListMode &lt; LineCursorMode
++  register_keymap do |k|
++    k.add :select_search, &quot;Open search results&quot;, :enter
++    k.add :reload, &quot;Discard saved search list and reload&quot;, '@'
++    k.add :jump_to_next_new, &quot;Jump to next new thread&quot;, :tab
++    k.add :toggle_show_unread_only, &quot;Toggle between showing all saved searches and those with unread mail&quot;, 'u'
++    k.add :delete_selected_search, &quot;Delete selected search&quot;, &quot;X&quot;
++    k.add :rename_selected_search, &quot;Rename selected search&quot;, &quot;r&quot;
++    k.add :edit_selected_search, &quot;Edit selected search&quot;, &quot;e&quot;
++    k.add :add_new_search, &quot;Add new search&quot;, &quot;a&quot;
++  end
++
++  HookManager.register &quot;search-list-filter&quot;, &lt;&lt;EOS
++Filter the search list, typically to sort.
++Variables:
++  counted: an array of counted searches.
++Return value:
++  An array of counted searches with sort_by output structure.
++EOS
++
++  HookManager.register &quot;search-list-format&quot;, &lt;&lt;EOS
++Create the sprintf format string for search-list-mode.
++Variables:
++  n_width: the maximum search name width
++  tmax: the maximum total message count
++  umax: the maximum unread message count
++  s_width: the maximum search string width
++Return value:
++  A format string for sprintf
++EOS
++
++  def initialize
++    @searches = []
++    @text = []
++    @unread_only = false
++    super
++    UpdateManager.register self
++    regen_text
++  end
++
++  def cleanup
++    UpdateManager.unregister self
++    super
++  end
++
++  def lines; @text.length end
++  def [] i; @text[i] end
++
++  def jump_to_next_new
++    n = ((curpos + 1) ... lines).find { |i| @searches[i][1] &gt; 0 } || (0 ... curpos).find { |i| @searches[i][1] &gt; 0 }
++    if n
++      ## jump there if necessary
++      jump_to_line n unless n &gt;= topline &amp;&amp; n &lt; botline
++      set_cursor_pos n
++    else
++      BufferManager.flash &quot;No saved searches with unread messages.&quot;
++    end
++  end
++
++  def focus
++    reload # make sure unread message counts are up-to-date
++  end
++
++  def handle_added_update sender, m
++    reload
++  end
++
++protected
++
++  def toggle_show_unread_only
++    @unread_only = !@unread_only
++    reload
++  end
++
++  def reload
++    regen_text
++    buffer.mark_dirty if buffer
++  end
++
++  def regen_text
++    @text = []
++    searches = SearchManager.all_searches
++
++    counted = searches.map do |name|
++      search_string = SearchManager.search_string_for name
++      query = Index.parse_query(SearchManager.expand(search_string))
++      total = Index.num_results_for :qobj =&gt; query[:qobj]
++      unread = Index.num_results_for :qobj =&gt; query[:qobj], :label =&gt; :unread
++      [name, search_string, total, unread]
++    end
++
++    if HookManager.enabled? &quot;search-list-filter&quot;
++      counts = HookManager.run &quot;search-list-filter&quot;, :counted =&gt; counted
++    else
++      counts = counted.sort_by { |n, s, t, u| n.downcase }
++    end
++
++    n_width = counts.max_of { |n, s, t, u| n.length }
++    tmax    = counts.max_of { |n, s, t, u| t }
++    umax    = counts.max_of { |n, s, t, u| u }
++    s_width = counts.max_of { |n, s, t, u| s.length }
++
++    if @unread_only
++      counts.delete_if { | n, s, t, u | u == 0 }
++    end
++
++    @searches = []
++    counts.map do |name, search_string, total, unread|
++      fmt = HookManager.run &quot;search-list-format&quot;, :n_width =&gt; n_width, :tmax =&gt; tmax, :umax =&gt; umax, :s_width =&gt; s_width
++      if !fmt
++        fmt = &quot;%#{n_width + 1}s %5d %s, %5d unread: %s&quot;
++      end
++      @text &lt;&lt; [[(unread == 0 ? :labellist_old_color : :labellist_new_color),
++          sprintf(fmt, name, total, total == 1 ? &quot; message&quot; : &quot;messages&quot;, unread, search_string)]]
++      @searches &lt;&lt; [name, unread]
++    end.compact
++
++    BufferManager.flash &quot;No saved searches with unread messages!&quot; if counts.empty? &amp;&amp; @unread_only
++  end
++
++  def select_search
++    name, num_unread = @searches[curpos]
++    return unless name
++    SearchResultsMode.spawn_from_query SearchManager.search_string_for(name)
++  end
++
++  def delete_selected_search
++    name, num_unread = @searches[curpos]
++    return unless name
++    reload if SearchManager.delete name
++  end
++
++  def rename_selected_search
++    old_name, num_unread = @searches[curpos]
++    return unless old_name
++    new_name = BufferManager.ask :save_search, &quot;Rename this saved search: &quot;, old_name
++    return unless new_name &amp;&amp; new_name !~ /^\s*$/ &amp;&amp; new_name != old_name
++    reload if SearchManager.rename old_name, new_name
++    set_cursor_pos @searches.index([new_name, num_unread])||curpos
++  end
++
++  def edit_selected_search
++    name, num_unread = @searches[curpos]
++    return unless name
++    old_search_string = SearchManager.search_string_for name
++    new_search_string = BufferManager.ask :search, &quot;Edit this saved search: &quot;, (old_search_string + &quot; &quot;)
++    return unless new_search_string &amp;&amp; new_search_string !~ /^\s*$/ &amp;&amp; new_search_string != old_search_string
++    reload if SearchManager.edit name, new_search_string
++    set_cursor_pos @searches.index([name, num_unread])||curpos
++  end
++
++  def add_new_search
++    search_string = BufferManager.ask :search, &quot;New search: &quot;
++    return unless search_string &amp;&amp; search_string !~ /^\s*$/
++    name = BufferManager.ask :save_search, &quot;Name for new search: &quot;
++    return unless name &amp;&amp; name !~ /^\s*$/ &amp;&amp; !(SearchManager.all_searches.include? name)
++    reload if SearchManager.add name, search_string
++    set_cursor_pos @searches.index(@searches.assoc(name))||curpos
++  end
++end
++
++end
+diff --git a/lib/sup/modes/search-results-mode.rb b/lib/sup/modes/search-results-mode.rb
+index 121e817..2237295 100644
+--- a/lib/sup/modes/search-results-mode.rb
++++ b/lib/sup/modes/search-results-mode.rb
+@@ -8,14 +8,21 @@ class SearchResultsMode &lt; ThreadIndexMode
+ 
+   register_keymap do |k|
+     k.add :refine_search, &quot;Refine search&quot;, '|'
++    k.add :save_search, &quot;Save search&quot;, '%'
+   end
+ 
+   def refine_search
+-    text = BufferManager.ask :search, &quot;refine query: &quot;, (@query[:text] + &quot; &quot;)
++    text = BufferManager.ask :search, &quot;refine query: &quot;, (SearchManager.shrink(@query[:text]) + &quot; &quot;)
+     return unless text &amp;&amp; text !~ /^\s*$/
+     SearchResultsMode.spawn_from_query text
+   end
+ 
++  def save_search
++    name = BufferManager.ask :save_search, &quot;Name this search: &quot;
++    return unless name &amp;&amp; name !~ /^\s*$/
++    BufferManager.flash &quot;Saved search.&quot; if SearchManager.add name, @query[:text]
++  end
++
+   ## a proper is_relevant? method requires some way of asking ferret
+   ## if an in-memory object satisfies a query. i'm not sure how to do
+   ## that yet. in the worst case i can make an in-memory index, add
+@@ -24,9 +31,10 @@ class SearchResultsMode &lt; ThreadIndexMode
+ 
+   def self.spawn_from_query text
+     begin
+-      query = Index.parse_query(text)
++      query = Index.parse_query(SearchManager.expand(text))
+       return unless query
+-      short_text = text.length &lt; 20 ? text : text[0 ... 20] + &quot;...&quot;
++      shrunk = SearchManager.shrink text
++      short_text = shrunk.length &lt; 20 ? shrunk : shrunk[0 ... 20] + &quot;...&quot;
+       mode = SearchResultsMode.new query
+       BufferManager.spawn &quot;search: \&quot;#{short_text}\&quot;&quot;, mode
+       mode.load_threads :num =&gt; mode.buffer.content_height
+diff --git a/lib/sup/search.rb b/lib/sup/search.rb
+new file mode 100644
+index 0000000..e2a1a35
+--- /dev/null
++++ b/lib/sup/search.rb
+@@ -0,0 +1,87 @@
++module Redwood
++
++class SearchManager
++  include Singleton
++
++  def initialize fn
++    @fn = fn
++    @searches = {}
++    if File.exists? fn
++      IO.foreach(fn) do |l|
++        l =~ /^([^:]*): (.*)$/ or raise &quot;can't parse #{fn} line #{l.inspect}&quot;
++        @searches[$1] = $2
++      end
++    end
++    @modified = false
++    @expanded = {}
++    expand_all
++  end
++
++  def all_searches; return @searches.keys.sort; end
++  def search_string_for name; return @searches[name]; end
++
++  def add name, search_string
++    name.strip!
++    search_string.strip!
++    unless name !~ /^[\w-]+$/ or @searches[name] == search_string
++      @searches[name] = shrink search_string
++      expand_all
++      shrink_all
++      @modified = true
++    end
++  end
++
++  def rename old, new
++    new.strip!
++    return unless new =~ /^[\w-]+$/ and @searches.has_key? old
++    search_string = @searches[old]
++    delete old
++    add new, search_string
++  end
++
++  def edit name, search_string
++    return unless @searches.has_key? name
++    ## we want to delete the old one, but not expand it into searches when doing so
++    @expanded.delete name
++    @searches.delete name
++    add name, search_string
++  end
++
++  def delete name
++    return unless @searches.has_key? name
++    expand_into_searches name
++    @expanded.delete name
++    @searches.delete name
++    @modified = true
++  end
++
++  def expand search_string
++    s = search_string.dup
++    ## stop trying to expand if there are no expansion candidates left, if the none of the remaining candidates represent a search name, or if the string has grown abnormally large due to what would have been infinite recursion
++    until (m = /\{([\w-]+)\}/.match(s)).nil? or m.captures.collect { |n| @expanded.keys.index n }.compact.size == 0 or s.size &gt;= 2048
++      m.captures.each { |n| s.gsub! &quot;{#{n}}&quot;, &quot;(#{@expanded[n]})&quot; if @expanded.has_key? n }
++    end
++    return s
++  end
++
++  def shrink search_string
++    s = search_string.dup
++    @expanded.each { |k, v| s.gsub! /\(?#{Regexp.escape v}\)?/, &quot;{#{k}}&quot; unless k == @expanded.index(s) }
++    @searches.each { |k, v| s.gsub! /\(?#{Regexp.escape v}\)?/, &quot;{#{k}}&quot; unless k == @searches.index(s) }
++    return s
++  end
++
++  def save
++    return unless @modified
++    File.open(@fn, &quot;w&quot;) { |f| @searches.sort.each { |(n, s)| f.puts &quot;#{n}: #{s}&quot; } }
++    @modified = false
++  end
++
++private
++
++  def expand_into_searches name; @searches.values.each { |v| v.gsub! &quot;{#{name}}&quot;, &quot;(#{@searches[name]})&quot; }; end
++  def expand_all; @expanded.replace(@searches).each { |k, v| @expanded[k] = expand v }; end
++  def shrink_all; @searches.each { |k, v| @searches[k] = shrink v }; end
++end
++
++end
+diff --git a/lib/sup/xapian_index.rb b/lib/sup/xapian_index.rb
+index 0db5010..1bbde5d 100644
+--- a/lib/sup/xapian_index.rb
++++ b/lib/sup/xapian_index.rb
+@@ -263,7 +263,7 @@ EOS
+     qp.add_valuerangeprocessor(Xapian::NumberValueRangeProcessor.new(DATE_VALUENO, 'date:', true))
+     NORMAL_PREFIX.each { |k,v| qp.add_prefix k, v }
+     BOOLEAN_PREFIX.each { |k,v| qp.add_boolean_prefix k, v }
+-    xapian_query = qp.parse_query(subs, Xapian::QueryParser::FLAG_PHRASE|Xapian::QueryParser::FLAG_BOOLEAN|Xapian::QueryParser::FLAG_LOVEHATE|Xapian::QueryParser::FLAG_WILDCARD, PREFIX['body'])
++    xapian_query = qp.parse_query(subs, Xapian::QueryParser::FLAG_PHRASE|Xapian::QueryParser::FLAG_BOOLEAN|Xapian::QueryParser::FLAG_LOVEHATE|Xapian::QueryParser::FLAG_WILDCARD|Xapian::QueryParser::FLAG_PURE_NOT, PREFIX['body'])
+ 
+     debug &quot;parsed xapian query: #{xapian_query.description}&quot;
+ 
+-- 
+1.6.6
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01354" href="msg01354.html">Re: [sup-devel] [PATCH] Saved Search Support</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01179.html">Re: [sup-devel] RFC: Nuke remote sources</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01354.html">Re: [sup-devel] [PATCH] Saved Search Support</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01179.html">Re: [sup-devel] RFC: Nuke remote sources</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01354.html">Re: [sup-devel] [PATCH] Saved Search Support</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01361"><strong>Date</strong></a></li>
+<li><a href="threads.html#01361"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

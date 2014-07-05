@@ -1,0 +1,13 @@
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index 7ae03cc..dc132a5 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -847,7 +847,7 @@ protected
+     [ 
+       [:tagged_color, @tags.tagged?(t) ? ">" : " "],
+       [:date_color, sprintf("%#{@date_width}s", date)],
+-      (starred ? [:starred_color, "*"] : [:none, " "]),
++      [:starred_color, (starred ? "*" : " ")],
+     ] +
+       from +
+       [

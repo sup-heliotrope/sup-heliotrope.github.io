@@ -1,0 +1,53 @@
+def add_source(maildir, archive=:noarchive, monitor=:monitor)
+  uri = "maildir:" + maildir
+  log "Processing source #{uri}"
+  unless SourceManager.source_for uri
+    source = Maildir.new uri, (monitor == :monitor ? true : false), (archive == :archive ? true : false), nil, [LabelManager.label_for(File.basename(maildir))]
+    SourceManager.add_source source
+    log "Added source #{maildir}"
+  end
+end
+
+%w[
+  bodyshamanics/bodyshamanics
+  comments/thedarnedestthing
+  sdothum/inbox
+  steven/private
+  thedarnedestthing/admin
+  webmaster/webmaster
+].each { |dir| add_source(ENV['HOME'] + "/.mail/#{dir}", File.exists?(ENV['HOME'] + "/.sup-archive") ? :archive : :noarchive) }
+
+# no longer populating an unknown mailbox, show the gmail inbox instead
+%w[
+  alerts
+  clients
+  community
+  eagles
+  family
+  fletcher
+  haskell
+  heilkunst
+  ideas
+  luakit
+  mail
+  notices
+  personal
+  powerpath
+  providers
+  ravens
+  rss
+  ruby
+  shell
+  software
+  unknown
+  web
+  wiki
+  x11
+].each { |dir| add_source(ENV['HOME'] + "/.mail/sdothum/#{dir}", File.exists?(ENV['HOME'] + "/.sup-archive") ? :archive : :noarchive) }
+
+# the gmail (inbox) is not monitored so imapfilter can process incoming emails
+# and flag any unknown emails (see mutt) - sup-maildir doesn't appear to honour
+# the "unusual" status which was previously assigned to the gmail uri
+# cur, new and tmp directories are not mail folders - sup-maildir seems to
+# inadvertantly try to process them as such, so hide them
+(Dir[ENV['HOME'] + '/.mail/*/*'].delete_if { |dir| /\[Gmail\]|cur|new|tmp/ =~ dir }).map { |dir| add_source(dir, :archive) }

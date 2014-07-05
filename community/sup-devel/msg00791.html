@@ -1,0 +1,329 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue118] index.rb:111:`load_index' expects v2 index	instead of v4 -->
+<!--X-From-R13: xneqna <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Fri, 20 Aug 2010 20:44:28 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1282361983.73.0.624659768679.issue118@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1282361983.73.0.624659768679.issue118@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue118] index.rb:111:`load_index' expects v2 index	instead of v4</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01025.html">Date Prev</a>][<a href="msg00991.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#00791">Date Index</a>][<a href="threads.html#00791">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue118] index.rb:111:`load_index' expects v2 index	instead of v4</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue118] index.rb:111:`load_index' expects v2 index	instead of v4</li>
+<li><em>From</em>: kardan &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 21 Aug 2010 03:39:43 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00791.html">1282361983.73.0.624659768679.issue118@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from kardan &lt;kardan@brueckenschlaeger.de&gt;:
+
+sup.
+
+I am using Claws-Mail at the moment. Most of the work does the automatic
+filtering of lists to topic folders. From the leftovers mails which address me
+directly are moved to &quot;to me&quot;. From there I move manually to either &quot;todo&quot;, any
+special topic folder or drop them. There even is a &quot;done&quot; folder but I have the
+feeling this does not scale and will be replaced by tags someday.
+
+So far I am satisfied, at least as long I can use a computer with a private home
+and X.
+Some of the time when I travel without a laptop or mobile phone etc. webmail
+(roundcube / horde) does the job, but without filterung, which gets quite messy
+during longer trips and heaviliy reduces my ability to keep on top of things.
+
+(Mentioning this I tried several console clients (cone, mew, mutt) but somehow
+came back to claws which I used before, maybe because of comfortability.)
+
+Switching to sup would mean, to completely skip every other mail client and only
+trust in sup. This makes me somehow suspicious as it conflicts with my paradigm
+to always keep several ways to archieve things. By the way relyable gpg support
+is a must have before I would leave claws.
+
+However I am very confident that I found a roundup ready organizing tool in my
+hands to survive even where no X has gone before.
+
+After a friend send me a link to sup and I read the philosophy I
+enthusiastically downloaded the source and as it is written in ruby which I was
+developing with a bit I was happy, no compilation was necessary.
+I wrote a little script[1] to do necessary preparations as I always do, when I
+try new software (just in case I wake up with amnesia someday and need to
+resetup my tools) and started sup, to read the help.
+
+~/dev/sup&gt; sup
+./lib/sup/util.rb:316: warning: `&amp;' interpreted as argument prefix
+/usr/lib/ruby/1.8/pathname.rb:263: warning: `*' interpreted as argument prefix
+./lib/sup/util.rb:19: warning: method redefined; discarding old gen_lock_id
+./lib/sup/util.rb:30: warning: method redefined; discarding old dump_lock_id
+./lib/sup/message-chunks.rb:36: warning: method redefined; discarding old
+make_tmpname
+./lib/sup/message.rb:285: warning: `&amp;' interpreted as argument prefix
+./lib/sup/index.rb:553: warning: `&amp;' interpreted as argument prefix
+[Sa Aug 21 04:35:04 +0200 2010] Flushing Xapian updates to disk. This may take a
+while...
+
+After learning the quite handy list of keystrokes, I was eager to configure my
+mailboxes and start the indication process. But:
+
+~/dev/sup&gt; bin/sup-config 
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in
+`gem_original_require': no such file to load -- sup (LoadError)
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from bin/sup-config:7
+
+Ok then, even being more addicted to apt than gem, I am no beast and ran
+
+~/dev/sup&gt; sudo gem install sup
+Building native extensions.  This could take a while...
+Building native extensions.  This could take a while...
+---------- SNIP ----------
+
+It did, but finally sup-config worked and suggested to do a syndication, which
+unfortunately failed
+
+Run sup-sync to import all messages now? (enter for &quot;n&quot;): 
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/index.rb:111:in `load_index': This
+Sup version expects a v2 index, but you have an existing v4 index. Please
+downgrade to your previous version and dump your labels before upgrading to this
+version (then run sup-sync --restore). (RuntimeError)
+	from /usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/index.rb:91:in `load'
+	from /usr/lib/ruby/gems/1.8/gems/sup-0.11/bin/sup-config:221
+	from /usr/bin/sup-config:19:in `load'
+	from /usr/bin/sup-config:19
+
+I was said as if I had lost a friend and asked myself what I did wrong. There
+was no such issue in the community platform, so I decided to add a new one.
+After registering I was shocked developer list including their email adresses is
+world readable (I was not used that), but decided to continue.
+
+So here you are. I hope you can help and this little story helps as well.
+
+Thanks for this neat peace of software and I wish, that all the needed
+development work will be done soon. Maybe I can help.
+
+And please feel free to ask for every detail you need to know.
+
+[1]
+# install script for ubuntu / lucid
+gems=&quot;ncursesw sup&quot;
+ruby=&quot;rake rubygems libopenssl-ruby libdevel-logger-ruby libtrollop-ruby
+libgettext-ruby-util liblockfile-ruby libmime-types-ruby &quot;
+ruby18=&quot;librmail-ruby1.8 libxapian-ruby1.8&quot;
+ncurses=&quot;libncurses-ruby libncursesw5-dev libncurses5-dev&quot;
+sudo apt-get install $ruby $ruby18 $ncurses
+echo &quot;Will install gems $gems&quot;
+sudo gem install $gems
+mkdir $HOME/.sup # sup complained, that it missed
+echo &quot;run sup with: 'ruby -I lib -w bin/sup'&quot; # after installing the sup gem
+this no longer is needed
+
+ii  libart2-ruby                                    0.19.3-1ubuntu3            
+                    Libart 2 bindings for the Ruby language
+ii  libart2-ruby1.8                                 0.19.3-1ubuntu3            
+                    Libart 2 bindings for the Ruby language
+ii  libatk1-ruby                                    0.19.3-1ubuntu3            
+                    ATK bindings for the Ruby language
+ii  libatk1-ruby1.8                                 0.19.3-1ubuntu3            
+                    ATK bindings for the Ruby language
+ii  libcairo-ruby1.8                                1.8.1-1                    
+                    Cairo bindings for the Ruby language
+ii  libdevel-logger-ruby                            1.2.6-1                    
+                    log dumping utility for ruby
+ii  libgconf2-ruby                                  0.19.3-1ubuntu3            
+                    GConf 2 bindings for the Ruby language
+ii  libgconf2-ruby1.8                               0.19.3-1ubuntu3            
+                    GConf 2 bindings for the Ruby language
+ii  libgdk-pixbuf2-ruby                             0.19.3-1ubuntu3            
+                    Gdk-Pixbuf 2 bindings for the Ruby language
+ii  libgdk-pixbuf2-ruby1.8                          0.19.3-1ubuntu3            
+                    Gdk-Pixbuf 2 bindings for the Ruby language
+ii  libgettext-ruby-util                            2.1.0-1ubuntu1             
+                    Gettext utilities for ruby (dummy package)
+ii  libgettext-ruby1.8                              2.1.0-1ubuntu1             
+                    Gettext for ruby1.8
+ii  libglade2-ruby                                  0.19.3-1ubuntu3            
+                    Libglade 2 bindings for the Ruby language
+ii  libglade2-ruby1.8                               0.19.3-1ubuntu3            
+                    Libglade 2 bindings for the Ruby language
+ii  libglib2-ruby1.8                                0.19.3-1ubuntu3            
+                    Glib 2 bindings for the Ruby language
+ii  libgnome2-ruby                                  0.19.3-1ubuntu3            
+                    GNOME 2 bindings for the Ruby language
+ii  libgnome2-ruby1.8                               0.19.3-1ubuntu3            
+                    GNOME 2 bindings for the Ruby language
+ii  libgnomecanvas2-ruby                            0.19.3-1ubuntu3            
+                    GNOME Canvas 2 bindings for the Ruby languag
+ii  libgnomecanvas2-ruby1.8                         0.19.3-1ubuntu3            
+                    GNOME Canvas 2 bindings for the Ruby languag
+ii  libgnomevfs2-ruby                               0.19.3-1ubuntu3            
+                    GNOME VFS 2 bindings for the Ruby language
+ii  libgnomevfs2-ruby1.8                            0.19.3-1ubuntu3            
+                    GNOME VFS 2 bindings for the Ruby language
+ii  libgtk-mozembed-ruby                            0.19.3-1ubuntu3            
+                    ruby binding of GtkMozEmbed, gecko renderer
+ii  libgtk-mozembed-ruby1.8                         0.19.3-1ubuntu3            
+                    ruby binding of GtkMozEmbed, gecko renderer
+ii  libgtk2-ruby                                    0.19.3-1ubuntu3            
+                    GTK+ bindings for the Ruby language
+ii  libgtk2-ruby1.8                                 0.19.3-1ubuntu3            
+                    GTK+ bindings for the Ruby language
+ii  libgtkglext1-ruby                               0.19.3-1ubuntu3            
+                    GTK+ GL extension bindings for the Ruby lang
+ii  libgtkglext1-ruby1.8                            0.19.3-1ubuntu3            
+                    GTK+ GL extension bindings for the Ruby lang
+ii  liblocale-ruby1.8                               2.0.5-2                    
+                    pure ruby locale library
+ii  liblockfile-ruby                                1.4.3-2.1                  
+                    create NFS-safe lockfiles
+ii  libmime-types-ruby                              1.16-2                     
+                    guess MIME type of files
+ii  libncurses-ruby                                 1.2.4-2                    
+                    ruby Extension for the ncurses C library
+ii  libncurses-ruby1.8                              1.2.4-2                    
+                    ruby Extension for the ncurses C library
+ii  libopengl-ruby                                  0.60.0-0ubuntu3            
+                    OpenGL binding for Ruby
+ii  libopengl-ruby1.8                               0.60.0-0ubuntu3            
+                    OpenGL binding for Ruby
+ii  libopenssl-ruby                                 4.2                        
+                    OpenSSL interface for Ruby
+ii  libopenssl-ruby1.8                              1.8.7.249-2                
+                    OpenSSL interface for Ruby 1.8
+ii  libpanel-applet2-ruby                           0.19.3-1ubuntu3            
+                    GNOME 2 panel applet library bindings for th
+ii  libpanel-applet2-ruby1.8                        0.19.3-1ubuntu3            
+                    GNOME 2 panel applet library bindings for th
+ii  libpango1-ruby                                  0.19.3-1ubuntu3            
+                    Pango bindings for the Ruby language
+ii  libpango1-ruby1.8                               0.19.3-1ubuntu3            
+                    Pango bindings for the Ruby language
+ii  libreadline-ruby1.8                             1.8.7.249-2                
+                    Readline interface for Ruby 1.8
+ii  librmail-ruby1.8                                0.17-1.1                   
+                    lightweight mail library for Ruby 1.8
+ii  librsvg2-ruby                                   0.19.3-1ubuntu3            
+                    RSVG renderer bindings for the Ruby language
+ii  librsvg2-ruby1.8                                0.19.3-1ubuntu3            
+                    RSVG renderer bindings for the Ruby language
+ii  libruby                                         4.2                        
+                    Libraries necessary to run Ruby 1.8.x
+ii  libruby1.8                                      1.8.7.249-2                
+                    Libraries necessary to run Ruby 1.8
+ii  libtrollop-ruby                                 1.9-1                      
+                    command-line argument processing library
+ii  libvte-ruby                                     0.19.3-1ubuntu3            
+                    VTE widget bindings for the Ruby language
+ii  libvte-ruby1.8                                  0.19.3-1ubuntu3            
+                    VTE widget bindings for the Ruby language
+ii  libxapian-ruby1.8                               1.0.17-1ubuntu1            
+                    Xapian search engine interface for Ruby 1.8
+ii  rake                                            0.8.7-1                    
+                    a ruby build program
+ii  ruby                                            4.2                        
+                    An interpreter of object-oriented scripting 
+ii  ruby-gnome2                                     0.19.3-1ubuntu3            
+                    GNOME-related bindings for the Ruby language
+ii  ruby1.8                                         1.8.7.249-2                
+                    Interpreter of object-oriented scripting lan
+ii  ruby1.8-dev                                     1.8.7.249-2                
+                    Header files for compiling extension modules
+ii  rubygems                                        1.3.5-1ubuntu2             
+                    package management framework for Ruby librar
+ii  rubygems1.8                                     1.3.5-1ubuntu2             
+                    package management framework for Ruby librar
+
+----------
+keyword: index
+messages: 274
+nosy: kardan
+priority: bug
+ruby_version: ruby 1.8.7 (2010-01-10 patchlevel 249) [i486-linux]
+status: unread
+sup_version: gem [sup (0.11)]
+title: index.rb:111:`load_index'  expects v2 index instead of v4
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue118">http://masanjin.net/sup-bugs/issue118</a>&gt;
+_________________________________________
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00791" href="msg00791.html">[sup-devel] [issue118] index.rb:111:`load_index' expects v2 index	instead of v4</a></strong>
+<ul><li><em>From:</em> kardan &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00791" href="msg00791.html">[sup-devel] [issue118] index.rb:111:`load_index' expects v2 index	instead of v4</a></strong>
+<ul><li><em>From:</em> kardan &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01025.html">Re: [sup-devel] Label colors support</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00991.html">Re: [sup-devel] alternative for sup-sync option --restored?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00791"><strong>Date</strong></a></li>
+<li><a href="threads.html#00791"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

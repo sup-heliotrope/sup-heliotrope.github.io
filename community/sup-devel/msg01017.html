@@ -1,0 +1,110 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Mysterious nil errors -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Wed, 10 Mar 2010 09:31:45 &#45;0800 (PST) -->
+<!--X-Message-Id: 1268241639&#45;sup&#45;9685@zyrg.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1268196562&#45;sup&#45;1692@ezyang -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Mysterious nil errors</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00857.html">Date Prev</a>][<a href="msg01076.html">Date Next</a>][<a href="msg00876.html">Thread Prev</a>][<a href="msg01076.html">Thread Next</a>][<a href="maillist.html#01017">Date Index</a>][<a href="threads.html#01017">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Mysterious nil errors</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Edward Z. Yang &lt;<a href="mailto:ezyang%40mit.edu">ezyang@mit.edu</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Mysterious nil errors</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Wed, 10 Mar 2010 12:24:12 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1268196562-sup-1692@ezyang&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1268196562-sup-1692@ezyang&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Edward Z. Yang's message of 2010-03-09 23:50:23 -0500:
+&gt; -        content_type = (m.header.content_type || &quot;application/unknown&quot;).downcase # sometimes RubyMail gives us nil
+&gt; +        content_type = (m.header[&quot;content_type&quot;] &amp;&amp; m.header.content_type || &quot;application/unknown&quot;).downcase # sometimes RubyMail gives us nil
+
+Could you explain why these changes help? What's the return value of the
+[] call versus the method call?
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01076" href="msg01076.html">Re: [sup-devel] Mysterious nil errors</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00829" href="msg00829.html">[sup-devel] Mysterious nil errors</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00857.html">[sup-devel] [issue76] undefined method `new_field' for	Ncurses::Form:Module</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01076.html">Re: [sup-devel] Mysterious nil errors</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00876.html">Re: [sup-devel] Mysterious nil errors</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01076.html">Re: [sup-devel] Mysterious nil errors</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01017"><strong>Date</strong></a></li>
+<li><a href="threads.html#01017"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

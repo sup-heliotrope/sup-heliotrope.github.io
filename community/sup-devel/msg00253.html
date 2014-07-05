@@ -1,0 +1,153 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] sup 0.13 -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Mon, 20 May 2013 00:25:45 &#45;0700 (PDT) -->
+<!--X-Message-Id: 5199CFA7.9020900@gaute.vetsj.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: CAOxvSbeLRoCwy2THkKa4TKsNqdsx9n&#45;M5BxrZHGfPEUjfEWjSg@mail.gmail.com -->
+<!--X-Reference: 1367233230&#45;sup&#45;3593@tesla -->
+<!--X-Reference: 517E5BD8.6030803@gaute.vetsj.com -->
+<!--X-Reference: CAHWBo_aKjp__dkjuJ&#45;tYHpKJuv2G=k_jxTWMo0QyyUtvxZbGXA@mail.gmail.com -->
+<!--X-Reference: 5182210E.4040100@gaute.vetsj.com -->
+<!--X-Reference: CAHWBo_ZC176WjeMpPs_rJE9=41exnxxJ0ENfLpHRj1ZtOpg2Ng@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] sup 0.13</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00302.html">Date Prev</a>][<a href="msg00255.html">Date Next</a>][<a href="msg00087.html">Thread Prev</a>][<a href="msg00307.html">Thread Next</a>][<a href="maillist.html#00253">Date Index</a>][<a href="threads.html#00253">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] sup 0.13</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Horacio Sanson &lt;<a href="mailto:hsanson%40gmail.com">hsanson@gmail.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] sup 0.13</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 20 May 2013 09:24:23 +0200</li>
+<li><em>Cc</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>In-reply-to</em>: &lt;CAHWBo_ZC176WjeMpPs_rJE9=41exnxxJ0ENfLpHRj1ZtOpg2Ng@mail.gmail.com&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00251.html">CAOxvSbeLRoCwy2THkKa4TKsNqdsx9n-M5BxrZHGfPEUjfEWjSg@mail.gmail.com</a>&gt; &lt;1367233230-sup-3593@tesla&gt; &lt;<a href="msg00146.html">517E5BD8.6030803@gaute.vetsj.com</a>&gt; &lt;CAHWBo_aKjp__dkjuJ-tYHpKJuv2G=k_jxTWMo0QyyUtvxZbGXA@mail.gmail.com&gt; &lt;<a href="msg00101.html">5182210E.4040100@gaute.vetsj.com</a>&gt; &lt;CAHWBo_ZC176WjeMpPs_rJE9=41exnxxJ0ENfLpHRj1ZtOpg2Ng@mail.gmail.com&gt;</li>
+<li><em>User-agent</em>: Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20130403 Thunderbird/17.0.5</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi,
+
+There has recently been opened an issue regarding this:
+
+<a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/issues/60">https://github.com/sup-heliotrope/sup/issues/60</a>
+
+Regards, Gaute
+
+On 09. mai 2013 03:39, Horacio Sanson wrote:
+&gt; UTF-8 handles most cases but I still have to deal with emails in
+&gt; ISO2022-JP, Shift-JIS and EUC-JP. After some research it seems Xapian has
+&gt; no support for Asian languages. I will try to make some tests and open an
+&gt; issue if I cannot make it work.
+&gt; 
+&gt; I can see in the sup configuration file that the stem language can be
+&gt; configured but there are no CJK stemmers for Xapian that I can find.
+&gt; 
+&gt; 
+&gt; On Thu, May 2, 2013 at 5:17 PM, Gaute Hope &lt;eg@gaute.vetsj.com&gt; wrote:
+&gt; 
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; On 30. april 2013 11:44, Horacio Sanson wrote:
+&gt;&gt;&gt; Great to see Sup getting back on track again..
+&gt;&gt;&gt;
+&gt;&gt;&gt; I submitted some patches for the Gmail dumper of Heliotrope some time ago
+&gt;&gt;&gt; but the lack of non alphabet languages (Japanese, Chinese) made it
+&gt;&gt;&gt; impossible for me to keep using heliotrope/turnesole.
+&gt;&gt;&gt;
+&gt;&gt;&gt; The main issue to support Japanese/Chinese with heliotrope was that
+&gt;&gt;&gt; whistlepig (indexer) lacked the ability to tokenize these languages. Also
+&gt;&gt;&gt; the half baked UTF-8 support caused several issues with these languages.
+&gt;&gt;&gt;
+&gt;&gt;&gt; I would like to help in testing/implementing support for these languages,
+&gt;&gt;&gt; starting with Japanese, but I would require some guidance. First I would
+&gt;&gt;&gt; like to know is there is a way to configure the Xapian tokenizer
+&gt;&gt;&gt; (segmenter) within sup? Please consider that I am new to both sup and to
+&gt;&gt;&gt; Xapian.
+&gt;&gt;
+&gt;&gt; Hi Horacio,
+&gt;&gt;
+&gt;&gt; consider opening an issue at
+&gt;&gt; <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/issues">https://github.com/sup-heliotrope/sup/issues</a> to make sure this doesn't
+&gt;&gt; disappear. Some changes will probably be made to the indexer when going
+&gt;&gt; to Mail (from RMail), but I hope to be able to migrate the existing
+&gt;&gt; index. Perhaps its time to get it right for arbitrary languages as well.
+&gt;&gt; I am unfamiliar with Japanes/Chinese - does UTF-8 cover the needs?
+&gt;&gt;
+&gt;&gt; Mail is better at handling UTF-8 and I think there was some fork that
+&gt;&gt; had some extra support for Japanese.
+&gt;&gt;
+&gt;&gt; Regards, Gaute
+&gt;&gt;
+&gt; 
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00251" href="msg00251.html">[sup-devel] sup 0.13</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00357" href="msg00357.html">Re: [sup-devel] sup 0.13</a></strong>
+<ul><li><em>From:</em> Israel Herraiz &lt;isra@herraiz.org&gt;</li></ul></li>
+<li><strong><a name="00146" href="msg00146.html">Re: [sup-devel] sup 0.13</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00165" href="msg00165.html">Re: [sup-devel] sup 0.13</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00101" href="msg00101.html">Re: [sup-devel] sup 0.13</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00087" href="msg00087.html">Re: [sup-devel] sup 0.13</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00302.html">Release 0.13.0</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00255.html">Re: [sup-devel] Experimental Gmail Source</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00087.html">Re: [sup-devel] sup 0.13</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00307.html">Re: [sup-devel] sup 0.13 - please test</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00253"><strong>Date</strong></a></li>
+<li><a href="threads.html#00253"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

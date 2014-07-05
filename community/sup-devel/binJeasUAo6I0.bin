@@ -1,0 +1,125 @@
+From 401b9e43b049e9d8c54b6ebbd73305fa7a9d99c5 Mon Sep 17 00:00:00 2001
+From: Damien Leone <damien.leone@fensalir.fr>
+Date: Sun, 27 Feb 2011 19:05:35 +0100
+Subject: [PATCH 2/3] edit-message-mode: Add an optional account selector
+
+Set to true by default, it allows you to change your account in
+edit-mode using a horizontal selector. It doesn't change any of the
+previous behaviour since the proper account is selected by default, it
+also handles customized choice in case the user edited the From field
+manually.
+---
+ lib/sup.rb                         |    1 +
+ lib/sup/modes/edit-message-mode.rb |   42 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 43 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup.rb b/lib/sup.rb
+index 67e834e..41709f1 100644
+--- a/lib/sup.rb
++++ b/lib/sup.rb
+@@ -297,6 +297,7 @@ EOS
+         :ask_for_cc => true,
+         :ask_for_bcc => false,
+         :ask_for_subject => true,
++        :account_selector => true,
+         :confirm_no_attachments => true,
+         :confirm_top_posting => true,
+         :jump_to_open_message => true,
+diff --git a/lib/sup/modes/edit-message-mode.rb b/lib/sup/modes/edit-message-mode.rb
+index a374197..8e0e9c3 100644
+--- a/lib/sup/modes/edit-message-mode.rb
++++ b/lib/sup/modes/edit-message-mode.rb
+@@ -116,6 +116,27 @@ EOS
+     @selector_label_width = 0
+     @async_mode = nil
+ 
++    if $config[:account_selector]
++      ## Duplicate e-mail strings to prevent a "can't modify frozen
++      ## object" crash triggered by the String::display_length()
++      ## method in util.rb
++      user_emails_copy = []
++      AccountManager.user_emails.each { |e| user_emails_copy.push e.dup }
++
++      @account_selector =
++        HorizontalSelector.new "Account:", AccountManager.user_accounts + [nil], user_emails_copy + ["Customized"]
++
++      if @header["From"] =~ /<?(\S+@(\S+?))>?$/
++        @account_selector.set_to AccountManager.account_for($1)
++        @account_user = ""
++      else
++        @account_selector.set_to nil
++        @account_user = @header["From"]
++      end
++
++      add_selector @account_selector
++    end
++
+     @crypto_selector =
+       if CryptoManager.have_crypto?
+         HorizontalSelector.new "Crypto:", [:none] + CryptoManager::OUTGOING_MESSAGE_OPERATIONS.keys, ["None"] + CryptoManager::OUTGOING_MESSAGE_OPERATIONS.values
+@@ -164,6 +185,8 @@ EOS
+   def edit_subject; edit_field "Subject" end
+ 
+   def edit_message
++    old_from = @header["From"] if @account_selector
++
+     @file = Tempfile.new "sup.#{self.class.name.gsub(/.*::/, '').camel_to_hyphy}"
+     @file.puts format_headers(@header - NON_EDITABLE_HEADERS).first
+     @file.puts
+@@ -180,6 +203,12 @@ EOS
+ 
+     header, @body = parse_file @file.path
+     @header = header - NON_EDITABLE_HEADERS
++
++    if @account_selector and @header["From"] != old_from
++      @account_user = @header["From"]
++      @account_selector.set_to nil
++    end
++
+     handle_new_text @header, @body
+     rerun_crypto_selector_hook
+     update
+@@ -295,6 +324,7 @@ protected
+     if curpos < @selectors.length
+       @selectors[curpos].roll_left
+       buffer.mark_dirty
++      update if @account_selector
+     else
+       col_left
+     end
+@@ -304,6 +334,7 @@ protected
+     if curpos < @selectors.length
+       @selectors[curpos].roll_right
+       buffer.mark_dirty
++      update if @account_selector
+     else
+       col_right
+     end
+@@ -315,6 +346,11 @@ protected
+   end
+ 
+   def update
++    if @account_selector
++      account = @account_selector.val
++      @header["From"] = account && account.full_address || @account_user
++    end
++
+     regen_text
+     buffer.mark_dirty if buffer
+   end
+@@ -532,6 +568,12 @@ protected
+       if contacts
+         text = contacts.map { |s| s.full_address }.join(", ")
+         @header[field] = parse_header field, text
++
++        if @account_selector and field == "From"
++          @account_user = @header["From"]
++          @account_selector.set_to nil
++        end
++
+         rerun_crypto_selector_hook
+         update
+       end
+-- 
+1.7.2.3
+

@@ -1,0 +1,107 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Ruby 1.9 encoding fixes -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Thu, 31 Dec 2009 15:37:22 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262302618&#45;20503&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Ruby 1.9 encoding fixes</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01406.html">Date Prev</a>][<a href="msg01250.html">Date Next</a>][<a href="msg01406.html">Thread Prev</a>][<a href="msg01226.html">Thread Next</a>][<a href="maillist.html#01351">Date Index</a>][<a href="threads.html#01351">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Ruby 1.9 encoding fixes</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] Ruby 1.9 encoding fixes</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Thu, 31 Dec 2009 15:36:48 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>This patchset fixes the string encoding issues on Ruby 1.9.1. The general
+strategy is to treat raw messsages as binary and ensure that everything is
+passed through Iconv or String#ascii before being displayed or stored. I tested
+an earlier version of this patchset (with more debug checks) on around 700
+thousand mails including plenty of spam. It'd be nice if someone tested
+signed/encrypted mails to make sure I didn't break anything there.
+
+The only effect on Ruby 1.8 should be asciifying the raw header/message view,
+and maybe a little speedup due to reusing the RMail message header instead of
+parsing it ourselves.
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01226" href="msg01226.html">[sup-devel] [PATCH 01/10] open mail source files as binary</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01236" href="msg01236.html">Re: [sup-devel] Ruby 1.9 encoding fixes</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01406.html">Re: [sup-devel] topic branch merge report</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01250.html">[sup-devel] [PATCH 02/10] display_size is just size on Ruby 1.9</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01406.html">Re: [sup-devel] topic branch merge report</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01226.html">[sup-devel] [PATCH 01/10] open mail source files as binary</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01351"><strong>Date</strong></a></li>
+<li><a href="threads.html#01351"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Ruby 1.9.2 Rakefile &#38; LOAD_PATH -->
+<!--X-From-R13: [nggv Svqra <fanvccrevNtznvy.pbz> -->
+<!--X-Date: Mon, 21 Mar 2011 12:02:30 &#45;0700 (PDT) -->
+<!--X-Message-Id: AANLkTim7rVtS4+b&#45;Pbv&#45;DLNKYh&#45;bSCjnUT=thDAJJmZM@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Ruby 1.9.2 Rakefile &amp; LOAD_PATH</title>
+<link rev="made" href="mailto:snaipperi@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00637.html">Date Prev</a>][<a href="msg00668.html">Date Next</a>][<a href="msg00190.html">Thread Prev</a>][<a href="msg00276.html">Thread Next</a>][<a href="maillist.html#00489">Date Index</a>][<a href="threads.html#00489">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Ruby 1.9.2 Rakefile &amp; LOAD_PATH</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] Ruby 1.9.2 Rakefile &amp; LOAD_PATH</li>
+<li><em>From</em>: Matti Eiden &lt;<a href="mailto:snaipperi%40gmail.com">snaipperi@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 21 Mar 2011 20:38:31 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:date:message-id:subject:from:to	:content-type; bh=etxeNtG5P8MD0sJblybyBisFhW5MgKexor6/FbLNnEI=;	b=s8DEws+af3iFY/KSqJUuHUPAR6/B7BAcp27VkICHG5WhdMvUOt3kCGTg8XIeFsiyri	/hz4LzeiBzqfoxShgw/QxMtu8Wo8q/RJOgXkRhOy1EKQRHx60ionuVGuRoCfOWF15FhT	SXFB5tWvehhjTU0a69Ug5JwGb219VOL72wHFg=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=BS3Cop0OWkH9/h5uTGYXketDCqoB4f0qK9y+vHfUraMy9TaL8wget1l9VFJJxISgtB	1VUkBkc5Aj68x5++/su7T/chvB6eL0bYA6yrlB2lFTtJfZCjGlgJ+gkCM/ZbpZgPF2to	hcjgiBLWyzlzFmcZjdCZUvosLykbqnXQQAJ+I=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hey folks,
+
+I posted on sup-talk in last December about an issue in the Rakefile
+of sup when it comes to Ruby 1.9.2. The whole thing boils down to
+this: <a  rel="nofollow" href="https://rails.lighthouseapp.com/projects/8994/tickets/2921">https://rails.lighthouseapp.com/projects/8994/tickets/2921</a>
+
+Ruby 1.9.2 doesn't include the &quot;.&quot; into LOAD_PATH anymore. Would
+anybody like to fix this in the master? The fix is simple, just adding
+&quot;./&quot; in front of the paths of the sup-version.rb and sup-files.rb. I
+don't see why this would affect earlier Ruby versions in a negative
+way, but of course I recommend testing it works before commiting to
+the git.
+
+Made merge request @ <a  rel="nofollow" href="http://gitorious.org/sup/mainline/merge_requests/11">http://gitorious.org/sup/mainline/merge_requests/11</a>
+
+Patch also below.
+
+Regards,
+Matti Eiden
+
+
+
+diff -aur sup-build/Rakefile sup-build.new/Rakefile
+--- sup-build/Rakefile	2011-03-21 19:44:57.000000000 +0200
++++ sup-build.new/Rakefile	2011-03-21 19:52:37.000000000 +0200
+@@ -31,8 +31,8 @@
+
+ $:.push &quot;lib&quot;
+ require 'rubygems'
+-require &quot;sup-files&quot;
+-require &quot;sup-version&quot;
++require &quot;./sup-files&quot;
++require &quot;./sup-version&quot;
+ require 'rake/gempackagetask.rb'
+
+ spec = Gem::Specification.new do |s|
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00276" href="msg00276.html">Re: [sup-devel] Ruby 1.9.2 Rakefile &amp; LOAD_PATH</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00637.html">Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00668.html">Re: [sup-devel] [issue132] strange encoding error</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00190.html">Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00276.html">Re: [sup-devel] Ruby 1.9.2 Rakefile &amp; LOAD_PATH</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00489"><strong>Date</strong></a></li>
+<li><a href="threads.html#00489"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

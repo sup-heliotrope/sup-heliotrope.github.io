@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Sup Release 0.14.0 -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Thu, 15 Aug 2013 01:34:24 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1376554850&#45;sup&#45;6592@qwerzila -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Sup Release 0.14.0</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00330.html">Date Prev</a>][<a href="msg00376.html">Date Next</a>][<a href="msg00330.html">Thread Prev</a>][<a href="msg00252.html">Thread Next</a>][<a href="maillist.html#00287">Date Index</a>][<a href="threads.html#00287">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Sup Release 0.14.0</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;, sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Sup Release 0.14.0</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 15 Aug 2013 10:33:23 +0200</li>
+<li><em>User-agent</em>: Sup/0.14.0</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Greetings,
+
+I have just release Sup 0.14.0 which contains a lot of updates. Check
+out the Release Notes below for more details.
+
+Important:
+- This release does no longer work on Ruby 1.8.
+- Configuration files must be migrated from Sup 0.13 [1].
+- Read the migration notice [1].
+
+If you are not feeling very adventurous, stay with Sup 0.13 for a little
+while yet. Remember to back up your current ~/.sup before upgrading in
+case you need to downgrade.
+
+Happy sup! Thanks to all the contributors and testers!
+
+Check the wiki for installation instructions [2] or just do a:
+
+  $ gem install sup
+
+Report issues to our tracker at GitHub [3].
+
+
+Cheers, Gaute
+
+[1] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Migration-0.13-to-0.14">https://github.com/sup-heliotrope/sup/wiki/Migration-0.13-to-0.14</a>
+[2] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/">https://github.com/sup-heliotrope/sup/wiki/</a>
+[3] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/issues">https://github.com/sup-heliotrope/sup/issues</a>
+
+
+== Release Notes ==
+CJK-compatability, Psych usage, thread safety, GPGME 2.0 support. Sup is now
+Ruby 1.9 based, and apart from RMail - ready for Ruby 2.0.0.
+
+Sup now uses Psych as a YAML parser (default by Ruby) and your previous
+configuration files (~/.sup/*.yaml) may need to be migrated or re-created for
+them to work with the new sup. A migration script is included for this.
+
+Check <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Migration-0.13-to-0.14">https://github.com/sup-heliotrope/sup/wiki/Migration-0.13-to-0.14</a> for
+the latest instructions.
+
+First back up your ~/.sup directory and index, after installing the new sup
+run:
+
+$ sup-psych-ify-config-files
+
+to migrate your files. You should now be all set for buisness.
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00330.html">Re: [sup-devel] How do I force flush the log file in sup?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00376.html">[sup-devel] Is maildir-sync ready for prime time?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00330.html">Re: [sup-devel] How do I force flush the log file in sup?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00252.html">[sup-devel] sup 0.14: Encoding::UndefinedConversionError from	thread: load threads for thread-index-mode</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00287"><strong>Date</strong></a></li>
+<li><a href="threads.html#00287"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

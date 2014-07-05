@@ -1,0 +1,29 @@
+From c2d9caf6ffa3f6b4aad6d2bd14a44ee9140314a3 Mon Sep 17 00:00:00 2001
+From: Ben Walton <bwalton@artsci.utoronto.ca>
+Date: Mon, 25 Jan 2010 09:19:34 -0500
+Subject: [PATCH] Fix crash in mkterm when parameter :any is used with :email
+
+Without this patch, sup was crashing in mkterm after pressing 'c' from
+index mode to compose a message.  This patch teaches mkterm how to
+handle building a query consisting of both from_email to to_email.
+
+Signed-off-by: Ben Walton <bwalton@artsci.utoronto.ca>
+---
+ lib/sup/xapian_index.rb |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/xapian_index.rb b/lib/sup/xapian_index.rb
+index 5efd47b..cb1dde7 100644
+--- a/lib/sup/xapian_index.rb
++++ b/lib/sup/xapian_index.rb
+@@ -570,6 +570,7 @@ EOS
+       case args[0]
+       when :from then PREFIX['from_email']
+       when :to then PREFIX['to_email']
++      when :any then PREFIX['to_email'] + args[1].to_s.downcase + ' OR ' + PREFIX['from_email']
+       else raise "Invalid email term type #{args[0]}"
+       end + args[1].to_s.downcase
+     when :source_id
+-- 
+1.6.6
+

@@ -1,0 +1,154 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Emacs Integration wiki page -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Mon, 19 May 2014 23:53:42 &#45;0700 (PDT) -->
+<!--X-Message-Id: CABKe4Mudd=udT1w26fp5+yJVWuH2hTEfWc3JnJ6UhirM6WDP1w@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 1400562885&#45;sup&#45;1119@ultralap.site -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Emacs Integration wiki page</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00002.html">Date Prev</a>][<a href="msg00025.html">Date Next</a>][<a href="msg00002.html">Thread Prev</a>][<a href="msg00025.html">Thread Next</a>][<a href="maillist.html#00035">Date Index</a>][<a href="threads.html#00035">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Emacs Integration wiki page</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Emacs Integration wiki page</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 20 May 2014 08:53:42 +0200</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00002.html">1400562885-sup-1119@ultralap.site</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00002.html">1400562885-sup-1119@ultralap.site</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<div dir="ltr">Thanks, merged.<br></div><div class="gmail_extra"><br><br><div class="gmail_quote">On Tue, May 20, 2014 at 7:36 AM, Troy Sankey <span dir="ltr">&lt;<a rel="nofollow" href="mailto:sankeytms@gmail.com" target="_blank">sankeytms@gmail.com</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">Emacs!<br>
+<br>
+The following changes since commit 96c7fdd5fb4d9bc99e70a050eba72c31e445:<br>
+<br>
+&#xA0; Template (2014-04-24 01:01:53 -0700)<br>
+<br>
+are available in the git repository at:<br>
+<br>
+&#xA0; <a rel="nofollow" href="https://linux.ucla.edu/~sankeytm/repos/sup.wiki.git" target="_blank">https://linux.ucla.edu/~sankeytm/repos/sup.wiki.git</a> master<br>
+<br>
+for you to fetch changes up to a61957168fb14fc45926c8e4ac78ea9e35b36aa0:<br>
+<br>
+&#xA0; added page for Emacs Integration (2014-05-19 21:57:21 -0700)<br>
+<br>
+----------------------------------------------------------------<br>
+Troy Sankey (1):<br>
+&#xA0; &#xA0; &#xA0; added page for Emacs Integration<br>
+<br>
+&#xA0;Emacs-Integration.md | 37 +++++++++++++++++++++++++++++++++++++<br>
+&#xA0;1 file changed, 37 insertions(+)<br>
+&#xA0;create mode 100644 Emacs-Integration.md<br>
+<br>
+diff --git a/Emacs-Integration.md b/Emacs-Integration.md<br>
+new file mode 100644<br>
+index 0000000..ecfcc59<br>
+--- /dev/null<br>
++++ b/Emacs-Integration.md<br>
+@@ -0,0 +1,37 @@<br>
++# Emacs Integration<br>
++<br>
++To configure Sup to use Emacs as an editor, set _:editor:_ in<br>
++_~/.sup/config.yaml_ to the `emacs` command. &#xA0;Alternatively, use `emacs<br>
++-nw` to run Emacs in text mode.<br>
++<br>
++Excerpt from _~/.sup/config.yaml_:<br>
++<br>
++```yaml<br>
++:editor: emacs -nw<br>
++```<br>
++<br>
++To configure emacs for writing mail, enable message-mode on files<br>
++matching the regex &quot;/sup.*eml$&quot;. &#xA0;Add this to your _~/.emacs_:<br>
++<br>
++```elisp<br>
++(add-to-list &#39;auto-mode-alist &#39;(&quot;/sup.*eml$&quot; . message-mode))<br>
++```<br>
++<br>
++If you want to enable some minor modes for convenience<br>
++(e.g. auto-fill-mode, flyspell-mode) use a message-mode hook:<br>
++<br>
++```elisp<br>
++(add-hook &#39;message-mode-hook (lambda ()<br>
++ &#xA0;(auto-fill-mode 1)<br>
++ &#xA0;(flyspell-mode 1)))<br>
++```<br>
++<br>
++To move the cursor down to the first empty line, add to the hook like<br>
++this:<br>
++<br>
++```elisp<br>
++(add-hook &#39;message-mode-hook (lambda ()<br>
++ &#xA0;(auto-fill-mode 1)<br>
++ &#xA0;(flyspell-mode 1)<br>
++ &#xA0;(search-forward-regexp &quot;^$&quot;)))<br>
++```<br>
+<br>_______________________________________________<br>
+Sup-devel mailing list<br>
+<a rel="nofollow" href="mailto:Sup-devel@rubyforge.org">Sup-devel@rubyforge.org</a><br>
+<a rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel" target="_blank">http://rubyforge.org/mailman/listinfo/sup-devel</a><br>
+<br></blockquote></div><br></div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00002" href="msg00002.html">[sup-devel] Emacs Integration wiki page</a></strong>
+<ul><li><em>From:</em> Troy Sankey &lt;sankeytms@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00002.html">[sup-devel] Emacs Integration wiki page</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00025.html">New mailinglist - replacing the old: supmua@googlegroups.com</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00002.html">[sup-devel] Emacs Integration wiki page</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00025.html">New mailinglist - replacing the old: supmua@googlegroups.com</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00035"><strong>Date</strong></a></li>
+<li><a href="threads.html#00035"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

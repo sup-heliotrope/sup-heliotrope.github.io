@@ -1,0 +1,11 @@
+--- message-chunks.rb.orig	2010-05-28 22:24:30.000000000 -0400
++++ message-chunks.rb	2010-05-28 22:24:37.000000000 -0400
+@@ -149,7 +149,7 @@
+     end
+ 
+     def write_to_disk
+-      file = Tempfile.new(@filename || "sup-attachment")
++      file = Tempfile.new(@filename.gsub("/", "_") || "sup-attachment")
+       file.print @raw_content
+       file.close
+       file.path

@@ -1,0 +1,718 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] Converted crypto to use the gpgme gem -->
+<!--X-From-R13: Vnzvfu R <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Sun, 28 Nov 2010 15:47:38 &#45;0800 (PST) -->
+<!--X-Message-Id: AANLkTinvv59bWu0UfjW2K&#45;xDRUP42tDwmgMh5yZdmaN_@mail.gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: AANLkTinrSAheJb2F4Xw9AmgXcGLxeQh0_MEnuTSATye_@mail.gmail.com -->
+<!--X-Reference: AANLkTinXwKiJqgKyFrrcVV21a8j8hV=fw4QcvDLhtM8E@mail.gmail.com -->
+<!--X-Reference: AANLkTi=7yasVvAW4P85v3GJxf+quJrE3&#45;1XruDgUZq+D@mail.gmail.com -->
+<!--X-Reference: 1289466286&#45;sup&#45;7540@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTikUwyX6xj&#45;f_ZnLp6s2s9vaCpgayPKygniWndoJ@mail.gmail.com -->
+<!--X-Reference: 1289907535&#45;sup&#45;3989@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTi=xz16ecZ0C5=RUcOG4wzojVVzs70PZ2ueKa0ht@mail.gmail.com -->
+<!--X-Reference: 1289932061&#45;sup&#45;96@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTin=1MRrW0vuj_7uMvjcyLc3Aaw4ddZ_Rq6TBiyx@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00473.html">Date Prev</a>][<a href="msg00606.html">Date Next</a>][<a href="msg00574.html">Thread Prev</a>][<a href="msg00742.html">Thread Next</a>][<a href="maillist.html#00649">Date Index</a>][<a href="threads.html#00649">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</li>
+<li><em>From</em>: Hamish D &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 28 Nov 2010 22:51:43 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:received:in-reply-to	:references:date:message-id:subject:from:to:content-type;	bh=RoXSblIb58RTJ4t+05gYAoqE7JLjINgAW3rz02mJsIs=;	b=wn0z1IbTZHYY6tIYlxIpwuCS9BxtgXE+MkLdveoc+fgS3EHMY66A3+CkB0DKNr3cpr	OW7JCmE+ovGg1XKnt4e5R4VBXBolZZmK48Qj8vZgQHoZrMCRRb2MaDKg56BEnZ5n3FSS	t+su46GHu3yqONzXae/9VwV4DmnzFeUlSXmWU=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:in-reply-to:references:date:message-id:subject:from:to	:content-type;	b=rH3eHxqs6kKI3catKFpYszDXBt50U/BQSo03FTf85ZWFNwZJc5X8RT2j2yRPDnIwqb	CRhvtG5z2hfKpERTIHBQQnTiXJqdtce2TEk8T9pdxnh6GvVJnlcHu7hj9dXdKwQvepq9	Z1kGt/5FyHsQfPBXHcQOSFIL/74EjH6dQMzeM=</li>
+<li><em>In-reply-to</em>: &lt;AANLkTin=1MRrW0vuj_7uMvjcyLc3Aaw4ddZ_Rq6TBiyx@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00738.html">AANLkTinrSAheJb2F4Xw9AmgXcGLxeQh0_MEnuTSATye_@mail.gmail.com</a>&gt;	&lt;AANLkTinXwKiJqgKyFrrcVV21a8j8hV=fw4QcvDLhtM8E@mail.gmail.com&gt;	&lt;AANLkTi=7yasVvAW4P85v3GJxf+quJrE3-1XruDgUZq+D@mail.gmail.com&gt;	&lt;1289466286-sup-7540@meteor.durcheinandertal.local&gt;	&lt;<a href="msg00535.html">AANLkTikUwyX6xj-f_ZnLp6s2s9vaCpgayPKygniWndoJ@mail.gmail.com</a>&gt;	&lt;1289907535-sup-3989@meteor.durcheinandertal.local&gt;	&lt;AANLkTi=xz16ecZ0C5=RUcOG4wzojVVzs70PZ2ueKa0ht@mail.gmail.com&gt;	&lt;1289932061-sup-96@meteor.durcheinandertal.local&gt;	&lt;AANLkTin=1MRrW0vuj_7uMvjcyLc3Aaw4ddZ_Rq6TBiyx@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>OK, here is a set of 4 patches that implement the change over to the
+gpgme library. There's quite a bit of work in there so I thought I'd
+leave it as a few patches, but I have done some tidying.
+
+I have some more ideas for improvements, but I'm happy that this
+reproduces the behaviour of using the gpg binary, and I find sup usage
+much smoother with this change.
+
+I'll leave it for others to decide whether to stick this in sup 0.12 -
+I guess it could be risky to stick it in without it being tested, but
+maybe it could be applied to the next tree, and then moved to main
+after 0.12 has been released.
+
+Hamish Downer
+
+&gt;
+&gt; &gt;&gt; I am also working on having extra information generated when the key
+&gt; &gt;&gt; is not trusted, but this is not done yet. And I am also working on a
+&gt; &gt;&gt; hook where you can generate as much information as you want from the
+&gt; &gt;&gt; signature for the CryptoNotice. Hopefully be ready to submit before
+&gt; &gt;&gt; the weekend.
+&gt; &gt;
+&gt; &gt; This sounds nice. Thanks for your work!
+&gt;
+&gt; And thank you for your testing and patience :)
+&gt;
+&gt; The github version also has the sig-output hook set up. From the hook text:
+&gt;
+&gt; START
+&gt; Runs when the signature output is being generated, allowing you to
+&gt; add extra information to your signatures if you want.
+&gt;
+&gt; Variables:
+&gt; signature: the signature object (class is GPGME::Signature)
+&gt; from_key: the key that generated the signature (class is GPGME::Key)
+&gt;
+&gt; Return value: an array of lines of output
+&gt; END
+&gt;
+&gt; I've attached a sample hook file if you want to have a play with it.
+&gt; I'll document this all on the wiki if it gets accepted.
+&gt;
+&gt; I'll give you a few days to find some more problems, but if you fail
+&gt; to find any then I'll package this up as a single patch and resubmit
+&gt; it all.
+&gt;
+&gt; Hamish
+</pre><pre>From 09dc4c17600742572c61605f977450d328296964 Mon Sep 17 00:00:00 2001
+From: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date: Fri, 5 Nov 2010 22:30:55 +0000
+Subject: [PATCH 1/4] Converted crypto to use the gpgme gem
+
+---
+ bin/sup           |   11 +++
+ lib/sup/crypto.rb |  231 ++++++++++++++++++++++++++++++-----------------------
+ 2 files changed, 141 insertions(+), 101 deletions(-)
+
+diff --git a/bin/sup b/bin/sup
+index 10be161..ad7a0d1 100755
+--- a/bin/sup
++++ b/bin/sup
+@@ -10,6 +10,13 @@ rescue LoadError
+   no_ncursesw = true
+ end
+ 
++no_gpgme = false
++begin
++  require 'gpgme'
++rescue LoadError
++  no_gpgme = true
++end
++
+ require 'fileutils'
+ require 'trollop'
+ require &quot;sup&quot;; Redwood::check_library_version_against &quot;git&quot;
+@@ -23,6 +30,10 @@ if no_ncursesw
+   info &quot;No 'ncursesw' gem detected. Install it for wide character support.&quot;
+ end
+ 
++if no_gpgme
++  info &quot;No 'gpgme' gem detected. Install it for email encryption, decryption and signatures.&quot;
++end
++
+ $opts = Trollop::options do
+   version &quot;sup v#{Redwood::VERSION}&quot;
+   banner &lt;&lt;EOS
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index c7b57c1..9d21ea0 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -1,3 +1,8 @@
++begin
++  require 'gpgme'
++rescue LoadError
++end
++
+ module Redwood
+ 
+ class CryptoManager
+@@ -11,76 +16,79 @@ class CryptoManager
+     [:encrypt, &quot;Encrypt only&quot;]
+   )
+ 
+-  HookManager.register &quot;gpg-args&quot;, &lt;&lt;EOS
+-Runs before gpg is executed, allowing you to modify the arguments (most
++  HookManager.register &quot;gpg-options&quot;, &lt;&lt;EOS
++Runs before gpg is called, allowing you to modify the options (most
+ likely you would want to add something to certain commands, like
+---trust-model always to signing/encrypting a message, but who knows).
++{:always_trust =&gt; true} to encrypting a message, but who knows).
+ 
+ Variables:
+-args: arguments for running GPG
++operation: what operation will be done (&quot;sign&quot;, &quot;encrypt&quot;, &quot;decrypt&quot; or &quot;verify&quot;)
++options: a dictionary of values to be passed to GPGME
+ 
+-Return value: the arguments for running GPG
++Return value: a dictionary to be passed to GPGME
+ EOS
+ 
+   def initialize
+     @mutex = Mutex.new
+ 
+-    bin = `which gpg`.chomp
+-    @cmd = case bin
+-    when /\S/
+-      debug &quot;crypto: detected gpg binary in #{bin}&quot;
+-      &quot;#{bin} --quiet --batch --no-verbose --logger-fd 1 --use-agent&quot;
+-    else
+-      debug &quot;crypto: no gpg binary detected&quot;
+-      nil
++    # test if the gpgme gem is available
++    @gpgme_present = true
++    begin
++    GPGME.check_version({:protocol =&gt; GPGME::PROTOCOL_OpenPGP})
++    rescue NameError, GPGME::Error
++      @gpgme_present = false
+     end
+   end
+ 
+-  def have_crypto?; !@cmd.nil? end
++  def have_crypto?; @gpgme_present end
+ 
+   def sign from, to, payload
+-    payload_fn = Tempfile.new &quot;redwood.payload&quot;
+-    payload_fn.write format_payload(payload)
+-    payload_fn.close
++    return unknown_status(cant_find_gpgme) unless @gpgme_present
+ 
+-    sig_fn = Tempfile.new &quot;redwood.signature&quot;; sig_fn.close
++    gpg_opts = {:protocol =&gt; GPGME::PROTOCOL_OpenPGP, :armor =&gt; true, :textmode =&gt; true}
++    gpg_opts.merge(gen_sign_user_opts(from))
++    gpg_opts = HookManager.run(&quot;gpg-options&quot;, 
++                               {:operation =&gt; &quot;sign&quot;, :options =&gt; gpg_opts}) || gpg_opts
+ 
+-    sign_user_opts = gen_sign_user_opts from
+-    message = run_gpg &quot;--output #{sig_fn.path} --yes --armor --detach-sign --textmode --digest-algo sha256 #{sign_user_opts} #{payload_fn.path}&quot;, :interactive =&gt; true
+-    unless $?.success?
+-      info &quot;Error while running gpg: #{message}&quot;
++    begin
++      sig = GPGME.detach_sign(format_payload(payload), gpg_opts)
++    rescue GPGME::Error =&gt; exc
++      info &quot;Error while running gpg: #{exc.message}&quot;
+       raise Error, &quot;GPG command failed. See log for details.&quot;
+     end
+ 
+     envelope = RMail::Message.new
+-    envelope.header[&quot;Content-Type&quot;] = 'multipart/signed; protocol=application/pgp-signature; micalg=pgp-sha256'
++    envelope.header[&quot;Content-Type&quot;] = 'multipart/signed; protocol=application/pgp-signature'
+ 
+     envelope.add_part payload
+-    signature = RMail::Message.make_attachment IO.read(sig_fn.path), &quot;application/pgp-signature&quot;, nil, &quot;signature.asc&quot;
++    signature = RMail::Message.make_attachment sig, &quot;application/pgp-signature&quot;, nil, &quot;signature.asc&quot;
+     envelope.add_part signature
+     envelope
+   end
+ 
+   def encrypt from, to, payload, sign=false
+-    payload_fn = Tempfile.new &quot;redwood.payload&quot;
+-    payload_fn.write format_payload(payload)
+-    payload_fn.close
+-
+-    encrypted_fn = Tempfile.new &quot;redwood.encrypted&quot;; encrypted_fn.close
+-
+-    recipient_opts = (to + [ from ] ).map { |r| &quot;--recipient '&lt;#{r}&gt;'&quot; }.join(&quot; &quot;)
+-    sign_opts = &quot;&quot;
+-    sign_opts = &quot;--sign --digest-algo sha256 &quot; + gen_sign_user_opts(from) if sign
+-    message = run_gpg &quot;--output #{encrypted_fn.path} --yes --armor --encrypt --textmode #{sign_opts} #{recipient_opts} #{payload_fn.path}&quot;, :interactive =&gt; true
+-    unless $?.success?
+-      info &quot;Error while running gpg: #{message}&quot;
++    return unknown_status(cant_find_gpgme) unless @gpgme_present
++
++    gpg_opts = {:protocol =&gt; GPGME::PROTOCOL_OpenPGP, :armor =&gt; true, :textmode =&gt; true}
++    if sign
++      gpg_opts.merge(gen_sign_user_opts(from)) 
++      gpg_opts.merge({:sign =&gt; true})
++    end
++    gpg_opts = HookManager.run(&quot;gpg-options&quot;, 
++                               {:operation =&gt; &quot;encrypt&quot;, :options =&gt; gpg_opts}) || gpg_opts
++    recipients = to + [from]
++
++    begin
++      cipher = GPGME.encrypt(recipients, format_payload(payload), gpg_opts)
++    rescue GPGME::Error =&gt; exc
++      info &quot;Error while running gpg: #{exc.message}&quot;
+       raise Error, &quot;GPG command failed. See log for details.&quot;
+     end
+ 
+     encrypted_payload = RMail::Message.new
+     encrypted_payload.header[&quot;Content-Type&quot;] = &quot;application/octet-stream&quot;
+     encrypted_payload.header[&quot;Content-Disposition&quot;] = 'inline; filename=&quot;msg.asc&quot;'
+-    encrypted_payload.body = IO.read(encrypted_fn.path)
++    encrypted_payload.body = cipher
+ 
+     control = RMail::Message.new
+     control.header[&quot;Content-Type&quot;] = &quot;application/pgp-encrypted&quot;
+@@ -99,70 +107,85 @@ EOS
+     encrypt from, to, payload, true
+   end
+ 
+-  def verified_ok? output, rc
+-    output_lines = output.split(/\n/)
+-
+-    if output =~ /^gpg: (.* signature from .*$)/
+-      if rc == 0
+-        Chunk::CryptoNotice.new :valid, $1, output_lines
+-      else
+-        Chunk::CryptoNotice.new :invalid, $1, output_lines
++  def verified_ok? verify_result
++    valid = true
++    unknown = false
++    output_lines = []
++
++    verify_result.signatures.each do |signature|
++      output_lines.push(sig_output_lines(signature))
++      output_lines.flatten!
++      err_code = GPGME::gpgme_err_code(signature.status)
++      if err_code == GPGME::GPG_ERR_BAD_SIGNATURE
++        valid = false 
++      elsif err_code != GPGME::GPG_ERR_NO_ERROR
++        valid = false
++        unknown = true
+       end
+-    elsif output_lines.length == 0 &amp;&amp; rc == 0
+-      # the message wasn't signed
++    end
++
++    if output_lines.length == 0
+       Chunk::CryptoNotice.new :valid, &quot;Encrypted message wasn't signed&quot;, output_lines
++    elsif valid
++      Chunk::CryptoNotice.new(:valid, simplify_sig_line(verify_result.signatures[0].to_s), output_lines)
++    elsif !unknown
++      Chunk::CryptoNotice.new(:invalid, simplify_sig_line(verify_result.signatures[0].to_s), output_lines)
+     else
+       unknown_status output_lines
+     end
+   end
+ 
+   def verify payload, signature, detached=true # both RubyMail::Message objects
+-    return unknown_status(cant_find_binary) unless @cmd
++    return unknown_status(cant_find_gpgme) unless @gpgme_present
+ 
++    gpg_opts = {:protocol =&gt; GPGME::PROTOCOL_OpenPGP}
++    gpg_opts = HookManager.run(&quot;gpg-options&quot;, 
++                               {:operation =&gt; &quot;verify&quot;, :options =&gt; gpg_opts}) || gpg_opts
++    ctx = GPGME::Ctx.new(gpg_opts) 
++    sig_data = GPGME::Data.from_str signature.decode
+     if detached
+-      payload_fn = Tempfile.new &quot;redwood.payload&quot;
+-      payload_fn.write format_payload(payload)
+-      payload_fn.close
+-    end
+-
+-    signature_fn = Tempfile.new &quot;redwood.signature&quot;
+-    signature_fn.write signature.decode
+-    signature_fn.close
+-
+-    if detached
+-      output = run_gpg &quot;--verify #{signature_fn.path} #{payload_fn.path}&quot;
++      signed_text_data = GPGME::Data.from_str(format_payload(payload))
++      plain_data = nil
+     else
+-      output = run_gpg &quot;--verify #{signature_fn.path}&quot;
++      signed_text_data = nil
++      plain_data = GPGME::Data.empty
+     end
+-
+-    self.verified_ok? output, $?
++    begin
++      ctx.verify(sig_data, signed_text_data, plain_data)
++    rescue GPGME::Error =&gt; exc
++      return unknown_status exc.message 
++    end
++    self.verified_ok? ctx.verify_result
+   end
+ 
+   ## returns decrypted_message, status, desc, lines
+   def decrypt payload, armor=false # a RubyMail::Message object
+-    return unknown_status(cant_find_binary) unless @cmd
+-
+-    payload_fn = Tempfile.new([&quot;redwood.payload&quot;, &quot;.asc&quot;])
+-    payload_fn.write payload.to_s
+-    payload_fn.close
+-
+-    output_fn = Tempfile.new &quot;redwood.output&quot;
+-    output_fn.close
+-
+-    message = run_gpg &quot;--output #{output_fn.path} --skip-verify --yes --decrypt #{payload_fn.path}&quot;, :interactive =&gt; true
+-
+-    unless $?.success?
+-      info &quot;Error while running gpg: #{message}&quot;
+-      return Chunk::CryptoNotice.new(:invalid, &quot;This message could not be decrypted&quot;, message.split(&quot;\n&quot;))
++    return unknown_status(cant_find_gpgme) unless @gpgme_present
++
++    gpg_opts = {:protocol =&gt; GPGME::PROTOCOL_OpenPGP}
++    gpg_opts = HookManager.run(&quot;gpg-options&quot;, 
++                               {:operation =&gt; &quot;decrypt&quot;, :options =&gt; gpg_opts}) || gpg_opts
++    ctx = GPGME::Ctx.new(gpg_opts) 
++    cipher_data = GPGME::Data.from_str(format_payload(payload))
++    plain_data = GPGME::Data.empty
++    begin
++      ctx.decrypt_verify(cipher_data, plain_data)
++    rescue GPGME::Error =&gt; exc
++      info &quot;Error while running gpg: #{exc.message}&quot;
++      return Chunk::CryptoNotice.new(:invalid, &quot;This message could not be decrypted&quot;, exc.message)
+     end
+-
+-    output = IO.read output_fn.path
++    sig = self.verified_ok? ctx.verify_result
++    plain_data.seek(0, IO::SEEK_SET)
++    output = plain_data.read
+     output.force_encoding Encoding::ASCII_8BIT if output.respond_to? :force_encoding
+ 
++    ## TODO: test to see if it is still necessary to do a 2nd run if verify
++    ## fails.
++    #
+     ## check for a valid signature in an extra run because gpg aborts if the
+     ## signature cannot be verified (but it is still able to decrypt)
+-    sigoutput = run_gpg &quot;#{payload_fn.path}&quot;
+-    sig = self.verified_ok? sigoutput, $?
++    #sigoutput = run_gpg &quot;#{payload_fn.path}&quot;
++    #sig = self.old_verified_ok? sigoutput, $?
+ 
+     if armor
+       msg = RMail::Message.new
+@@ -207,8 +230,8 @@ private
+     Chunk::CryptoNotice.new :unknown, &quot;Unable to determine validity of cryptographic signature&quot;, lines
+   end
+ 
+-  def cant_find_binary
+-    [&quot;Can't find gpg binary in path.&quot;]
++  def cant_find_gpgme
++    [&quot;Can't find gpgme gem.&quot;]
+   end
+ 
+   ## here's where we munge rmail output into the format that signed/encrypted
+@@ -217,6 +240,28 @@ private
+     payload.to_s.gsub(/(^|[^\r])\n/, &quot;\\1\r\n&quot;)
+   end
+ 
++  # remove the hex key_id and info in ()
++  def simplify_sig_line sig_line
++    sig_line = sig_line.sub(/from [0-9A-F]{16} /, &quot;from &quot;)
++    sig_line.sub(/\(.+\) &lt;/, &quot;&lt;&quot;)
++  end
++
++  def sig_output_lines signature
++    time_line = &quot;Signature made &quot; + signature.timestamp.strftime(&quot;%a %d %b %Y %H:%M:%S %Z&quot;) +
++                &quot; using key ID &quot; + signature.fingerprint[-8..-1]
++    first_sig = signature.to_s.sub(/from [0-9A-F]{16} /, 'from &quot;') + '&quot;'
++    output_lines = [time_line, first_sig]
++
++    ctx = GPGME::Ctx.new
++    if from_key = ctx.get_key(signature.fingerprint)
++      if from_key.uids.length &gt; 1
++        aka_list = from_key.uids[1..-1]
++        aka_list.each { |aka| output_lines &lt;&lt; '                aka &quot;' + aka.uid + '&quot;' }
++      end
++    end
++    output_lines
++  end
++
+   # logic is:
+   # if    gpgkey set for this account, then use that
+   # elsif only one account,            then leave blank so gpg default will be user
+@@ -224,30 +269,14 @@ private
+   def gen_sign_user_opts from
+     account = AccountManager.account_for from
+     if !account.gpgkey.nil?
+-      opts = &quot;--local-user '#{account.gpgkey}'&quot;
++      opts = {:signers =&gt; account.gpgkey}
+     elsif AccountManager.user_emails.length == 1
+       # only one account
+-      opts = &quot;&quot;
++      opts = {}
+     else
+-      opts = &quot;--local-user '#{from}'&quot; 
++      opts = {:signers =&gt; from}
+     end
+     opts
+   end
+-
+-  def run_gpg args, opts={}
+-    args = HookManager.run(&quot;gpg-args&quot;, { :args =&gt; args }) || args
+-    cmd = &quot;LC_MESSAGES=C #{@cmd} #{args}&quot;
+-    if opts[:interactive] &amp;&amp; BufferManager.instantiated?
+-      output_fn = Tempfile.new &quot;redwood.output&quot;
+-      output_fn.close
+-      cmd += &quot; &gt; #{output_fn.path} 2&gt; /dev/null&quot;
+-      debug &quot;crypto: running: #{cmd}&quot;
+-      BufferManager.shell_out cmd
+-      IO.read(output_fn.path) rescue &quot;can't read output&quot;
+-    else
+-      debug &quot;crypto: running: #{cmd}&quot;
+-      `#{cmd} 2&gt; /dev/null`
+-    end
+-  end
+ end
+ end
+-- 
+1.7.1
+
+</pre><pre>From 6615a325d8640b53e4f5bda3161d8ad56f9c1ed6 Mon Sep 17 00:00:00 2001
+From: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date: Mon, 8 Nov 2010 22:31:01 +0000
+Subject: [PATCH 2/4] catch exception when no public key present
+
+---
+ lib/sup/crypto.rb |   16 ++++++++++++----
+ 1 files changed, 12 insertions(+), 4 deletions(-)
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index 9d21ea0..83176d9 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -247,19 +247,27 @@ private
+   end
+ 
+   def sig_output_lines signature
++    # It appears that the signature.to_s call can lead to a EOFError if
++    # the key is not found. So start by looking for the key.
++    ctx = GPGME::Ctx.new
++    begin
++      from_key = ctx.get_key(signature.fingerprint)
++      first_sig = signature.to_s.sub(/from [0-9A-F]{16} /, 'from &quot;') + '&quot;'
++    rescue EOFError =&gt; error
++      first_sig = &quot;No public key available for #{signature.fingerprint}&quot;
++    end
++
+     time_line = &quot;Signature made &quot; + signature.timestamp.strftime(&quot;%a %d %b %Y %H:%M:%S %Z&quot;) +
+                 &quot; using key ID &quot; + signature.fingerprint[-8..-1]
+-    first_sig = signature.to_s.sub(/from [0-9A-F]{16} /, 'from &quot;') + '&quot;'
+     output_lines = [time_line, first_sig]
+ 
+-    ctx = GPGME::Ctx.new
+-    if from_key = ctx.get_key(signature.fingerprint)
++    if from_key 
+       if from_key.uids.length &gt; 1
+         aka_list = from_key.uids[1..-1]
+         aka_list.each { |aka| output_lines &lt;&lt; '                aka &quot;' + aka.uid + '&quot;' }
+       end
+     end
+-    output_lines
++    output_lines.flatten!
+   end
+ 
+   # logic is:
+-- 
+1.7.1
+
+</pre><pre>From 07f12934700cd8d85132d75b307019625cd17076 Mon Sep 17 00:00:00 2001
+From: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date: Tue, 16 Nov 2010 20:58:01 +0000
+Subject: [PATCH 3/4] improved signature messages
+
+---
+ lib/sup/crypto.rb |   31 ++++++++++++++++++++++++++-----
+ 1 files changed, 26 insertions(+), 5 deletions(-)
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index 83176d9..88228ff 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -242,8 +242,7 @@ private
+ 
+   # remove the hex key_id and info in ()
+   def simplify_sig_line sig_line
+-    sig_line = sig_line.sub(/from [0-9A-F]{16} /, &quot;from &quot;)
+-    sig_line.sub(/\(.+\) &lt;/, &quot;&lt;&quot;)
++    sig_line.sub(/from [0-9A-F]{16} /, &quot;from &quot;)
+   end
+ 
+   def sig_output_lines signature
+@@ -253,21 +252,43 @@ private
+     begin
+       from_key = ctx.get_key(signature.fingerprint)
+       first_sig = signature.to_s.sub(/from [0-9A-F]{16} /, 'from &quot;') + '&quot;'
+-    rescue EOFError =&gt; error
++    rescue EOFError 
++      from_key = nil
+       first_sig = &quot;No public key available for #{signature.fingerprint}&quot;
+     end
+ 
+     time_line = &quot;Signature made &quot; + signature.timestamp.strftime(&quot;%a %d %b %Y %H:%M:%S %Z&quot;) +
+-                &quot; using key ID &quot; + signature.fingerprint[-8..-1]
++                &quot; using &quot; + key_type(from_key, signature.fingerprint) + 
++                &quot;key ID &quot; + signature.fingerprint[-8..-1]
+     output_lines = [time_line, first_sig]
+ 
+     if from_key 
++      # first list all the uids
+       if from_key.uids.length &gt; 1
+         aka_list = from_key.uids[1..-1]
+         aka_list.each { |aka| output_lines &lt;&lt; '                aka &quot;' + aka.uid + '&quot;' }
+       end
++
++      # now we want to look at the trust of that key
++      if signature.validity != GPGME::GPGME_VALIDITY_FULL &amp;&amp; signature.validity != GPGME::GPGME_VALIDITY_MARGINAL
++        output_lines &lt;&lt; &quot;WARNING: This key is not certified with a trusted signature!&quot;
++        output_lines &lt;&lt; &quot;There is no indication that the signature belongs to the owner&quot;
++      end
++    end
++    output_lines
++  end
++
++  def key_type key, fpr
++    return &quot;&quot; if key.nil?
++    subkey = key.subkeys.find {|subkey| subkey.fpr == fpr || subkey.keyid == fpr }
++    return &quot;&quot; if subkey.nil?
++
++    case subkey.pubkey_algo
++    when GPGME::PK_RSA then &quot;RSA &quot;
++    when GPGME::PK_DSA then &quot;DSA &quot;
++    when GPGME::PK_ELG then &quot;ElGamel &quot;
++    when GPGME::PK_ELG_E then &quot;ElGamel &quot;
+     end
+-    output_lines.flatten!
+   end
+ 
+   # logic is:
+-- 
+1.7.1
+
+</pre><pre>From 71bae56903351adf43f6a7ebdd9766764f302f16 Mon Sep 17 00:00:00 2001
+From: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date: Tue, 16 Nov 2010 22:54:06 +0000
+Subject: [PATCH 4/4] added signature output hook
+
+---
+ lib/sup/crypto.rb |   15 +++++++++++++++
+ 1 files changed, 15 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index 88228ff..b9ffb17 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -28,6 +28,17 @@ options: a dictionary of values to be passed to GPGME
+ Return value: a dictionary to be passed to GPGME
+ EOS
+ 
++  HookManager.register &quot;sig-output&quot;, &lt;&lt;EOS
++Runs when the signature output is being generated, allowing you to
++add extra information to your signatures if you want.
++  
++Variables:
++signature: the signature object (class is GPGME::Signature)
++from_key: the key that generated the signature (class is GPGME::Key)
++
++Return value: an array of lines of output
++EOS
++
+   def initialize
+     @mutex = Mutex.new
+ 
+@@ -274,6 +285,10 @@ private
+         output_lines &lt;&lt; &quot;WARNING: This key is not certified with a trusted signature!&quot;
+         output_lines &lt;&lt; &quot;There is no indication that the signature belongs to the owner&quot;
+       end
++
++      # finally, run the hook
++      output_lines &lt;&lt; HookManager.run(&quot;sig-output&quot;,
++                               {:signature =&gt; signature, :from_key =&gt; from_key})
+     end
+     output_lines
+   end
+-- 
+1.7.1
+
+</pre><pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00742" href="msg00742.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00537" href="msg00537.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Alvaro Herrera &lt;alvherre@alvh.no-ip.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00738" href="msg00738.html">[sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00766" href="msg00766.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00672" href="msg00672.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00411" href="msg00411.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00535" href="msg00535.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00675" href="msg00675.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00768" href="msg00768.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00499" href="msg00499.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00574" href="msg00574.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00473.html">[sup-devel] preparing for sup 0.12 release</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00606.html">[sup-devel] [issue134] Exception when scrolling down...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00574.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00742.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00649"><strong>Date</strong></a></li>
+<li><a href="threads.html#00649"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

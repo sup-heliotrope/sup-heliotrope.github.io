@@ -1,0 +1,163 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] sup&#45;server revisited -->
+<!--X-From-R13: Freb Fvyhf <grebNgvyhf.arg> -->
+<!--X-Date: Tue, 22 Feb 2011 12:33:27 &#45;0800 (PST) -->
+<!--X-Message-Id: 1298400274&#45;sup&#45;4941@tilus.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1298320404&#45;sup&#45;5972@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] sup-server revisited</title>
+<link rev="made" href="mailto:tero@tilus.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00531.html">Date Prev</a>][<a href="msg00608.html">Date Next</a>][<a href="msg00734.html">Thread Prev</a>][<a href="msg00608.html">Thread Next</a>][<a href="maillist.html#00463">Date Index</a>][<a href="threads.html#00463">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] sup-server revisited</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup developers &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] sup-server revisited</li>
+<li><em>From</em>: Tero Tilus &lt;<a href="mailto:tero%40tilus.net">tero@tilus.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 22 Feb 2011 22:17:04 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00512.html">1298320404-sup-5972@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00512.html">1298320404-sup-5972@masanjin.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>William Morgan, 2011-02-21 23:02:
+&gt; I have been making a lot of
+&gt; progress in a short amount of time.
+
+Cool!  I'm thrilled.  \o/
+
+&gt; - Precompute threads, so that search requires only moderate effort,
+&gt;   instead of the large effort it does now. This will make search
+&gt;   much, much faster, at the expense of a little more effort at index
+&gt;   time.
+
+I guess this offers the possibility to add threading to &quot;external
+state&quot; of messages, together with labels.  I'd do a whole a lot of
+more prune'n'crafting with my threads if there only was more
+comfortable interface to doing it (admit it, been too lazy to
+implement it in sup).
+
+Do you have considerations wrt to programmatical thread browsing and
+editing API?  Something I've thought of, on the top of my head.
+
+first_msg
+|-- second_msg
+|-- third_msg
+|   `-- fifth_msg
+`-- fourth_msg
+
+sixth_msg
+`-- seventh_msg
+
+thread = Thread.find :second
+subthread = thread.find { |msg| msg == :third_msg }.prune!
+Message.find(:sixth_msg).craft! subthread
+
+first
+|-- second
+`-- fourth
+
+sixth
+|-- third
+|   `-- fifth
+`-- seventh
+
+&gt; - Allow concurrent access from multiple clients.
+
+Since the first post on sup-server I've been nurturing the idea of
+&quot;fat&quot; sup-client for maemo/meego.
+
+&gt; - Borrow as much code as possible from the current Sup, because I
+&gt;   sure as shit don't want to have to rewrite it all.
+
+Would it be time to go for <a  rel="nofollow" href="https://github.com/mikel/mail">https://github.com/mikel/mail</a> now?  It
+would be supported and actively developed and I really like the API.
+As a downside, depending on activesupport pulls in a whole a lot of
+fluff and using treetop may suggest that parsing might hog a little
+more cpu and memory than is absolutely necessary.
+
+Who would give us bindings to GMime and wrap it inside Mail API...
+
+-- 
+Tero Tilus ## 050 3635 235 ## <a  rel="nofollow" href="http://tero.tilus.net/">http://tero.tilus.net/</a>
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00608" href="msg00608.html">Re: [sup-devel] sup-server revisited</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00512" href="msg00512.html">[sup-devel] sup-server revisited</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00531.html">Re: [sup-devel] sup-server revisited</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00608.html">Re: [sup-devel] sup-server revisited</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00734.html">Re: [sup-devel] sup-server revisited</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00608.html">Re: [sup-devel] sup-server revisited</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00463"><strong>Date</strong></a></li>
+<li><a href="threads.html#00463"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

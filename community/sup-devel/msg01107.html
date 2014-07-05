@@ -1,0 +1,147 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Fwd: [PATCH] prefer To and Cc adresses of accounts on	reply -->
+<!--X-From-R13: [vpunry Egncryoret <zvpunry+fhcNfgncryoret.qr> -->
+<!--X-Date: Thu, 7 Oct 2010 02:32:22 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1286443847&#45;sup&#45;5609@midna.zekjur.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Fwd: [PATCH] prefer To and Cc adresses of accounts on	reply</title>
+<link rev="made" href="mailto:michael+sup@stapelberg.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00934.html">Date Prev</a>][<a href="msg00879.html">Date Next</a>][<a href="msg00975.html">Thread Prev</a>][<a href="msg00824.html">Thread Next</a>][<a href="maillist.html#01107">Date Index</a>][<a href="threads.html#01107">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Fwd: [PATCH] prefer To and Cc adresses of accounts on	reply</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] Fwd: [PATCH] prefer To and Cc adresses of accounts on	reply</li>
+<li><em>From</em>: Michael Stapelberg &lt;<a href="mailto:michael%2Bsup%40stapelberg.de">michael+sup@stapelberg.de</a>&gt;</li>
+<li><em>Date</em>: Thu, 07 Oct 2010 11:32:11 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi,
+
+as you didn&#x2019;t CC rich, I am forwarding this message again.
+
+--- Begin forwarded message from Gaudenz Steinlin ---
+From: Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;
+To: sup-devel &lt;sup-devel@rubyforge.org&gt;
+Date: Thu, 07 Oct 2010 11:05:30 +0200
+Subject: [sup-devel] [PATCH] prefer To and Cc adresses of accounts on reply
+
+Resending this on Rich's request.
+
+If a message was sent (To or Cc header) to an address which corresponds
+to an account prefer this account over the account corresponding to the
+address in recipient_email.
+
+This solves the problem that the wrong reply from address is chosen on
+mails which are sent to an account which is forwarded to another account.
+---
+ lib/sup/modes/reply-mode.rb |   15 ++++++---------
+ 1 files changed, 6 insertions(+), 9 deletions(-)
+
+diff --git a/lib/sup/modes/reply-mode.rb b/lib/sup/modes/reply-mode.rb
+index bbac922..d80f35b 100644
+--- a/lib/sup/modes/reply-mode.rb
++++ b/lib/sup/modes/reply-mode.rb
+@@ -65,18 +65,15 @@ EOS
+     ## if we have a value from a hook, use it.
+     from = if hook_reply_from
+       hook_reply_from
+-    ## otherwise, if the original email had an envelope-to header, try and use
+-    ## it, and look up the corresponding name form the list of accounts.
+-    ##
++    ## otherwise, try and find an account somewhere in the list of to's
++    ## and cc's and look up the corresponding name form the list of accounts.
++    ## if this does not succeed use the recipient_email (=envelope-to) instead.
+     ## this is for the case where mail is received from a mailing lists (so the
+     ## To: is the list id itself). if the user subscribes via a particular
+     ## alias, we want to use that alias in the reply.
+-    elsif @m.recipient_email &amp;&amp; (a = AccountManager.account_for(@m.recipient_email))
+-      Person.new a.name, @m.recipient_email
+-    ## otherwise, try and find an account somewhere in the list of to's
+-    ## and cc's.
+-    elsif(b = (@m.to + @m.cc).find { |p| AccountManager.is_account? p })
+-      b
++    elsif(b = (@m.to.collect {|t| t.email} + @m.cc.collect {|c| c.email} + [@m.recipient_email] ).find { |p| AccountManager.is_account_email? p })
++      a = AccountManager.account_for(b)
++      Person.new a.name, b
+     ## if all else fails, use the default
+     else
+       AccountManager.default_account
+--- End forwarded message ---
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00824" href="msg00824.html">Re: [sup-devel] Fwd: [PATCH] prefer To and Cc adresses of accounts	on reply</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00934.html">[sup-devel] [PATCH] prefer To and Cc adresses of accounts on reply</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00879.html">[PATCHES] resubmitted: Squash of various UTF-8 fixes for ruby 1.9 compatability, and update status on jump.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00975.html">Re: [sup-devel] my list subscription is broken</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00824.html">Re: [sup-devel] Fwd: [PATCH] prefer To and Cc adresses of accounts	on reply</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01107"><strong>Date</strong></a></li>
+<li><a href="threads.html#01107"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

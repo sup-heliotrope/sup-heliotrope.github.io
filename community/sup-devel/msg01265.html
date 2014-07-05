@@ -1,0 +1,128 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] [issue44] cursor sticks to thread -->
+<!--X-From-R13: Sevp Eurezna <ulcreobyvfgNtznvy.pbz> -->
+<!--X-Date: Tue, 12 Jan 2010 12:12:16 &#45;0800 (PST) -->
+<!--X-Message-Id: 1263327054&#45;sup&#45;3431@changeling.local -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] [issue44] cursor sticks to thread</title>
+<link rev="made" href="mailto:hyperbolist@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01307.html">Date Prev</a>][<a href="msg01385.html">Date Next</a>][<a href="msg01156.html">Thread Prev</a>][<a href="msg01385.html">Thread Next</a>][<a href="maillist.html#01265">Date Index</a>][<a href="threads.html#01265">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] [issue44] cursor sticks to thread</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [PATCH] [issue44] cursor sticks to thread</li>
+<li><em>From</em>: Eric Sherman &lt;<a href="mailto:hyperbolist%40gmail.com">hyperbolist@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 12 Jan 2010 15:12:04 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:date:message-id:user-agent:content-transfer-encoding;	bh=goTXpXu4Y8rqir9DHUJ2TdkCmP5p4BlHevnDzia5DZw=;	b=dOIA6PwmbZBvbZTywDuoZxwii/bQxSPddncH+Q3849YaKAQVtVA4sfmEw7HAlligl7	HQFOt1gJwQPedVwPASt2+PBkrpx/kPkmTYzA5jQJ1f213UwusgzUUSxdPwU5vWALnFZ0	bNC0QkFRzNczHYQfnFg4dN/8VHeS1wnC98yFk=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=JBm1QNIEDOuD8eqKsV+wnzApujy8Gm3GByYPhBFT+hwTQRFINSLOu47/+2xRWC1SAS	7LazTSJ3KsNzq5Hy+Ck0XYpwHNtsA8SPluYwvCdLHrjUka6ME9WNrZE6wiC8F36sOd1b	pidrSmTUJK0ACjQsmOW7Qm3eV6gU/OLGxou88=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>The cursor will track the thread it is on when that thread is moved up
+or down on the screen as threads are added or removed from the view.
+---
+ lib/sup/modes/thread-index-mode.rb |    9 +++++++++
+ 1 files changed, 9 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index a5bd344..9e70ec8 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -219,6 +219,10 @@ EOS
+   end
+ 
+   def update
++    ## remember the thread we are on and where the cursor is before we update
++    old_cursor_thread = cursor_thread
++    old_cursor_position = curpos
++
+     @mutex.synchronize do
+       ## let's see you do THIS in python
+       @threads = @ts.threads.select { |t| !@hidden_threads[t] }.sort_by { |t| [t.date, t.first.id] }.reverse
+@@ -226,6 +230,11 @@ EOS
+       @size_widget_width = @size_widgets.max_of { |w| w.display_length }
+     end
+ 
++    ## if the thread moved on screen, move the cursor to its new position
++    new_cursor_position = @threads.index(old_cursor_thread)||0
++    (old_cursor_position..(new_cursor_position-1)).each { |x| cursor_down }
++    (new_cursor_position..(old_cursor_position-1)).each { |x| cursor_up }
++
+     regen_text
+   end
+ 
+-- 
+1.6.6
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01307.html">[sup-devel] [PATCHv3] [issue14] poll updates accumulate while idle</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01385.html">[sup-devel] [PATCHv2] [issue44] cursor sticks to thread</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01156.html">Re: [sup-devel] [PATCH] call index.load in sup-add</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01385.html">[sup-devel] [PATCHv2] [issue44] cursor sticks to thread</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01265"><strong>Date</strong></a></li>
+<li><a href="threads.html#01265"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

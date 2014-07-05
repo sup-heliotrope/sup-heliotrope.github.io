@@ -1,0 +1,139 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] Explicitly specify signature hashing algorithm -->
+<!--X-From-R13: Unhqram Egrvayva <tnhqramNfbmvbybtvr.pu> -->
+<!--X-Date: Thu, 7 Oct 2010 11:00:48 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1286473693&#45;sup&#45;8792@meteor.durcheinandertal.local -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: pgpmoqt2DT1Jp.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] Explicitly specify signature hashing algorithm</title>
+<link rev="made" href="mailto:gaudenz@soziologie.ch">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00824.html">Date Prev</a>][<a href="msg01127.html">Date Next</a>][<a href="msg00699.html">Thread Prev</a>][<a href="msg01093.html">Thread Next</a>][<a href="maillist.html#00919">Date Index</a>][<a href="threads.html#00919">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] Explicitly specify signature hashing algorithm</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] Explicitly specify signature hashing algorithm</li>
+<li><em>From</em>: Gaudenz Steinlin &lt;<a href="mailto:gaudenz%40soziologie.ch">gaudenz@soziologie.ch</a>&gt;</li>
+<li><em>Date</em>: Thu, 07 Oct 2010 19:50:13 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Sup used to add a micalg=pgp-sha1 parameter in Content-Type header of a
+signed message, but used whatever the user had configured as his
+preferred hasing algorithm in gpg.conf. This lead to unverifiable
+signatures in some MUAs.
+
+This adds an explicit --digest-algo option to the gpg call to override
+any user configured setting. It also upgrades the algorithm to sha256 as
+sha1 is being phased out now.
+---
+ lib/sup/crypto.rb |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index 289fb0e..2bd5350 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -45,14 +45,14 @@ EOS
+ 
+     sig_fn = Tempfile.new &quot;redwood.signature&quot;; sig_fn.close
+ 
+-    message = run_gpg &quot;--output #{sig_fn.path} --yes --armor --detach-sign --textmode --local-user '#{from}' #{payload_fn.path}&quot;, :interactive =&gt; true
++    message = run_gpg &quot;--output #{sig_fn.path} --yes --armor --detach-sign --textmode --digest-algo sha256 --local-user '#{from}' #{payload_fn.path}&quot;, :interactive =&gt; true
+     unless $?.success?
+       info &quot;Error while running gpg: #{message}&quot;
+       raise Error, &quot;GPG command failed. See log for details.&quot;
+     end
+ 
+     envelope = RMail::Message.new
+-    envelope.header[&quot;Content-Type&quot;] = 'multipart/signed; protocol=application/pgp-signature; micalg=pgp-sha1'
++    envelope.header[&quot;Content-Type&quot;] = 'multipart/signed; protocol=application/pgp-signature; micalg=pgp-sha256'
+ 
+     envelope.add_part payload
+     signature = RMail::Message.make_attachment IO.read(sig_fn.path), &quot;application/pgp-signature&quot;, nil, &quot;signature.asc&quot;
+-- 
+1.7.1
+
+--
+Ever tried. Ever failed. No matter.
+Try again. Fail again. Fail better.
+~ Samuel Beckett ~
+</pre><p><strong>Attachment:
+<a href="pgpmoqt2DT1Jp.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01093" href="msg01093.html">Re: [sup-devel] [PATCH] Explicitly specify signature hashing	algorithm</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00824.html">Re: [sup-devel] Fwd: [PATCH] prefer To and Cc adresses of accounts	on reply</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01127.html">Re: [PATCHES] resubmitted: Squash of various UTF-8 fixes for ruby 1.9 compatability, and update status on jump.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00699.html">Re: [sup-devel]	[PATCH] Bugfix: Don&#x2019;t display thread participants twice</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01093.html">Re: [sup-devel] [PATCH] Explicitly specify signature hashing	algorithm</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00919"><strong>Date</strong></a></li>
+<li><a href="threads.html#00919"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

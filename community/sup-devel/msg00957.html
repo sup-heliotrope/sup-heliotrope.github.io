@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue114] Better quoted&#45;text / top&#45;post stripping -->
+<!--X-From-R13: nabalzbhf <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Wed, 4 Aug 2010 05:31:26 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1280925073.15.0.143313290118.issue114@masanjin.net -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 1280925073.15.0.143313290118.issue114@masanjin.net -->
+<!--X-Derived: binZBRlfqymRf.bin -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue114] Better quoted-text / top-post stripping</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00986.html">Date Prev</a>][<a href="msg00945.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#00957">Date Index</a>][<a href="threads.html#00957">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue114] Better quoted-text / top-post stripping</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue114] Better quoted-text / top-post stripping</li>
+<li><em>From</em>: anonymous &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 04 Aug 2010 12:31:13 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00957.html">1280925073.15.0.143313290118.issue114@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from anonymous:
+
+Redwood::Message splits a message into chunks and hides quoted text from a
+previous message.
+
+Top-posted responses are supported with BLOCK_QUOTE_PATTERN.  This patch i) adds
+a new pattern to hide top-posted text from Microsoft Entourage, ii) adds a fix
+for Mozilla-based mail users who top post and iii) adds a new array-based config
+option &quot;block_quote_patterns&quot; for adding additional patterns to treat as marking
+the top of a top-posted response.
+
+----------
+files: patch.better-top-post-stripping
+messages: 261
+nosy: anonymous
+priority: feature request
+ruby_version: 1.8.7
+status: unread
+sup_version: 0.11
+title: Better quoted-text / top-post stripping
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue114">http://masanjin.net/sup-bugs/issue114</a>&gt;
+_________________________________________</pre><p><strong>Attachment:
+<a href="binZBRlfqymRf.bin" ><tt>patch.better-top-post-stripping</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+<pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00957" href="msg00957.html">[sup-devel] [issue114] Better quoted-text / top-post stripping</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="00945" href="msg00945.html">Re: [sup-devel] [issue114] Better quoted-text / top-post stripping</a></strong>
+<ul><li><em>From:</em> Alvaro Herrera &lt;alvherre@alvh.no-ip.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00957" href="msg00957.html">[sup-devel] [issue114] Better quoted-text / top-post stripping</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00986.html">[sup-devel] Label colors support</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00945.html">Re: [sup-devel] [issue114] Better quoted-text / top-post stripping</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00957"><strong>Date</strong></a></li>
+<li><a href="threads.html#00957"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

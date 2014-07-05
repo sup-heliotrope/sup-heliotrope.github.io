@@ -1,0 +1,111 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Security advisory, releases 0.13.2.1 and 0.14.1.1 -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Tue, 29 Oct 2013 03:56:11 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1383043976&#45;sup&#45;2451@qwerzila -->
+<!--X-Content-Type: multipart/signed -->
+<!--X-Derived: pgp7GwUMom3aY.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Security advisory, releases 0.13.2.1 and 0.14.1.1</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00270.html">Date Prev</a>][<a href="msg00280.html">Date Next</a>][<a href="msg00270.html">Thread Prev</a>][<a href="msg00280.html">Thread Next</a>][<a href="maillist.html#00293">Date Index</a>][<a href="threads.html#00293">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Security advisory, releases 0.13.2.1 and 0.14.1.1</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;, sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Security advisory, releases 0.13.2.1 and 0.14.1.1</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 29 Oct 2013 11:54:58 +0100</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Greetings,
+
+Security advisory (#SBU1) for Sup
+
+We have been notified of an potential exploit in the somewhat careless
+way Sup treats attachment metadata in received e-mails. The issues
+should now be fixed and I have released Sup 0.13.2.1 and 0.14.1.1 which
+incorporates these fixes. Please upgrade immediately and also ensure
+that your mime-decode or mime-view hooks are secure [0], [1].
+
+This is specifically related to using quotes (',&quot;) around filename or
+content_type which is already escaped using Ruby Shellwords.escape -
+this means that the string (content_type, filename) is intended to be
+used _without_ any further quotes. Please make sure that if you use
+.mailcap (non OSX systems), you do not quote the string.
+
+Credit goes to: joernchen of Phenoelit (<a  rel="nofollow" href="http://phenoelit.de">http://phenoelit.de</a>) who
+discovered and suggested fixes for these issues.
+
+[0] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Viewing-Attachments">https://github.com/sup-heliotrope/sup/wiki/Viewing-Attachments</a>
+[1] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Secure-usage-of-Sup">https://github.com/sup-heliotrope/sup/wiki/Secure-usage-of-Sup</a>
+
+You can use 'gem' to upgrade or install sup. Please report any issues
+to: <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/issues">https://github.com/sup-heliotrope/sup/issues</a>
+
+Regards, Gaute
+
+</pre><p><strong>Attachment:
+<a href="pgp7GwUMom3aY.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00280" href="msg00280.html">Re: Security advisory, releases 0.13.2.1 and 0.14.1.1</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00270.html">Release 0.14.1</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00280.html">Re: Security advisory, releases 0.13.2.1 and 0.14.1.1</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00270.html">Release 0.14.1</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00280.html">Re: Security advisory, releases 0.13.2.1 and 0.14.1.1</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00293"><strong>Date</strong></a></li>
+<li><a href="threads.html#00293"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Crash,	getting "wrong id on nil" when loading new messages -->
+<!--X-From-R13: Sevp Ureynpu <revp+fhc&#45;qriryNtreynpu.pn> -->
+<!--X-Date: Tue, 20 Jul 2010 12:31:17 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1279653097&#45;sup&#45;8302@gerlach.ca -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Crash,	getting &quot;wrong id on nil&quot; when loading new messages</title>
+<link rev="made" href="mailto:eric+sup-devel@gerlach.ca">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01028.html">Date Prev</a>][<a href="msg00885.html">Date Next</a>][<a href="msg00999.html">Thread Prev</a>][<a href="msg00885.html">Thread Next</a>][<a href="maillist.html#00897">Date Index</a>][<a href="threads.html#00897">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Crash,	getting &quot;wrong id on nil&quot; when loading new messages</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] Crash,	getting &quot;wrong id on nil&quot; when loading new messages</li>
+<li><em>From</em>: Eric Gerlach &lt;<a href="mailto:eric%2Bsup-devel%40gerlach.ca">eric+sup-devel@gerlach.ca</a>&gt;</li>
+<li><em>Date</em>: Tue, 20 Jul 2010 15:15:40 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/0.11</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I get the following crash when loading more messages (at a certain
+point).  I've created an issue for it (111), but I'd like some help
+debugging this further.  I'm pretty sure it's caused by some sort of
+problematic message in my Maildir, but I don't know which one.  I'm
+pretty good with Ruby, but not so much with the sup codebase.
+
+I've traced it down to ThreadIndexMode#update, particularly the part
+where it calls t.first.id.  I've used ruby-debug to be able to isolate
+the particular thread, and the thread has no children, but then I don't
+quite know what to do from there.  How can I trace a thread object back
+to its origins?
+
+Help?
+
+Cheers,
+
+Eric
+
+wrong id called on nil
+/var/lib/gems/1.8/gems/sup-0.11/lib/sup.rb:19:in `id'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:226:in `update'
+/var/lib/gems/1.8/gems/sup-0.11/lib/sup/hook.rb:55:in `sort_by'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:226:in `each'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:226:in `sort_by'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:226:in `update'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:224:in `synchronize'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:224:in `update'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:642:in
+`__unprotected_load_n_threads'
+(eval):12:in `load_n_threads'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:614:in
+`load_n_threads_background'
+/var/lib/gems/1.8/gems/sup-0.11/lib/sup.rb:74:in `reporting_thread'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:613:in
+`load_n_threads_background'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:684:in
+`__unprotected_load_threads'
+(eval):12:in `load_threads'
+/var/lib/gems/1.8/gems/sup-0.11/lib/sup/mode.rb:59:in `send'
+/var/lib/gems/1.8/gems/sup-0.11/lib/sup/mode.rb:59:in `handle_input'
+/var/lib/gems/1.8/gems/sup-0.11/lib/sup/buffer.rb:279:in `handle_input'
+/var/lib/gems/1.8/gems/sup-0.11/bin/sup:279
+/var/lib/gems/1.8/bin/sup:19:in `load'
+/var/lib/gems/1.8/bin/sup:19
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00885" href="msg00885.html">Re: [sup-devel] Crash,	getting &quot;wrong id on nil&quot; when loading new messages</a></strong>
+<ul><li><em>From:</em> Ben Walton &lt;bwalton@artsci.utoronto.ca&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01028.html">[sup-devel] [issue111] wrong id called on nil</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00885.html">Re: [sup-devel] Crash,	getting &quot;wrong id on nil&quot; when loading new messages</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00999.html">[sup-devel] (REVIEW NEEDED) [PATCH] Recode attachments to UTF-8	when forwarding</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00885.html">Re: [sup-devel] Crash,	getting &quot;wrong id on nil&quot; when loading new messages</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00897"><strong>Date</strong></a></li>
+<li><a href="threads.html#00897"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

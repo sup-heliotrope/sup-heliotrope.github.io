@@ -1,0 +1,41 @@
+From bf86e61b22783776e8b9df4f31c59157f3222af1 Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Sat, 5 Jun 2010 00:13:54 +0200
+Subject: [PATCH] Decode messages according to their Content-Transfer-Encoding
+
+This is necessary for MIME-messages (for example as part of multipart/signed)
+which are encoded in base64.
+---
+ lib/sup/message.rb |   15 ++++++++++++++-
+ 1 files changed, 14 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/message.rb b/lib/sup/message.rb
+index 396f01a..b70bc6b 100644
+--- a/lib/sup/message.rb
++++ b/lib/sup/message.rb
+@@ -459,8 +459,21 @@ private
+ 
+       chunks
+     elsif m.header.content_type && m.header.content_type.downcase == "message/rfc822"
++      encoding = m.header["Content-Transfer-Encoding"]
+       if m.body
+-        payload = RMail::Parser.read(m.body)
++        body =
++        case encoding
++        when "base64"
++          m.body.unpack("m")[0]
++        when "quoted-printable"
++          m.body.unpack("M")[0]
++        when "7bit", "8bit", nil
++          m.body
++        else
++          raise EncodingUnsupportedError, encoding.inspect
++        end
++        body = body.normalize_whitespace
++        payload = RMail::Parser.read(body)
+         from = payload.header.from.first ? payload.header.from.first.format : ""
+         to = payload.header.to.map { |p| p.format }.join(", ")
+         cc = payload.header.cc.map { |p| p.format }.join(", ")
+-- 
+1.7.1
+

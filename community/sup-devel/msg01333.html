@@ -1,0 +1,134 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] What's your workflow? -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Tue, 29 Dec 2009 12:43:22 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262118710&#45;sup&#45;1729@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1262114695&#45;sup&#45;9446@tilus.net -->
+<!--X-Reference: 1262116690&#45;sup&#45;8655@masanjin.net -->
+<!--X-Reference: 1262117270&#45;sup&#45;1009@tilus.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] What's your workflow?</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01291.html">Date Prev</a>][<a href="msg01402.html">Date Next</a>][<a href="msg01291.html">Thread Prev</a>][<a href="msg01257.html">Thread Next</a>][<a href="maillist.html#01333">Date Index</a>][<a href="threads.html#01333">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] What's your workflow?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] What's your workflow?</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 29 Dec 2009 12:43:15 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01291.html">1262117270-sup-1009@tilus.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01409.html">1262114695-sup-9446@tilus.net</a>&gt; &lt;<a href="msg01419.html">1262116690-sup-8655@masanjin.net</a>&gt;	&lt;<a href="msg01291.html">1262117270-sup-1009@tilus.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Reformatted excerpts from Tero Tilus's message of 2009-12-29:
+&gt; Wiki page just doesn't say anything on how to have your own daily-sup
+&gt; branch (master or next + a set of own and others' patches) and how to
+&gt; keep that up-to-date with upstream while your develop your own patches
+&gt; (which are supposed to live in topic branches).
+
+You should be able to make a daily-sup branch off of (say) next, apply
+all your patches, and whenever next changes and you want to update,
+rebase like so:
+
+$ git checkout next
+$ git pull
+$ git checkout daily-sup
+$ git rebase next
+
+If you have feature branches merged into daily-sup, I think you need to
+use `git rebase -p next` to get it to recreate those merges. But I've
+never gotten that complex.
+
+(You could also just merge in next each time, which might be easier.
+Rebase has the advantage of keeping your patch set up to date with the
+remote branch, though, which might be nice if you decide to publish
+them.)
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01257" href="msg01257.html">Re: [sup-devel] What's your workflow?</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01409" href="msg01409.html">[sup-devel] What's your workflow?</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+<li><strong><a name="01419" href="msg01419.html">Re: [sup-devel] What's your workflow?</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01291" href="msg01291.html">Re: [sup-devel] What's your workflow?</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01291.html">Re: [sup-devel] What's your workflow?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01402.html">Re: [sup-devel] What's your workflow?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01291.html">Re: [sup-devel] What's your workflow?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01257.html">Re: [sup-devel] What's your workflow?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01333"><strong>Date</strong></a></li>
+<li><a href="threads.html#01333"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

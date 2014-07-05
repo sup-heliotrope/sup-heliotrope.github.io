@@ -1,0 +1,242 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] fix handling of multiple label: terms in search -->
+<!--X-From-R13: Enfpun Evyor <fnfpun&#45;ctcNfvyor.bet> -->
+<!--X-Date: Wed, 29 Sep 2010 07:26:25 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1285769762&#45;15823&#45;1&#45;git&#45;send&#45;email&#45;sascha&#45;pgp@silbe.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] fix handling of multiple label: terms in search</title>
+<link rev="made" href="mailto:sascha-pgp@silbe.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00924.html">Date Prev</a>][<a href="msg01067.html">Date Next</a>][<a href="msg00629.html">Thread Prev</a>][<a href="msg01067.html">Thread Next</a>][<a href="maillist.html#00907">Date Index</a>][<a href="threads.html#00907">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] fix handling of multiple label: terms in search</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [PATCH] fix handling of multiple label: terms in search</li>
+<li><em>From</em>: Sascha Silbe &lt;<a href="mailto:sascha-pgp%40silbe.org">sascha-pgp@silbe.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 29 Sep 2010 16:16:02 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Mail-followup-to</em>: &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Reply-to</em>: Sascha Silbe &lt;<a href="mailto:sascha-ml-reply-to-2010-3%40silbe.org">sascha-ml-reply-to-2010-3@silbe.org</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>By default Xapian will join query terms with the same prefix with OR instead
+of AND, so searching for multiple labels doesn't return the expected results.
+By making use of a parameter to add_boolean_prefix (added in Xapian 1.2) we
+can tell Xapian to use OR only for the search terms that are guaranteed to be
+unique.
+
+Signed-off-by: Sascha Silbe &lt;sascha-pgp@silbe.org&gt;
+---
+ lib/sup/index.rb |   74 +++++++++++++++++++++++++++---------------------------
+ 1 files changed, 37 insertions(+), 37 deletions(-)
+
+Tested on Debian Squeeze with Ruby 1.8.7.302 and Xapian 1.2.3.
+
+diff --git a/lib/sup/index.rb b/lib/sup/index.rb
+index 9273f18..a72bec6 100644
+--- a/lib/sup/index.rb
++++ b/lib/sup/index.rb
+@@ -419,8 +419,8 @@ EOS
+     qp.stemming_strategy = Xapian::QueryParser::STEM_SOME
+     qp.default_op = Xapian::Query::OP_AND
+     qp.add_valuerangeprocessor(Xapian::NumberValueRangeProcessor.new(DATE_VALUENO, 'date:', true))
+-    NORMAL_PREFIX.each { |k,vs| vs.each { |v| qp.add_prefix k, v } }
+-    BOOLEAN_PREFIX.each { |k,vs| vs.each { |v| qp.add_boolean_prefix k, v } }
++    NORMAL_PREFIX.each { |k,info| info[:prefix].each { |v| qp.add_prefix k, v } }
++    BOOLEAN_PREFIX.each { |k,info| info[:prefix].each { |v| qp.add_boolean_prefix k, v, info[:exclusive] } }
+
+     begin
+       xapian_query = qp.parse_query(subs, Xapian::QueryParser::FLAG_PHRASE|Xapian::QueryParser::FLAG_BOOLEAN|Xapian::QueryParser::FLAG_LOVEHATE|Xapian::QueryParser::FLAG_WILDCARD)
+@@ -471,31 +471,31 @@ EOS
+
+   # Stemmed
+   NORMAL_PREFIX = {
+-    'subject' =&gt; 'S',
+-    'body' =&gt; 'B',
+-    'from_name' =&gt; 'FN',
+-    'to_name' =&gt; 'TN',
+-    'name' =&gt; %w(FN TN),
+-    'attachment' =&gt; 'A',
+-    'email_text' =&gt; 'E',
+-    '' =&gt; %w(S B FN TN A E),
++    'subject' =&gt; {:prefix =&gt; 'S', :exclusive =&gt; false},
++    'body' =&gt; {:prefix =&gt; 'B', :exclusive =&gt; false},
++    'from_name' =&gt; {:prefix =&gt; 'FN', :exclusive =&gt; false},
++    'to_name' =&gt; {:prefix =&gt; 'TN', :exclusive =&gt; false},
++    'name' =&gt; {:prefix =&gt; %w(FN TN), :exclusive =&gt; false},
++    'attachment' =&gt; {:prefix =&gt; 'A', :exclusive =&gt; false},
++    'email_text' =&gt; {:prefix =&gt; 'E', :exclusive =&gt; false},
++    '' =&gt; {:prefix =&gt; %w(S B FN TN A E), :exclusive =&gt; false},
+   }
+
+   # Unstemmed
+   BOOLEAN_PREFIX = {
+-    'type' =&gt; 'K',
+-    'from_email' =&gt; 'FE',
+-    'to_email' =&gt; 'TE',
+-    'email' =&gt; %w(FE TE),
+-    'date' =&gt; 'D',
+-    'label' =&gt; 'L',
+-    'source_id' =&gt; 'I',
+-    'attachment_extension' =&gt; 'O',
+-    'msgid' =&gt; 'Q',
+-    'id' =&gt; 'Q',
+-    'thread' =&gt; 'H',
+-    'ref' =&gt; 'R',
+-    'location' =&gt; 'J',
++    'type' =&gt; {:prefix =&gt; 'K', :exclusive =&gt; true},
++    'from_email' =&gt; {:prefix =&gt; 'FE', :exclusive =&gt; false},
++    'to_email' =&gt; {:prefix =&gt; 'TE', :exclusive =&gt; false},
++    'email' =&gt; {:prefix =&gt; %w(FE TE), :exclusive =&gt; false},
++    'date' =&gt; {:prefix =&gt; 'D', :exclusive =&gt; true},
++    'label' =&gt; {:prefix =&gt; 'L', :exclusive =&gt; false},
++    'source_id' =&gt; {:prefix =&gt; 'I', :exclusive =&gt; true},
++    'attachment_extension' =&gt; {:prefix =&gt; 'O', :exclusive =&gt; false},
++    'msgid' =&gt; {:prefix =&gt; 'Q', :exclusive =&gt; true},
++    'id' =&gt; {:prefix =&gt; 'Q', :exclusive =&gt; true},
++    'thread' =&gt; {:prefix =&gt; 'H', :exclusive =&gt; false},
++    'ref' =&gt; {:prefix =&gt; 'R', :exclusive =&gt; false},
++    'location' =&gt; {:prefix =&gt; 'J', :exclusive =&gt; false},
+   }
+
+   PREFIX = NORMAL_PREFIX.merge BOOLEAN_PREFIX
+@@ -661,8 +661,8 @@ EOS
+     # Person names are indexed with several prefixes
+     person_termer = lambda do |d|
+       lambda do |p|
+-        doc.index_text p.name, PREFIX[&quot;#{d}_name&quot;] if p.name
+-        doc.index_text p.email, PREFIX['email_text']
++        doc.index_text p.name, PREFIX[&quot;#{d}_name&quot;][:prefix] if p.name
++        doc.index_text p.email, PREFIX['email_text'][:prefix]
+         doc.add_term mkterm(:email, d, p.email)
+       end
+     end
+@@ -673,9 +673,9 @@ EOS
+     # Full text search content
+     subject_text = m.indexable_subject
+     body_text = m.indexable_body
+-    doc.index_text subject_text, PREFIX['subject']
+-    doc.index_text body_text, PREFIX['body']
+-    m.attachments.each { |a| doc.index_text a, PREFIX['attachment'] }
++    doc.index_text subject_text, PREFIX['subject'][:prefix]
++    doc.index_text body_text, PREFIX['body'][:prefix]
++    m.attachments.each { |a| doc.index_text a, PREFIX['attachment'][:prefix] }
+
+     # Miscellaneous terms
+     doc.add_term mkterm(:date, m.date) if m.date
+@@ -753,25 +753,25 @@ EOS
+   def mkterm type, *args
+     case type
+     when :label
+-      PREFIX['label'] + args[0].to_s.downcase
++      PREFIX['label'][:prefix] + args[0].to_s.downcase
+     when :type
+-      PREFIX['type'] + args[0].to_s.downcase
++      PREFIX['type'][:prefix] + args[0].to_s.downcase
+     when :date
+-      PREFIX['date'] + args[0].getutc.strftime(&quot;%Y%m%d%H%M%S&quot;)
++      PREFIX['date'][:prefix] + args[0].getutc.strftime(&quot;%Y%m%d%H%M%S&quot;)
+     when :email
+       case args[0]
+-      when :from then PREFIX['from_email']
+-      when :to then PREFIX['to_email']
++      when :from then PREFIX['from_email'][:prefix]
++      when :to then PREFIX['to_email'][:prefix]
+       else raise &quot;Invalid email term type #{args[0]}&quot;
+       end + args[1].to_s.downcase
+     when :source_id
+-      PREFIX['source_id'] + args[0].to_s.downcase
++      PREFIX['source_id'][:prefix] + args[0].to_s.downcase
+     when :location
+-      PREFIX['location'] + [args[0]].pack('n') + args[1].to_s
++      PREFIX['location'][:prefix] + [args[0]].pack('n') + args[1].to_s
+     when :attachment_extension
+-      PREFIX['attachment_extension'] + args[0].to_s.downcase
++      PREFIX['attachment_extension'][:prefix] + args[0].to_s.downcase
+     when :msgid, :ref, :thread
+-      PREFIX[type.to_s] + args[0][0...(MAX_TERM_LENGTH-1)]
++      PREFIX[type.to_s][:prefix] + args[0][0...(MAX_TERM_LENGTH-1)]
+     else
+       raise &quot;Invalid term type #{type}&quot;
+     end
+--
+1.7.1
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01067" href="msg01067.html">Re: [sup-devel] [PATCH] fix handling of multiple label: terms in	search</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+<li><strong><a name="00432" href="msg00432.html">Re: [sup-devel] [PATCH] fix handling of multiple label: terms in	search</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="00739" href="msg00739.html">Re: [sup-devel] [PATCH] fix handling of multiple label: terms in	search</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00924.html">[sup-devel] [PATCH] add sendmail hook</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01067.html">Re: [sup-devel] [PATCH] fix handling of multiple label: terms in	search</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00629.html">Re: [sup-devel] [PATCH] add sendmail hook</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01067.html">Re: [sup-devel] [PATCH] fix handling of multiple label: terms in	search</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00907"><strong>Date</strong></a></li>
+<li><a href="threads.html#00907"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

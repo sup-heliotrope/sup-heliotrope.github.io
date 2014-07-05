@@ -1,0 +1,119 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCHv3] [issue14] poll updates accumulate while	idle -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Thu, 14 Jan 2010 06:16:03 &#45;0800 (PST) -->
+<!--X-Message-Id: 1263478428&#45;sup&#45;8860@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1262607214&#45;sup&#45;4535@changeling.local -->
+<!--X-Reference: 1263307713&#45;sup&#45;7005@changeling.local -->
+<!--X-Reference: 1263308149&#45;sup&#45;5426@changeling.local -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCHv3] [issue14] poll updates accumulate while	idle</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01156.html">Date Prev</a>][<a href="msg01254.html">Date Next</a>][<a href="msg01307.html">Thread Prev</a>][<a href="msg01315.html">Thread Next</a>][<a href="maillist.html#01434">Date Index</a>][<a href="threads.html#01434">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCHv3] [issue14] poll updates accumulate while	idle</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCHv3] [issue14] poll updates accumulate while	idle</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 14 Jan 2010 09:15:57 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1263308149-sup-5426@changeling.local&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1262607214-sup-4535@changeling.local&gt;	&lt;1263307713-sup-7005@changeling.local&gt;	&lt;1263308149-sup-5426@changeling.local&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Reformatted excerpts from Eric Sherman's message of 2010-01-12:
+&gt; If you were to leave sup running for a long time, this patch would
+&gt; enable you to get a glance summary of new mail activity since sup was
+&gt; last touched, by letting the poll update message accumulate its totals
+&gt; while idle.
+
+I like this. My only request is that idle_threshold be a hard-coded
+constant in buffer.rb, since I'm trying to avoid config-bloat.
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01315" href="msg01315.html">Re: [sup-devel] [PATCHv3] [issue14] poll updates accumulate while	idle</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01380" href="msg01380.html">[sup-devel] [PATCHv2] [issue14] poll updates accumulate while idle</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01430" href="msg01430.html">Re: [sup-devel] [PATCHv2] [issue14] poll updates accumulate while	idle</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01307" href="msg01307.html">[sup-devel] [PATCHv3] [issue14] poll updates accumulate while idle</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01156.html">Re: [sup-devel] [PATCH] call index.load in sup-add</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01254.html">Re: [sup-devel] [PATCH] idle and unidle updates</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01307.html">[sup-devel] [PATCHv3] [issue14] poll updates accumulate while idle</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01315.html">Re: [sup-devel] [PATCHv3] [issue14] poll updates accumulate while	idle</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01434"><strong>Date</strong></a></li>
+<li><a href="threads.html#01434"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

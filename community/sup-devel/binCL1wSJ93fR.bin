@@ -1,0 +1,67 @@
+diff --git a/bin/heliotrope-server b/bin/heliotrope-server
+index ed032eb..4f5748b 100644
+--- a/bin/heliotrope-server
++++ b/bin/heliotrope-server
+@@ -133,7 +133,8 @@ class HeliotropeServer < Sinatra::Base
+     begin
+       message = raw_body_to_message rawbody
+       if @metaindex.contains_safe_msgid? message.safe_msgid
+-        { :response => :ok, :status => :seen }
++				doc_id = @metaindex.fetch_docid_for_safe_msgid message.safe_msgid
++        { :response => :ok, :status => :seen, :doc_id => doc_id }
+       else
+         if @hooks.enabled? "before-add-message"
+           message, labels, state = @hooks.run "before-add-message", :message => message, :labels => labels, :state => state
+diff --git a/lib/heliotrope-client.rb b/lib/heliotrope-client.rb
+index 5499735..ecc8604 100644
+--- a/lib/heliotrope-client.rb
++++ b/lib/heliotrope-client.rb
+@@ -38,6 +38,12 @@ class HeliotropeClient
+     post_json "message/send", :message => message, :labels => opts[:labels].to_json, :state => opts[:state].to_json
+   end
+ 
++  def add_message message, opts={}
++    opts[:labels] ||= []
++    opts[:state] ||= []
++    post_json "message", :message => message, :labels => opts[:labels].to_json, :state => opts[:state].to_json
++  end
++
+   def bounce_message message, opts={}
+     opts[:force_recipients] ||= []
+     post_json "message/bounce", :message => message, :force_recipients => opts[:force_recipients].to_json
+@@ -57,7 +63,9 @@ class HeliotropeClient
+   def info; get_json("info") end
+   def size; get_json("size")["size"] end
+ 
+-  def prune_labels!; post_json("labels/prune")["labels"] end
++  def prune_labels!
++		post_json("labels/prune")["labels"] 
++	end
+ 
+   def set_labels! thread_id, labels
+     post_json "thread/#{thread_id}/labels", :labels => labels.to_json
+@@ -95,7 +103,7 @@ private
+       raise Error, "invalid response: #{v.inspect[0..200]}" unless v.is_a?(Hash)
+       case v["response"]
+         when "ok"; v
+-        when "error"; raise Error, v["message"]
++        when "error"; raise Error, v.inspect
+         else raise Error, "invalid response: #{v.inspect[0..200]}"
+       end
+     rescue SystemCallError, RestClient::Exception, JSON::ParserError => e
+diff --git a/lib/heliotrope/meta-index.rb b/lib/heliotrope/meta-index.rb
+index 980ad5b..f68b88a 100644
+--- a/lib/heliotrope/meta-index.rb
++++ b/lib/heliotrope/meta-index.rb
+@@ -142,6 +142,11 @@ class MetaIndex
+     docid = load_int("rs2i/#{docid}") || docid
+   end
+ 
++	def fetch_docid_for_safe_msgid safe_msgid
++    load_int "docid/#{safe_msgid}"
++	end
++
++
+   def update_thread_state threadid, state
+     state = Set.new(state) & MESSAGE_MUTABLE_STATE
+ 

@@ -1,0 +1,143 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] heliotrope&#45;syncback -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Sun, 6 Nov 2011 22:59:33 &#45;0800 (PST) -->
+<!--X-Message-Id: 1320648596&#45;sup&#45;2551@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: CAMiZLn1tes53sJAdjzDmv+ntUvNNafPCChtOR9Uq7cnKaeOoQA@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] heliotrope-syncback</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00329.html">Date Prev</a>][<a href="msg00310.html">Date Next</a>][<a href="msg00329.html">Thread Prev</a>][<a href="msg00310.html">Thread Next</a>][<a href="maillist.html#00141">Date Index</a>][<a href="threads.html#00141">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] heliotrope-syncback</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] heliotrope-syncback</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 07 Nov 2011 06:57:19 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00329.html">CAMiZLn1tes53sJAdjzDmv+ntUvNNafPCChtOR9Uq7cnKaeOoQA@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00329.html">CAMiZLn1tes53sJAdjzDmv+ntUvNNafPCChtOR9Uq7cnKaeOoQA@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Matthieu,
+
+Reformatted excerpts from Matthieu Rakotojaona's message of 2011-11-02:
+&gt; I am playing around with heliotrope, and I've managed to writo a ruby
+&gt; script to sync changes you made there in your IMAP mailbox.
+
+Cool!
+
+&gt; When you
+&gt; send a mail with GMail, it is automatically added in GMail &quot;Sent&quot;
+&gt; mail, so I thought heliotrope could automagically thread it, but I
+&gt; haven't tested yet.
+
+That should work.
+
+&gt; The changes in thu imap folder happen like this :
+&gt; - search for a thread with the &quot;subject&quot; we are interested in
+
+This is problematic. Message subjects are definitely not unique. You
+should match up the Message-Id fields instead, if that's at all possible
+with IMAP.
+
+If it's not possible, well, IMAP does have a notion of a per-message
+ids, but it's fraught with difficulties...
+
+&gt; I don't know about how the threading happens in heliotrope, but I hope
+&gt; both are the same
+
+They will mostly be the same, but it's not guaranteed and you will see
+some differences.
+
+&gt; - I've heard the ruby IMAP lib is buggy; what is it exactly ?
+
+In my experience, I haven't found any large bugs, just hard-to-debug
+issues in the error-handling, and general slowness (though that is
+probably attributable to the IMAP protocol itself).
+
+Keep up the good work!
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00310" href="msg00310.html">Re: [sup-devel] heliotrope-syncback</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00329" href="msg00329.html">[sup-devel] heliotrope-syncback</a></strong>
+<ul><li><em>From:</em> Matthieu Rakotojaona &lt;matthieu.rakotojaona@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00329.html">[sup-devel] heliotrope-syncback</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00310.html">Re: [sup-devel] heliotrope-syncback</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00329.html">[sup-devel] heliotrope-syncback</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00310.html">Re: [sup-devel] heliotrope-syncback</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00141"><strong>Date</strong></a></li>
+<li><a href="threads.html#00141"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Query for largest msg_id? -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Sun, 15 May 2011 07:58:51 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1305471101&#45;sup&#45;6655@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: BANLkTi=bSNyp+8XFCRpYGojuM8Ub5PjB2A@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Query for largest msg_id?</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00384.html">Date Prev</a>][<a href="msg00102.html">Date Next</a>][<a href="msg00502.html">Thread Prev</a>][<a href="msg00126.html">Thread Next</a>][<a href="maillist.html#00313">Date Index</a>][<a href="threads.html#00313">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Query for largest msg_id?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Query for largest msg_id?</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 15 May 2011 15:01:41 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;BANLkTi=bSNyp+8XFCRpYGojuM8Ub5PjB2A@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;BANLkTi=bSNyp+8XFCRpYGojuM8Ub5PjB2A@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Reformatted excerpts from Horacio Sanson's message of 2011-05-10:
+&gt; Is there a way to query Heliotrope what is the largest msg_id
+&gt; currently in the index?
+
+Sort of---it's a hack, but if you search for e.g. &quot;a OR -a&quot; you'll get
+every message in the index, and the first result will be the message
+with the highest id thanks to Whistlepig's search semantics.
+
+&gt; I am trying to improve the imap-dumper.rb so
+&gt; it does not download all my emails every time but only the new ones.
+
+Sounds great. Unfortunately the Heliotrope message id and the IMAP
+message id / message uid are completely different things, and
+maintaining a cross-session mapping of them is impossible for generic
+IMAP servers, because the uid of every message can change every time you
+connect to an IMAP server---see the section on IMAP's 'uidvalidity'
+variable. So you'll have to rescan the inbox every time and rebuild the
+mapping. Welcome to hell.
+
+&gt; Also while looking at the code I see that messages are stored in the
+&gt; index using the msg_id as parsed by RMail. There is no further
+&gt; association with the source or mailbox from where the messages were
+&gt; downloaded. This I think may cause collisions if we use one Heliotrope
+&gt; server with more than one email account. Not sure what is the
+&gt; probability of two messages from two different IMAP servers having the
+&gt; same msg_id but nothing in the standard rules out that possibility.
+
+This is yet another id: the Message-Id header of the email. This is only
+needed to build up the thread structure and should otherwise be ignored.
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00126" href="msg00126.html">Re: [sup-devel] Query for largest msg_id?</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00502" href="msg00502.html">[sup-devel] Query for largest msg_id?</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00384.html">Re: [sup-devel] How to deal with HTML attachments?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00102.html">Re: [sup-devel] Turnsole crash</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00502.html">[sup-devel] Query for largest msg_id?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00126.html">Re: [sup-devel] Query for largest msg_id?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00313"><strong>Date</strong></a></li>
+<li><a href="threads.html#00313"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

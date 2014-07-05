@@ -1,0 +1,280 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT) -->
+<!--X-From-R13: "Sqjneq L. Knat" <rmlnatN[WF.SRG> -->
+<!--X-Date: Sun, 2 Sep 2012 22:05:22 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1346648395&#45;sup&#45;4546@javelin -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1345564795&#45;sup&#45;3898@alvh.no&#45;ip.org -->
+<!--X-Reference: 1346648371&#45;12305&#45;1&#45;git&#45;send&#45;email&#45;ezyang@mit.edu -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT)</title>
+<link rev="made" href="mailto:ezyang@MIT.EDU">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00339.html">Date Prev</a>][<a href="msg00264.html">Date Next</a>][<a href="msg00339.html">Thread Prev</a>][<a href="msg00264.html">Thread Next</a>][<a href="maillist.html#00074">Date Index</a>][<a href="threads.html#00074">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;, alvherre &lt;<a href="mailto:alvherre%40alvh.no-ip.org">alvherre@alvh.no-ip.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT)</li>
+<li><em>From</em>: &quot;Edward Z. Yang&quot; &lt;<a href="mailto:ezyang%40MIT.EDU">ezyang@MIT.EDU</a>&gt;</li>
+<li><em>Date</em>: Mon, 03 Sep 2012 01:00:59 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00339.html">1346648371-12305-1-git-send-email-ezyang@mit.edu</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00399.html">1345564795-sup-3898@alvh.no-ip.org</a>&gt;	&lt;<a href="msg00339.html">1346648371-12305-1-git-send-email-ezyang@mit.edu</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>The locking is a downright crime (where's the STM when you need it),
+and it's still racy, but it should work OK.
+
+Excerpts from Edward Z. Yang's message of Mon Sep 03 00:59:31 -0400 2012:
+&gt; From: &quot;Edward Z. Yang&quot; &lt;ezyang@mit.edu&gt;
+&gt; 
+&gt; Signed-off-by: Edward Z. Yang &lt;ezyang@mit.edu&gt;
+&gt; ---
+&gt;  lib/sup/maildir.rb | 52 ++++++++++++++++++++++++++++++++++++++++++++++++++--
+&gt;  lib/sup/poll.rb    | 33 ++++++++++++++++++++++++++-------
+&gt;  lib/sup/source.rb  |  4 ++++
+&gt;  3 files changed, 80 insertions(+), 9 deletions(-)
+&gt; 
+&gt; diff --git a/lib/sup/maildir.rb b/lib/sup/maildir.rb
+&gt; index 2a91f05..743156d 100644
+&gt; --- a/lib/sup/maildir.rb
+&gt; +++ b/lib/sup/maildir.rb
+&gt; @@ -1,5 +1,6 @@
+&gt;  require 'uri'
+&gt;  require 'set'
+&gt; +require 'inotify'
+&gt;  
+&gt;  module Redwood
+&gt;  
+&gt; @@ -184,6 +185,45 @@ class Maildir &lt; Source
+&gt;      nil
+&gt;    end
+&gt;  
+&gt; +  def continuous_poll poll_mutex
+&gt; +    i = Inotify.new
+&gt; +    watches = {}
+&gt; +    @ctimes.each do |d,prev_ctime|
+&gt; +      subdir = File.join @dir, d
+&gt; +      wd = i.add_watch(subdir, Inotify::CREATE | Inotify::DELETE | Inotify::MOVE)
+&gt; +      watches[wd] = d
+&gt; +    end
+&gt; +    i.each_event do |ev|
+&gt; +      poll_mutex.synchronize do
+&gt; +        @mutex.synchronize do
+&gt; +          begin
+&gt; +            ::Thread.current[@dir] = true
+&gt; +            id = File.join watches[ev.wd], ev.name
+&gt; +            # check if inotify is stale
+&gt; +            # since we have @mutex, there is no race (except for
+&gt; +            # an external program fucking us over)
+&gt; +            next unless File.exists? File.join(@dir, id)
+&gt; +            x = Enumerator.new(Index.instance, :each_source_info, self.id, &quot;#{id}&quot;).to_a
+&gt; +            if ev.mask &amp; Inotify::CREATE or ev.mask &amp; Inotify::MOVE_TO
+&gt; +              next unless x.empty?
+&gt; +              yield :add,
+&gt; +                :info =&gt; id,
+&gt; +                :labels =&gt; @labels + maildir_labels(id) + [:inbox],
+&gt; +                :progress =&gt; 0
+&gt; +            elsif ev.mask &amp; Inotify::DELETE or ev.mask &amp; Inotify::MOVE_FROM
+&gt; +              next unless !x.empty?
+&gt; +              yield :delete,
+&gt; +                :info =&gt; id,
+&gt; +                :progress =&gt; 0
+&gt; +            end
+&gt; +          ensure
+&gt; +            ::Thread.current[@dir] = nil
+&gt; +          end
+&gt; +        end
+&gt; +      end
+&gt; +    end
+&gt; +  end
+&gt; +
+&gt;    def labels? id
+&gt;      maildir_labels id
+&gt;    end
+&gt; @@ -248,7 +288,16 @@ private
+&gt;    end
+&gt;  
+&gt;    def maildir_move_file orig_path, new_source_id, flags
+&gt; -    @mutex.synchronize do
+&gt; +    if ::Thread.current[@dir]
+&gt; +      _maildir_move_file orig_path, new_source_id, flags
+&gt; +    else
+&gt; +      @mutex.synchronize do
+&gt; +        _maildir_move_file orig_path, new_source_id, flags
+&gt; +      end
+&gt; +    end
+&gt; +  end
+&gt; +
+&gt; +  def _maildir_move_file orig_path, new_source_id, flags
+&gt;        new_base = (flags.include?(&quot;S&quot;)) ? &quot;cur&quot; : &quot;new&quot;
+&gt;        md_base, md_ver, md_flags = maildir_data orig_path
+&gt;  
+&gt; @@ -292,7 +341,6 @@ private
+&gt;        end
+&gt;  
+&gt;        [new_source, new_loc]
+&gt; -    end
+&gt;    end
+&gt;  end
+&gt;  
+&gt; diff --git a/lib/sup/poll.rb b/lib/sup/poll.rb
+&gt; index dbd351f..51e0afa 100644
+&gt; --- a/lib/sup/poll.rb
+&gt; +++ b/lib/sup/poll.rb
+&gt; @@ -94,11 +94,27 @@ EOS
+&gt;          poll if @last_poll.nil? || (Time.now - @last_poll) &gt;= @delay
+&gt;        end
+&gt;      end
+&gt; +    # XXX dup dup
+&gt; +    SourceManager.usual_sources.each do |source|
+&gt; +      Redwood::reporting_thread(&quot;inotify poll for #{source}&quot;) do
+&gt; +        source.continuous_poll @mutex do |sym, args|
+&gt; +          poll_handler source, sym, args
+&gt; +        end
+&gt; +      end
+&gt; +    end
+&gt; +    SourceManager.unusual_sources.each do |source|
+&gt; +      Redwood::reporting_thread(&quot;inotify poll for #{source}&quot;) do
+&gt; +        source.continuous_poll @mutex do |sym, args|
+&gt; +          poll_handler source, sym, args
+&gt; +        end
+&gt; +      end
+&gt; +    end
+&gt;    end
+&gt;  
+&gt;    def stop
+&gt;      @thread.kill if @thread
+&gt;      @thread = nil
+&gt; +    # handle inotify polls
+&gt;    end
+&gt;  
+&gt;    def do_poll
+&gt; @@ -172,7 +188,16 @@ EOS
+&gt;    ## from the index after being yielded.
+&gt;    def poll_from source, opts={}
+&gt;      begin
+&gt; -      source.poll do |sym, args|
+&gt; +      source.poll do |sym,args|
+&gt; +        poll_handler source, sym, args
+&gt; +      end
+&gt; +      source.go_idle
+&gt; +    rescue SourceError =&gt; e
+&gt; +      warn &quot;problem getting messages from #{source}: #{e.message}&quot;
+&gt; +    end
+&gt; +  end
+&gt; +
+&gt; +  def poll_handler source, sym, args
+&gt;          case sym
+&gt;          when :add
+&gt;            m = Message.build_from_source source, args[:info]
+&gt; @@ -224,12 +249,6 @@ EOS
+&gt;              UpdateManager.relay self, :updated, m
+&gt;            end
+&gt;          end
+&gt; -      end
+&gt; -
+&gt; -      source.go_idle
+&gt; -    rescue SourceError =&gt; e
+&gt; -      warn &quot;problem getting messages from #{source}: #{e.message}&quot;
+&gt; -    end
+&gt;    end
+&gt;  
+&gt;    def handle_idle_update sender, idle_since; @should_clear_running_totals = false; end
+&gt; diff --git a/lib/sup/source.rb b/lib/sup/source.rb
+&gt; index 06b6e6b..073a10a 100644
+&gt; --- a/lib/sup/source.rb
+&gt; +++ b/lib/sup/source.rb
+&gt; @@ -102,6 +102,10 @@ class Source
+&gt;      unimplemented
+&gt;    end
+&gt;  
+&gt; +  ## Like poll, but never returns (it is continuous, and uses something
+&gt; +  ## like inotify. Will always be run in another thread.)
+&gt; +  def continuous_poll poll_mutex; [] end
+&gt; +
+&gt;    def valid? info
+&gt;      true
+&gt;    end
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00264" href="msg00264.html">Re: [sup-devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT)</a></strong>
+<ul><li><em>From:</em> Alvaro Herrera &lt;alvherre@alvh.no-ip.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00399" href="msg00399.html">Re: [sup-devel] inotify support for Maildir mailboxes</a></strong>
+<ul><li><em>From:</em> Alvaro Herrera &lt;alvherre@alvh.no-ip.org&gt;</li></ul></li>
+<li><strong><a name="00339" href="msg00339.html">[sup-devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT)</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00339.html">[sup-devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00264.html">Re: [sup-devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00339.html">[sup-devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00264.html">Re: [sup-devel] [PATCH] Inotify support for Maildirs. (FIRST DRAFT)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00074"><strong>Date</strong></a></li>
+<li><a href="threads.html#00074"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

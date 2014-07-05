@@ -1,0 +1,37 @@
+From 3f267313c4116b75ee7de598820b202f9d1ade68 Mon Sep 17 00:00:00 2001
+From: Gregor Hoffleit <gregor@sam.mediasupervision.de>
+Date: Tue, 12 Oct 2010 18:04:37 +0200
+Subject: [PATCH] Bugfix: Correctly split list of mail addresses
+
+split_on_commas() fails to work correctly for wrapped header lines:
+
+    Cc: John Doe <john.doe@subdivision.example.com>, Foo Bar
+	<foo.bar@subdivision.example.com>
+
+Sup parsed this (in lib/sup/person.rb, Person.from_address_list) as:
+
+    Cc: John Doe <john.doe@subdivision.example.com>,
+        foo.bar <foo.bar@subdivision.example.com>
+
+I fixed this by normalizing the whitespace before working the
+regex in split_on_commas.
+---
+ lib/sup/util.rb |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/util.rb b/lib/sup/util.rb
+index d19caca..53b7bac 100644
+--- a/lib/sup/util.rb
++++ b/lib/sup/util.rb
+@@ -224,7 +224,7 @@ class String
+   ## a very complicated regex found on teh internets to split on
+   ## commas, unless they occurr within double quotes.
+   def split_on_commas
+-    split(/,\s*(?=(?:[^"]*"[^"]*")*(?![^"]*"))/)
++    normalize_whitespace().split(/,\s*(?=(?:[^"]*"[^"]*")*(?![^"]*"))/)
+   end
+ 
+   ## ok, here we do it the hard way. got to have a remainder for purposes of
+-- 
+1.5.6.5
+

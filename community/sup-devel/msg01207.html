@@ -1,0 +1,133 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] enable ruby&#45;prof with SUP_PROFILE environment	variable -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Sat, 23 Jan 2010 19:17:23 &#45;0800 (PST) -->
+<!--X-Message-Id: 1264302960&#45;17337&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] enable ruby-prof with SUP_PROFILE environment	variable</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01370.html">Date Prev</a>][<a href="msg01320.html">Date Next</a>][<a href="msg00947.html">Thread Prev</a>][<a href="msg01373.html">Thread Next</a>][<a href="maillist.html#01207">Date Index</a>][<a href="threads.html#01207">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] enable ruby-prof with SUP_PROFILE environment	variable</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] enable ruby-prof with SUP_PROFILE environment	variable</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Sat, 23 Jan 2010 19:16:00 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>If SUP_PROFILE is set, it's used as the filename to dump profiling output
+which you can use kcachegrind to inspect.
+---
+ bin/sup |   10 ++++++++++
+ 1 files changed, 10 insertions(+), 0 deletions(-)
+
+diff --git a/bin/sup b/bin/sup
+index 7824aca..f7c4af7 100755
+--- a/bin/sup
++++ b/bin/sup
+@@ -14,6 +14,11 @@ require 'fileutils'
+ require 'trollop'
+ require &quot;sup&quot;; Redwood::check_library_version_against &quot;git&quot;
+ 
++if ENV['SUP_PROFILE']
++  require 'ruby-prof'
++  RubyProf.start
++end
++
+ if no_ncursesw
+   debug &quot;No 'ncursesw' gem detected. Install it for wide character support.&quot;
+ end
+@@ -379,6 +384,11 @@ ensure
+   end
+ 
+   Index.unlock
++
++  if (fn = ENV['SUP_PROFILE'])
++    result = RubyProf.stop
++    File.open(fn, 'w') { |io| RubyProf::CallTreePrinter.new(result).print(io) }
++  end
+ end
+ 
+ unless Redwood::exceptions.empty?
+-- 
+1.6.3.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01373" href="msg01373.html">Re: [sup-devel] [PATCH] enable ruby-prof with SUP_PROFILE	environment variable</a></strong>
+<ul><li><em>From:</em> Anthony Martinez &lt;pi+sup@pihost.us&gt;</li></ul></li>
+<li><strong><a name="00985" href="msg00985.html">Re: [sup-devel] [PATCH] enable ruby-prof with SUP_PROFILE	environment variable</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01370.html">Re: [sup-devel] [PATCH] Message#edit_labels [was: Ruby question:	before-add-message.rb and adding multiple labels at once]</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01320.html">[sup-devel] [PATCH] dont check thread-index-mode dirtiness on every	keypress</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00947.html">Re: [sup-devel] [PATCHv3] idle and unidle updates</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01373.html">Re: [sup-devel] [PATCH] enable ruby-prof with SUP_PROFILE	environment variable</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01207"><strong>Date</strong></a></li>
+<li><a href="threads.html#01207"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue94] sup crashes on thread labelling -->
+<!--X-From-R13: nabalzbhf <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Wed, 21 Apr 2010 01:39:43 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1271838971.05.0.229170305885.issue94@masanjin.net -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 1271838971.05.0.229170305885.issue94@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue94] sup crashes on thread labelling</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00902.html">Date Prev</a>][<a href="msg01027.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#00917">Date Index</a>][<a href="threads.html#00917">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue94] sup crashes on thread labelling</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue94] sup crashes on thread labelling</li>
+<li><em>From</em>: anonymous &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 21 Apr 2010 08:36:11 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00917.html">1271838971.05.0.229170305885.issue94@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from anonymous:
+
+sup crashes when labelling a certain thread with an existing label (i.e. other
+same labeled threads exist). Labelling this thread in not possible, even afte
+restart, other thread can be labeled with the given label.
+
+label was &quot;sopra2010&quot;
+
+exception log attached, may be a Xapian problem
+
+----------
+files: exception-log.txt
+messages: 218
+nosy: anonymous
+priority: bug
+ruby_version: ruby 1.8.7 (2010-01-10 patchlevel 249) [x86_64-linux]
+status: unread
+sup_version: sup/git last commitFri Apr 16 16:32:51 2010
+title: sup crashes on thread labelling
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue94">http://masanjin.net/sup-bugs/issue94</a>&gt;
+_________________________________________</pre><pre>--- ArgumentError from thread: index sync
+InvalidArgumentError: Term `I9998' is not present in document, in Xapian::Document::Internal::remove_term()
+/home/guedemann/source/sup/lib/sup/index.rb:665:in `remove_term'
+/home/guedemann/source/sup/lib/sup/index.rb:665:in `index_message_locations'
+/home/guedemann/source/sup/lib/sup/index.rb:665:in `each'
+/home/guedemann/source/sup/lib/sup/index.rb:665:in `index_message_locations'
+/home/guedemann/source/sup/lib/sup/index.rb:605:in `sync_message'
+/home/guedemann/source/sup/lib/sup/index.rb:125:in `update_message_state'
+/home/guedemann/source/sup/lib/sup/index.rb:428:in `run_sync_worker'
+/home/guedemann/source/sup/lib/sup/index.rb:415:in `start_sync_worker'
+/home/guedemann/source/sup/lib/sup.rb:77:in `reporting_thread'
+/home/guedemann/source/sup/lib/sup.rb:75:in `initialize'
+/home/guedemann/source/sup/lib/sup.rb:75:in `new'
+/home/guedemann/source/sup/lib/sup.rb:75:in `reporting_thread'
+/home/guedemann/source/sup/lib/sup/index.rb:415:in `start_sync_worker'
+/home/guedemann/source/sup/lib/sup/util.rb:580:in `send'
+/home/guedemann/source/sup/lib/sup/util.rb:580:in `method_missing'
+/home/guedemann/source/sup/bin/sup:155
+</pre><pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00917" href="msg00917.html">[sup-devel] [issue94] sup crashes on thread labelling</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00917" href="msg00917.html">[sup-devel] [issue94] sup crashes on thread labelling</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00902.html">Re: [sup-devel] RubyMail cannot handle multipart/signed messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01027.html">[sup-devel] [issue95] incompatible encoding regexp match	(ASCII-8BIT regexp with	UTF-8 string)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00917"><strong>Date</strong></a></li>
+<li><a href="threads.html#00917"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

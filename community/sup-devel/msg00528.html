@@ -1,0 +1,136 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [PATCH] More UTF&#45;8 support; load all labels as UTF&#45;8 -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Thu, 04 Nov 2010 06:21:20 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1288876769&#45;sup&#45;4049@qwerzila -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: binYT3yR19wv_.bin -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[PATCH] More UTF-8 support; load all labels as UTF-8</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00445.html">Date Prev</a>][<a href="msg00758.html">Date Next</a>][<a href="msg00755.html">Thread Prev</a>][<a href="msg00758.html">Thread Next</a>][<a href="maillist.html#00528">Date Index</a>][<a href="threads.html#00528">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[PATCH] More UTF-8 support; load all labels as UTF-8</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [PATCH] More UTF-8 support; load all labels as UTF-8</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 04 Nov 2010 14:21:20 +0100</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Even if the labels.txt file is read as UTF-8 apparantly after a label is
+symoblized, it will be US-ASCII on .to_s if possible. This patch forces
+UTF-8.
+
+If you use L to select a US-ASCII label (i.e. Sent) then want to narrow
+the search by pressing L again and use tab to match against an UTF-8
+label sup crashes.
+
+Also fixes one whitespace error in bin/sup
+---
+ bin/sup           |    4 +++-
+ lib/sup/buffer.rb |    2 +-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/bin/sup b/bin/sup
+index fd1dde8..10be161 100755
+--- a/bin/sup
++++ b/bin/sup
+@@ -49,7 +49,7 @@ No variables.
+ No return value.
+ EOS
+ 
+-Redwood::HookManager.register &quot;shutdown&quot;, &lt;&lt;EOS 
++Redwood::HookManager.register &quot;shutdown&quot;, &lt;&lt;EOS
+ Executes when sup is shutting down. May be run when sup is crashing,
+ so don\'t do anything too important. Run before the label, contacts,
+ and people are saved.
+@@ -299,6 +299,8 @@ begin
+       SearchResultsMode.spawn_from_query &quot;is:unread&quot;
+     when :list_labels
+       labels = LabelManager.all_labels.map { |l| LabelManager.string_for l }
++      labels = labels.each { |l| l.force_encoding 'UTF-8' if l.methods.include?(:encoding) }
++
+       user_label = bm.ask_with_completions :label, &quot;Show threads with label (enter for listing): &quot;, labels
+       unless user_label.nil?
+         if user_label.empty?
+diff --git a/lib/sup/buffer.rb b/lib/sup/buffer.rb
+index f3cfb8a..c36ca56 100644
+--- a/lib/sup/buffer.rb
++++ b/lib/sup/buffer.rb
+@@ -454,7 +454,7 @@ EOS
+   def ask_with_completions domain, question, completions, default=nil
+     ask domain, question, default do |s|
+       s.force_encoding 'UTF-8' if s.methods.include?(:encoding)
+-      completions.select { |x| x =~ /^#{Regexp::escape s}/i }.map { |x| [x, x] }
++      completions.select { |x| x =~ /^#{Regexp::escape s}/iu }.map { |x| [x, x] }
+     end
+   end
+ 
+-- 
+1.7.3.2
+
+</pre><p><strong>Attachment:
+<a href="binYT3yR19wv_.bin" ><tt>0001-More-UTF-8-support-load-all-labels-as-UTF-8.patch</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00758" href="msg00758.html">Re: [sup-devel] [PATCH] More UTF-8 support; load all labels as UTF-8</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00445.html">[sup-devel] [issue125] sup-mail broke</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00758.html">Re: [sup-devel] [PATCH] More UTF-8 support; load all labels as UTF-8</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00755.html">Re: [sup-devel] Message#text_to_chunks performance</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00758.html">Re: [sup-devel] [PATCH] More UTF-8 support; load all labels as UTF-8</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00528"><strong>Date</strong></a></li>
+<li><a href="threads.html#00528"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

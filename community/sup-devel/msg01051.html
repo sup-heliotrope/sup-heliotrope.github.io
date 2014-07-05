@@ -1,0 +1,158 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] wrap quoted text according to wrap preferences -->
+<!--X-From-R13: nqnz ynmhe <nqnzNynmhe.bet> -->
+<!--X-Date: Thu, 2 Sep 2010 18:38:24 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1283460564&#45;18287&#45;1&#45;git&#45;send&#45;email&#45;adam@lazur.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] wrap quoted text according to wrap preferences</title>
+<link rev="made" href="mailto:adam@lazur.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01099.html">Date Prev</a>][<a href="msg00904.html">Date Next</a>][<a href="msg01059.html">Thread Prev</a>][<a href="msg00904.html">Thread Next</a>][<a href="maillist.html#01051">Date Index</a>][<a href="threads.html#01051">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] wrap quoted text according to wrap preferences</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] wrap quoted text according to wrap preferences</li>
+<li><em>From</em>: adam lazur &lt;<a href="mailto:adam%40lazur.org">adam@lazur.org</a>&gt;</li>
+<li><em>Date</em>: Thu,  2 Sep 2010 13:49:24 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: adam lazur &lt;<a href="mailto:laz%40facebook.com">laz@facebook.com</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>From: adam lazur &lt;laz@facebook.com&gt;
+
+Wrap expanded sections of quoted text at a column boundary, just like
+sup already does for unquoted text. I split the existing wrapper code
+into a utility function.
+---
+ lib/sup/modes/thread-view-mode.rb |   27 ++++++++++++++++-----------
+ 1 files changed, 16 insertions(+), 11 deletions(-)
+
+diff --git a/lib/sup/modes/thread-view-mode.rb b/lib/sup/modes/thread-view-mode.rb
+index 088529b..f648f8b 100644
+--- a/lib/sup/modes/thread-view-mode.rb
++++ b/lib/sup/modes/thread-view-mode.rb
+@@ -841,6 +841,19 @@ private
+     p.longname + (ContactManager.is_aliased_contact?(p) ? &quot; (#{ContactManager.alias_for p})&quot; : &quot;&quot;)
+   end
+ 
++  def maybe_wrap_text lines
++    if @wrap
++      config_width = $config[:wrap_width]
++      if config_width and config_width != 0
++        width = [config_width, buffer.content_width].min
++      else
++        width = buffer.content_width
++      end
++      lines = lines.map { |l| l.chomp.wrap width }.flatten
++    end
++    return lines
++  end
++
+   ## todo: check arguments on this overly complex function
+   def chunk_to_lines chunk, state, start, depth, parent=nil, color=nil, star_color=nil
+     prefix = &quot; &quot; * INDENT_SPACES * depth
+@@ -856,23 +869,15 @@ private
+     else
+       raise &quot;Bad chunk: #{chunk.inspect}&quot; unless chunk.respond_to?(:inlineable?) ## debugging
+       if chunk.inlineable?
+-        lines = chunk.lines
+-        if @wrap
+-          config_width = $config[:wrap_width]
+-          if config_width and config_width != 0
+-            width = [config_width, buffer.content_width].min
+-          else
+-            width = buffer.content_width
+-          end
+-          lines = lines.map { |l| l.chomp.wrap width }.flatten
+-        end
++        lines = maybe_wrap_text(chunk.lines)
+         lines.map { |line| [[chunk.color, &quot;#{prefix}#{line}&quot;]] }
+       elsif chunk.expandable?
+         case state
+         when :closed
+           [[[chunk.patina_color, &quot;#{prefix}+ #{chunk.patina_text}&quot;]]]
+         when :open
+-          [[[chunk.patina_color, &quot;#{prefix}- #{chunk.patina_text}&quot;]]] + chunk.lines.map { |line| [[chunk.color, &quot;#{prefix}#{line}&quot;]] }
++          lines = maybe_wrap_text(chunk.lines)
++          [[[chunk.patina_color, &quot;#{prefix}- #{chunk.patina_text}&quot;]]] + lines.map { |line| [[chunk.color, &quot;#{prefix}#{line}&quot;]] }
+         end
+       else
+         [[[chunk.patina_color, &quot;#{prefix}x #{chunk.patina_text}&quot;]]]
+-- 
+1.7.2.1
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00904" href="msg00904.html">Re: [sup-devel] [PATCH] wrap quoted text according to wrap	preferences</a></strong>
+<ul><li><em>From:</em> Robin Burchell &lt;viroteck@viroteck.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01099.html">[sup-devel] [issue120] Email visible in Maildir but not in sup</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00904.html">Re: [sup-devel] [PATCH] wrap quoted text according to wrap	preferences</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01059.html">[sup-devel] [PATCH] fix for problem with gpg verifying signatures</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00904.html">Re: [sup-devel] [PATCH] wrap quoted text according to wrap	preferences</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01051"><strong>Date</strong></a></li>
+<li><a href="threads.html#01051"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

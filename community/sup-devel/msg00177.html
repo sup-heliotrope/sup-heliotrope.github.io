@@ -1,0 +1,112 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel]  [heliotrope] crashes while importing -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetnaNznfnawva.arg> -->
+<!--X-Date: Mon, 5 Mar 2012 14:09:43 &#45;0800 (PST) -->
+<!--X-Message-Id: 1330985181&#45;sup&#45;8598@typhon -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 20120301151701.23555.84803@localhost -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel]  [heliotrope] crashes while importing</title>
+<link rev="made" href="mailto:wmorgan@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00144.html">Date Prev</a>][<a href="msg00049.html">Date Next</a>][<a href="msg00144.html">Thread Prev</a>][<a href="msg00066.html">Thread Next</a>][<a href="maillist.html#00177">Date Index</a>][<a href="threads.html#00177">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel]  [heliotrope] crashes while importing</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel]  [heliotrope] crashes while importing</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan%40masanjin.net">wmorgan@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 05 Mar 2012 14:08:30 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;20120301151701.23555.84803@localhost&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;20120301151701.23555.84803@localhost&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: turnsole, a heliotrope client v.git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Serge,
+
+Excerpts from Serge Z's message of 2012-03-01 07:17:01 -0800:
+&gt; /home/shoutt/src/heliotrope/lib/heliotrope/meta-index.rb:701: [BUG] Bus Error
+&gt; ruby 1.9.3p125 (2012-02-16 revision 34643) [x86_64-linux]
+&gt; 
+&gt; -- Control frame information -----------------------------------------------
+&gt; c:0011 p:---- s:0092 b:0092 l:000091 d:000091 CFUNC  :put
+&gt; c:0010 p:0072 s:0087 b:0086 l:000085 d:000085 METHOD /home/shoutt/src/heliotrope/lib/heliotrope/meta-index.rb:701
+
+This looks like a problem in the Leveldb bindings. Is this by any chance
+on OS X Lion? If not, what platform are you running on?
+-- 
+William &lt;wmorgan@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00144" href="msg00144.html">[sup-devel] [heliotrope] crashes while importing</a></strong>
+<ul><li><em>From:</em> Serge Z &lt;triumhiz@yandex.ru&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00144.html">[sup-devel] [heliotrope] crashes while importing</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00049.html">[sup-devel]  [Turnsole] Lack of a test suite</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00144.html">[sup-devel] [heliotrope] crashes while importing</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00066.html">[sup-devel] [Heliotrope/Turnsole] RMail's parsing leads to	SystemStackError</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00177"><strong>Date</strong></a></li>
+<li><a href="threads.html#00177"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

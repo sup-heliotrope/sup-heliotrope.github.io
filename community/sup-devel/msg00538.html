@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] editing messages outside of sup -->
+<!--X-From-R13: Oyineb Vreeren <nyiureerNnyiu.ab&#45;vc.bet> -->
+<!--X-Date: Sat, 26 Feb 2011 18:35:38 &#45;0800 (PST) -->
+<!--X-Message-Id: 1298768518&#45;sup&#45;4041@alvh.no&#45;ip.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1298239068&#45;sup&#45;6985@whisper -->
+<!--X-Reference: 1298747943&#45;sup&#45;9749@whisper -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] editing messages outside of sup</title>
+<link rev="made" href="mailto:alvherre@alvh.no-ip.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00664.html">Date Prev</a>][<a href="msg00433.html">Date Next</a>][<a href="msg00549.html">Thread Prev</a>][<a href="msg00433.html">Thread Next</a>][<a href="maillist.html#00538">Date Index</a>][<a href="threads.html#00538">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] editing messages outside of sup</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] editing messages outside of sup</li>
+<li><em>From</em>: Alvaro Herrera &lt;<a href="mailto:alvherre%40alvh.no-ip.org">alvherre@alvh.no-ip.org</a>&gt;</li>
+<li><em>Date</em>: Sat, 26 Feb 2011 22:15:31 -0300</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1298747943-sup-9749@whisper&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1298239068-sup-6985@whisper&gt; &lt;1298747943-sup-9749@whisper&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Hamish's message of s&#xE1;b feb 26 16:23:13 -0300 2011:
+&gt; Excerpts from Hamish's message of Sun Feb 20 22:02:54 +0000 2011:
+&gt; &gt; For the moment this work is in the async_message_edit branch. If no one
+&gt; &gt; shouts about this being a terrible idea then I'll merge it into next
+&gt; &gt; within a week.
+&gt; 
+&gt; No one shouted, so I've merged it into next. At the end of the email is
+&gt; the diff of the async_message_edit branch against where I started it.
+
+I like this general idea very much.  The bit about having to copy/paste
+the file name is a bit of a pain, though.  I gave it a spin, and
+excepting that one infelicity, I found it pretty neat.  I noticed no
+problems at all.
+
+The way I envision this working is with a &quot;vim --servername foo&quot; window
+being open at the time sup starts, and then &quot;vim --remote&quot; would open
+the file in that server each time I edit an email.  Most likely, the
+command to edit a file should be specified via a hook.
+
+Thanks for your work on this.
+
+-- 
+&#xC1;lvaro Herrera &lt;alvherre@alvh.no-ip.org&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00433" href="msg00433.html">Re: [sup-devel] editing messages outside of sup</a></strong>
+<ul><li><em>From:</em> Roni Choudhury &lt;roni@cs.utah.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00577" href="msg00577.html">[sup-devel] editing messages outside of sup</a></strong>
+<ul><li><em>From:</em> Hamish &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00549" href="msg00549.html">Re: [sup-devel] editing messages outside of sup</a></strong>
+<ul><li><em>From:</em> Hamish &lt;dmishd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00664.html">Re: [sup-devel] sup-server revisited</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00433.html">Re: [sup-devel] editing messages outside of sup</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00549.html">Re: [sup-devel] editing messages outside of sup</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00433.html">Re: [sup-devel] editing messages outside of sup</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00538"><strong>Date</strong></a></li>
+<li><a href="threads.html#00538"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

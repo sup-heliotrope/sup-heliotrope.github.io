@@ -1,0 +1,25 @@
+From eb25896e484f59963ed7c5f543d00fad031d03d2 Mon Sep 17 00:00:00 2001
+From: Alvaro Herrera <alvherre@alvh.no-ip.org>
+Date: Thu, 29 Jul 2010 22:59:20 -0400
+Subject: [PATCH] Fix crash on handling attachment filename with slashes
+
+---
+ lib/sup/message-chunks.rb |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/message-chunks.rb b/lib/sup/message-chunks.rb
+index c275f41..be4416f 100644
+--- a/lib/sup/message-chunks.rb
++++ b/lib/sup/message-chunks.rb
+@@ -149,7 +149,7 @@ EOS
+     end
+ 
+     def write_to_disk
+-      file = Tempfile.new(@filename || "sup-attachment")
++      file = Tempfile.new(@filename.gsub("/", "_") || "sup-attachment")
+       file.print @raw_content
+       file.close
+       file.path
+-- 
+1.7.1
+

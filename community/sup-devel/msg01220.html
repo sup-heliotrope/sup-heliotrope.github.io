@@ -1,0 +1,122 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] fixed am/pm in thread&#45;list&#45;mode for ruby1.8 -->
+<!--X-From-R13: Sevp Eurezna <ulcreobyvfgNtznvy.pbz> -->
+<!--X-Date: Thu, 31 Dec 2009 06:52:08 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262270484&#45;sup&#45;8396@changeling.local -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</title>
+<link rev="made" href="mailto:hyperbolist@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01390.html">Date Prev</a>][<a href="msg01435.html">Date Next</a>][<a href="msg01352.html">Thread Prev</a>][<a href="msg01394.html">Thread Next</a>][<a href="maillist.html#01220">Date Index</a>][<a href="threads.html#01220">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</li>
+<li><em>From</em>: Eric Sherman &lt;<a href="mailto:hyperbolist%40gmail.com">hyperbolist@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 31 Dec 2009 09:48:25 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:date:message-id:user-agent:content-transfer-encoding;	bh=OqTjilOYnDmdYvaONVFLzl4cUxM8B0h4U7nbA8NM5Qc=;	b=sfMLXzqC7RdnUED5LOo/LWeCr/aLzFo9P2EQ2CzSG6fgMzFjvfjRLNumvnDn2grlWR	pVpZ69Pk1g7+LfwpBJqP5NQIIcvdVys4sYrhJ05FdGd2xk8yeqQIN3hkYqkAb1mVAyjJ	StqhFs7+LP27zmeecCHULGn9XM16LKHsPhCYU=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=VehTF3oy92YxgVyJOOrAcQmn9OYlI201S0sv110NZ0kIp657nYNU4YGD23ql7jPohR	seA2VSeecxXjr8Bh2rG9ISq92kosygxpsZo5zIokR4zUrnrU5457Kw8Sw84Pifprv+dU	c7lbg2SHu/WdGaiEQYfx3TxZjcYQY94wRxJVk=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Here's a patch that gives the proper am/pm display for ruby1.8 if that's 
+what's running.
+
+---
+ lib/sup/util.rb |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/lib/sup/util.rb b/lib/sup/util.rb
+index f99e1c1..1a2a447 100644
+--- a/lib/sup/util.rb
++++ b/lib/sup/util.rb
+@@ -486,9 +486,9 @@ class Time
+       strftime &quot;%b %e&quot;
+     else
+       if is_the_same_day? from
+-        strftime(&quot;%l:%M%P&quot;)
++        (RUBY_VERSION =~ /^1.8/) ? strftime(&quot;%l:%M%p&quot;).downcase : strftime(&quot;%l:%M%P&quot;)
+       elsif is_the_day_before? from
+-        &quot;Yest.&quot;  + nearest_hour.strftime(&quot;%l%P&quot;)
++        &quot;Yest.&quot; + ((RUBY_VERSION =~ /^1.8/) ? nearest_hour.strftime(&quot;%l%p&quot;).downcase : nearest_hour.strftime(&quot;%l%P&quot;))
+       else
+         strftime &quot;%b %e&quot;
+       end
+-- 
+1.6.5.7
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01394" href="msg01394.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01390.html">[sup-devel] [PATCH] fixed a typo in parse_header</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01435.html">[sup-devel] [PATCH] added colorized dates in thread-index-mode</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01352.html">Re: [sup-devel] [PATCH] fixed a typo in parse_header</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01394.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01220"><strong>Date</strong></a></li>
+<li><a href="threads.html#01220"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

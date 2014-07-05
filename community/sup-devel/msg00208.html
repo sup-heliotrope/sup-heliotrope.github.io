@@ -1,0 +1,164 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCHES] Add an account selector in edit&#45;mode -->
+<!--X-From-R13: Enfpun Evyor <fnfpun&#45;zy&#45;ercyl&#45;gb&#45;2011&#45;3Nfvyor.bet> -->
+<!--X-Date: Mon, 20 Jun 2011 06:59:32 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1308577441&#45;sup&#45;8658@xo15&#45;sascha.sascha.silbe.org -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 1300032642&#45;sup&#45;9716@mailer -->
+<!--X-Reference: 1306775826&#45;sup&#45;4909@whisper -->
+<!--X-Reference: 1308520036&#45;sup&#45;7949@whisper -->
+<!--X-Derived: pgpzVOw51uA4_.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</title>
+<link rev="made" href="mailto:sascha-ml-reply-to-2011-3@silbe.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00337.html">Date Prev</a>][<a href="msg00290.html">Date Next</a>][<a href="msg00337.html">Thread Prev</a>][<a href="msg00190.html">Thread Next</a>][<a href="maillist.html#00208">Date Index</a>][<a href="threads.html#00208">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Hamish &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</li>
+<li><em>From</em>: Sascha Silbe &lt;<a href="mailto:sascha-ml-reply-to-2011-3%40silbe.org">sascha-ml-reply-to-2011-3@silbe.org</a>&gt;</li>
+<li><em>Date</em>: Mon, 20 Jun 2011 15:47:57 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1308520036-sup-7949@whisper&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1300032642-sup-9716@mailer&gt; &lt;1306775826-sup-4909@whisper&gt;	&lt;1308520036-sup-7949@whisper&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Hamish's message of Sun Jun 19 23:48:40 +0200 2011:
+
+&gt; I've not heard anything for a bit, so I've pushed this into next for
+&gt; wider testing, with the guard so that the account selector will only
+&gt; appear if you have more than one email address. Shout out if it causes
+&gt; any problems.
+
+This breaks the &quot;Reply to&quot; selector for me. Any attempt to change the
+value results in an exception:
+
+--- TypeError from thread: main
+no implicit conversion from nil to integer
+./lib/sup/horizontal-selector.rb:18:in `[]'
+./lib/sup/horizontal-selector.rb:18:in `val'
+./lib/sup/modes/edit-message-mode.rb:374:in `update'
+./lib/sup/modes/edit-message-mode.rb:351:in `move_cursor_left'
+./lib/sup/modes/reply-mode.rb:174:in `move_cursor_left'
+./lib/sup/mode.rb:59:in `send'
+./lib/sup/mode.rb:59:in `handle_input'
+./lib/sup/buffer.rb:278:in `handle_input'
+bin/sup:271
+
+
+Reverting the account selector patches makes it work again.
+
+This is the code in edit-message-mode.rb:
+
+372  def update
+373    if @account_selector
+374      if @account_selector.val.nil?
+375        @header[&quot;From&quot;] = @account_user
+376      else
+377        @header[&quot;From&quot;] = AccountManager.full_address_for @account_selector.val
+378      end
+379    end
+
+And horizontal-selector.rb:
+
+18   def val; @vals[@selection] end
+
+So account_selector.selection is nil. The only way for that to happen is
+by calling account_selector.set_to() with a value that's not in
+account_selector.vals (IMO HorizontalSelector should throw an exception
+in that case, BTW). Any idea where and why that would have happened?
+
+Sascha
+
+-- 
+<a  rel="nofollow" href="http://sascha.silbe.org/">http://sascha.silbe.org/</a>
+<a  rel="nofollow" href="http://www.infra-silbe.de/">http://www.infra-silbe.de/</a>
+</pre><p><strong>Attachment:
+<a href="pgpzVOw51uA4_.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00190" href="msg00190.html">Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+<ul><li><em>From:</em> Hamish Downer &lt;dmishd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00628" href="msg00628.html">[sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+<li><strong><a name="00154" href="msg00154.html">Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+<ul><li><em>From:</em> Hamish &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00346" href="msg00346.html">Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+<ul><li><em>From:</em> Hamish &lt;dmishd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00337.html">Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00290.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00337.html">Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00190.html">Re: [sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00208"><strong>Date</strong></a></li>
+<li><a href="threads.html#00208"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

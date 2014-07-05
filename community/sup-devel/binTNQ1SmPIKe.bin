@@ -1,0 +1,26 @@
+From 2a0209b9dbd246e1791b08f0906f27327a1d5f39 Mon Sep 17 00:00:00 2001
+From: Tero Tilus <tero@tilus.net>
+Date: Thu, 28 Jan 2010 00:05:25 +0200
+Subject: [PATCH] Count tabs as 8 chars when calculating display length
+
+Signed-off-by: Tero Tilus <tero@tilus.net>
+---
+ lib/sup/util.rb |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/util.rb b/lib/sup/util.rb
+index 861db7f..6757973 100644
+--- a/lib/sup/util.rb
++++ b/lib/sup/util.rb
+@@ -181,7 +181,7 @@ class String
+       scan(/./u).size
+     else
+       size
+-    end
++    end + 7 * (count "\t")
+   end
+ 
+   def camel_to_hyphy
+-- 
+1.5.6.5
+

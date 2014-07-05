@@ -1,0 +1,140 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Bug: UTF&#45;8 error when sending messages -->
+<!--X-From-R13: Oqrry Ouznq Yuna <nqrryNnqrry.eh> -->
+<!--X-Date: Mon, 31 Jan 2011 11:30:39 &#45;0800 (PST) -->
+<!--X-Message-Id: 1296497911&#45;sup&#45;5024@poincare -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: mailman.75.1296431981.25874.sup&#45;devel@rubyforge.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Bug: UTF-8 error when sending messages</title>
+<link rev="made" href="mailto:adeel@adeel.ru">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00429.html">Date Prev</a>][<a href="msg00681.html">Date Next</a>][<a href="msg00558.html">Thread Prev</a>][<a href="msg00681.html">Thread Next</a>][<a href="maillist.html#00667">Date Index</a>][<a href="threads.html#00667">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Bug: UTF-8 error when sending messages</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Bug: UTF-8 error when sending messages</li>
+<li><em>From</em>: Adeel Ahmad Khan &lt;<a href="mailto:adeel%40adeel.ru">adeel@adeel.ru</a>&gt;</li>
+<li><em>Date</em>: Mon, 31 Jan 2011 13:24:42 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;mailman.75.1296431981.25874.sup-devel@rubyforge.org&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;mailman.75.1296431981.25874.sup-devel@rubyforge.org&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/0.12.1</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Tero Tilus &lt;tero@tilus.net&gt;:
+&gt; Adeel Ahmad Khan, 2011-01-29 05:11:
+&gt; &gt;     invalid byte sequence in UTF-8
+&gt; ...
+&gt; &gt; I am using a nearly fresh installation of Sup 0.12.1 with Ruby
+&gt; &gt; 1.9.2p136.  I have LOCALE=&quot;en_US.UTF-8&quot;.
+&gt; 
+&gt; Both the errors were from regex matches against message body.  Somehow
+&gt; your editor doesn't know your locale or is not obeying it.  As a
+&gt; result non-utf8 stuff gets saved to disk and sup gets confused.
+
+You were right.  It turned out to be an issue with editor.
+
+Gaute Hope &lt;eg@gaute.vetsj.com&gt;:
+&gt; Excerpts from Adeel Ahmad Khan's message of 2011-01-29 04:11:40 +0100:
+&gt; &gt;     --- ArgumentError from thread: main
+&gt; &gt;     invalid byte sequence in UTF-8
+&gt; &gt;     /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/edit-message-mode.rb:497:in `block in mentions_attachments?'
+&gt; 
+&gt; Could you try if this patch fixes it (or just edit the lines manually) ?
+
+The patch resolved that error, but I get a different one now:
+
+  --- ArgumentError from thread: main
+  invalid byte sequence in UTF-8
+  /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/edit-message-mode.rb:389:in `build_message'
+  /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/edit-message-mode.rb:354:in `send_message'
+  /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/mode.rb:59:in `handle_input'
+  /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/buffer.rb:277:in `handle_input'
+  /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/bin/sup:260:in `&lt;module:Redwood&gt;'
+  /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/bin/sup:69:in `&lt;top (required)&gt;'
+  /usr/bin/sup:19:in `load'
+  /usr/bin/sup:19:in `&lt;main&gt;'
+
+It looks like another regex match.
+
+    m.body += &quot;\n&quot; unless m.body =~ /\n\Z/
+
+In any case it seems to be my problem, not sup's.
+
+Adeel
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00681" href="msg00681.html">Re: [sup-devel] Bug: UTF-8 error when sending messages</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00429.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00681.html">Re: [sup-devel] Bug: UTF-8 error when sending messages</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00558.html">Re: [sup-devel] Bug: UTF-8 error when sending messages</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00681.html">Re: [sup-devel] Bug: UTF-8 error when sending messages</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00667"><strong>Date</strong></a></li>
+<li><a href="threads.html#00667"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

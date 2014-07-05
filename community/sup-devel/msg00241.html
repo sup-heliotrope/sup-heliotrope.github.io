@@ -1,0 +1,179 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Heliotrope limitations for backward synchronization, , , -->
+<!--X-From-R13: Vbenpvb Enafba <ufnafbaNtznvy.pbz> -->
+<!--X-Date: Mon, 23 May 2011 07:42:33 &#45;0700 (PDT) -->
+<!--X-Message-Id: BANLkTikfZiyezXe3tF&#45;VVgsEWjZb33EEVg@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Heliotrope limitations for backward synchronization, , ,</title>
+<link rev="made" href="mailto:hsanson@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00318.html">Date Prev</a>][<a href="msg00188.html">Date Next</a>][<a href="msg00117.html">Thread Prev</a>][<a href="msg00309.html">Thread Next</a>][<a href="maillist.html#00241">Date Index</a>][<a href="threads.html#00241">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Heliotrope limitations for backward synchronization, , ,</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] Heliotrope limitations for backward synchronization, , ,</li>
+<li><em>From</em>: Horacio Sanson &lt;<a href="mailto:hsanson%40gmail.com">hsanson@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 23 May 2011 23:42:16 +0900</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:date:message-id:subject:from:to	:content-type; bh=JOd+EZIGxFSABkypg0cSjKw2luotkBfU++00XKKzPJo=;	b=k3ctzlo3zbtFTzjf7YpyACQvcmuDUsnotMuDd73InnZqiV2uERrpGEoD3rtCChE5qU	oy4p8xpAEWEYZ4gvWQZJn3oHpnKaP2NyO3oTyMVGxZmDRMJyQi8/zD+ozDnN5UunzP19	cGCOnKxLyBFBORIWgc9ONwMIXiuXJSV4HyUYE=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=L42i/Tlek2+q4j5I/Xr8yh6i8yPssVFCQZMJ7RMIbJ9tQ3XOJsDDtDsQNJVXhzpUBz	L5x0/ZYQf0j8CBhAobYKu85qhweNZn6sL+ils5NK79RrI/ypWUD1e1a9vL1IXlFieXVf	hDoFpcDn3S9nleTaDPcKXR68QhB19gQw7Fzwc=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Now that I have GMail to Heliotrope initial synchronization (first
+time) and incremental (new messages) synchronization working in my
+script I started working on Heliotrope to GMail synchronization.
+Unfortunately I found some difficulties to achieve this.
+
+I am following rfc4549.txt and the client-to-server synchronization
+says verbatim:
+
+     c) &quot;Client-to-server synchronization&quot;: for each IMAP &quot;action&quot; that
+      was pending on the client, do the following:
+
+      1) If the action implies opening a new mailbox (any operation that
+         operates on messages), open the mailbox.  Check its UID
+         validity value (see Section 4.1 for more details) returned in
+         the UIDVALIDITY response code.  If the UIDVALIDITY value
+         returned by the server differs, the client MUST empty the local
+         cache of the mailbox and remove any pending &quot;actions&quot; that
+         refer to UIDs in that mailbox (and consider them failed).  Note
+         that this doesn't affect actions performed on client-generated
+         fake UIDs (see Section 5).
+
+      2) Perform the action.  If the action is to delete a mailbox
+         (DELETE), make sure that the mailbox is closed first (see also
+         Section 3.4.12 of [RFC2683]).
+
+
+Seems simple to do but Heliotrope currently does not store/provide
+enough information to implement this like:
+
+ 1)  Account and Mailbox information of messages.
+  2) Heliotrope msg_id to GMail UID map.
+  3) Per mailbox action FIFO queues.
+
+
+Each action performed via Heliotrope (add label, remove label, state
+change, delete) should be stored in some kind of FIFO associated to
+the an account/mailbox pair. For example adding a label to a message
+in my personal account's inbox would add an action like:
+
+   label_add &lt;label&gt; &lt;msg_id&gt;
+
+where label_add is the action, &lt;label&gt; the action parameter and
+&lt;msg_id&gt; the message ID as seen by Heliotrope.  Then during
+synchronization for an account I would iterate over all mailboxes
+associated to the account and for each one I would replay the same
+actions stored in the mailbox FIFO in the GMail server. Once an action
+succeeds on the GMail side I  pop it out of the FIFO and continue with
+the next action. Using the msg_id to UID map I can determine to what
+message on the GMail side the action should be performed on.
+
+Now how to implement these features? One way could be using the extra
+parameters hash in the Heliotrope::Index::message_add method to store
+the messages account, mailbox and UID's of each message when they are
+added to Heliotrope index. This would also require a way to query this
+information.
+
+Another way would be to use special labels to mark mailboxes and
+accounts. And add some new query formats to get all mailboxes for a
+certain account and the FIFO actions of the mailbox.
+
+Finally I am more inclined to keeping a separate Index/Store for each
+account and access them via REST URLs like:
+
+   POST  /&lt;account&gt;                                              #
+Create new account Index/Store files
+   POST   /&lt;account&gt;/&lt;mailbox&gt;                       # Create new
+mailbox in account. Implemented using special labels?
+   GET     /&lt;account&gt;/mailboxes                        # List all
+mailboxes for account
+   GET     /&lt;account&gt;/&lt;mailbox&gt;/action          # Get the next pending
+action on mailbox
+   DELETE /&lt;account&gt;/&lt;mailbox&gt;/action       # Delete next pending
+action on mailbox
+   POST  /&lt;account&gt;/&lt;mailbox&gt;/message     # Add new message to an
+account/mailbox
+   GET    /&lt;account&gt;/&lt;mailbox&gt;/message     # Get all messages from
+account/mailbox
+
+This of course is how I think  IMAP offline synchronization could be
+done. If there are other ways to do this I am open to suggestions.
+
+regards,
+Horacio Sanson
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00309" href="msg00309.html">Re: [sup-devel] Heliotrope limitations for backward synchronization, , ,</a></strong>
+<ul><li><em>From:</em> Vivien Didelot &lt;vivien.didelot@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00318.html">Re: [sup-devel] Query for largest msg_id?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00188.html">Re: [sup-devel] Query for largest msg_id?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00117.html">Re: [sup-devel] [sup-talk] Word wrap for quoted lines</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00309.html">Re: [sup-devel] Heliotrope limitations for backward synchronization, , ,</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00241"><strong>Date</strong></a></li>
+<li><a href="threads.html#00241"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

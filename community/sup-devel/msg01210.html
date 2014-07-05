@@ -1,0 +1,184 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCHv2 1/3] support high colors in colors.yaml -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Sun, 3 Jan 2010 07:25:36 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262532260&#45;18353&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCHv2 1/3] support high colors in colors.yaml</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01383.html">Date Prev</a>][<a href="msg01316.html">Date Next</a>][<a href="msg01355.html">Thread Prev</a>][<a href="msg01336.html">Thread Next</a>][<a href="maillist.html#01210">Date Index</a>][<a href="threads.html#01210">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCHv2 1/3] support high colors in colors.yaml</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCHv2 1/3] support high colors in colors.yaml</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Sun,  3 Jan 2010 07:24:18 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Add constants for colors &gt;15 so that they can be used in the colors config
+file. You can use integers for all available colors. If you're running
+xterm-256color or compatible you can use &quot;cXYZ&quot; for the 6x6x6 color cube and
+&quot;gX&quot; for 24 shades of gray.
+---
+ lib/sup/colormap.rb |   34 +++++++++++++++++++++++-----------
+ 1 files changed, 23 insertions(+), 11 deletions(-)
+
+diff --git a/lib/sup/colormap.rb b/lib/sup/colormap.rb
+index c4a4024..71c715f 100644
+--- a/lib/sup/colormap.rb
++++ b/lib/sup/colormap.rb
+@@ -1,5 +1,23 @@
+ module Curses
+   COLOR_DEFAULT = -1
++
++  NUM_COLORS = `tput colors`.to_i
++  MAX_PAIRS = `tput pairs`.to_i
++
++  def self.color! name, value
++    const_set &quot;COLOR_#{name.to_s.upcase}&quot;, value
++  end
++
++  ## numeric colors
++  Curses::NUM_COLORS.times { |x| color! x, x }
++
++  if Curses::NUM_COLORS == 256
++    ## xterm 6x6x6 color cube
++    6.times { |x| 6.times { |y| 6.times { |z| color! &quot;c#{x}#{y}#{z}&quot;, 16 + z + 6*y + 36*x } } }
++
++    ## xterm 24-shade grayscale
++    24.times { |x| color! &quot;g#{x}&quot;, (16+6*6*6) + x }
++  end
+ end
+ 
+ module Redwood
+@@ -7,12 +25,6 @@ module Redwood
+ class Colormap
+   @@instance = nil
+ 
+-  CURSES_COLORS = [Curses::COLOR_BLACK, Curses::COLOR_RED, Curses::COLOR_GREEN,
+-                   Curses::COLOR_YELLOW, Curses::COLOR_BLUE,
+-                   Curses::COLOR_MAGENTA, Curses::COLOR_CYAN,
+-                   Curses::COLOR_WHITE, Curses::COLOR_DEFAULT]
+-  NUM_COLORS = (CURSES_COLORS.size - 1) * (CURSES_COLORS.size - 1)
+-
+   DEFAULT_COLORS = {
+     :status =&gt; { :fg =&gt; &quot;white&quot;, :bg =&gt; &quot;blue&quot;, :attrs =&gt; [&quot;bold&quot;] },
+     :index_old =&gt; { :fg =&gt; &quot;white&quot;, :bg =&gt; &quot;default&quot; },
+@@ -68,8 +80,8 @@ class Colormap
+ 
+   def add sym, fg, bg, attr=nil, opts={}
+     raise ArgumentError, &quot;color for #{sym} already defined&quot; if @entries.member? sym
+-    raise ArgumentError, &quot;color '#{fg}' unknown&quot; unless CURSES_COLORS.include? fg
+-    raise ArgumentError, &quot;color '#{bg}' unknown&quot; unless CURSES_COLORS.include? bg
++    raise ArgumentError, &quot;color '#{fg}' unknown&quot; unless (-1...Curses::NUM_COLORS).include? fg
++    raise ArgumentError, &quot;color '#{bg}' unknown&quot; unless (-1...Curses::NUM_COLORS).include? bg
+     attrs = [attr].flatten.compact
+ 
+     @entries[sym] = [fg, bg, attrs, nil]
+@@ -127,7 +139,7 @@ class Colormap
+     if(cp = @color_pairs[[fg, bg]])
+       ## nothing
+     else ## need to get a new colorpair
+-      @next_id = (@next_id + 1) % NUM_COLORS
++      @next_id = (@next_id + 1) % Curses::MAX_PAIRS
+       @next_id += 1 if @next_id == 0 # 0 is always white on black
+       id = @next_id
+       debug &quot;colormap: for color #{sym}, using id #{id} -&gt; #{fg}, #{bg}&quot;
+@@ -169,7 +181,7 @@ class Colormap
+       if user_colors &amp;&amp; (ucolor = user_colors[k])
+         if(ufg = ucolor[:fg])
+           begin
+-            fg = Curses.const_get &quot;COLOR_#{ufg.upcase}&quot;
++            fg = Curses.const_get &quot;COLOR_#{ufg.to_s.upcase}&quot;
+           rescue NameError
+             error ||= &quot;Warning: there is no color named \&quot;#{ufg}\&quot;, using fallback.&quot;
+             warn &quot;there is no color named \&quot;#{ufg}\&quot;&quot;
+@@ -178,7 +190,7 @@ class Colormap
+ 
+         if(ubg = ucolor[:bg])
+           begin
+-            bg = Curses.const_get &quot;COLOR_#{ubg.upcase}&quot;
++            bg = Curses.const_get &quot;COLOR_#{ubg.to_s.upcase}&quot;
+           rescue NameError
+             error ||= &quot;Warning: there is no color named \&quot;#{ubg}\&quot;, using fallback.&quot;
+             warn &quot;there is no color named \&quot;#{ubg}\&quot;&quot;
+-- 
+1.6.3.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01336" href="msg01336.html">[sup-devel] [PATCH 2/3] send color errors to the log instead of	flashing</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01383.html">[sup-devel] [PATCH 3/3] add keybinding 'Oc' to reload colors</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01316.html">[sup-devel] [PATCH] add a mouse-enabled colorpicker to contrib</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01355.html">Re: [sup-devel] [PATCH] support high colors in colors.yaml</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01336.html">[sup-devel] [PATCH 2/3] send color errors to the log instead of	flashing</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01210"><strong>Date</strong></a></li>
+<li><a href="threads.html#01210"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

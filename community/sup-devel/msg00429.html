@@ -1,0 +1,145 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] Converted crypto to use the gpgme gem -->
+<!--X-From-R13: Vnzvfu R <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Sun, 30 Jan 2011 18:14:43 &#45;0800 (PST) -->
+<!--X-Message-Id: AANLkTi=DSdyoEjPAHP8Fivss1NcjLGTA+RjXZ+ngU&#45;R8@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: AANLkTinrSAheJb2F4Xw9AmgXcGLxeQh0_MEnuTSATye_@mail.gmail.com -->
+<!--X-Reference: AANLkTinXwKiJqgKyFrrcVV21a8j8hV=fw4QcvDLhtM8E@mail.gmail.com -->
+<!--X-Reference: AANLkTi=7yasVvAW4P85v3GJxf+quJrE3&#45;1XruDgUZq+D@mail.gmail.com -->
+<!--X-Reference: 1289466286&#45;sup&#45;7540@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTikUwyX6xj&#45;f_ZnLp6s2s9vaCpgayPKygniWndoJ@mail.gmail.com -->
+<!--X-Reference: 1289907535&#45;sup&#45;3989@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTi=xz16ecZ0C5=RUcOG4wzojVVzs70PZ2ueKa0ht@mail.gmail.com -->
+<!--X-Reference: 1289932061&#45;sup&#45;96@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTin=1MRrW0vuj_7uMvjcyLc3Aaw4ddZ_Rq6TBiyx@mail.gmail.com -->
+<!--X-Reference: AANLkTinvv59bWu0UfjW2K&#45;xDRUP42tDwmgMh5yZdmaN_@mail.gmail.com -->
+<!--X-Reference: 1291023322&#45;sup&#45;8457@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTimKK6yW7E&#45;KYF12RfNwJE4eM04ftKL&#45;FrNu7XQ1@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00427.html">Date Prev</a>][<a href="msg00667.html">Date Next</a>][<a href="msg00427.html">Thread Prev</a>][<a href="msg00537.html">Thread Next</a>][<a href="maillist.html#00429">Date Index</a>][<a href="threads.html#00429">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</li>
+<li><em>From</em>: Hamish D &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 30 Jan 2011 23:59:38 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:in-reply-to:references:date	:message-id:subject:from:to:content-type;	bh=KtbW4gJV79MjLsijMt/UJ/aC5LisGtCBWejxfqVtpS4=;	b=G1nVMF/T50Qhkp8QKXwapO1YtuSpfwsswNLkpLIoexZX3NUmbSVG7jDKkZy8yEojNs	/cPgZf+tuuJpbeewe32FqZVHq7+WwCRkAZ7n3AyHtPKBsRaXCZPC9/CWDZj0KgazqlMr	RFE0TaCAF66NgrmLrmUQLt8gU0MngtWEY+srQ=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:in-reply-to:references:date:message-id:subject:from:to	:content-type;	b=mwWjTViQDboyUUbjlu0XJIbd4eWwlpreJaWoCmBq7UzfF7eDfcH6RHE7xZLcciEFW9	0Z0Kyg3EwWMi8o9HaYwdybbm6mPe0JKJ25A5qmlt3ePEENALwOACP9wjTFmemjKDuF+N	NLhbf/I1nrx0Frz/kxuwee3Zh6VtH9yZEgI7w=</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00427.html">AANLkTimKK6yW7E-KYF12RfNwJE4eM04ftKL-FrNu7XQ1@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00738.html">AANLkTinrSAheJb2F4Xw9AmgXcGLxeQh0_MEnuTSATye_@mail.gmail.com</a>&gt;	&lt;AANLkTinXwKiJqgKyFrrcVV21a8j8hV=fw4QcvDLhtM8E@mail.gmail.com&gt;	&lt;AANLkTi=7yasVvAW4P85v3GJxf+quJrE3-1XruDgUZq+D@mail.gmail.com&gt;	&lt;1289466286-sup-7540@meteor.durcheinandertal.local&gt;	&lt;<a href="msg00535.html">AANLkTikUwyX6xj-f_ZnLp6s2s9vaCpgayPKygniWndoJ@mail.gmail.com</a>&gt;	&lt;1289907535-sup-3989@meteor.durcheinandertal.local&gt;	&lt;AANLkTi=xz16ecZ0C5=RUcOG4wzojVVzs70PZ2ueKa0ht@mail.gmail.com&gt;	&lt;1289932061-sup-96@meteor.durcheinandertal.local&gt;	&lt;AANLkTin=1MRrW0vuj_7uMvjcyLc3Aaw4ddZ_Rq6TBiyx@mail.gmail.com&gt;	&lt;<a href="msg00649.html">AANLkTinvv59bWu0UfjW2K-xDRUP42tDwmgMh5yZdmaN_@mail.gmail.com</a>&gt;	&lt;1291023322-sup-8457@meteor.durcheinandertal.local&gt;	&lt;<a href="msg00427.html">AANLkTimKK6yW7E-KYF12RfNwJE4eM04ftKL-FrNu7XQ1@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&gt; Finally got around to fixing this issue. I think it may be a bug in
+&gt; the gpgme gem which I'll investigate further at some point. In the
+&gt; meantime, I've worked out how to get sup to stop this being a problem.
+&gt; The fix has been applied to next, and will hopefully move to master
+&gt; before too long.
+
+Link should have been:
+
+<a  rel="nofollow" href="http://rubyforge.org/pipermail/sup-devel/2011-January/000966.html">http://rubyforge.org/pipermail/sup-devel/2011-January/000966.html</a>
+
+Sorry, late and tired ...
+
+Hamish Downer
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00738" href="msg00738.html">[sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00766" href="msg00766.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00672" href="msg00672.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00411" href="msg00411.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00535" href="msg00535.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00675" href="msg00675.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00768" href="msg00768.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00499" href="msg00499.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00574" href="msg00574.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00649" href="msg00649.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00742" href="msg00742.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00427" href="msg00427.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00427.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00667.html">Re: [sup-devel] Bug: UTF-8 error when sending messages</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00427.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00537.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00429"><strong>Date</strong></a></li>
+<li><a href="threads.html#00429"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

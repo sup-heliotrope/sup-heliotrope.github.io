@@ -1,0 +1,120 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel]	=?utf&#45;8?q?=5BPATCH=5D_Bugfix=3A_Don=E2=80=99t_display?=	=?utf&#45;8?q?_thread_participants_twice?= -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Thu, 7 Oct 2010 21:23:33 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1286511449&#45;sup&#45;7198@zyrg.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1286471713&#45;sup&#45;9575@midna.zekjur.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel]	[PATCH] Bugfix: Don&#x2019;t display thread participants twice</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00468.html">Date Prev</a>][<a href="msg00728.html">Date Next</a>][<a href="msg00803.html">Thread Prev</a>][<a href="msg00543.html">Thread Next</a>][<a href="maillist.html#01033">Date Index</a>][<a href="threads.html#01033">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel]	[PATCH] Bugfix: Don&#x2019;t display thread participants twice</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Michael Stapelberg &lt;<a href="mailto:michael%2Bsup%40stapelberg.de">michael+sup@stapelberg.de</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel]	[PATCH] Bugfix: Don&#x2019;t display thread participants twice</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Fri, 08 Oct 2010 00:17:41 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00803.html">1286471713-sup-9575@midna.zekjur.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00803.html">1286471713-sup-9575@midna.zekjur.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Michael Stapelberg's message of Thu Oct 07 13:21:26 -0400 2010:
+&gt; Hi,
+&gt; 
+&gt; Quote from the commit message:
+&gt;   When a participant of a thread uses different email addresses, but the same
+&gt;   name, he would be displayed twice in the list:
+&gt;   Participants:
+&gt;    &#x2022; foo &lt;foo@bar.com&gt;
+&gt;    &#x2022; foo &lt;foo@qux.bar.com&gt;
+&gt;    &#x2022; bar &lt;bar@bar.com&gt;
+&gt;   would lead to: &quot;foo, bar, foo&quot;
+&gt; 
+&gt; Best regards,
+&gt; Michael
+
+Applied to master.
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00543" href="msg00543.html">Re: [sup-devel] [PATCH] Bugfix: Don&#x2019;t display thread participants twice</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00803" href="msg00803.html">[sup-devel] [PATCH] Bugfix: Don&#x2019;t display thread participants twice</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00468.html">Re: [sup-devel] [PATCH] fix searching for non-lowercase labels</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00728.html">Re: [sup-devel] [PATCH] Fixed inline gpg crash when the end marker	is missing</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00803.html">[sup-devel] [PATCH] Bugfix: Don&#x2019;t display thread participants twice</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00543.html">Re: [sup-devel] [PATCH] Bugfix: Don&#x2019;t display thread participants twice</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01033"><strong>Date</strong></a></li>
+<li><a href="threads.html#01033"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

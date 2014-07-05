@@ -1,0 +1,120 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Sat, 27 Feb 2010 12:14:37 &#45;0800 (PST) -->
+<!--X-Message-Id: 1267301596&#45;sup&#45;8948@zyrg.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1266549876&#45;sup&#45;2041@midna.zekjur.net -->
+<!--X-Reference: 1267258772&#45;sup&#45;9178@zyrg.net -->
+<!--X-Reference: 1267274808&#45;sup&#45;1569@midna.zekjur.net -->
+<!--X-Reference: 1267293975&#45;sup&#45;6753@zyrg.net -->
+<!--X-Reference: 1267298816&#45;sup&#45;2432@midna.zekjur.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00871.html">Date Prev</a>][<a href="msg00895.html">Date Next</a>][<a href="msg00871.html">Thread Prev</a>][<a href="msg01018.html">Thread Next</a>][<a href="maillist.html#01128">Date Index</a>][<a href="threads.html#01128">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Michael Stapelberg &lt;<a href="mailto:michael%40stapelberg.de">michael@stapelberg.de</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Sat, 27 Feb 2010 15:14:27 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00871.html">1267298816-sup-2432@midna.zekjur.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01081.html">1266549876-sup-2041@midna.zekjur.net</a>&gt;	&lt;<a href="msg01122.html">1267258772-sup-9178@zyrg.net</a>&gt;	&lt;<a href="msg01021.html">1267274808-sup-1569@midna.zekjur.net</a>&gt;	&lt;<a href="msg00839.html">1267293975-sup-6753@zyrg.net</a>&gt;	&lt;<a href="msg00871.html">1267298816-sup-2432@midna.zekjur.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Michael Stapelberg's message of 2010-02-27 14:27:45 -0500:
+&gt; Excerpts from Rich Lane's message of Sa Feb 27 19:12:19 +0100 2010:
+&gt; &gt; The reason we use these ugly singleton *Manager objects is to avoid
+&gt; &gt; exactly this kind of plumbing. Since Ncurses is outside the Redwood
+&gt; &gt; namespace you'll need to refer to it as Redwood::BufferManager.
+&gt; Alright. Should I change the patch and re-send it or can you change
+&gt; these little details?
+
+I'll handle it. Applied to master.
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01081" href="msg01081.html">[sup-devel]	[PATCH] Bugfix: Don&#x2019;t call Ncurses.getch when in shell&#xFFFD;out mode</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+<li><strong><a name="01122" href="msg01122.html">Re: [sup-devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01021" href="msg01021.html">Re: [sup-devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+<li><strong><a name="00839" href="msg00839.html">Re: [sup-devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="00871" href="msg00871.html">Re: [sup-devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael@stapelberg.de&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00871.html">Re: [sup-devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00895.html">[sup-devel] patch backlog cleared / plans</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00871.html">Re: [sup-devel] [PATCH] Bugfix: Don\xe2\x80\x99t call Ncurses.getch	when in shell\x96out mode</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01018.html">[sup-devel] [PATCH] Make automatic jumping to first/next open	message configurable</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01128"><strong>Date</strong></a></li>
+<li><a href="threads.html#01128"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,89 @@
+From ef92e54e0cea12fb4ad42a18808d490d6cd4e084 Mon Sep 17 00:00:00 2001
+From: Damien Leone <damien.leone@fensalir.fr>
+Date: Wed, 9 Jun 2010 15:12:15 +0200
+Subject: [PATCH 3/3] edit-mode: change the way signatures are handled
+
+The current signatures handling was not suitable for account changing
+in edit-mode. It was working fine when the edit_signature option was
+false, but it could have a better behaviour if this option was
+enabled.
+
+This commit tries to do this by appending the signature to the body
+text if the edit_signature is true, then after editing the message it
+checks if the signature has been modified by comparing the end of the
+file to the current account's signature. If it has been edited then we
+stick to it by setting @sig_edited to true, otherwise the signature
+will still be automatically changed if another account is selected.
+---
+ lib/sup/modes/edit-message-mode.rb |   21 ++++++++++++++++++---
+ 1 files changed, 18 insertions(+), 3 deletions(-)
+
+diff --git a/lib/sup/modes/edit-message-mode.rb b/lib/sup/modes/edit-message-mode.rb
+index dd89b7b..672fd2b 100644
+--- a/lib/sup/modes/edit-message-mode.rb
++++ b/lib/sup/modes/edit-message-mode.rb
+@@ -81,7 +81,7 @@ EOS
+     @header_lines = []
+ 
+     @body = opts.delete(:body) || []
+-    @body += sig_lines if $config[:edit_signature] && !opts.delete(:have_signature)
++    @sig_edited = false
+ 
+     if opts[:attachments]
+       @attachments = opts[:attachments].values
+@@ -166,12 +166,14 @@ EOS
+   def edit_subject; edit_field "Subject" end
+ 
+   def edit_message
++    sig = sig_lines.join("\n")
+     old_from = @header["From"] if @account_selector
+ 
+     @file = Tempfile.new "sup.#{self.class.name.gsub(/.*::/, '').camel_to_hyphy}"
+     @file.puts format_headers(@header - NON_EDITABLE_HEADERS).first
+     @file.puts
+     @file.puts @body.join("\n")
++    @file.puts sig if ($config[:edit_signature] and !@sig_edited)
+     @file.close
+ 
+     editor = $config[:editor] || ENV['EDITOR'] || "/usr/bin/vi"
+@@ -185,6 +187,19 @@ EOS
+     header, @body = parse_file @file.path
+     @header = header - NON_EDITABLE_HEADERS
+ 
++    if $config[:edit_signature]
++      pbody = @body.join("\n")
++      blen = pbody.length
++      slen = sig.length
++
++      if blen > slen and pbody[blen-slen..blen] == sig
++        @sig_edited = false
++        @body = pbody[0..blen-slen].split("\n")
++      else
++        @sig_edited = true
++      end
++    end
++
+     if @account_selector and @header["From"] != old_from
+       @account_user = @header["From"]
+       @account_selector.set_to nil
+@@ -288,7 +303,7 @@ protected
+   def regen_text
+     header, @header_lines = format_headers(@header - NON_EDITABLE_HEADERS) + [""]
+     @text = header + [""] + @body
+-    @text += sig_lines unless $config[:edit_signature]
++    @text += sig_lines unless @sig_edited
+     
+     @attachment_lines_offset = 0
+ 
+@@ -394,7 +409,7 @@ protected
+     m = RMail::Message.new
+     m.header["Content-Type"] = "text/plain; charset=#{$encoding}"
+     m.body = @body.join("\n")
+-    m.body += sig_lines.join("\n") unless $config[:edit_signature]
++    m.body += "\n" + sig_lines.join("\n") unless @sig_edited
+     ## body must end in a newline or GPG signatures will be WRONG!
+     m.body += "\n" unless m.body =~ /\n\Z/
+ 
+-- 
+1.7.1
+

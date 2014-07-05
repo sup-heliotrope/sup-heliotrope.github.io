@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Simplification of heliotrope usage -->
+<!--X-From-R13: [ngguvrh Dnxbgbwnban <zngguvrh.enxbgbwnbanNtznvy.pbz> -->
+<!--X-Date: Sat, 19 Jan 2013 07:01:55 &#45;0800 (PST) -->
+<!--X-Message-Id: CAMiZLn3fX5CbLPBJORzC6YQzaKjrqtR&#45;i4iobWM8KgD9+VrC4g@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Simplification of heliotrope usage</title>
+<link rev="made" href="mailto:matthieu.rakotojaona@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00219.html">Date Prev</a>][<a href="msg00064.html">Date Next</a>][<a href="msg00215.html">Thread Prev</a>][<a href="msg00064.html">Thread Next</a>][<a href="maillist.html#00257">Date Index</a>][<a href="threads.html#00257">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Simplification of heliotrope usage</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] Simplification of heliotrope usage</li>
+<li><em>From</em>: Matthieu Rakotojaona &lt;<a href="mailto:matthieu.rakotojaona%40gmail.com">matthieu.rakotojaona@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 19 Jan 2013 16:01:22 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>;       dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20120113;	h=x-received:mime-version:from:date:message-id:subject:to	:content-type; bh=36QDSSNCj2t9xuRPxuraol2FrstZwvqidxMSKB1Xag0=;	b=G3F26FM0nELNxZfxzzzey4T7AEFrFTztm/YmzQ/oDrc8BQ35BoG011S+TlHRjgFT9U	1Y2qslatiFm4Md0fLmVxbBoK6BpAfJo23guyZ1QXn56yAYz7bOoAmqgRMKo5EMdVg9eQ	afrKmz1xATWI1I9hQoYsvLY/QKKrw5VHvNz2eVyl39/ILSFAvm558SWvNMDBB4cE8SyR	f47K/h0rcjrLcZqpylLQ93ozV2q1dqk+ZCwSSN0wfXU0JFIpw8rCcw+Cn3fH3A/AFkEd	hyN708xtGL3LBoUO/mUIwOQT02tg6/N8T6ehnLyU9sh+7aWe9/TmuTVGwbr25+itYMwH	s3qw==</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello everyone,
+
+I've simplified the usability of heliotrope through this pull-request :
+
+<a  rel="nofollow" href="https://github.com/sup-heliotrope/heliotrope/pull/1">https://github.com/sup-heliotrope/heliotrope/pull/1</a>
+
+Basically, to install heliotrope you need to :
+
+1. Install ruby
+2. git clone the branch
+(<a  rel="nofollow" href="https://github.com/sup-heliotrope/heliotrope/tree/usability">https://github.com/sup-heliotrope/heliotrope/tree/usability</a>)
+3. Install the bundle gem and run it :
+    $ gem install bundle
+    $ bundle install
+4. run heliotrope :
+    $ ruby /path/to/bin/heliotrope-server
+
+This should simplify the management of gems versions (the versions are
+checked-in, thus using `bundle install` will install the exact same
+version as what I have), the management of paths (everything
+heliotrope-related is in $XDG_DATA_HOME/heliotrope, so you don't need
+to specify a folder). The other command are also modified, so that you
+can simply run
+
+    $ ruby /path/to/bin/heliotrope-import -l &lt;maildir directory&gt;
+
+to import all your mails from a maildir. The README is updated, so you
+can read what's up.
+
+I'd really like to push it as fast as possible into the develop branch
+because it helps a lot. Feel free to use/test it.
+
+--
+Matthieu RAKOTOJAONA
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00219.html">Re: [sup-talk] Github organization for sup and heliotrope</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00064.html">Re: [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00215.html">Re: [sup-devel] [sup-talk] Github organization for sup and	heliotrope</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00064.html">Re: [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00257"><strong>Date</strong></a></li>
+<li><a href="threads.html#00257"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

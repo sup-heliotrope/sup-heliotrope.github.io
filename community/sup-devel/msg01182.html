@@ -1,0 +1,348 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH 3/4] immediate thread indexing -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Tue, 29 Dec 2009 17:39:40 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262137085&#45;25928&#45;3&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1262137085&#45;25928&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Reference: 1262137085&#45;25928&#45;2&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH 3/4] immediate thread indexing</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01332.html">Date Prev</a>][<a href="msg01391.html">Date Next</a>][<a href="msg01332.html">Thread Prev</a>][<a href="msg01344.html">Thread Next</a>][<a href="maillist.html#01182">Date Index</a>][<a href="threads.html#01182">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH 3/4] immediate thread indexing</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH 3/4] immediate thread indexing</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Tue, 29 Dec 2009 17:38:04 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01332.html">1262137085-25928-2-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01286.html">1262137085-25928-1-git-send-email-rlane@club.cc.cmu.edu</a>&gt;	&lt;<a href="msg01332.html">1262137085-25928-2-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>---
+ lib/sup/modes/inbox-mode.rb        |    4 +++
+ lib/sup/modes/thread-index-mode.rb |   40 +++++++++++++----------------------
+ lib/sup/modes/thread-view-mode.rb  |    7 ++++++
+ 3 files changed, 26 insertions(+), 25 deletions(-)
+
+diff --git a/lib/sup/modes/inbox-mode.rb b/lib/sup/modes/inbox-mode.rb
+index ba095da..9220925 100644
+--- a/lib/sup/modes/inbox-mode.rb
++++ b/lib/sup/modes/inbox-mode.rb
+@@ -34,6 +34,7 @@ class InboxMode &lt; ThreadIndexMode
+     cursor_thread.remove_label :inbox
+     hide_thread cursor_thread
+     regen_text
++    Index.save_thread thread
+   end
+ 
+   def multi_archive threads
+@@ -50,6 +51,7 @@ class InboxMode &lt; ThreadIndexMode
+       hide_thread t
+     end
+     regen_text
++    threads.each { |t| Index.save_thread t }
+   end
+ 
+   def read_and_archive
+@@ -66,6 +68,7 @@ class InboxMode &lt; ThreadIndexMode
+     cursor_thread.remove_label :inbox
+     hide_thread cursor_thread
+     regen_text
++    Index.save_thread thread
+   end
+ 
+   def multi_read_and_archive threads
+@@ -86,6 +89,7 @@ class InboxMode &lt; ThreadIndexMode
+       regen_text
+     end
+ 
++    threads.each { |t| Index.save_thread t }
+   end
+ 
+   def handle_unarchived_update sender, m
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index f6ea27c..5393189 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -37,7 +37,6 @@ EOS
+     k.add :toggle_spam, &quot;Mark/unmark thread as spam&quot;, 'S'
+     k.add :toggle_deleted, &quot;Delete/undelete thread&quot;, 'd'
+     k.add :kill, &quot;Kill thread (never to be seen in inbox again)&quot;, '&amp;'
+-    k.add :save, &quot;Save changes now&quot;, '$'
+     k.add :jump_to_next_new, &quot;Jump to next new thread&quot;, :tab
+     k.add :reply, &quot;Reply to latest message in a thread&quot;, 'r'
+     k.add :reply_all, &quot;Reply to all participants of the latest message in a thread&quot;, 'G'
+@@ -269,12 +268,14 @@ EOS
+     UndoManager.register &quot;toggling thread starred status&quot;, undo
+     update_text_for_line curpos
+     cursor_down
++    Index.save_thread t
+   end
+ 
+   def multi_toggle_starred threads
+     UndoManager.register &quot;toggling #{threads.size.pluralize 'thread'} starred status&quot;,
+       threads.map { |t| actually_toggle_starred t }
+     regen_text
++    threads.each { |t| Index.save_thread t }
+   end
+ 
+   ## returns an undo lambda
+@@ -352,12 +353,14 @@ EOS
+     undo = actually_toggle_archived t
+     UndoManager.register &quot;deleting/undeleting thread #{t.first.id}&quot;, undo, lambda { update_text_for_line curpos }
+     update_text_for_line curpos
++    Index.save_thread t
+   end
+ 
+   def multi_toggle_archived threads
+     undos = threads.map { |t| actually_toggle_archived t }
+     UndoManager.register &quot;deleting/undeleting #{threads.size.pluralize 'thread'}&quot;, undos, lambda { regen_text }
+     regen_text
++    threads.each { |t| Index.save_thread t }
+   end
+ 
+   def toggle_new
+@@ -365,11 +368,13 @@ EOS
+     t.toggle_label :unread
+     update_text_for_line curpos
+     cursor_down
++    Index.save_thread t
+   end
+ 
+   def multi_toggle_new threads
+     threads.each { |t| t.toggle_label :unread }
+     regen_text
++    threads.each { |t| Index.save_thread t }
+   end
+ 
+   def multi_toggle_tagged threads
+@@ -385,6 +390,7 @@ EOS
+ 
+   def multi_join_threads threads
+     @ts.join_threads threads or return
++    threads.each { |t| Index.save_thread t }
+     @tags.drop_all_tags # otherwise we have tag pointers to invalid threads!
+     update
+   end
+@@ -421,6 +427,7 @@ EOS
+     UndoManager.register &quot;marking/unmarking  #{threads.size.pluralize 'thread'} as spam&quot;,
+                          undos, lambda { regen_text }
+     regen_text
++    threads.each { |t| Index.save_thread t }
+   end
+ 
+   def toggle_deleted
+@@ -434,6 +441,7 @@ EOS
+     UndoManager.register &quot;deleting/undeleting #{threads.size.pluralize 'thread'}&quot;,
+                          undos, lambda { regen_text }
+     regen_text
++    threads.each { |t| Index.save_thread t }
+   end
+ 
+   def kill
+@@ -458,29 +466,7 @@ EOS
+ 
+     regen_text
+     BufferManager.flash &quot;#{threads.size.pluralize 'thread'} killed.&quot;
+-  end
+-
+-  def save background=true
+-    if background
+-      Redwood::reporting_thread(&quot;saving thread&quot;) { actually_save }
+-    else
+-      actually_save
+-    end
+-  end
+-
+-  def actually_save
+-    @save_thread_mutex.synchronize do
+-      BufferManager.say(&quot;Saving contacts...&quot;) { ContactManager.instance.save }
+-      dirty_threads = @mutex.synchronize { (@threads + @hidden_threads.keys).select { |t| t.dirty? } }
+-      next if dirty_threads.empty?
+-
+-      BufferManager.say(&quot;Saving threads...&quot;) do |say_id|
+-        dirty_threads.each_with_index do |t, i|
+-          BufferManager.say &quot;Saving modified thread #{i + 1} of #{dirty_threads.length}...&quot;, say_id
+-          Index.save_thread_async t
+-        end
+-      end
+-    end
++    threads.each { |t| Index.save_thread t }
+   end
+ 
+   def cleanup
+@@ -492,7 +478,8 @@ EOS
+       sleep 0.1 # TODO: necessary?
+       BufferManager.erase_flash
+     end
+-    save false
++    dirty_threads = @mutex.synchronize { (@threads + @hidden_threads.keys).select { |t| t.dirty? } }
++    fail &quot;dirty threads remain&quot; unless dirty_threads.empty?
+     super
+   end
+ 
+@@ -546,6 +533,7 @@ EOS
+     end
+ 
+     UpdateManager.relay self, :labeled, thread.first
++    Index.save_thread thread
+   end
+ 
+   def multi_edit_labels threads
+@@ -582,6 +570,8 @@ EOS
+       end
+       regen_text
+     end
++    
++    threads.each { |t| Index.save_thread t }
+   end
+ 
+   def reply type_arg=nil
+diff --git a/lib/sup/modes/thread-view-mode.rb b/lib/sup/modes/thread-view-mode.rb
+index 55d81b9..99abb04 100644
+--- a/lib/sup/modes/thread-view-mode.rb
++++ b/lib/sup/modes/thread-view-mode.rb
+@@ -131,6 +131,7 @@ EOS
+     @layout[earliest].state = :detailed if earliest.has_label?(:unread) || @thread.size == 1
+ 
+     @thread.remove_label :unread
++    Index.save_thread @thread
+     regen_text
+   end
+ 
+@@ -258,6 +259,7 @@ EOS
+     new_labels.each { |l| LabelManager &lt;&lt; l }
+     update
+     UpdateManager.relay self, :labeled, @thread.first
++    Index.save_thread @thread
+     UndoManager.register &quot;labeling thread&quot; do
+       @thread.labels = old_labels
+       UpdateManager.relay self, :labeled, @thread.first
+@@ -284,6 +286,7 @@ EOS
+     ## star to the display
+     update
+     UpdateManager.relay self, :single_message_labeled, m
++    Index.save_thread @thread
+   end
+ 
+   ## called when someone presses enter when the cursor is highlighting
+@@ -478,6 +481,7 @@ EOS
+     dispatch op do
+       @thread.remove_label :inbox
+       UpdateManager.relay self, :archived, @thread.first
++      Index.save_thread @thread
+       UndoManager.register &quot;archiving 1 thread&quot; do
+         @thread.apply_label :inbox
+         UpdateManager.relay self, :unarchived, @thread.first
+@@ -489,6 +493,7 @@ EOS
+     dispatch op do
+       @thread.apply_label :spam
+       UpdateManager.relay self, :spammed, @thread.first
++      Index.save_thread @thread
+       UndoManager.register &quot;marking 1 thread as spam&quot; do
+         @thread.remove_label :spam
+         UpdateManager.relay self, :unspammed, @thread.first
+@@ -500,6 +505,7 @@ EOS
+     dispatch op do
+       @thread.apply_label :deleted
+       UpdateManager.relay self, :deleted, @thread.first
++      Index.save_thread @thread
+       UndoManager.register &quot;deleting 1 thread&quot; do
+         @thread.remove_label :deleted
+         UpdateManager.relay self, :undeleted, @thread.first
+@@ -511,6 +517,7 @@ EOS
+     dispatch op do
+       @thread.apply_label :unread
+       UpdateManager.relay self, :unread, @thread.first
++      Index.save_thread @thread
+     end
+   end
+ 
+-- 
+1.6.3.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01344" href="msg01344.html">[sup-devel] [PATCH 4/4] force the index sync thread to give up the	cpu</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01286" href="msg01286.html">[sup-devel] [PATCH 1/4] factor saving out of thread/message classes</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01332" href="msg01332.html">[sup-devel] [PATCH 2/4] async thread indexing</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01332.html">[sup-devel] [PATCH 2/4] async thread indexing</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01391.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01332.html">[sup-devel] [PATCH 2/4] async thread indexing</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01344.html">[sup-devel] [PATCH 4/4] force the index sync thread to give up the	cpu</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01182"><strong>Date</strong></a></li>
+<li><a href="threads.html#01182"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

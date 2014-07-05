@@ -1,0 +1,153 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] heliotrope&#45;syncback -->
+<!--X-From-R13: [ngguvrh Dnxbgbwnban <zngguvrh.enxbgbwnbanNtznvy.pbz> -->
+<!--X-Date: Wed, 2 Nov 2011 17:04:32 &#45;0700 (PDT) -->
+<!--X-Message-Id: CAMiZLn1tes53sJAdjzDmv+ntUvNNafPCChtOR9Uq7cnKaeOoQA@mail.gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: bin2QpRiLBBk0.bin -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] heliotrope-syncback</title>
+<link rev="made" href="mailto:matthieu.rakotojaona@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00340.html">Date Prev</a>][<a href="msg00141.html">Date Next</a>][<a href="msg00340.html">Thread Prev</a>][<a href="msg00141.html">Thread Next</a>][<a href="maillist.html#00329">Date Index</a>][<a href="threads.html#00329">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] heliotrope-syncback</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] heliotrope-syncback</li>
+<li><em>From</em>: Matthieu Rakotojaona &lt;<a href="mailto:matthieu.rakotojaona%40gmail.com">matthieu.rakotojaona@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 3 Nov 2011 00:55:40 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=mime-version:from:date:message-id:subject:to:content-type;	bh=ZRSfrB9L8cAKBkOVf+jDIuE96P+hiBuB774xpwYugQg=;	b=iCh1+7eaidfQWGq14dLC9y0Pk9z5LAzt7x7mHprJNFAs4qPJocUQZcGQiLL7PNZWFp	HVy41cg32g2RIf6is4XF8oc7B5hxABiKtktOeg3EUHhRAWRi9tFiHkiULDZzKGTxWdx3	JaT8ZKg1IN/I17+uPmuVprxeGk0sM6WQooO2A=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello everyone,
+
+I am playing around with heliotrope, and I've managed to writo a ruby
+script to sync changes you made there in your IMAP mailbox. It is
+primarily intended to be used with GMail, but nothing prevents it from
+working with others.
+
+Basically, this is how it works :
+- when you make a change in heliotrope, it is written in an external file
+- the script reads the file line by line and applies back any changes
+
+At the moment, I've only logged messages and state changes. When you
+send a mail with GMail, it is automatically added in GMail &quot;Sent&quot;
+mail, so I thought heliotrope could automagically thread it, but I
+haven't tested yet.
+
+The changes in thu imap folder happen like this :
+- search for a thread with the &quot;subject&quot; we are interested in
+- label/unlabel each message in the thread
+- change state of each message as written in the log file
+
+Many problems :
+- first and foremost, the link between a thread in heliotrope and the
+same in GMail is done through a basic IMAP search on the entire
+&quot;subject&quot; string. I don't know about how the threading happens in
+heliotrope, but I hope both are the same
+- the ruby Net::IMAP library doesn't want to send non-ascii characters
+( or I'm too dumb to see how to). So I decided to do it the hard way :
+remove any word (blocks of chars separated by spaces) that contains
+any non-ascii characters. Well, I,ve just removed one character for
+the moment, because I had an error when trying to match a UTF-8 string
+with a Unicode regexp.
+- &quot;states&quot; should be message-centered, as explained in the comments,
+yet I don't know how to link messages in heliotrope and messages in
+GMail. And I don't think searching through the whole body of the
+messages in GMail would be very fast. So, I changed the state of all
+the messages in the thread. After all, when I have an &quot;Unseen&quot; message
+in a thread, seeing the whole thread looks interesting; same for
+&quot;Starred&quot;.
+- I've heard the ruby IMAP lib is buggy; what is it exactly ?
+
+All in all, the most important part of the process is just the writing
+of the logfile. (One of) My main problem with switching to heliotrope
+entirely is the fact that it doesn't sync with anything else. So now,
+if I have a log of everything I've done, I can at least do the same
+changes by hand. And the script is to be run apart from everything
+else, because I don't think it's part of heliotrope job to sync with
+other mailserver. In fact, this script is more of a &quot;fiddle around to
+learn ruby&quot; script, so please don't care about the code quality =]
+
+Cya,
+
+-- 
+Matthieu RAKOTOJAONA
+</pre><p><strong>Attachment:
+<a href="bin2QpRiLBBk0.bin" ><tt>patch</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+<pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00141" href="msg00141.html">Re: [sup-devel] heliotrope-syncback</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00340.html">Re: [sup-devel] Sup and imap</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00141.html">Re: [sup-devel] heliotrope-syncback</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00340.html">Re: [sup-devel] Sup and imap</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00141.html">Re: [sup-devel] heliotrope-syncback</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00329"><strong>Date</strong></a></li>
+<li><a href="threads.html#00329"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

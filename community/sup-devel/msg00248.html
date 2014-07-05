@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Another UTF&#45;8 exception: edit&#45;message&#45;mode.rb -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Tue, 31 May 2011 01:01:16 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1306828491&#45;sup&#45;5835@qwerzila -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: binHUkhSyisoe.bin -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Another UTF-8 exception: edit-message-mode.rb</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00192.html">Date Prev</a>][<a href="msg00342.html">Date Next</a>][<a href="msg00192.html">Thread Prev</a>][<a href="msg00249.html">Thread Next</a>][<a href="maillist.html#00248">Date Index</a>][<a href="threads.html#00248">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Another UTF-8 exception: edit-message-mode.rb</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Another UTF-8 exception: edit-message-mode.rb</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 31 May 2011 09:57:39 +0200</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi,
+
+ran into another UTF-8 exception in edit-message-mode, I don't know
+exactly what is causing it - but could be UTF-8 chars in some of the
+keywords that are sanitized.
+
+Anyway, exception:
+--- ArgumentError from thread: main
+invalid byte sequence in UTF-8
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/modes/edit-message-mode.rb:498:in `gsub'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/modes/edit-message-mode.rb:498:in `sanitize_body'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/modes/edit-message-mode.rb:373:in `block in send_message'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/mbox.rb:114:in `block in store_message'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/mbox.rb:111:in `open'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/mbox.rb:111:in `store_message'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/sent.rb:28:in `write_sent_message'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/util.rb:618:in `method_missing'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/modes/edit-message-mode.rb:373:in `send_message'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/mode.rb:59:in `handle_input'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/lib/sup/buffer.rb:277:in `handle_input'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/bin/sup:271:in `&lt;module:Redwood&gt;'
+/home/gaute/.gem/ruby/1.9.1/gems/sup-999/bin/sup:80:in `&lt;top (required)&gt;'
+/home/gaute/.gem/ruby/1.9.1/bin/sup:19:in `load'
+/home/gaute/.gem/ruby/1.9.1/bin/sup:19:in `&lt;main&gt;'
+
+And a patch:
+0001-Fix-UTF-8-exception-in-santizing-body.patch
+
+Best regards,
+Gaute
+</pre><p><strong>Attachment:
+<a href="binHUkhSyisoe.bin" ><tt>0001-Fix-UTF-8-exception-in-santizing-body.patch</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00249" href="msg00249.html">Re: Another UTF-8 exception: edit-message-mode.rb</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00259" href="msg00259.html">Re: [sup-devel] Another UTF-8 exception: edit-message-mode.rb</a></strong>
+<ul><li><em>From:</em> Hamish Downer &lt;dmishd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00192.html">[sup-devel] github patches</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00342.html">Invalid encoding symbol when doing Marshal.load</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00192.html">[sup-devel] github patches</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00249.html">Re: Another UTF-8 exception: edit-message-mode.rb</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00248"><strong>Date</strong></a></li>
+<li><a href="threads.html#00248"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

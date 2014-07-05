@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Fwd: Re: Sup 0.10 released -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Mon, 25 Jan 2010 13:19:53 &#45;0800 (PST) -->
+<!--X-Message-Id: 1264454003&#45;sup&#45;9657@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Fwd: Re: Sup 0.10 released</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01376.html">Date Prev</a>][<a href="msg01244.html">Date Next</a>][<a href="msg01427.html">Thread Prev</a>][<a href="msg01248.html">Thread Next</a>][<a href="maillist.html#01273">Date Index</a>][<a href="threads.html#01273">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Fwd: Re: Sup 0.10 released</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel mailing list &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] Fwd: Re: Sup 0.10 released</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 25 Jan 2010 16:19:13 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I'm seeing a weird behavior with the xapian-full gem, and so is this
+guy. The installation claims it fails, but it actually succeeds. The
+spec file is not copied over after installation, so `gem list` doesn't
+show it, but if you require 'xapian' it actually does pick up the code,
+even after the failed installation.
+
+Ideas?
+
+--- Begin forwarded message from Andrea Fazzi ---
+From: Andrea Fazzi &lt;andrea.fazzi@alcacoop.it&gt;
+To: ruby-talk &lt;ruby-talk@ruby-lang.org&gt;
+Date: Mon, 25 Jan 2010 05:32:10 -0500
+Subject: Re: Sup 0.10 released
+
+William Morgan wrote:
+&gt; I'm pleased to announce the release of Sup 0.10. This version is
+&gt; frickin' awesome because not only do we have Ruby 1.9 support, the
+&gt; Xapian backend is now the default!  The next version will discard Ferret
+&gt; like a used rag.
+
+I had issues installing xapian-full gem on my ubuntu box running MRI
+ruby1.8. The installation fails building native extension even if it 
+seems that all the C stuff get compiled correctly. BTW, I solved the 
+issue in this way:
+
+sudo gem install xapian-full
+cd /usr/lib/ruby/gems/1.8/gems/xapian-full-1.1.3/
+sudo rake build
+sudo mv xapian-full.gemspec ../../specifications/
+
+andrea@ubuntu-desktop:~$ irb
+irb(main):001:0&gt; require 'rubygems'
+=&gt; true
+irb(main):002:0&gt; require 'xapian'
+=&gt; true
+
+Thanks for this great software!
+
+Cheers,
+Andrea
+--- End forwarded message ---
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01248" href="msg01248.html">Re: [sup-devel] Fwd: Re: Sup 0.10 released</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01376.html">[sup-devel] [PATCH] Conditionally define Fixnum#ord</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01244.html">Re: [sup-devel] [PATCH] fix participants queries</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01427.html">Re: [sup-devel] Exception when composing messages</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01248.html">Re: [sup-devel] Fwd: Re: Sup 0.10 released</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01273"><strong>Date</strong></a></li>
+<li><a href="threads.html#01273"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

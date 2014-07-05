@@ -1,0 +1,178 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] more gpgme fixes -->
+<!--X-From-R13: Vnzvfu <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Sun, 30 Jan 2011 16:12:45 &#45;0800 (PST) -->
+<!--X-Message-Id: 1296431335&#45;sup&#45;781@whisper -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] more gpgme fixes</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00482.html">Date Prev</a>][<a href="msg00427.html">Date Next</a>][<a href="msg00482.html">Thread Prev</a>][<a href="msg00604.html">Thread Next</a>][<a href="maillist.html#00683">Date Index</a>][<a href="threads.html#00683">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] more gpgme fixes</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] more gpgme fixes</li>
+<li><em>From</em>: Hamish &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 30 Jan 2011 23:53:42 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:content-type:subject:from:to:date:message-id	:user-agent:content-transfer-encoding;	bh=J9I/9L/WJSExDGelhDyo/C1LFj3QHtaRR571CZUyjWk=;	b=me+lEynJYCKOW03/EjMC5g6boO23fHxGq+8ggEC2zjHwwzOKZ9H5NZRxOII/UOUlAz	es1JnPaJifvCQ1MHwCWS9cRBkq03wNEZ9dIQ+Es9i6tr9ND74D5PbFWbxHOM0BiJaw4C	NNpHajLTbghs/VbZAaphgIU1Y1PW4JbOFuTMY=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=J7H/vbpbB1Nc6oL9GtXJc9tnqrZ8NFvSbEOYOxK3qaomwxYeJJEpzi//VS+26jueu1	Qx0uLJ6yaacc7U4GpMQKLAOS+WCGgSpo6IIvqChoRooPbqZXVi++wROHp8QW3w6TK3O3	Mt7Gk7dUK3H1iN5hhr5lu2GI64l3mTJiA2FA4=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I've pushed a couple more patches to the gpgme branch and to next. 
+
+One fixes the issue where sup would send a message you wanted signed 
+or encrypted without signing or encrypting it when the key (or 
+gpg-agent) is not available. For some reason GPGME doesn't complain
+but just returns an empty string. The patch checks for this case and
+complains.
+
+The other one shows the full fingerprint of keys used to sign messages 
+if the key is not trusted.
+
+Hamish Downer
+
+
+
+commit ac321bd89a72dba74e9b2ff182be0b5fc89a61fc
+Author: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date:   Sun Jan 30 23:37:45 2011 +0000
+
+    Catch case where gpg-agent not running or key not available
+
+    GPGME does not raise an Error when the key is not available (say
+    gpg-agent is not running, or the key is on removable media and has
+    been removed). In these cases GPGME returns a zero length string.
+    This patch checks the returned string and raises an error if it has
+    zero length.
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index 5f1b730..6f6797b 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -68,6 +68,13 @@ EOS
+       raise Error, &quot;GPG command failed. See log for details.&quot;
+     end
+ 
++    # if the key (or gpg-agent) is not available GPGME does not complain 
++    # but just returns a zero length string. Let's catch that
++    if sig.length == 0
++      info &quot;GPG failed to generate signature: check that gpg-agent is running and your key is available.&quot;
++      raise Error, &quot;GPG command failed. See log for details.&quot;
++    end
++
+     envelope = RMail::Message.new
+     envelope.header[&quot;Content-Type&quot;] = 'multipart/signed; protocol=application/pgp-signature'
+ 
+@@ -96,6 +103,13 @@ EOS
+       raise Error, &quot;GPG command failed. See log for details.&quot;
+     end
+ 
++    # if the key (or gpg-agent) is not available GPGME does not complain 
++    # but just returns a zero length string. Let's catch that
++    if cipher.length == 0
++      info &quot;GPG failed to generate cipher text: check that gpg-agent is running and your key is available.&quot;
++      raise Error, &quot;GPG command failed. See log for details.&quot;
++    end
++
+     encrypted_payload = RMail::Message.new
+     encrypted_payload.header[&quot;Content-Type&quot;] = &quot;application/octet-stream&quot;
+     encrypted_payload.header[&quot;Content-Disposition&quot;] = 'inline; filename=&quot;msg.asc&quot;'
+
+
+
+
+
+
+commit 9b1721cce09fc18bd9975d9b24918c8c314aaabe
+Author: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date:   Sun Jan 30 23:43:14 2011 +0000
+
+    Add full fingerprint for untrusted keys
+    
+    When the key that signed a message is not trusted, show the full
+    fingerprint, as the gpg binary does.
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index 6f6797b..5a38f27 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -307,6 +307,7 @@ private
+       if signature.validity != GPGME::GPGME_VALIDITY_FULL &amp;&amp; signature.validity != GPGME::GPGME_VALIDITY_MARGINAL
+         output_lines &lt;&lt; &quot;WARNING: This key is not certified with a trusted signature!&quot;
+         output_lines &lt;&lt; &quot;There is no indication that the signature belongs to the owner&quot;
++        output_lines &lt;&lt; &quot;Full fingerprint is: &quot; + (0..9).map {|i| signature.fpr[(i*2),2]}.join(&quot;:&quot;)
+       else
+         trusted = true
+       end
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00482.html">[sup-devel] Fixed bug with messages not being signed.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00427.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00482.html">[sup-devel] Fixed bug with messages not being signed.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00604.html">[sup-devel] couple more gpg related patches</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00683"><strong>Date</strong></a></li>
+<li><a href="threads.html#00683"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue129] error while trying to reply to a message	with CC and gpg	sign -->
+<!--X-From-R13: nabalzbhf <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Mon, 15 Nov 2010 01:05:43 &#45;0800 (PST) -->
+<!--X-Message-Id: 1289810410.96.0.779211820573.issue129@masanjin.net -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 1289810410.96.0.779211820573.issue129@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue129] error while trying to reply to a message	with CC and gpg	sign</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00695.html">Date Prev</a>][<a href="msg00756.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#00567">Date Index</a>][<a href="threads.html#00567">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue129] error while trying to reply to a message	with CC and gpg	sign</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue129] error while trying to reply to a message	with CC and gpg	sign</li>
+<li><em>From</em>: anonymous &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 15 Nov 2010 08:40:11 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00567.html">1289810410.96.0.779211820573.issue129@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from anonymous:
+
+I can't reply to a conversation signing with gpg, if the email has some cc
+
+----------
+files: exception-log.txt
+messages: 303
+nosy: anonymous
+priority: bug
+ruby_version: 1.9.1
+status: unread
+sup_version: 0.11
+title: error while trying to reply to a message with CC and gpg sign
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue129">http://masanjin.net/sup-bugs/issue129</a>&gt;
+_________________________________________</pre><pre>--- Redwood::FatalSourceError from thread: main
+While communicating with IMAP server (type Net::IMAP::BadResponseError): &quot;Could not parse command&quot;
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/imap.rb:343:in `rescue in safely'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/imap.rb:329:in `safely'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/imap.rb:121:in `store_message'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/util.rb:610:in `__pass'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/util.rb:597:in `method_missing'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/sent.rb:28:in `write_sent_message'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/util.rb:570:in `method_missing'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/modes/edit-message-mode.rb:346:in `send_message'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/mode.rb:59:in `handle_input'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/lib/sup/buffer.rb:279:in `handle_input'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/bin/sup:279:in `&lt;module:Redwood&gt;'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.11/bin/sup:68:in `&lt;top (required)&gt;'
+/usr/bin/sup:19:in `load'
+/usr/bin/sup:19:in `&lt;main&gt;'
+</pre><pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00567" href="msg00567.html">[sup-devel] [issue129] error while trying to reply to a message	with CC and gpg	sign</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00567" href="msg00567.html">[sup-devel] [issue129] error while trying to reply to a message	with CC and gpg	sign</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00695.html">Re: [sup-devel] pass //IGNORE to iconv</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00756.html">[sup-devel] searching by message instead of thread</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00567"><strong>Date</strong></a></li>
+<li><a href="threads.html#00567"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

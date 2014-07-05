@@ -1,0 +1,190 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] dont restrict colors to those in	Colormap::DEFAULT_COLORS -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Sun, 24 Jan 2010 11:42:34 &#45;0800 (PST) -->
+<!--X-Message-Id: 1264361820&#45;4176&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1264204034&#45;7088&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] dont restrict colors to those in	Colormap::DEFAULT_COLORS</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01371.html">Date Prev</a>][<a href="msg01432.html">Date Next</a>][<a href="msg01209.html">Thread Prev</a>][<a href="msg00926.html">Thread Next</a>][<a href="maillist.html#01233">Date Index</a>][<a href="threads.html#01233">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] dont restrict colors to those in	Colormap::DEFAULT_COLORS</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] dont restrict colors to those in	Colormap::DEFAULT_COLORS</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Sun, 24 Jan 2010 11:37:00 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01209.html">1264204034-7088-1-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01209.html">1264204034-7088-1-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>This is necessary for user-created highlight colors. A side effect is that
+invalid color names now default to ugly red/green instead of what was in
+DEFAULT_COLORS, which seems more useful for debugging colormap problems. Also
+remove the redundant warnings.
+---
+ lib/sup/colormap.rb |   58 ++++++++++++++++++--------------------------------
+ 1 files changed, 21 insertions(+), 37 deletions(-)
+
+diff --git a/lib/sup/colormap.rb b/lib/sup/colormap.rb
+index aeb3818..7de48db 100644
+--- a/lib/sup/colormap.rb
++++ b/lib/sup/colormap.rb
+@@ -183,51 +183,35 @@ class Colormap
+       Redwood::load_yaml_obj Redwood::COLOR_FN
+     end
+ 
+-    error = nil
+-    Colormap::DEFAULT_COLORS.each_pair do |k, v|
+-      fg = Curses.const_get &quot;COLOR_#{v[:fg].upcase}&quot;
+-      bg = Curses.const_get &quot;COLOR_#{v[:bg].upcase}&quot;
+-      attrs = v[:attrs] ? v[:attrs].map { |a| Curses.const_get &quot;A_#{a.upcase}&quot; } : []
+-
+-      if user_colors &amp;&amp; (ucolor = user_colors[k])
+-        if(ufg = ucolor[:fg])
+-          begin
+-            fg = Curses.const_get &quot;COLOR_#{ufg.to_s.upcase}&quot;
+-          rescue NameError
+-            error ||= &quot;Warning: there is no color named \&quot;#{ufg}\&quot;, using fallback.&quot;
+-            warn &quot;there is no color named \&quot;#{ufg}\&quot;&quot;
+-          end
+-        end
++    Colormap::DEFAULT_COLORS.merge(user_colors||{}).each_pair do |k, v|
++      fg = begin
++        Curses.const_get &quot;COLOR_#{v[:fg].to_s.upcase}&quot;
++      rescue NameError
++        warn &quot;there is no color named \&quot;#{v[:fg]}\&quot;&quot;
++        Curses::COLOR_GREEN
++      end
+ 
+-        if(ubg = ucolor[:bg])
+-          begin
+-            bg = Curses.const_get &quot;COLOR_#{ubg.to_s.upcase}&quot;
+-          rescue NameError
+-            error ||= &quot;Warning: there is no color named \&quot;#{ubg}\&quot;, using fallback.&quot;
+-            warn &quot;there is no color named \&quot;#{ubg}\&quot;&quot;
+-          end
+-        end
++      bg = begin
++        Curses.const_get &quot;COLOR_#{v[:bg].to_s.upcase}&quot;
++      rescue NameError
++        warn &quot;there is no color named \&quot;#{v[:bg]}\&quot;&quot;
++        Curses::COLOR_RED
++      end
+ 
+-        if(uattrs = ucolor[:attrs])
+-          attrs = [*uattrs].flatten.map do |a|
+-            begin
+-              Curses.const_get &quot;A_#{a.upcase}&quot;
+-            rescue NameError
+-              error ||= &quot;Warning: there is no attribute named \&quot;#{a}\&quot;, using fallback.&quot;
+-              warn &quot;there is no attribute named \&quot;#{a}\&quot;, using fallback.&quot;
+-            end
+-          end
++      attrs = (v[:attrs]||[]).map do |a|
++        begin
++          Curses.const_get &quot;A_#{a.upcase}&quot;
++        rescue NameError
++          warn &quot;there is no attribute named \&quot;#{a}\&quot;, using fallback.&quot;
++          nil
+         end
+-      end
++      end.compact
+ 
+-      highlight = ucolor[:highlight] || v[:highlight]
+-      highlight_symbol = highlight ? :&quot;#{highlight}_color&quot; : nil
++      highlight_symbol = v[:highlight] ? :&quot;#{v[:highlight]}_color&quot; : nil
+ 
+       symbol = (k.to_s + &quot;_color&quot;).to_sym
+       add symbol, fg, bg, attrs, highlight_symbol
+     end
+-
+-    warn error if error
+   end
+ 
+   def self.instance; @@instance; end
+-- 
+1.6.3.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00926" href="msg00926.html">Re: [sup-devel] [PATCH] dont restrict colors to those in	Colormap::DEFAULT_COLORS</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01209" href="msg01209.html">[sup-devel] [PATCH] configurable color highlights</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01371.html">[sup-devel] [issue47] utf-8 regression: search&amp;inbox views has	garbled utf-8</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01432.html">[sup-devel] [issue48] Exception: calling id on nil during startup</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01209.html">[sup-devel] [PATCH] configurable color highlights</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00926.html">Re: [sup-devel] [PATCH] dont restrict colors to those in	Colormap::DEFAULT_COLORS</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01233"><strong>Date</strong></a></li>
+<li><a href="threads.html#01233"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue86] git&#45;style delta storage -->
+<!--X-From-R13: nabalzbhf <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Sun, 28 Mar 2010 19:43:21 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1269829261.99.0.22306257269.issue86@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1269829261.99.0.22306257269.issue86@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue86] git-style delta storage</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00908.html">Date Prev</a>][<a href="msg01094.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#01004">Date Index</a>][<a href="threads.html#01004">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue86] git-style delta storage</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue86] git-style delta storage</li>
+<li><em>From</em>: anonymous &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 29 Mar 2010 02:21:02 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01004.html">1269829261.99.0.22306257269.issue86@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from anonymous:
+
+Maybe this is a crazy idea, but I think it would be a well-rewarding long-term
+project because if it's completed, Sup would be the first mail client to
+implement it: have Sup store mail in delta storage.
+
+An obvious raison d'&#xEA;tre would be that storing a lot of mail would consume a
+large amount of disk space, and using delta storage would greatly reduce that
+amount, especially when threads that contain messages that quote each other are
+present.
+
+See <a  rel="nofollow" href="http://kerneltrap.org/mailarchive/git/2007/9/21/270502">http://kerneltrap.org/mailarchive/git/2007/9/21/270502</a> and
+<a  rel="nofollow" href="http://kerneltrap.org/mailarchive/git/2007/9/21/273603">http://kerneltrap.org/mailarchive/git/2007/9/21/273603</a>
+
+Also see <a  rel="nofollow" href="http://www.matthias-georgi.de/gitstore">http://www.matthias-georgi.de/gitstore</a>
+
+----------
+messages: 204
+nosy: anonymous
+priority: feature request
+ruby_version: 1.9.1_p378
+status: unread
+sup_version: 0.11
+title: git-style delta storage
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue86">http://masanjin.net/sup-bugs/issue86</a>&gt;
+_________________________________________
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01004" href="msg01004.html">[sup-devel] [issue86] git-style delta storage</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01000" href="msg01000.html">Re: [sup-devel] [issue86] git-style delta storage</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01004" href="msg01004.html">[sup-devel] [issue86] git-style delta storage</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00908.html">Re: [sup-devel] [PATCH 1/2] Make sup-tweak-labels work with ruby 1.9</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01094.html">[sup-devel] [issue87] undefined method `&lt;' for nil:NilClass	in	index.rb:truncate_date</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01004"><strong>Date</strong></a></li>
+<li><a href="threads.html#01004"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

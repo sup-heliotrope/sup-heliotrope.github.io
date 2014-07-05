@@ -1,0 +1,102 @@
+[general]
+accounts = gaute.vetsj.com, vetsj.com, imap_1, imap_2
+#ui = Noninteractive.Basic
+pythonfile = ~/.offlineimap/utf7.py
+autorefresh = 3
+
+[Account gaute.vetsj.com]
+localrepository = LocalVetsj
+remoterepository = RemoteVetsj
+
+[Repository LocalVetsj]
+type = Maildir
+localfolders = /home/gaute/.mail/gaute.vetsj.com
+nametrans: lambda s: dict((value,key) for key,value in
+                      {  '[Gmail]/Starred' : 'starred',
+                         '[Gmail]/Trash'   : 'trash',
+                         '[Gmail]/Spam'    : 'spam',
+                         '[Gmail]/Sent Mail' : 'sent',
+                         '[Gmail]/Important' : 'important',
+                         '[Gmail]/Drafts'    : 'drafts',
+                         '[Gmail]/All Mail'  : 'archive',
+                         'INBOX'             : 'inbox',
+                      }.iteritems()).get (s, s).decode ('utf8').encode ('imap4-utf-7')
+
+[Repository RemoteVetsj]
+type = Gmail
+ssl = yes
+nametrans: lambda s: {  '[Gmail]/Starred' : 'starred',
+                        '[Gmail]/Trash'   : 'trash',
+                        '[Gmail]/Spam'    : 'spam',
+                        '[Gmail]/Sent Mail' : 'sent',
+                        '[Gmail]/Important' : 'important',
+                        '[Gmail]/Drafts'    : 'drafts',
+                        '[Gmail]/All Mail'  : 'archive',
+                        'INBOX'             : 'inbox',
+                      }.get (s, s).decode ('imap4-utf-7').encode ('utf8')
+
+#folderfilter = lambda foldername: foldername in ['[Gmail]/All Mail']
+
+[Account vetsj.com]
+localrepository = LocalVetsjCom
+remoterepository = RemoteVetsjCom
+
+[Repository LocalVetsjCom]
+type = Maildir
+localfolders = /home/gaute/.mail/vetsj.com
+nametrans: lambda s: dict((value,key) for key,value in
+                      {  '[Gmail]/Starred' : 'starred',
+                         '[Gmail]/Trash'   : 'trash',
+                         '[Gmail]/Spam'    : 'spam',
+                         '[Gmail]/Sent Mail' : 'sent',
+                         '[Gmail]/Important' : 'important',
+                         '[Gmail]/Drafts'    : 'drafts',
+                         '[Gmail]/All Mail'  : 'archive',
+                         'INBOX'             : 'inbox',
+                      }.iteritems()).get (s, s).decode ('utf8').encode ('imap4-utf-7')
+
+[Repository RemoteVetsjCom]
+type = Gmail
+ssl = yes
+nametrans: lambda s: {  '[Gmail]/Starred' : 'starred',
+                        '[Gmail]/Trash'   : 'trash',
+                        '[Gmail]/Spam'    : 'spam',
+                        '[Gmail]/Sent Mail' : 'sent',
+                        '[Gmail]/Important' : 'important',
+                        '[Gmail]/Drafts'    : 'drafts',
+                        '[Gmail]/All Mail'  : 'archive',
+                        'INBOX'             : 'inbox',
+                      }.get (s, s).decode ('imap4-utf-7').encode ('utf8')
+
+
+[Account imap_1]
+localrepository = Local_imap1
+remoterepository = Remote_imap1
+
+[Repository Local_imap1]
+type = Maildir
+localfolders = /home/gaute/.mail/imap_1
+nametrans = lambda s: s.replace ('archive', 'Archives').replace ('drafts', 'Drafts').replace ('sent', 'Sent').replace ('trash', 'Trash').decode ('utf8').encode ('imap4-utf-7')
+
+[Repository Remote_imap1]
+type = IMAP
+remotehost = imap_1
+nametrans  = lambda s: s.replace ('Archives', 'archive').replace ('Drafts', 'drafts').replace ('Sent', 'sent').replace ('Trash', 'trash').decode ('imap4-utf-7').encode ('utf8')
+
+[Account imap_2]
+localrepository = Local_imap2
+remoterepository = Remote_imap2
+
+[Repository Local_imap2]
+type = Maildir
+localfolders = /home/gaute/.mail/imap_2
+nametrans: lambda s: dict((value,key) for key,value in
+                      {  'INBOX'             : 'inbox',
+                      }.iteritems()).get (s, s).decode ('utf8').encode ('imap4-utf-7')
+
+[Repository Remote_imap2]
+type = IMAP
+remotehost = imap_2
+nametrans: lambda s: {  'INBOX'             : 'inbox',
+                      }.get (s, s).decode ('imap4-utf-7').encode ('utf8')
+

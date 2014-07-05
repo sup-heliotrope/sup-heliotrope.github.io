@@ -1,0 +1,123 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Experimental Gmail Source -->
+<!--X-From-R13: Sevp Irvxy <revp.jrvxyNtzk.arg> -->
+<!--X-Date: Thu, 9 May 2013 12:13:41 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1368126620&#45;sup&#45;137@mint -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: CAHWBo_Y6jEWCH8O+m1iw5_p4qd8ghxgvCsa1+15xR7fh+6S0nA@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Experimental Gmail Source</title>
+<link rev="made" href="mailto:eric.weikl@gmx.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00218.html">Date Prev</a>][<a href="msg00106.html">Date Next</a>][<a href="msg00218.html">Thread Prev</a>][<a href="msg00206.html">Thread Next</a>][<a href="maillist.html#00149">Date Index</a>][<a href="threads.html#00149">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Experimental Gmail Source</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Horacio Sanson &lt;<a href="mailto:hsanson%40gmail.com">hsanson@gmail.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Experimental Gmail Source</li>
+<li><em>From</em>: Eric Weikl &lt;<a href="mailto:eric.weikl%40gmx.net">eric.weikl@gmx.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 09 May 2013 21:13:12 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00218.html">CAHWBo_Y6jEWCH8O+m1iw5_p4qd8ghxgvCsa1+15xR7fh+6S0nA@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00218.html">CAHWBo_Y6jEWCH8O+m1iw5_p4qd8ghxgvCsa1+15xR7fh+6S0nA@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Horacio,
+
+Excerpts from Horacio Sanson's message of 2013-05-09 11:28:10 +0200:
+&gt;   - I still have no clue on how to handle sync-back. That is how to
+&gt;     propagate changes made in sup back to Gmail. Any tips on how the
+&gt;     maildir source does it would be appreciated.
+
+The maildir branch currently only syncs the flags supported by the
+maildir spec (by manipulating the file name, see &quot;What can I put in
+info?&quot;[1]). These flags can be synced back to GMail or other mail
+providers using offlineimap.
+
+To sync arbitrary labels, we would probably have to modify the original
+mail headers, like GMail seems to do with the X-GM-LABELS label (I only
+looked at your code, I don't have a GMail account).
+
+Gaute and Matthieu started gathering some ideas in the Wiki[2].
+
+Cheers,
+Eric
+
+Links:
+[1] <a  rel="nofollow" href="http://cr.yp.to/proto/maildir.html">http://cr.yp.to/proto/maildir.html</a>
+[2] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Development%3A-Maildir-syncback">https://github.com/sup-heliotrope/sup/wiki/Development%3A-Maildir-syncback</a>
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00218" href="msg00218.html">[sup-devel] Experimental Gmail Source</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00218.html">[sup-devel] Experimental Gmail Source</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00106.html">[sup-devel] How to get labels from sup for a specific message id?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00218.html">[sup-devel] Experimental Gmail Source</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00206.html">Re: [sup-devel] Experimental Gmail Source</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00149"><strong>Date</strong></a></li>
+<li><a href="threads.html#00149"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

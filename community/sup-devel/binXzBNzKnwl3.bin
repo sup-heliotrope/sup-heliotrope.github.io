@@ -1,0 +1,29 @@
+From 63e61d0b026c5da875a771e8fb0e6e8ff8d8dae3 Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Mon, 15 Feb 2010 19:27:38 +0100
+Subject: [PATCH] catch xapian query parser exceptions and display them to the user
+
+---
+ lib/sup/xapian_index.rb |    6 +++++-
+ 1 files changed, 5 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/xapian_index.rb b/lib/sup/xapian_index.rb
+index cf701b4..c3d492b 100644
+--- a/lib/sup/xapian_index.rb
++++ b/lib/sup/xapian_index.rb
+@@ -265,7 +265,11 @@ EOS
+     qp.add_valuerangeprocessor(Xapian::NumberValueRangeProcessor.new(DATE_VALUENO, 'date:', true))
+     NORMAL_PREFIX.each { |k,v| qp.add_prefix k, v }
+     BOOLEAN_PREFIX.each { |k,v| qp.add_boolean_prefix k, v }
+-    xapian_query = qp.parse_query(subs, Xapian::QueryParser::FLAG_PHRASE|Xapian::QueryParser::FLAG_BOOLEAN|Xapian::QueryParser::FLAG_LOVEHATE|Xapian::QueryParser::FLAG_WILDCARD, PREFIX['body'])
++    begin
++      xapian_query = qp.parse_query(subs, Xapian::QueryParser::FLAG_PHRASE|Xapian::QueryParser::FLAG_BOOLEAN|Xapian::QueryParser::FLAG_LOVEHATE|Xapian::QueryParser::FLAG_WILDCARD, PREFIX['body'])
++    rescue RuntimeError => e
++      raise ParseError, "xapian query parser error: #{e}"
++    end
+ 
+     debug "parsed xapian query: #{xapian_query.description}"
+ 
+-- 
+1.6.5
+

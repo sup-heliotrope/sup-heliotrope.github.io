@@ -1,0 +1,258 @@
+From 7f4499998c3708e3916804c079829537e67a06c7 Mon Sep 17 00:00:00 2001
+From: Tero Tilus <tero@tilus.net>
+Date: Thu, 4 Feb 2010 09:31:34 +0200
+Subject: [PATCH] Message#edit_labels
+
+ - updating labels using "diff" factored out to Message
+ - pushing labels to LabelManager in Message (only) to ensure
+   up-to-date label list in LabelManager
+
+Signed-off-by: Tero Tilus <tero@tilus.net>
+---
+ bin/sup-dump                       |   15 ++++++++++-----
+ lib/sup/message.rb                 |   17 +++++++++++++++++
+ lib/sup/modes/thread-index-mode.rb |   19 ++-----------------
+ lib/sup/modes/thread-view-mode.rb  |    1 -
+ lib/sup/poll.rb                    |    1 -
+ lib/sup/thread.rb                  |    7 ++++++-
+ lib/sup/util.rb                    |   31 ++++++++++++++++++++++++++++---
+ lib/sup/xapian_index.rb            |    1 -
+ 8 files changed, 63 insertions(+), 29 deletions(-)
+
+diff --git a/bin/sup-dump b/bin/sup-dump
+index b738915..46a517e 100755
+--- a/bin/sup-dump
++++ b/bin/sup-dump
+@@ -22,10 +22,15 @@ EOS
+   opt :index, "Use this index type ('auto' for autodetect)", :default => "auto"
+ end
+ 
+-index = Redwood::Index.init $opts[:index]
+-Redwood::SourceManager.init
+-index.load
++begin
++  index = Redwood::Index.init $opts[:index]
++  Redwood::LabelManager.init Redwood::LABEL_FN
++  Redwood::SourceManager.init
++  index.load
+ 
+-index.each_message :load_spam => true, :load_deleted => true, :load_killed => true do |m|
+-  puts "#{m.id} (#{m.labels.to_a.sort_by { |l| l.to_s } * ' '})"
++  index.each_message :load_spam => true, :load_deleted => true, :load_killed => true do |m|
++    puts "#{m.id} (#{m.labels.to_a.sort_by { |l| l.to_s } * ' '})"
++  end
++ensure
++  Redwood::LabelManager.save if Redwood::LabelManager.instantiated?
+ end
+diff --git a/lib/sup/message.rb b/lib/sup/message.rb
+index a85cc0d..eb4728d 100644
+--- a/lib/sup/message.rb
++++ b/lib/sup/message.rb
+@@ -48,6 +48,7 @@ class Message
+     @snippet_contains_encrypted_content = false
+     @have_snippet = !(opts[:snippet].nil? || opts[:snippet].empty?)
+     @labels = Set.new(opts[:labels] || [])
++    @labels.each { |l| LabelManager << l }
+     @dirty = false
+     @encrypted = false
+     @chunks = nil
+@@ -198,6 +199,7 @@ class Message
+     l = l.to_sym
+     return if @labels.member? l
+     @labels << l
++    LabelManager << l
+     @dirty = true
+   end
+   def remove_label l
+@@ -207,6 +209,20 @@ class Message
+     @dirty = true
+   end
+ 
++  ## Takes either a String or a Set of SignedSymbols.  Edits labels
++  ## accordingly.  Calling m.edit_labels 'foo -index +bar' adds labels
++  ## foo and bar and removes label index.
++  def edit_labels labels
++    labels = labels.to_ssym if labels.is_a? String
++    labels.each do |signedlabel|
++      if signedlabel.sign == :-
++        remove_label signedlabel.sym
++      else
++        add_label signedlabel.sym
++      end
++    end
++  end
++
+   def recipients
+     @to + @cc + @bcc
+   end
+@@ -215,6 +231,7 @@ class Message
+     raise ArgumentError, "not a set" unless l.is_a?(Set)
+     raise ArgumentError, "not a set of labels" unless l.all? { |ll| ll.is_a?(Symbol) }
+     return if @labels == l
++    (l - @labels).each { |ll| LabelManager << ll }
+     @labels = l
+     @dirty = true
+   end
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index a6bb2b9..4cbc1f1 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -536,7 +536,6 @@ EOS
+     return unless user_labels
+ 
+     thread.labels = Set.new(keepl) + user_labels
+-    user_labels.each { |l| LabelManager << l }
+     update_text_for_line curpos
+ 
+     UndoManager.register "labeling thread" do
+@@ -554,24 +553,11 @@ EOS
+     user_labels = BufferManager.ask_for_labels :labels, "Add/remove labels (use -label to remove): ", [], @hidden_labels
+     return unless user_labels
+ 
+-    user_labels.map! { |l| (l.to_s =~ /^-/)? [l.to_s.gsub(/^-?/, '').to_sym, true] : [l, false] }
+-    hl = user_labels.select { |(l,_)| @hidden_labels.member? l }
+-    unless hl.empty?
+-      BufferManager.flash "'#{hl}' is a reserved label!"
+-      return
+-    end
+-
++    user_labels = user_labels.to_set_of_signed_symbols
+     old_labels = threads.map { |t| t.labels.dup }
+ 
+     threads.each do |t|
+-      user_labels.each do |(l, to_remove)|
+-        if to_remove
+-          t.remove_label l
+-        else
+-          t.apply_label l
+-          LabelManager << l
+-        end
+-      end
++      t.edit_labels user_labels
+       UpdateManager.relay self, :labeled, t.first
+     end
+ 
+@@ -637,7 +623,6 @@ EOS
+       ::Thread.pass
+       break if @interrupt_search
+     end
+-    @ts.threads.each { |th| th.labels.each { |l| LabelManager << l } }
+ 
+     update
+     BufferManager.clear @mbid
+diff --git a/lib/sup/modes/thread-view-mode.rb b/lib/sup/modes/thread-view-mode.rb
+index 0e935a4..9233873 100644
+--- a/lib/sup/modes/thread-view-mode.rb
++++ b/lib/sup/modes/thread-view-mode.rb
+@@ -273,7 +273,6 @@ EOS
+ 
+     return unless new_labels
+     @thread.labels = Set.new(reserved_labels) + new_labels
+-    new_labels.each { |l| LabelManager << l }
+     update
+     UpdateManager.relay self, :labeled, @thread.first
+     Index.save_thread @thread
+diff --git a/lib/sup/poll.rb b/lib/sup/poll.rb
+index f3e1224..104bd70 100644
+--- a/lib/sup/poll.rb
++++ b/lib/sup/poll.rb
+@@ -163,7 +163,6 @@ EOS
+         m = Message.build_from_source source, offset
+         m.labels += source_labels + (source.archived? ? [] : [:inbox])
+         m.labels.delete :unread if m.source_marked_read? # preserve read status if possible
+-        m.labels.each { |l| LabelManager << l }
+ 
+         HookManager.run "before-add-message", :message => m
+         yield m
+diff --git a/lib/sup/thread.rb b/lib/sup/thread.rb
+index 3fdf1f6..f159e5f 100644
+--- a/lib/sup/thread.rb
++++ b/lib/sup/thread.rb
+@@ -110,7 +110,6 @@ class Thread
+     end
+   end
+ 
+-  def set_labels l; each { |m, *o| m && m.labels = l }; end
+   def has_label? t; any? { |m, *o| m && m.has_label?(t) }; end
+   def each_dirty_message; each { |m, *o| m && m.dirty? && yield(m) }; end
+ 
+@@ -130,6 +129,12 @@ class Thread
+     each { |m, *o| m && m.labels = l.dup }
+   end
+ 
++  ## see Message#edit_labels
++  def edit_labels labels
++    labels = labels.to_ssym if labels.is_a? String
++    each { |m, *o| m.edit_labels labels }
++  end
++
+   def latest_message
+     inject(nil) do |a, b|
+       b = b.first
+diff --git a/lib/sup/util.rb b/lib/sup/util.rb
+index 861db7f..e2d8c5d 100644
+--- a/lib/sup/util.rb
++++ b/lib/sup/util.rb
+@@ -296,12 +296,20 @@ class String
+     end
+   end
+ 
+-  ## takes a list of words, and returns an array of symbols.  typically used in
++  ## Takes a list of words, and returns a set of given transforms.  Typically used in
+   ## Sup for translating Ferret's representation of a list of labels (a string)
+-  ## to an array of label symbols.
++  ## to an array of label symbols (see #to_set_of_symbols).
+   ##
+   ## split_on will be passed to String#split, so you can leave this nil for space.
+-  def to_set_of_symbols split_on=nil; Set.new split(split_on).map { |x| x.strip.intern } end
++  def to_set_of mapping, split_on=nil; Set.new split(split_on).map { |x| x.strip.send mapping } end
++
++  def to_set_of_symbols split_on=nil; to_set_of :to_sym, split_on; end
++  def to_set_of_signed_symbols split_on=nil; to_set_of :to_ssym, split_on; end
++
++  def to_ssym
++    dummy, sign, label = self.match(/^(-|\+)?(.*)$/).to_a
++    SignedSymbol.new label.to_sym, ( sign=='-' ? :- : :+ )
++  end
+ 
+   class CheckError < ArgumentError; end
+   def check
+@@ -331,6 +339,23 @@ class String
+   end
+ end
+ 
++class SignedSymbol
++  def initialize sym, sign
++    @sym = sym
++    @sign = sign
++  end
++  def sym; @sym; end
++  def sign; @sign; end
++end
++
++class Symbol
++  def to_ssym; to_s.to_ssym; end
++end
++
++class Set
++  def to_set_of_signed_symbols; map(&:to_ssym); end
++end
++
+ class Numeric
+   def clamp min, max
+     if self < min
+diff --git a/lib/sup/xapian_index.rb b/lib/sup/xapian_index.rb
+index 443b88d..c2867cf 100644
+--- a/lib/sup/xapian_index.rb
++++ b/lib/sup/xapian_index.rb
+@@ -466,7 +466,6 @@ EOS
+       @xapian.replace_document docid, doc
+     end
+ 
+-    m.labels.each { |l| LabelManager << l }
+     true
+   end
+ 
+-- 
+1.5.6.5
+

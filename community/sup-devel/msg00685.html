@@ -1,0 +1,281 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] Converted crypto to use the gpgme gem -->
+<!--X-From-R13: Vnzvfu R <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Mon, 6 Dec 2010 15:54:07 &#45;0800 (PST) -->
+<!--X-Message-Id: AANLkTi=AJZGLAra20fQvEvU0EasQ_1yWpsr6+4TV3iEn@mail.gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: AANLkTinrSAheJb2F4Xw9AmgXcGLxeQh0_MEnuTSATye_@mail.gmail.com -->
+<!--X-Reference: AANLkTinXwKiJqgKyFrrcVV21a8j8hV=fw4QcvDLhtM8E@mail.gmail.com -->
+<!--X-Reference: AANLkTi=7yasVvAW4P85v3GJxf+quJrE3&#45;1XruDgUZq+D@mail.gmail.com -->
+<!--X-Reference: 1289466286&#45;sup&#45;7540@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTikUwyX6xj&#45;f_ZnLp6s2s9vaCpgayPKygniWndoJ@mail.gmail.com -->
+<!--X-Reference: 1289907535&#45;sup&#45;3989@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTi=xz16ecZ0C5=RUcOG4wzojVVzs70PZ2ueKa0ht@mail.gmail.com -->
+<!--X-Reference: 1289932061&#45;sup&#45;96@meteor.durcheinandertal.local -->
+<!--X-Reference: AANLkTin=1MRrW0vuj_7uMvjcyLc3Aaw4ddZ_Rq6TBiyx@mail.gmail.com -->
+<!--X-Reference: AANLkTinvv59bWu0UfjW2K&#45;xDRUP42tDwmgMh5yZdmaN_@mail.gmail.com -->
+<!--X-Reference: 1291023322&#45;sup&#45;8457@meteor.durcheinandertal.local -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00560.html">Date Prev</a>][<a href="msg00754.html">Date Next</a>][<a href="msg00464.html">Thread Prev</a>][<a href="msg00553.html">Thread Next</a>][<a href="maillist.html#00685">Date Index</a>][<a href="threads.html#00685">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</li>
+<li><em>From</em>: Hamish D &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 6 Dec 2010 23:31:43 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:received:in-reply-to	:references:date:message-id:subject:from:to:content-type;	bh=7+Em1MHCQe1cwoRCSaAyJsmlxnamUGL63e+JA2fkrm4=;	b=AfR833Vkmxf5ufVxsl24+hYQF20XMgaNMzXSxCt0rh3R19+UZn3pIePPI3mlPTMfwh	2Z/xCGraGpMSXLVHtnwNgYP/Jmabv6oRx9SQLRRnmNQZ4r++ojowYx4H/JdnNx8mYqtf	EjU7s66JG6zuy1DTJRNw2RQw0z6hmd4tsZ/3s=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:in-reply-to:references:date:message-id:subject:from:to	:content-type;	b=PZRFHeXTt+Ymc/LUTgbrzYeboAsIF6JakbKPJH1nIkmIOAXw8F15fdxYQxlPubS42T	ZQs3P7D+rTcODGPfU7i6o6gOEXQzlEYBU2G4XQ+wVCYVxtAnRK1+N0neePsOj6DA98Ii	3sdIjNfw3bgmLq+IuA1F/Tk2MfU3uJ04qGM84=</li>
+<li><em>In-reply-to</em>: &lt;1291023322-sup-8457@meteor.durcheinandertal.local&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00738.html">AANLkTinrSAheJb2F4Xw9AmgXcGLxeQh0_MEnuTSATye_@mail.gmail.com</a>&gt;	&lt;AANLkTinXwKiJqgKyFrrcVV21a8j8hV=fw4QcvDLhtM8E@mail.gmail.com&gt;	&lt;AANLkTi=7yasVvAW4P85v3GJxf+quJrE3-1XruDgUZq+D@mail.gmail.com&gt;	&lt;1289466286-sup-7540@meteor.durcheinandertal.local&gt;	&lt;<a href="msg00535.html">AANLkTikUwyX6xj-f_ZnLp6s2s9vaCpgayPKygniWndoJ@mail.gmail.com</a>&gt;	&lt;1289907535-sup-3989@meteor.durcheinandertal.local&gt;	&lt;AANLkTi=xz16ecZ0C5=RUcOG4wzojVVzs70PZ2ueKa0ht@mail.gmail.com&gt;	&lt;1289932061-sup-96@meteor.durcheinandertal.local&gt;	&lt;AANLkTin=1MRrW0vuj_7uMvjcyLc3Aaw4ddZ_Rq6TBiyx@mail.gmail.com&gt;	&lt;<a href="msg00649.html">AANLkTinvv59bWu0UfjW2K-xDRUP42tDwmgMh5yZdmaN_@mail.gmail.com</a>&gt;	&lt;1291023322-sup-8457@meteor.durcheinandertal.local&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&gt; I just discovered another problem: If the secret key is not available
+&gt; (because it's on a removable media and the media is not mounted), the
+&gt; mail is sent anyway. While this is just a bit annoying for signed mail
+&gt; it definitely should not happen for encrypted mails. Current sup
+&gt; corectly fails in this case.
+
+I have replicated this (by turning off gpg agent) but I'm confused as
+to why this is happening. If I try the same steps in irb I get an
+exception, and this should be caught and dealt with in the same way as
+current sup does. I guess I'll have to keep trying to replicate more
+and more of the path way through ... sigh.
+
+Once I have worked out the proper logic I can then add some extra
+checks for ensuring that gpg agent is running and that sup knows where
+to find it. I could even have sup ask you for your gpg passphrase with
+gpgme. There might be some security issues with having ruby ask you
+for your passphrase I guess, but I don't think it would be worse than
+gpg agent. gpg agent doesn't seem to have the suid bit set, though
+maybe as a C program it can be more rigorous about overwriting your
+passphrase in memory. I could always implement it as a hook with gpg
+agent as the default.
+
+&gt; It would also be nice to have different colors for different trust
+&gt; levels. So you don't have to expand the extra information to see if a
+&gt; valid signature is trusted or not. Is this already possible with the
+&gt; current hook?
+
+That requires code changes, but I've done that and attached a patch
+(intended to go on top of the other 4 patches). Now untrusted
+signatures have a blue background. (Trusted signatures have a default
+background - black normally, and bad signatures have a red
+background). All signatures have yellow text.
+
+I'm quite open to a different colour scheme being chosen if someone
+thinks something else would be clearer.
+
+Hamish Downer
+</pre><pre>From b99343dd358361ac47c9e00198b52df28fbd95cc Mon Sep 17 00:00:00 2001
+From: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date: Mon, 6 Dec 2010 22:33:17 +0000
+Subject: [PATCH 5/5] added color for untrusted cryptonotice
+
+---
+ lib/sup/colormap.rb       |    1 +
+ lib/sup/crypto.rb         |   29 ++++++++++++++++++++---------
+ lib/sup/message-chunks.rb |    1 +
+ 3 files changed, 22 insertions(+), 9 deletions(-)
+
+diff --git a/lib/sup/colormap.rb b/lib/sup/colormap.rb
+index 7de48db..8402add 100644
+--- a/lib/sup/colormap.rb
++++ b/lib/sup/colormap.rb
+@@ -40,6 +40,7 @@ class Colormap
+     :missing_message =&gt; { :fg =&gt; &quot;black&quot;, :bg =&gt; &quot;red&quot; },
+     :attachment =&gt; { :fg =&gt; &quot;cyan&quot;, :bg =&gt; &quot;default&quot; },
+     :cryptosig_valid =&gt; { :fg =&gt; &quot;yellow&quot;, :bg =&gt; &quot;default&quot;, :attrs =&gt; [&quot;bold&quot;] },
++    :cryptosig_valid_untrusted =&gt; { :fg =&gt; &quot;yellow&quot;, :bg =&gt; &quot;blue&quot;, :attrs =&gt; [&quot;bold&quot;] },
+     :cryptosig_unknown =&gt; { :fg =&gt; &quot;cyan&quot;, :bg =&gt; &quot;default&quot; },
+     :cryptosig_invalid =&gt; { :fg =&gt; &quot;yellow&quot;, :bg =&gt; &quot;red&quot;, :attrs =&gt; [&quot;bold&quot;] },
+     :generic_notice_patina =&gt; { :fg =&gt; &quot;cyan&quot;, :bg =&gt; &quot;default&quot; },
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index b9ffb17..e532261 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -121,11 +121,15 @@ EOS
+   def verified_ok? verify_result
+     valid = true
+     unknown = false
+-    output_lines = []
++    all_output_lines = []
++    all_trusted = true
+ 
+     verify_result.signatures.each do |signature|
+-      output_lines.push(sig_output_lines(signature))
+-      output_lines.flatten!
++      output_lines, trusted = sig_output_lines signature
++      all_output_lines &lt;&lt; output_lines
++      all_output_lines.flatten!
++      all_trusted &amp;&amp;= trusted
++
+       err_code = GPGME::gpgme_err_code(signature.status)
+       if err_code == GPGME::GPG_ERR_BAD_SIGNATURE
+         valid = false 
+@@ -135,14 +139,18 @@ EOS
+       end
+     end
+ 
+-    if output_lines.length == 0
+-      Chunk::CryptoNotice.new :valid, &quot;Encrypted message wasn't signed&quot;, output_lines
++    if all_output_lines.length == 0
++      Chunk::CryptoNotice.new :valid, &quot;Encrypted message wasn't signed&quot;, all_output_lines
+     elsif valid
+-      Chunk::CryptoNotice.new(:valid, simplify_sig_line(verify_result.signatures[0].to_s), output_lines)
++      if all_trusted
++        Chunk::CryptoNotice.new(:valid, simplify_sig_line(verify_result.signatures[0].to_s), all_output_lines)
++      else
++        Chunk::CryptoNotice.new(:valid_untrusted, simplify_sig_line(verify_result.signatures[0].to_s), all_output_lines)
++      end
+     elsif !unknown
+-      Chunk::CryptoNotice.new(:invalid, simplify_sig_line(verify_result.signatures[0].to_s), output_lines)
++      Chunk::CryptoNotice.new(:invalid, simplify_sig_line(verify_result.signatures[0].to_s), all_output_lines)
+     else
+-      unknown_status output_lines
++      unknown_status all_output_lines
+     end
+   end
+ 
+@@ -273,6 +281,7 @@ private
+                 &quot;key ID &quot; + signature.fingerprint[-8..-1]
+     output_lines = [time_line, first_sig]
+ 
++    trusted = false
+     if from_key 
+       # first list all the uids
+       if from_key.uids.length &gt; 1
+@@ -284,13 +293,15 @@ private
+       if signature.validity != GPGME::GPGME_VALIDITY_FULL &amp;&amp; signature.validity != GPGME::GPGME_VALIDITY_MARGINAL
+         output_lines &lt;&lt; &quot;WARNING: This key is not certified with a trusted signature!&quot;
+         output_lines &lt;&lt; &quot;There is no indication that the signature belongs to the owner&quot;
++      else
++        trusted = true
+       end
+ 
+       # finally, run the hook
+       output_lines &lt;&lt; HookManager.run(&quot;sig-output&quot;,
+                                {:signature =&gt; signature, :from_key =&gt; from_key})
+     end
+-    output_lines
++    return output_lines, trusted
+   end
+ 
+   def key_type key, fpr
+diff --git a/lib/sup/message-chunks.rb b/lib/sup/message-chunks.rb
+index 02d28f6..0097450 100644
+--- a/lib/sup/message-chunks.rb
++++ b/lib/sup/message-chunks.rb
+@@ -272,6 +272,7 @@ EOS
+     def patina_color
+       case status
+       when :valid then :cryptosig_valid_color
++      when :valid_untrusted then :cryptosig_valid_untrusted_color
+       when :invalid then :cryptosig_invalid_color
+       else :cryptosig_unknown_color
+       end
+-- 
+1.7.1
+
+</pre><pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00553" href="msg00553.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00738" href="msg00738.html">[sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00766" href="msg00766.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00672" href="msg00672.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00411" href="msg00411.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00535" href="msg00535.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00675" href="msg00675.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00768" href="msg00768.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00499" href="msg00499.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+<li><strong><a name="00574" href="msg00574.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00649" href="msg00649.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00742" href="msg00742.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+<ul><li><em>From:</em> Gaudenz Steinlin &lt;gaudenz@soziologie.ch&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00560.html">[sup-devel] [issue135] crash on attempting to start sup</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00754.html">[sup-devel] [issue136] Crash when searching for during:december</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00464.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00553.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00685"><strong>Date</strong></a></li>
+<li><a href="threads.html#00685"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

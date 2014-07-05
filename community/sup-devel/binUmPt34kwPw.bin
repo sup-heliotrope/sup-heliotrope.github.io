@@ -1,0 +1,25 @@
+From b7ed62113b5784f4bc27ac60c7921334ccb88af8 Mon Sep 17 00:00:00 2001
+From: Alvaro Herrera <alvherre@alvh.no-ip.org>
+Date: Tue, 9 Nov 2010 12:10:30 -0300
+Subject: [PATCH 2/3] Use "-- " for signature separator
+
+---
+ lib/sup/modes/edit-message-mode.rb |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/modes/edit-message-mode.rb b/lib/sup/modes/edit-message-mode.rb
+index 28082c3..c13c6ae 100644
+--- a/lib/sup/modes/edit-message-mode.rb
++++ b/lib/sup/modes/edit-message-mode.rb
+@@ -518,7 +518,7 @@ private
+              AccountManager.default_account).signature
+ 
+     if sigfn && File.exists?(sigfn)
+-      ["", "--"] + File.readlines(sigfn).map { |l| l.chomp }
++      ["", "-- "] + File.readlines(sigfn).map { |l| l.chomp }
+     else
+       []
+     end
+-- 
+1.7.1
+

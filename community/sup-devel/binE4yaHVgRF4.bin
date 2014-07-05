@@ -1,0 +1,55 @@
+From 0e68a2ab2b49cff0daf2b99ae705f6df3ac8649b Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Wed, 16 Jun 2010 20:08:30 +0200
+Subject: [PATCH] =?UTF-8?q?Don=E2=80=99t=20display=20"..."=20after=20snippets=20which=20are=20displayed=20completely?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Short mails (for example: "Yes, the date works for me.") often can
+be displayed completely in the snippet. However, before this patch,
+sup abbreviated the snippet even though it was not abbreviated.
+---
+ lib/sup/message.rb                 |    2 ++
+ lib/sup/modes/thread-index-mode.rb |    4 +---
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/lib/sup/message.rb b/lib/sup/message.rb
+index b70bc6b..6c5f199 100644
+--- a/lib/sup/message.rb
++++ b/lib/sup/message.rb
+@@ -656,7 +656,9 @@ private
+         @snippet ||= ""
+         @snippet += " " unless @snippet.empty?
+         @snippet += line.gsub(/^\s+/, "").gsub(/[\r\n]/, "").gsub(/\s+/, " ")
++        oldlen = @snippet.length
+         @snippet = @snippet[0 ... SNIPPET_LEN].chomp
++        @snippet += "..." if @snippet.length < oldlen
+         @dirty = true unless encrypted && $config[:discard_snippets_from_encrypted_messages]
+         @snippet_contains_encrypted_content = true if encrypted
+       end
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index ed9a3eb..0c7a3f2 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -876,8 +876,6 @@ protected
+         :index_old_color
+       end
+ 
+-    snippet = t.snippet + (t.snippet.empty? ? "" : "...")
+-
+     size_padding = @size_widget_width - size_widget.display_length
+     size_widget_text = sprintf "%#{size_padding}s%s", "", size_widget
+ 
+@@ -898,7 +896,7 @@ protected
+       (t.labels - @hidden_labels).map { |label| [:label_color, "#{label} "] } +
+       [
+       [subj_color, t.subj + (t.subj.empty? ? "" : " ")],
+-      [:snippet_color, snippet],
++      [:snippet_color, t.snippet],
+     ]
+   end
+ 
+-- 
+1.6.5
+

@@ -1,0 +1,185 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Cannot query Japanese characters -->
+<!--X-From-R13: Vbenpvb Enafba <ufnafbaNtznvy.pbz> -->
+<!--X-Date: Sun, 24 Apr 2011 19:15:25 &#45;0700 (PDT) -->
+<!--X-Message-Id: 201104251023.19659.hsanson@gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Cannot query Japanese characters</title>
+<link rev="made" href="mailto:hsanson@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00654.html">Date Prev</a>][<a href="msg00576.html">Date Next</a>][<a href="msg00250.html">Thread Prev</a>][<a href="msg00613.html">Thread Next</a>][<a href="maillist.html#00765">Date Index</a>][<a href="threads.html#00765">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Cannot query Japanese characters</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] Cannot query Japanese characters</li>
+<li><em>From</em>: Horacio Sanson &lt;<a href="mailto:hsanson%40gmail.com">hsanson@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 25 Apr 2011 10:23:19 +0900</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:from:organization:to:subject:date:user-agent	:mime-version:content-type:content-transfer-encoding:message-id;	bh=z0MCvVlUD+n4J0VTuF3Oj7y+M3tg0Gl0KtBBLUwV848=;	b=SEjLYfZkCKB+thtFfQEZWitz9bSyiegxmshgPXhGR4sxwhYIKwqiZc19j6o2tIIocQ	BKx8s35fUbuzLxj8LT7kUZvDu0OZq+OEtXTYJyW8K/y3VwkH2Hx+8BXPbn1S8mUPnbCU	ON5Qe4j+aRa7p7abqqCHr586ITi3LRYttYLgo=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=from:organization:to:subject:date:user-agent:mime-version	:content-type:content-transfer-encoding:message-id;	b=ulD22hdJIcEXL+fhsbJBtkNA8TEcSr8RFkl4lY2dSxoOHMSbicZWg8PxTETPdiRqi8	ZNlOEk1XTtMLlzcEgcy5POCENZ3TCd/fdLSm1zBSec1qVjORnCLg5EesjscM7RoR2yuh	4DWp8FT7SG+j0l7VXqRc27egC/6rUtmQ50/EQ=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Organization</em>: piaotech</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: KMail/1.13.5 (Linux/2.6.35-28-generic; KDE/4.5.1; x86_64; ; )</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I like sup's idea and have a lot of hope in heliotrope but unfortunately both 
+have problems when dealing with my language: Japanese. 
+
+When I put a search string like this &quot;subject: &#x624B;&#x7D19;&quot; I get the following crash:
+
+27.0.0.1 - - [25/Apr/2011 10:17:17] &quot;GET /search?q=%E6%89%8B%E7%B4%99 
+HTTP/1.1&quot; 200 12306 0.0169
+localhost.localdomain - - [25/Apr/2011:10:17:17 JST] &quot;GET 
+/search?q=%E6%89%8B%E7%B4%99 HTTP/1.1&quot; 200 12306
+<a  rel="nofollow" href="http://localhost:8042/search?q=%E6%89%8B%E7%B4%99">http://localhost:8042/search?q=%E6%89%8B%E7%B4%99</a> -&gt; 
+/search?q=%E6%89%8B%E7%B4%99
+127.0.0.1 - - [25/Apr/2011 10:17:17] &quot;GET /favicon.ico HTTP/1.1&quot; 404 441 
+0.0007
+localhost.localdomain - - [25/Apr/2011:10:17:17 JST] &quot;GET /favicon.ico 
+HTTP/1.1&quot; 404 441
+- -&gt; /favicon.ico
+HeliotropeServer::RequestError - can't parse query: parse error: line 1: 
+syntax error, unexpected $end, expecting WORD or '&quot;' or '(':
+ bin/heliotrope-server:161:in `rescue in block in &lt;class:HeliotropeServer&gt;'
+ bin/heliotrope-server:138:in `block in &lt;class:HeliotropeServer&gt;'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `call'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `block in 
+compile!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in 
+`instance_eval'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in 
+`route_eval'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:722:in `block (2 
+levels) in route!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:772:in `block in 
+process_route'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in `catch'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in 
+`process_route'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:721:in `block in 
+route!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `each'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `route!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:857:in `dispatch!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `block in 
+call!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in 
+`instance_eval'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `block in 
+invoke'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `catch'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `invoke'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `call!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:633:in `call'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/showexceptions.rb:21:in 
+`call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/lint.rb:48:in `_call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/lint.rb:36:in `call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/showexceptions.rb:24:in `call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/commonlogger.rb:18:in `call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in 
+`service'
+ /usr/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+ /usr/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+ /usr/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+127.0.0.1 - - [25/Apr/2011 10:17:28] &quot;GET 
+/search?q=subject%3A+%E6%89%8B%E7%B4%99 HTTP/1.1&quot; 500 92955 0.0266
+localhost.localdomain - - [25/Apr/2011:10:17:28 JST] &quot;GET 
+/search?q=subject%3A+%E6%89%8B%E7%B4%99 HTTP/1.1&quot; 500 92955
+<a  rel="nofollow" href="http://localhost:8042/search?q=%E6%89%8B%E7%B4%99">http://localhost:8042/search?q=%E6%89%8B%E7%B4%99</a> -&gt; 
+/search?q=subject%3A+%E6%89%8B%E7%B4%99
+127.0.0.1 - - [25/Apr/2011 10:17:28] &quot;GET /__sinatra__/500.png HTTP/1.1&quot; 304 - 
+0.0006
+localhost.localdomain - - [25/Apr/2011:10:17:28 JST] &quot;GET /__sinatra__/500.png 
+HTTP/1.1&quot; 304 0
+<a  rel="nofollow" href="http://localhost:8042/search?q=subject%3A+%E6%89%8B%E7%B4%99">http://localhost:8042/search?q=subject%3A+%E6%89%8B%E7%B4%99</a> -&gt; 
+/__sinatra__/500.png
+127.0.0.1 - - [25/Apr/2011 10:17:28] &quot;GET /favicon.ico HTTP/1.1&quot; 404 441 
+0.0008
+localhost.localdomain - - [25/Apr/2011:10:17:28 JST] &quot;GET /favicon.ico 
+HTTP/1.1&quot; 404 441
+
+
+
+I am running the latest heliotrope from git with ruby 1.9.2 from the default 
+Kubuntu 10.10 distribution.
+
+
+-- 
+regards,                                                                                                                                                                                                       
+Horacio Sanson
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00613" href="msg00613.html">Re: [sup-devel] Cannot query Japanese characters</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00654.html">[sup-devel] [PATCH] toggle killed status</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00576.html">[sup-devel] turnsole cannot handle Japanese labels.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00250.html">Re: [sup-devel] [PATCH] toggle killed status</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00613.html">Re: [sup-devel] Cannot query Japanese characters</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00765"><strong>Date</strong></a></li>
+<li><a href="threads.html#00765"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

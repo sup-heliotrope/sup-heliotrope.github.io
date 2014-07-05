@@ -1,0 +1,54 @@
+From 96440145b5ea06e418ca301e01a1bfda5e1527e6 Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Wed, 20 Jan 2010 23:23:12 +0100
+Subject: [PATCH] Use multiple body arrays when calling before-edit for each reply type
+
+This allows for before-edit hooks which modify the body of the message
+based on the different headers (previously, they could only modify
+headers).
+
+As an example, I use it to sign mail in english if one of the recipients
+(not *the* recipient, but one of them) is speaking english.
+---
+ lib/sup/modes/reply-mode.rb |    8 ++++++--
+ 1 files changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/lib/sup/modes/reply-mode.rb b/lib/sup/modes/reply-mode.rb
+index 3d39a8a..7f1ae34 100644
+--- a/lib/sup/modes/reply-mode.rb
++++ b/lib/sup/modes/reply-mode.rb
+@@ -150,11 +150,13 @@ EOS
+         :recipient
+       end)
+ 
++    @bodies = {}
+     @headers.each do |k, v|
+-      HookManager.run "before-edit", :header => v, :body => body
++      @bodies[k] = Array.new(body)
++      HookManager.run "before-edit", :header => v, :body => @bodies[k]
+     end
+ 
+-    super :header => @headers[@type_selector.val], :body => body, :twiddles => false
++    super :header => @headers[@type_selector.val], :body => @bodies[@type_selector.val], :twiddles => false
+     add_selector @type_selector
+   end
+ 
+@@ -164,6 +166,7 @@ protected
+     super
+     if @headers[@type_selector.val] != self.header
+       self.header = @headers[@type_selector.val]
++      self.body = @bodies[@type_selector.val]
+       update
+     end
+   end
+@@ -172,6 +175,7 @@ protected
+     super
+     if @headers[@type_selector.val] != self.header
+       self.header = @headers[@type_selector.val]
++      self.body = @bodies[@type_selector.val]
+       update
+     end
+   end
+-- 
+1.6.5
+

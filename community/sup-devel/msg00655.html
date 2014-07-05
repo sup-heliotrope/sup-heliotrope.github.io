@@ -1,0 +1,118 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] eliminated nil&#45;to&#45;integer error when	standard library ruby code calls make_tmpname with n=nil -->
+<!--X-From-R13: Dbav Qubhquhel <ebavNpf.hgnu.rqh> -->
+<!--X-Date: Mon, 21 Feb 2011 16:14:52 &#45;0800 (PST) -->
+<!--X-Message-Id: 1298332384&#45;sup&#45;5832@medusa -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1298322910&#45;sup&#45;1012@medusa -->
+<!--X-Reference: 1298330683&#45;sup&#45;2583@alvh.no&#45;ip.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] eliminated nil-to-integer error when	standard library ruby code calls make_tmpname with n=nil</title>
+<link rev="made" href="mailto:roni@cs.utah.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00500.html">Date Prev</a>][<a href="msg00419.html">Date Next</a>][<a href="msg00500.html">Thread Prev</a>][<a href="msg00474.html">Thread Next</a>][<a href="maillist.html#00655">Date Index</a>][<a href="threads.html#00655">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] eliminated nil-to-integer error when	standard library ruby code calls make_tmpname with n=nil</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] eliminated nil-to-integer error when	standard library ruby code calls make_tmpname with n=nil</li>
+<li><em>From</em>: Roni Choudhury &lt;<a href="mailto:roni%40cs.utah.edu">roni@cs.utah.edu</a>&gt;</li>
+<li><em>Date</em>: Mon, 21 Feb 2011 16:54:28 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00500.html">1298330683-sup-2583@alvh.no-ip.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1298322910-sup-1012@medusa&gt; &lt;<a href="msg00500.html">1298330683-sup-2583@alvh.no-ip.org</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Alvaro Herrera's message of 2011-02-21 16:26:07 -0700:
+&gt; Excerpts from Roni Choudhury's message of lun feb 21 18:17:04 -0300 2011:
+&gt; &gt; I was getting an error from monkeypatched code that didn't seem to
+&gt; &gt; call into the standard library properly... this patch seemed to fix
+&gt; &gt; things for me, but I didn't fully understand what was going on here.
+&gt; 
+&gt; Seems like the way to really solve the problem would be to figure out
+&gt; what's calling make_tmpname with a nil n, and fix that instead.  Is it
+&gt; possible for you to figure that out from the trace?
+&gt; 
+
+I believe I did track it down, and it looked like a custom use for
+make_tmpname somewhere... I could figure it out again, but I was also
+informed in the IRC channel that this fix has already been applied to
+master under different circumstances.
+
+roni
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00483" href="msg00483.html">[sup-devel] [PATCH] eliminated nil-to-integer error when standard	library ruby code calls make_tmpname with n=nil</a></strong>
+<ul><li><em>From:</em> Roni Choudhury &lt;roni@cs.utah.edu&gt;</li></ul></li>
+<li><strong><a name="00500" href="msg00500.html">Re: [sup-devel] [PATCH] eliminated nil-to-integer error when	standard library ruby code calls make_tmpname with n=nil</a></strong>
+<ul><li><em>From:</em> Alvaro Herrera &lt;alvherre@alvh.no-ip.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00500.html">Re: [sup-devel] [PATCH] eliminated nil-to-integer error when	standard library ruby code calls make_tmpname with n=nil</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00419.html">Re: [sup-devel] Need help applying patches</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00500.html">Re: [sup-devel] [PATCH] eliminated nil-to-integer error when	standard library ruby code calls make_tmpname with n=nil</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00474.html">[sup-devel] [PATCH] Mark the thread as read after the	ThreadViewMode has been instancied and displayed</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00655"><strong>Date</strong></a></li>
+<li><a href="threads.html#00655"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

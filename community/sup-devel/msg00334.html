@@ -1,0 +1,103 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [PATCH] Don't fail on empty lines while expanding -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Thu, 13 Oct 2011 03:14:17 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1318500554&#45;sup&#45;8811@qwerzila -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[PATCH] Don't fail on empty lines while expanding</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00083.html">Date Prev</a>][<a href="msg00133.html">Date Next</a>][<a href="msg00083.html">Thread Prev</a>][<a href="msg00162.html">Thread Next</a>][<a href="maillist.html#00334">Date Index</a>][<a href="threads.html#00334">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[PATCH] Don't fail on empty lines while expanding</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [PATCH] Don't fail on empty lines while expanding</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 13 Oct 2011 12:10:27 +0200</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>While expanding an GPG signature which must have contained a line that
+ended up as nil while chomp'ing, chomp will crash. This patch filters
+out lines which are nil.
+---
+ lib/sup/modes/thread-view-mode.rb |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/modes/thread-view-mode.rb b/lib/sup/modes/thread-view-mode.rb
+index 9fcc45d..ec1a82e 100644
+--- a/lib/sup/modes/thread-view-mode.rb
++++ b/lib/sup/modes/thread-view-mode.rb
+@@ -846,7 +846,7 @@ private
+       else
+         width = buffer.content_width
+       end
+-      lines = lines.map { |l| l.chomp.wrap width }.flatten
++      lines = lines.map { |l| l.chomp.wrap width if l }.flatten
+     end
+     return lines
+   end
+-- 
+1.7.7
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00162" href="msg00162.html">Re: [sup-devel] [PATCH] Don't fail on empty lines while expanding</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00083.html">Re: [sup-devel] Playing with heliotrope/turnsole</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00133.html">[sup-talk] Preparing for sup 0.13</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00083.html">Re: [sup-devel] Playing with heliotrope/turnsole</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00162.html">Re: [sup-devel] [PATCH] Don't fail on empty lines while expanding</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00334"><strong>Date</strong></a></li>
+<li><a href="threads.html#00334"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] add a mouse&#45;enabled colorpicker to contrib -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Sun, 3 Jan 2010 07:36:51 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262532808&#45;19401&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] add a mouse-enabled colorpicker to contrib</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01210.html">Date Prev</a>][<a href="msg01412.html">Date Next</a>][<a href="msg01256.html">Thread Prev</a>][<a href="msg01379.html">Thread Next</a>][<a href="maillist.html#01316">Date Index</a>][<a href="threads.html#01316">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] add a mouse-enabled colorpicker to contrib</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] add a mouse-enabled colorpicker to contrib</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Sun,  3 Jan 2010 07:33:28 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Intended to make colorscheme creation easier.
+---
+ contrib/colorpicker.rb |  104 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 104 insertions(+), 0 deletions(-)
+ create mode 100644 contrib/colorpicker.rb
+
+diff --git a/contrib/colorpicker.rb b/contrib/colorpicker.rb
+new file mode 100644
+index 0000000..c981a23
+--- /dev/null
++++ b/contrib/colorpicker.rb
+@@ -0,0 +1,104 @@
++require 'rubygems'
++
++begin
++  require 'ncursesw'
++rescue LoadError
++  require 'ncurses'
++end
++
++Ncurses.initscr
++Ncurses.noecho
++Ncurses.cbreak
++Ncurses.start_color
++
++Ncurses.curs_set 0
++Ncurses.move 0, 0
++Ncurses.clear
++Ncurses.refresh
++cc = Ncurses.COLORS
++
++Ncurses::keypad(Ncurses::stdscr, 1)
++Ncurses::mousemask(Ncurses::ALL_MOUSE_EVENTS | Ncurses::REPORT_MOUSE_POSITION, [])
++
++fail &quot;color count is #{cc}, expected 256&quot; unless cc == 256
++
++1.upto(255) do |c|
++  Ncurses.init_pair(c, 0, c)
++end
++
++def cell y, x, c
++  @map[[y,x]] = c
++  Ncurses.attron(Ncurses.COLOR_PAIR(c))
++  Ncurses.mvaddstr(y, x, &quot; &quot;)
++  Ncurses.attroff(Ncurses.COLOR_PAIR(c))
++end
++
++def handle_click y, x
++  c = @map[[y,x]] or return
++  name = case c
++  when 0...16
++    c.to_s
++  when 16...232
++    'c' + (c-16).to_s(6).rjust(3,'0')
++  when 232...256
++    'g' + (c-232).to_s
++  end
++
++  Ncurses.mvaddstr 11, 0, &quot;#{name}            &quot;
++
++  Ncurses.attron(Ncurses.COLOR_PAIR(c))
++  10.times do |i|
++    20.times do |j|
++      y = 13 + i
++      x = j
++      Ncurses.mvaddstr(y, x, &quot; &quot;)
++    end
++  end
++  Ncurses.attroff(Ncurses.COLOR_PAIR(c))
++end
++
++@map = {}
++@fg = @bg = 0
++
++begin
++  16.times do |i|
++    cell 0, i, i
++  end
++
++  6.times do |i|
++    6.times do |j|
++      6.times do |k|
++        c = 16 + 6*6*i + 6*j + k
++        y = 2 + j
++        x = 7*i + k
++        cell y, x, c
++      end
++    end
++  end
++
++  16.times do |i|
++    c = 16 + 6*6*6 + i
++    cell 9, i, c
++  end
++
++  handle_click 0, 0
++  Ncurses.refresh
++
++  while (c = Ncurses.getch)
++    case c
++    when 113 #q
++      break
++    when Ncurses::KEY_MOUSE
++      mev = Ncurses::MEVENT.new
++      Ncurses.getmouse(mev)
++      case(mev.bstate)
++      when Ncurses::BUTTON1_CLICKED
++        handle_click mev.y, mev.x
++      end
++    end
++    Ncurses.refresh
++  end
++
++ensure
++  Ncurses.endwin
++end
+-- 
+1.6.3.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01379" href="msg01379.html">Re: [sup-devel] [PATCH] add a mouse-enabled colorpicker to contrib</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01210.html">[sup-devel] [PATCHv2 1/3] support high colors in colors.yaml</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01412.html">Re: [sup-devel] Ruby 1.9 encoding fixes</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01256.html">Re: [sup-devel] [PATCH 3/3] add keybinding 'Oc' to reload colors</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01379.html">Re: [sup-devel] [PATCH] add a mouse-enabled colorpicker to contrib</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01316"><strong>Date</strong></a></li>
+<li><a href="threads.html#01316"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

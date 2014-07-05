@@ -1,0 +1,155 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Bug report: temp file commit breaks my emacs hook -->
+<!--X-From-R13: [vpunry Vnznaa <zvpunryNpbagrag&#45;fcnpr.qr> -->
+<!--X-Date: Mon, 10 Jan 2011 13:25:15 &#45;0800 (PST) -->
+<!--X-Message-Id: 1294691658&#45;sup&#45;2474@mithink -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: AANLkTi=ZtdvYyBgKTMzj_DzwQP0xjRmWWzuEouZwW8Bs@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Bug report: temp file commit breaks my emacs hook</title>
+<link rev="made" href="mailto:michael@content-space.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00686.html">Date Prev</a>][<a href="msg00727.html">Date Next</a>][<a href="msg00745.html">Thread Prev</a>][<a href="msg00686.html">Thread Next</a>][<a href="maillist.html#00762">Date Index</a>][<a href="threads.html#00762">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Bug report: temp file commit breaks my emacs hook</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Steve &lt;<a href="mailto:steve.goldman%40gmail.com">steve.goldman@gmail.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Bug report: temp file commit breaks my emacs hook</li>
+<li><em>From</em>: Michael Hamann &lt;<a href="mailto:michael%40content-space.de">michael@content-space.de</a>&gt;</li>
+<li><em>Date</em>: Mon, 10 Jan 2011 21:48:05 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;AANLkTi=ZtdvYyBgKTMzj_DzwQP0xjRmWWzuEouZwW8Bs@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;AANLkTi=ZtdvYyBgKTMzj_DzwQP0xjRmWWzuEouZwW8Bs@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi,
+
+Excerpts from Steve's message of 2011-01-10 21:11:35 +0100:
+&gt; This commit has broken part of the interaction between sup and my emacs.
+&gt; 
+&gt; commit 60573298a2258c101a85b3de8121f73d7aec2d51
+&gt; Author: Michael Hamann &lt;michael@content-space.de&gt;
+&gt; Date:   Fri Oct 8 10:03:36 2010 -0400
+&gt; 
+&gt;     Fix monkey-patching of Tempfile
+&gt; 
+&gt; 
+&gt; Did you change the name of the temp file that gets passed to emacs?
+
+Yes. Now sup can and must use the syntax for Tempfile creation that is
+available in Ruby version 1.8.7 and newer. It allows to set both a
+prefix and a suffix. I didn't care about the filename because I had the
+experience that with the old filename my Vim didn't recognize the
+content as email and without the extension it recognizes it which gives
+me nice syntax highlighting even without configuring anything.
+
+&gt; My emacs hook looks like this.
+&gt; 
+&gt; (add-to-list 'auto-mode-alist
+&gt; '(&quot;sup\\.\\(compose\\|forward\\|reply\\|resume\\)-mode$&quot; . mail-mode))
+
+The string you are looking for is now at the beginning of the filename
+so you could change your hook to match the beginning of the filename
+instead of the end.
+
+The following simple change will change the end of the filenames to
+.EXTENSION, so if you think it makes sense to add an extension again I
+could provide a proper patch.
+
+diff --git a/lib/sup/modes/edit-message-mode.rb b/lib/sup/modes/edit-message-mode.rb
+index 86aef4b..052421d 100644
+--- a/lib/sup/modes/edit-message-mode.rb
++++ b/lib/sup/modes/edit-message-mode.rb
+@@ -162,7 +162,7 @@ EOS
+   def edit_subject; edit_field &quot;Subject&quot; end
+ 
+   def edit_message
+-    @file = Tempfile.new &quot;sup.#{self.class.name.gsub(/.*::/, '').camel_to_hyphy}&quot;
++    @file = Tempfile.new [&quot;sup.#{self.class.name.gsub(/.*::/, '').camel_to_hyphy}&quot;, &quot;.EXTENSION&quot;]
+     @file.puts format_headers(@header - NON_EDITABLE_HEADERS).first
+     @file.puts
+     @file.puts @body.join(&quot;\n&quot;)
+
+
+Regards,
+Michael Hamann
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00686" href="msg00686.html">Re: [sup-devel] Bug report: temp file commit breaks my emacs hook</a></strong>
+<ul><li><em>From:</em> Steve &lt;steve.goldman@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00745" href="msg00745.html">[sup-devel] Bug report: temp file commit breaks my emacs hook</a></strong>
+<ul><li><em>From:</em> Steve &lt;steve.goldman@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00686.html">Re: [sup-devel] Bug report: temp file commit breaks my emacs hook</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00727.html">[sup-devel] [PATCH] use gpg2 (GnuPG 2.x) instead of gpg (GnuPG 1.x)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00745.html">[sup-devel] Bug report: temp file commit breaks my emacs hook</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00686.html">Re: [sup-devel] Bug report: temp file commit breaks my emacs hook</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00762"><strong>Date</strong></a></li>
+<li><a href="threads.html#00762"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

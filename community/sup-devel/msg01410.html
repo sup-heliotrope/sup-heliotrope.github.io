@@ -1,0 +1,130 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] fix up options for sup&#45;sync&#45;back, tweak&#45;labels -->
+<!--X-From-R13: Oagubal [negvarm <cv+fhcNcvubfg.hf> -->
+<!--X-Date: Tue, 5 Jan 2010 09:23:32 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262712024&#45;25264&#45;1&#45;git&#45;send&#45;email&#45;pi+sup@pihost.us -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] fix up options for sup-sync-back, tweak-labels</title>
+<link rev="made" href="mailto:pi+sup@pihost.us">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01341.html">Date Prev</a>][<a href="msg01350.html">Date Next</a>][<a href="msg01297.html">Thread Prev</a>][<a href="msg01251.html">Thread Next</a>][<a href="maillist.html#01410">Date Index</a>][<a href="threads.html#01410">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] fix up options for sup-sync-back, tweak-labels</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] fix up options for sup-sync-back, tweak-labels</li>
+<li><em>From</em>: Anthony Martinez &lt;<a href="mailto:pi%2Bsup%40pihost.us">pi+sup@pihost.us</a>&gt;</li>
+<li><em>Date</em>: Tue,  5 Jan 2010 10:20:24 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>These two violate the convention of the other scripts inside bin/ by
+using a local variable for their Trollop results.
+---
+ bin/sup-sync-back    |    2 +-
+ bin/sup-tweak-labels |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/bin/sup-sync-back b/bin/sup-sync-back
+index 19e6230..40c1e1c 100755
+--- a/bin/sup-sync-back
++++ b/bin/sup-sync-back
+@@ -66,7 +66,7 @@ EOS
+ end
+ 
+ Redwood::start
+-index = Redwood::Index.init $opts[:index]
++index = Redwood::Index.init opts[:index]
+ index.lock_interactively or exit
+ 
+ deleted_fp, spam_fp = nil
+diff --git a/bin/sup-tweak-labels b/bin/sup-tweak-labels
+index f603502..bf36a32 100755
+--- a/bin/sup-tweak-labels
++++ b/bin/sup-tweak-labels
+@@ -61,7 +61,7 @@ remove_labels = opts[:remove].to_set_of_symbols &quot;,&quot;
+ Trollop::die &quot;nothing to do: no labels to add or remove&quot; if add_labels.empty? &amp;&amp; remove_labels.empty?
+ 
+ Redwood::start
+-index = Redwood::Index.init $opts[:index]
++index = Redwood::Index.init opts[:index]
+ index.lock_interactively or exit
+ begin
+   index.load
+-- 
+1.6.5
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01251" href="msg01251.html">Re: [sup-devel] [PATCH] fix up options for sup-sync-back,	tweak-labels</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01341.html">Re: [sup-devel] [PATCH] implement const_missing for Index</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01350.html">Re: [sup-devel] [PATCH] xapian: translate from/to query term	prefixes to search over both name and email fields</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01297.html">Re: [sup-devel] [PATCH] only open mail files in binary mode on Ruby	1.9</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01251.html">Re: [sup-devel] [PATCH] fix up options for sup-sync-back,	tweak-labels</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01410"><strong>Date</strong></a></li>
+<li><a href="threads.html#01410"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

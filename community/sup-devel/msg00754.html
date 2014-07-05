@@ -1,0 +1,136 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue136] Crash when searching for during:december -->
+<!--X-From-R13: nabalzbhf <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Wed, 8 Dec 2010 11:25:49 &#45;0800 (PST) -->
+<!--X-Message-Id: 1291834796.86.0.985380843914.issue136@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1291834796.86.0.985380843914.issue136@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue136] Crash when searching for during:december</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00685.html">Date Prev</a>][<a href="msg00461.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#00754">Date Index</a>][<a href="threads.html#00754">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue136] Crash when searching for during:december</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue136] Crash when searching for during:december</li>
+<li><em>From</em>: anonymous &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 08 Dec 2010 18:59:56 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00754.html">1291834796.86.0.985380843914.issue136@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from anonymous:
+
+When searching for &quot;during:december&quot;, I get the following exception. Searching 
+for e.g. &quot;during:june&quot; works fine.
+
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/index.rb:800:in `index_text'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/index.rb:681:in 
+`index_message_static'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/index.rb:642:in `sync_message'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/util.rb:609:in `send'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/util.rb:609:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/poll.rb:188:in `poll_from'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/maildir.rb:144:in `poll'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/maildir.rb:143:in `each'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/maildir.rb:143:in `poll'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/poll.rb:174:in `poll_from'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/util.rb:609:in `send'
+/usr/lib/ruby/gems/1.8/gems/sup-999/lib/sup/util.rb:609:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/sup-999/bin/sup-sync:123
+/usr/lib/ruby/gems/1.8/gems/sup-999/bin/sup-sync:118:in `each'
+/usr/lib/ruby/gems/1.8/gems/sup-999/bin/sup-sync:118
+/usr/bin/sup-sync:19:in `load'
+/usr/bin/sup-sync:19
+
+----------
+messages: 319
+nosy: anonymous
+priority: bug
+ruby_version: 1.8.7 (2010-01-10 patchlevel 249) [x86_64-linux]
+status: unread
+sup_version: 9f86033
+title: Crash when searching for during:december
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue136">http://masanjin.net/sup-bugs/issue136</a>&gt;
+_________________________________________
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00754" href="msg00754.html">[sup-devel] [issue136] Crash when searching for during:december</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00754" href="msg00754.html">[sup-devel] [issue136] Crash when searching for during:december</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00685.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00461.html">[sup-devel] [issue137] &quot;wrong id called on nil&quot; when searching</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00754"><strong>Date</strong></a></li>
+<li><a href="threads.html#00754"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

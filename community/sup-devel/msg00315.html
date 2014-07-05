@@ -1,0 +1,136 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Tokyo Cabinet fails with invalid record header -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Tue, 21 Jun 2011 20:36:12 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1308713034&#45;sup&#45;9195@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: BANLkTikNPaccz_Lhc_ws_pEUgRpQRwntjA@mail.gmail.com -->
+<!--X-Reference: 201106201423.26629.hsanson@gmail.com -->
+<!--X-Reference: 1308588065&#45;sup&#45;5212@masanjin.net -->
+<!--X-Reference: 201106210726.19004.hsanson@gmail.com -->
+<!--X-Reference: 1308610289&#45;sup&#45;7090@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Tokyo Cabinet fails with invalid record header</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00263.html">Date Prev</a>][<a href="msg00238.html">Date Next</a>][<a href="msg00070.html">Thread Prev</a>][<a href="msg00238.html">Thread Next</a>][<a href="maillist.html#00315">Date Index</a>][<a href="threads.html#00315">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Tokyo Cabinet fails with invalid record header</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Tokyo Cabinet fails with invalid record header</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 22 Jun 2011 03:25:16 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00070.html">1308610289-sup-7090@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00365.html">BANLkTikNPaccz_Lhc_ws_pEUgRpQRwntjA@mail.gmail.com</a>&gt;	&lt;<a href="msg00301.html">201106201423.26629.hsanson@gmail.com</a>&gt;	&lt;<a href="msg00290.html">1308588065-sup-5212@masanjin.net</a>&gt;	&lt;<a href="msg00278.html">201106210726.19004.hsanson@gmail.com</a>&gt;	&lt;<a href="msg00070.html">1308610289-sup-7090@masanjin.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Horacio,
+
+Reformatted excerpts from William Morgan's message of 2011-06-20:
+&gt; Ok, I have a potential fix for this that I'll try and get out tonight.
+
+Can you please:
+
+1. git clone git://github.com/wmorgan/leveldb-ruby.git
+2. git checkout fpic
+3. rake gem
+4. gem install pkg/leveldb-ruby-0.4.gem
+
+And tell me if that works?
+
+If so, I will release that as 0.5.
+
+Thanks!
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00238" href="msg00238.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00134" href="msg00134.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00365" href="msg00365.html">[sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00301" href="msg00301.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00290" href="msg00290.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="00278" href="msg00278.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00070" href="msg00070.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00263.html">Re: [sup-devel] Turn Turnsole into a generic mail client</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00238.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00070.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00238.html">Re: [sup-devel] Tokyo Cabinet fails with invalid record header</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00315"><strong>Date</strong></a></li>
+<li><a href="threads.html#00315"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

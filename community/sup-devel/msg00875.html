@@ -1,0 +1,117 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] utf&#45;8 script encoding -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Fri, 17 Sep 2010 03:54:03 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1284720809&#45;sup&#45;6508@dolk -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 1262533823&#45;sup&#45;5348@dolk -->
+<!--X-Reference: 1262534836&#45;29113&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Reference: 1262535218&#45;sup&#45;9718@dolk -->
+<!--X-Reference: 1264250655&#45;sup&#45;3062@masanjin.net -->
+<!--X-Reference: 1266066673&#45;sup&#45;5419@mithink -->
+<!--X-Reference: 1284033605&#45;sup&#45;442@dolk -->
+<!--X-Derived: binuk_CxGi_Bw.bin -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] utf-8 script encoding</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01043.html">Date Prev</a>][<a href="msg00831.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#00875">Date Index</a>][<a href="threads.html#00875">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] utf-8 script encoding</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] utf-8 script encoding</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 17 Sep 2010 12:54:00 +0200</li>
+<li><em>In-reply-to</em>: &lt;1284033605-sup-442@dolk&gt;</li>
+<li><em>References</em>: &lt;1262533823-sup-5348@dolk&gt; &lt;<a href="msg01345.html">1262534836-29113-1-git-send-email-rlane@club.cc.cmu.edu</a>&gt; &lt;1262535218-sup-9718@dolk&gt; &lt;<a href="msg01260.html">1264250655-sup-3062@masanjin.net</a>&gt; &lt;1266066673-sup-5419@mithink&gt; &lt;1284033605-sup-442@dolk&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Gaute Hope's message of 2010-09-09 14:02:17 +0200:
+&gt; I put target.force_encoding 'UTF-8' on the tab completion of contacts
+&gt; and labels and that seems to have fixed the issue 36 on Ruby 1.9. See
+&gt; attached patch; or:
+&gt; <a  rel="nofollow" href="http://gitorious.org/sup/gautehs-mainline/commit/c78e53f13b493afe2ce13c8f312068fe042cd126">http://gitorious.org/sup/gautehs-mainline/commit/c78e53f13b493afe2ce13c8f312068fe042cd126</a>
+
+Also force encoding on label search completion: 
+<a  rel="nofollow" href="http://gitorious.org/~gauteh/sup/gautehs-mainline/commit/009cda0e379950726c5234a8949e636194bf13e3">http://gitorious.org/~gauteh/sup/gautehs-mainline/commit/009cda0e379950726c5234a8949e636194bf13e3</a>
+
+There's still an error if you try to complete multiple unicode
+recipients, probably because one of the strings are not Unicode.
+
+- gaute
+</pre><p><strong>Attachment:
+<a href="binuk_CxGi_Bw.bin" ><tt>0001-Also-force-encoding-on-label-search-completion.patch</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01041" href="msg01041.html">Re: [sup-devel] [PATCH] utf-8 script encoding</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01359" href="msg01359.html">Re: [sup-devel] [issue36] label tab completion with utf-8 chars fail</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01345" href="msg01345.html">[PATCH] utf-8 script encoding</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01378" href="msg01378.html">Re: [PATCH] utf-8 script encoding</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01260" href="msg01260.html">Re: [sup-devel] [PATCH] utf-8 script encoding</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01198" href="msg01198.html">Re: [sup-devel] [PATCH] utf-8 script encoding</a></strong>
+<ul><li><em>From:</em> Michael Hamann &lt;michael@content-space.de&gt;</li></ul></li>
+<li><strong><a name="00992" href="msg00992.html">Re: [sup-devel] [PATCH] utf-8 script encoding</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01043.html">[sup-devel] [PATCH] prefer To and Cc adresses of accounts on reply</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00831.html">[PATCH] Update status on jump on line in line-cursor-mode</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00875"><strong>Date</strong></a></li>
+<li><a href="threads.html#00875"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

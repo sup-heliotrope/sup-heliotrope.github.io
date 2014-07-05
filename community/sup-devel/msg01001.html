@@ -1,0 +1,127 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message -->
+<!--X-From-R13: [vpunry Egncryoret <zvpunry+fhcNfgncryoret.qr> -->
+<!--X-Date: Fri, 19 Mar 2010 12:56:32 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1269027991&#45;sup&#45;5670@midna.zekjur.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1269012878&#45;sup&#45;691@midna.zekjur.net -->
+<!--X-Reference: 1269026068&#45;sup&#45;6868@r61 -->
+<!--X-Reference: 1269026769&#45;sup&#45;3830@midna.zekjur.net -->
+<!--X-Reference: 1269027265&#45;sup&#45;5150@pinkfloyd.chass.utoronto.ca -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</title>
+<link rev="made" href="mailto:michael+sup@stapelberg.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00813.html">Date Prev</a>][<a href="msg00952.html">Date Next</a>][<a href="msg00780.html">Thread Prev</a>][<a href="msg00952.html">Thread Next</a>][<a href="maillist.html#01001">Date Index</a>][<a href="threads.html#01001">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</li>
+<li><em>From</em>: Michael Stapelberg &lt;<a href="mailto:michael%2Bsup%40stapelberg.de">michael+sup@stapelberg.de</a>&gt;</li>
+<li><em>Date</em>: Fri, 19 Mar 2010 20:47:53 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00780.html">1269027265-sup-5150@pinkfloyd.chass.utoronto.ca</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01096.html">1269012878-sup-691@midna.zekjur.net</a>&gt; &lt;1269026068-sup-6868@r61&gt;	&lt;<a href="msg00855.html">1269026769-sup-3830@midna.zekjur.net</a>&gt;	&lt;<a href="msg00780.html">1269027265-sup-5150@pinkfloyd.chass.utoronto.ca</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Ben,
+
+Excerpts from Ben Walton's message of 2010-03-19 20:35:31 +0100:
+&gt; I like the idea here, but requiring ruby 1.9 _and_ a filesystem
+&gt; upgrade for a _mail client_ is a bit of a stretch, don't you think?
+&gt; Isn't there a more portable solution?
+There is: Rich mentioned that proper move/delete handling for maildirs also
+solves the problem. However that doesn&#x2019;t seem to be planned for the very near
+future, so I posted my patch which fixes the problem right now (given that
+you use ruby 1.9 and a decent filesystem).
+
+Best regards,
+Michael
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00952" href="msg00952.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+<ul><li><em>From:</em> Ben Walton &lt;bwalton@artsci.utoronto.ca&gt;</li></ul></li>
+<li><strong><a name="00894" href="msg00894.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+<ul><li><em>From:</em> Mark Alexander &lt;marka@pobox.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01096" href="msg01096.html">[sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+<li><strong><a name="00955" href="msg00955.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+<ul><li><em>From:</em> Mark Alexander &lt;marka@pobox.com&gt;</li></ul></li>
+<li><strong><a name="00855" href="msg00855.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+<li><strong><a name="00780" href="msg00780.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+<ul><li><em>From:</em> Ben Walton &lt;bwalton@artsci.utoronto.ca&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00813.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00952.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00780.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00952.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01001"><strong>Date</strong></a></li>
+<li><a href="threads.html#01001"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

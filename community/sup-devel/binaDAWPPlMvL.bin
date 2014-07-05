@@ -1,0 +1,48 @@
+From 8b34ae2c2ac7af0647c8aa5c0ad135f0eae42cdc Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Sun, 10 Oct 2010 22:30:46 +0200
+Subject: [PATCH] Bugfix: fix regexp for detecting filename in Content-Disposition header
+
+In a message written in some Microsoft mail program (the only header is
+"X-MimeOLE: Produced By Microsoft Exchange V6.5"), the filename part of
+the Content-Disposition header spans multiple lines (due to the filename
+being very long and encoded in base64 due to the use of UTF-8):
+
+Content-Disposition: attachment;
+        filename="=?utf-8?B?VGFnIGRlciBPZmZlbmVuIFTDvHIgZGVzIFByb2pla3Rl?=
+        =?utf-8?B?cyBMZXJucGF0ZW5zY2hhZnRlbiBpbSBFbW1lcnRzZ3I=?=
+        =?utf-8?B?dW5kLmRvY3g=?="
+
+The previous regexp did not properly match the whole string, but only the
+first line. This is fixed by adding the 'm' option (to match newlines as
+characters) and using \z instead of $ ("end of string" instead of "end of
+line").
+
+The same fix is also applied to the Content-Type header one line below.
+---
+ lib/sup/message.rb |    8 +++++---
+ 1 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/lib/sup/message.rb b/lib/sup/message.rb
+index 69669bd..cf0e505 100644
+--- a/lib/sup/message.rb
++++ b/lib/sup/message.rb
+@@ -475,10 +475,12 @@ private
+       end
+     else
+       filename =
+-        ## first, paw through the headers looking for a filename
+-        if m.header["Content-Disposition"] && m.header["Content-Disposition"] =~ /filename="?(.*?[^\\])("|;|$)/
++        ## first, paw through the headers looking for a filename.
++        ## RFC 2183 (Content-Disposition) specifies that disposition-parms are
++        ## separated by ";". So, we match everything up to " and ; (if present).
++        if m.header["Content-Disposition"] && m.header["Content-Disposition"] =~ /filename="?(.*?[^\\])("|;|\z)/m
+           $1
+-        elsif m.header["Content-Type"] && m.header["Content-Type"] =~ /name="?(.*?[^\\])("|;|$)/i
++        elsif m.header["Content-Type"] && m.header["Content-Type"] =~ /name="?(.*?[^\\])("|;|\z)/im
+           $1
+ 
+         ## haven't found one, but it's a non-text message. fake
+-- 
+1.7.1
+

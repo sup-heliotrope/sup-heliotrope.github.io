@@ -1,0 +1,127 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] mbox: fix date format -->
+<!--X-From-R13: Enfpun Evyor <fnfpun&#45;ctcNfvyor.bet> -->
+<!--X-Date: Thu, 8 Jul 2010 05:43:12 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1278592087&#45;614&#45;1&#45;git&#45;send&#45;email&#45;sascha&#45;pgp@silbe.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] mbox: fix date format</title>
+<link rev="made" href="mailto:sascha-pgp@silbe.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00892.html">Date Prev</a>][<a href="msg01019.html">Date Next</a>][<a href="msg00476.html">Thread Prev</a>][<a href="msg00920.html">Thread Next</a>][<a href="maillist.html#00799">Date Index</a>][<a href="threads.html#00799">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] mbox: fix date format</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [PATCH] mbox: fix date format</li>
+<li><em>From</em>: Sascha Silbe &lt;<a href="mailto:sascha-pgp%40silbe.org">sascha-pgp@silbe.org</a>&gt;</li>
+<li><em>Date</em>: Thu,  8 Jul 2010 12:28:07 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Mail-followup-to</em>: &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Reply-to</em>: Sascha Silbe &lt;<a href="mailto:sascha-ml-reply-to-2010-2%40silbe.org">sascha-ml-reply-to-2010-2@silbe.org</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>The date format used in all (known/common) variations is that of Unix/POSIX
+asctime(), not the RFC 822 / RFC 2822 Date: header format.
+
+Using an incorrect date format causes at least mutt, mb2md and Python
+UnixMailbox (but not PortableUnixMailbox) to either reject the mailbox or show
+it as empty.
+
+References:
+<a  rel="nofollow" href="http://homepage.ntlworld.com./jonathan.deboynepollard/FGA/mail-mbox-formats.html">http://homepage.ntlworld.com./jonathan.deboynepollard/FGA/mail-mbox-formats.html</a>
+<a  rel="nofollow" href="http://www.qmail.org/man/man5/mbox.html">http://www.qmail.org/man/man5/mbox.html</a>
+
+Signed-off-by: Sascha Silbe &lt;sascha-pgp@silbe.org&gt;
+---
+ lib/sup/mbox.rb |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/mbox.rb b/lib/sup/mbox.rb
+index 2bf32ea..452519d 100644
+--- a/lib/sup/mbox.rb
++++ b/lib/sup/mbox.rb
+@@ -140,7 +140,7 @@ class MBox &lt; Source
+     need_blank = File.exists?(@filename) &amp;&amp; !File.zero?(@filename)
+     File.open(@filename, &quot;ab&quot;) do |f|
+       f.puts if need_blank
+-      f.puts &quot;From #{from_email} #{date.rfc2822}&quot;
++      f.puts &quot;From #{from_email} #{date.asctime}&quot;
+       yield f
+     end
+   end
+-- 
+1.7.1
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00920" href="msg00920.html">Re: [sup-devel] [PATCH] mbox: fix date format</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00892.html">Re: [sup-devel] [PATCHES] reply-mode,	signatures and account selector</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01019.html">[sup-devel] [PATCH] fix crash in sup-sync if the default sent	source is used</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00476.html">Re: [sup-devel] [PATCH v2] don't leak fds for mbox sources</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00920.html">Re: [sup-devel] [PATCH] mbox: fix date format</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00799"><strong>Date</strong></a></li>
+<li><a href="threads.html#00799"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

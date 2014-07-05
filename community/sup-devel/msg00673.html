@@ -1,0 +1,113 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [BRANCH] Ctrl&#45;W behaviour -->
+<!--X-From-R13: Vnzvfu <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Sun, 20 Feb 2011 17:29:35 &#45;0800 (PST) -->
+<!--X-Message-Id: 1298251460&#45;sup&#45;4333@whisper -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [BRANCH] Ctrl-W behaviour</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00577.html">Date Prev</a>][<a href="msg00600.html">Date Next</a>][<a href="msg00466.html">Thread Prev</a>][<a href="msg00440.html">Thread Next</a>][<a href="maillist.html#00673">Date Index</a>][<a href="threads.html#00673">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [BRANCH] Ctrl-W behaviour</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [BRANCH] Ctrl-W behaviour</li>
+<li><em>From</em>: Hamish &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 21 Feb 2011 01:29:20 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:content-type:subject:from:to:date:message-id	:user-agent:content-transfer-encoding;	bh=MuckuwgzMrxXPKjxm5RHl65eP2DGQqOrHCxV6Ff/Wck=;	b=SGrqHAJvkKkiOUjoWcgbF9abfWazycVjkdxinsBqMtYOxet8fZdD+ZYkcXxU28wJNC	ClxIH/cPD1oaKqWfaCMb/5Z/Q9EmvTmffiNL7zQGBkHHp78hUZZE8PgN1Ua3R1Ry2uRF	zz4CljY4MSQHDzkmT5Y67IrwQeyp0BdJYsnYE=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=huqUtylq6LvJAbuVt09BQscl1MSTKfYBpRz7uKcaLq2AUfpOOlC2ABd3NXj/L94lKC	P763Tn7A94gJFJu03yhRRzMWkx8Rw49bEU6POdDVjgAbKzzz9jANppbtsdxV9cIB8gnF	6Buw81O/zE+NdVFWcD92yRsoXBys03ZbRevfE=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I use Ctrl-W when deleting labels from a thread, and it's been a minor
+annoyance that this is slightly broken - when there is a space before
+the cursor, Ctrl-W will just delete the space, and you need to press
+Ctrl-W a second time to delete the word aswell. This is not how I'm used
+to it working in vim or on the command line.
+
+So I've now had a go at fixing it, in the branch called ctrl_w - just
+one commit so far, and it took quite a bit of farting around to get this
+far. I'll review it when it's not the early hours of the morning and
+merge it into next at that point.
+
+Please have a go and see if you can get any strange behaviour - I had
+some strange behaviour with single-letter labels, but I seem to have
+fixed that ...
+
+Hamish Downer
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00440" href="msg00440.html">Re: [sup-devel] [BRANCH] Ctrl-W behaviour</a></strong>
+<ul><li><em>From:</em> Hamish &lt;dmishd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00577.html">[sup-devel] editing messages outside of sup</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00600.html">Re: [sup-devel] [sup-talk] Label Display; Sorting Alphabetically</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00466.html">Re: [sup-devel] editing messages outside of sup</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00440.html">Re: [sup-devel] [BRANCH] Ctrl-W behaviour</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00673"><strong>Date</strong></a></li>
+<li><a href="threads.html#00673"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

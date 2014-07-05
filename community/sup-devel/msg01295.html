@@ -1,0 +1,210 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH 3/3] keybindings hook -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Sun, 24 Jan 2010 19:10:53 &#45;0800 (PST) -->
+<!--X-Message-Id: 1264388973&#45;5804&#45;3&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1264388973&#45;5804&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Reference: 1264388973&#45;5804&#45;2&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH 3/3] keybindings hook</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01287.html">Date Prev</a>][<a href="msg01314.html">Date Next</a>][<a href="msg01287.html">Thread Prev</a>][<a href="msg00848.html">Thread Next</a>][<a href="maillist.html#01295">Date Index</a>][<a href="threads.html#01295">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH 3/3] keybindings hook</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH 3/3] keybindings hook</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Sun, 24 Jan 2010 19:09:33 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01287.html">1264388973-5804-2-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01314.html">1264388973-5804-1-git-send-email-rlane@club.cc.cmu.edu</a>&gt;	&lt;<a href="msg01287.html">1264388973-5804-2-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Add a hook specifically for custom keybindings. The advantage of this over the
+startup hook is that we can assume it's safe to reload this one while Sup is
+running. The &quot;modes&quot; variable provides a debatably-useful mapping between
+user-visible mode names and the actual classes, for use with class_eval.
+---
+ bin/sup           |    9 +++++++++
+ lib/sup/hook.rb   |    1 +
+ lib/sup/keymap.rb |   17 +++++++++++++++++
+ lib/sup/mode.rb   |    4 ++++
+ 4 files changed, 31 insertions(+), 0 deletions(-)
+
+diff --git a/bin/sup b/bin/sup
+index 7824aca..ad1271f 100755
+--- a/bin/sup
++++ b/bin/sup
+@@ -83,8 +83,13 @@ global_keymap = Keymap.new do |k|
+   k.add :recall_draft, &quot;Edit most recent draft message&quot;, 'R'
+   k.add :show_inbox, &quot;Show the Inbox buffer&quot;, 'I'
+   k.add :show_console, &quot;Show the Console buffer&quot;, '~'
++  k.add_multi &quot;Rerun (k)eybindings hook:&quot;, 'O' do |kk|
++    kk.add :run_keybindings_hook, &quot;Rerun keybindings hook&quot;, 'k'
++  end
+ end
+ 
++Redwood::Keymap.run_hook global_keymap
++
+ ## the following magic enables wide characters when used with a ruby
+ ## ncurses.so that's been compiled against libncursesw. (note the w.) why
+ ## this works, i have no idea. much like pretty much every aspect of
+@@ -339,6 +344,10 @@ begin
+     when :show_console
+       b, new = bm.spawn_unless_exists(&quot;Console&quot;, :system =&gt; true) { ConsoleMode.new }
+       b.mode.run
++    when :run_keybindings_hook
++      HookManager.clear_one 'keybindings'
++      Keymap.run_hook global_keymap
++      bm.flash &quot;keybindings hook run&quot;
+     when :nothing, InputSequenceAborted
+     when :redraw
+       bm.completely_redraw_screen
+diff --git a/lib/sup/hook.rb b/lib/sup/hook.rb
+index 3bf9823..08738cd 100644
+--- a/lib/sup/hook.rb
++++ b/lib/sup/hook.rb
+@@ -113,6 +113,7 @@ EOS
+   def enabled? name; !hook_for(name).nil? end
+ 
+   def clear; @hooks.clear; end
++  def clear_one k; @hooks.delete k; end
+ 
+ private
+ 
+diff --git a/lib/sup/keymap.rb b/lib/sup/keymap.rb
+index 4cdeeed..93060b8 100644
+--- a/lib/sup/keymap.rb
++++ b/lib/sup/keymap.rb
+@@ -1,6 +1,14 @@
+ module Redwood
+ 
+ class Keymap
++
++  HookManager.register &quot;keybindings&quot;, &lt;&lt;EOS
++Add custom keybindings.
++Methods:
++  modes: Hash from mode names to mode classes.
++  global_keymap: The top-level keymap.
++EOS
++
+   def initialize
+     @map = {}
+     @order = []
+@@ -116,6 +124,15 @@ class Keymap
+     llen = lines.max_of { |a, b| a.length }
+     lines.map { |a, b| sprintf &quot; %#{llen}s : %s&quot;, a, b }.join(&quot;\n&quot;)
+   end
++
++  def self.run_hook global_keymap
++    modes = Hash[Mode.keymaps.map { |klass,keymap| [Mode.make_name(klass.name),klass] }]
++    locals = {
++      :modes =&gt; modes,
++      :global_keymap =&gt; global_keymap,
++    }
++    HookManager.run 'keybindings', locals
++  end
+ end
+ 
+ end
+diff --git a/lib/sup/mode.rb b/lib/sup/mode.rb
+index b9e0698..f5aee1c 100644
+--- a/lib/sup/mode.rb
++++ b/lib/sup/mode.rb
+@@ -14,6 +14,10 @@ class Mode
+     @@keymaps[self] || register_keymap
+   end
+ 
++  def self.keymaps
++    @@keymaps
++  end
++
+   def initialize
+     @buffer = nil
+   end
+-- 
+1.6.3.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00848" href="msg00848.html">Re: [sup-devel] [PATCH 3/3] keybindings hook</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01314" href="msg01314.html">[sup-devel] [PATCH 1/3] make mode keymap easily accessible to hooks</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01287" href="msg01287.html">[sup-devel] [PATCH 2/3] add keymap rebinding support</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01287.html">[sup-devel] [PATCH 2/3] add keymap rebinding support</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01314.html">[sup-devel] [PATCH 1/3] make mode keymap easily accessible to hooks</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01287.html">[sup-devel] [PATCH 2/3] add keymap rebinding support</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00848.html">Re: [sup-devel] [PATCH 3/3] keybindings hook</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01295"><strong>Date</strong></a></li>
+<li><a href="threads.html#01295"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

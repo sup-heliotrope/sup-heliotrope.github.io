@@ -1,0 +1,162 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue134] Exception when scrolling down... -->
+<!--X-From-R13: nabalzbhf <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Mon, 29 Nov 2010 02:03:42 &#45;0800 (PST) -->
+<!--X-Message-Id: 1291022595.09.0.312153163509.issue134@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1291022595.09.0.312153163509.issue134@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue134] Exception when scrolling down...</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00649.html">Date Prev</a>][<a href="msg00742.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#00606">Date Index</a>][<a href="threads.html#00606">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue134] Exception when scrolling down...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue134] Exception when scrolling down...</li>
+<li><em>From</em>: anonymous &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 29 Nov 2010 09:23:15 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00606.html">1291022595.09.0.312153163509.issue134@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from anonymous:
+
+I scrolled down to a second page in my inbox while Sup was filling the top of
+the inbox having just polled for messages, and at about that time I got:
+
+--- RuntimeError from thread: load threads for thread-index-mode
+unknown drawable object: nil in #&lt;Redwood::InboxMode:0x7fdcb829c538&gt; for line 64
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/scroll-mode.rb:200:in `draw_line'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/line-cursor-mode.rb:52:in
+`draw_line'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/scroll-mode.rb:48:in `draw'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/scroll-mode.rb:48:in `each'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/scroll-mode.rb:48:in `draw'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/line-cursor-mode.rb:37:in `draw'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/buffer.rb:119:in `draw'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/buffer.rb:103:in `redraw'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/buffer.rb:341:in `draw_screen'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/util.rb:570:in `send'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/util.rb:570:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/thread-index-mode.rb:644:in
+`__unprotected_load_n_threads'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/thread.rb:334:in `load_n_threads'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/index.rb:148:in `each_id_by_date'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/index.rb:239:in `each_id'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/index.rb:239:in `each'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/index.rb:239:in `each_id'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/index.rb:148:in `each_id_by_date'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/thread.rb:328:in `load_n_threads'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/thread-index-mode.rb:640:in
+`__unprotected_load_n_threads'
+(eval):12:in `load_n_threads'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/thread-index-mode.rb:624:in
+`load_n_threads_background'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup.rb:76:in `reporting_thread'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup.rb:74:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup.rb:74:in `new'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup.rb:74:in `reporting_thread'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/thread-index-mode.rb:623:in
+`load_n_threads_background'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/thread-index-mode.rb:694:in
+`__unprotected_load_threads'
+(eval):12:in `load_threads'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/thread-index-mode.rb:89:in
+`initialize'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/line-cursor-mode.rb:22:in `call'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/line-cursor-mode.rb:22:in
+`initialize'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/line-cursor-mode.rb:22:in `each'
+/usr/lib/ruby/gems/1.8/gems/sup-0.11/lib/sup/modes/
+
+----------
+messages: 313
+nosy: anonymous
+priority: bug
+ruby_version: 1.8.7
+status: unread
+sup_version: 0.11
+title: Exception when scrolling down...
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue134">http://masanjin.net/sup-bugs/issue134</a>&gt;
+_________________________________________
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00606" href="msg00606.html">[sup-devel] [issue134] Exception when scrolling down...</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00606" href="msg00606.html">[sup-devel] [issue134] Exception when scrolling down...</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00649.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00742.html">Re: [sup-devel] [PATCH] Converted crypto to use the gpgme gem</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00606"><strong>Date</strong></a></li>
+<li><a href="threads.html#00606"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

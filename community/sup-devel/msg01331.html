@@ -1,0 +1,164 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue59] gem install sup on osx 10.6 fails due to	.bundle instead of	.so being built in xapian&#45;full -->
+<!--X-From-R13: nabalzbhf <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Sun, 31 Jan 2010 13:44:48 &#45;0800 (PST) -->
+<!--X-Message-Id: 1264973904.76.0.328276768293.issue59@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1264973904.76.0.328276768293.issue59@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue59] gem install sup on osx 10.6 fails due to	.bundle instead of	.so being built in xapian-full</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01245.html">Date Prev</a>][<a href="msg01403.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#01331">Date Index</a>][<a href="threads.html#01331">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue59] gem install sup on osx 10.6 fails due to	.bundle instead of	.so being built in xapian-full</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue59] gem install sup on osx 10.6 fails due to	.bundle instead of	.so being built in xapian-full</li>
+<li><em>From</em>: anonymous &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 31 Jan 2010 21:38:24 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01331.html">1264973904.76.0.328276768293.issue59@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from anonymous:
+
+on a default os X 10.6 machine (after updating rubygems) doing a 'gem sup
+install' fails:
+
+The problem is xapian-full is making a .bundle instead of a .so. It's easy to
+change to make a .so file (just remove the -bundle and chenge the output to .so,
+but I know nothing of Ruby, or how to make ruby gems behave.  I can manually
+build the .so file, but then doing another 'gem install sup' just replaces the
+directory I just fixed.  So I don't even know of how to work-around this.
+
+Below is the evil details:
+
+p.cc
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I..
+-I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0
+-I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0
+-fno-strict-aliasing -Wall -Wno-unused -Wno-uninitialized -fvisibility=hidden
+-I/Users/tara/.gem/ruby/1.8/gems/xapian-full-1.1.3.1/xapian-core-1.1.3/include
+-g -O2 -MT xapian_wrap.lo -MD -MP -MF .deps/xapian_wrap.Tpo -c xapian_wrap.cc 
+-fno-common -DPIC -o .libs/xapian_wrap.o
+mv -f .deps/xapian_wrap.Tpo .deps/xapian_wrap.Plo
+/bin/sh ../libtool  --tag=CXX   --mode=link g++ -fno-strict-aliasing -Wall
+-Wno-unused -Wno-uninitialized -fvisibility=hidden
+-I/Users/tara/.gem/ruby/1.8/gems/xapian-full-1.1.3.1/xapian-core-1.1.3/include
+-g -O2 -avoid-version -module -shrext &quot;.bundle&quot;   -o _xapian.la -rpath
+/Library/Ruby/Site/1.8/universal-darwin10.0 xapian_wrap.lo
+/Users/tara/.gem/ruby/1.8/gems/xapian-full-1.1.3.1/xapian-core-1.1.3/libxapian-1.1.la
+-lstdc++  
+libtool: link: g++ -Wl,-undefined -Wl,dynamic_lookup -o .libs/_xapian.bundle
+-bundle  .libs/xapian_wrap.o  
+/Users/tara/.gem/ruby/1.8/gems/xapian-full-1.1.3.1/xapian-core-1.1.3/.libs/libxapian-1.1.dylib
+-lz -lstdc++   
+libtool: link: dsymutil .libs/_xapian.bundle || :
+libtool: link: ( cd &quot;.libs&quot; &amp;&amp; rm -f &quot;_xapian.la&quot; &amp;&amp; ln -s &quot;../_xapian.la&quot;
+&quot;_xapian.la&quot; )
+mkdir -p lib
+cp xapian-bindings-1.1.3/ruby/.libs/_xapian.so lib
+cp: xapian-bindings-1.1.3/ruby/.libs/_xapian.so: No such file or directory
+rake aborted!
+
+/Users/tara/.gem/ruby/1.8/gems/xapian-full-1.1.3.1/rakefile:6:in `system!'
+(See full trace by running task with --trace)
+
+
+Gem files will remain installed in
+/Users/tara/.gem/ruby/1.8/gems/xapian-full-1.1.3.1 for inspection.
+Results logged to /Users/tara/.gem/ruby/1.8/gems/xapian-full-1.1.3.1/gem_make.out
+tara@mudita ~ % gem install ferret
+
+----------
+messages: 144
+nosy: anonymous
+priority: bug
+ruby_version: 1.8.7
+status: unread
+sup_version: 0.10.2
+title: gem install sup on osx 10.6 fails due to .bundle instead of .so being built in xapian-full
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue59">http://masanjin.net/sup-bugs/issue59</a>&gt;
+_________________________________________
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01331" href="msg01331.html">[sup-devel] [issue59] gem install sup on osx 10.6 fails due to	.bundle instead of	.so being built in xapian-full</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01403" href="msg01403.html">Re: [sup-devel] [issue59] gem install sup on osx 10.6 fails due to	.bundle instead of .so being built in xapian-full</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01331" href="msg01331.html">[sup-devel] [issue59] gem install sup on osx 10.6 fails due to	.bundle instead of	.so being built in xapian-full</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01245.html">[sup-devel] [issue58] Set background for starred column</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01403.html">Re: [sup-devel] [issue59] gem install sup on osx 10.6 fails due to	.bundle instead of .so being built in xapian-full</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01331"><strong>Date</strong></a></li>
+<li><a href="threads.html#01331"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

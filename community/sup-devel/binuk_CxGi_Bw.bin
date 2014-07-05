@@ -1,0 +1,24 @@
+From 009cda0e379950726c5234a8949e636194bf13e3 Mon Sep 17 00:00:00 2001
+From: Gaute Hope <eg@gaute.vetsj.com>
+Date: Fri, 17 Sep 2010 12:46:18 +0200
+Subject: [PATCH] Also force encoding on label search completion
+
+---
+ lib/sup/buffer.rb |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/buffer.rb b/lib/sup/buffer.rb
+index 233db3f..9b2bbcb 100644
+--- a/lib/sup/buffer.rb
++++ b/lib/sup/buffer.rb
+@@ -453,6 +453,7 @@ EOS
+ 
+   def ask_with_completions domain, question, completions, default=nil
+     ask domain, question, default do |s|
++      s.force_encoding 'UTF-8' if s.methods.include?(:encoding)
+       completions.select { |x| x =~ /^#{Regexp::escape s}/i }.map { |x| [x, x] }
+     end
+   end
+-- 
+1.7.2.3
+

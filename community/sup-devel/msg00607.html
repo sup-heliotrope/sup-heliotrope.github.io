@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] Bugfix: fix regexp for detecting filename in	Content&#45;Disposition header -->
+<!--X-From-R13: [vpunry Egncryoret <zvpunry+fhcNfgncryoret.qr> -->
+<!--X-Date: Sun, 10 Oct 2010 14:11:31 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1286744439&#45;sup&#45;1534@midna.zekjur.net -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: binaDAWPPlMvL.bin -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] Bugfix: fix regexp for detecting filename in	Content-Disposition header</title>
+<link rev="made" href="mailto:michael+sup@stapelberg.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00692.html">Date Prev</a>][<a href="msg00418.html">Date Next</a>][<a href="msg00514.html">Thread Prev</a>][<a href="msg00418.html">Thread Next</a>][<a href="maillist.html#00607">Date Index</a>][<a href="threads.html#00607">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] Bugfix: fix regexp for detecting filename in	Content-Disposition header</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [PATCH] Bugfix: fix regexp for detecting filename in	Content-Disposition header</li>
+<li><em>From</em>: Michael Stapelberg &lt;<a href="mailto:michael%2Bsup%40stapelberg.de">michael+sup@stapelberg.de</a>&gt;</li>
+<li><em>Date</em>: Sun, 10 Oct 2010 23:02:28 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi,
+
+quote from the commit message:
+
+    In a message written in some Microsoft mail program (the only header is
+    &quot;X-MimeOLE: Produced By Microsoft Exchange V6.5&quot;), the filename part of
+    the Content-Disposition header spans multiple lines (due to the filename
+    being very long and encoded in base64 due to the use of UTF-8):
+    
+    Content-Disposition: attachment;
+            filename=&quot;=?utf-8?B?VGFnIGRlciBPZmZlbmVuIFTDvHIgZGVzIFByb2pla3Rl?=
+            =?utf-8?B?cyBMZXJucGF0ZW5zY2hhZnRlbiBpbSBFbW1lcnRzZ3I=?=
+            =?utf-8?B?dW5kLmRvY3g=?=&quot;
+    
+    The previous regexp did not properly match the whole string, but only the
+    first line. This is fixed by adding the 'm' option (to match newlines as
+    characters) and using \z instead of $ (&quot;end of string&quot; instead of &quot;end of
+    line&quot;).
+    
+    The same fix is also applied to the Content-Type header one line below.
+
+
+Best regards,
+Michael
+</pre><p><strong>Attachment:
+<a href="binaDAWPPlMvL.bin" ><tt>0001-Bugfix-fix-regexp-for-detecting-filename-in-Content-.patch</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+<pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00418" href="msg00418.html">Re: [sup-devel] [PATCH] Bugfix: fix regexp for detecting filename	in Content-Disposition header</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00692.html">[sup-devel] [PATCH] Adding a gpgkey option</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00418.html">Re: [sup-devel] [PATCH] Bugfix: fix regexp for detecting filename	in Content-Disposition header</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00514.html">Re: [sup-devel] [PATCH] Adding a gpgkey option</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00418.html">Re: [sup-devel] [PATCH] Bugfix: fix regexp for detecting filename	in Content-Disposition header</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00607"><strong>Date</strong></a></li>
+<li><a href="threads.html#00607"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

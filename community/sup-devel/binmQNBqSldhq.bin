@@ -1,0 +1,121 @@
+From 4ceeba16d7030dab3567b502adc1f01b4807300d Mon Sep 17 00:00:00 2001
+From: Damien Leone <damien.leone@fensalir.fr>
+Date: Wed, 9 Jun 2010 12:51:20 +0200
+Subject: [PATCH 2/3] Add account_selector config option
+
+Set to true by default, it allows you to change your account in
+edit-mode using a horizontal selector. It doesn't change any of the
+previous behaviour since the proper account is selected by default, it
+also handles customized choice in case the user edited the From field
+manually.
+---
+ lib/sup.rb                         |    3 +-
+ lib/sup/modes/edit-message-mode.rb |   37 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 39 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup.rb b/lib/sup.rb
+index c68251e..587760d 100644
+--- a/lib/sup.rb
++++ b/lib/sup.rb
+@@ -267,7 +267,8 @@ else
+     :sent_source => "sup://sent",
+     :poll_interval => 300,
+     :wrap_width => 0,
+-    :slip_rows => 0
++    :slip_rows => 0,
++    :account_selector => true
+   }
+   begin
+     FileUtils.mkdir_p Redwood::BASE_DIR
+diff --git a/lib/sup/modes/edit-message-mode.rb b/lib/sup/modes/edit-message-mode.rb
+index bba07b5..f9e37b0 100644
+--- a/lib/sup/modes/edit-message-mode.rb
++++ b/lib/sup/modes/edit-message-mode.rb
+@@ -103,6 +103,21 @@ EOS
+     @selectors = []
+     @selector_label_width = 0
+ 
++    if $config[:account_selector]
++      @account_selector =
++        HorizontalSelector.new "Account:", AccountManager.user_accounts + [nil], AccountManager.user_emails + ["Customized"]
++
++      if @header["From"] =~ /<?(\S+@(\S+?))>?$/
++        @account_selector.set_to AccountManager.account_for($1)
++        @account_user = ""
++      else
++        @account_selector.set_to nil
++        @account_user = @header["From"]
++      end
++
++      add_selector @account_selector
++    end
++
+     @crypto_selector =
+       if CryptoManager.have_crypto?
+         HorizontalSelector.new "Crypto:", [:none] + CryptoManager::OUTGOING_MESSAGE_OPERATIONS.keys, ["None"] + CryptoManager::OUTGOING_MESSAGE_OPERATIONS.values
+@@ -151,6 +167,8 @@ EOS
+   def edit_subject; edit_field "Subject" end
+ 
+   def edit_message
++    old_from = @header["From"] if @account_selector
++
+     @file = Tempfile.new "sup.#{self.class.name.gsub(/.*::/, '').camel_to_hyphy}"
+     @file.puts format_headers(@header - NON_EDITABLE_HEADERS).first
+     @file.puts
+@@ -167,6 +185,12 @@ EOS
+ 
+     header, @body = parse_file @file.path
+     @header = header - NON_EDITABLE_HEADERS
++
++    if @account_selector and @header["From"] != old_from
++      @account_user = @header["From"]
++      @account_selector.set_to nil
++    end
++
+     handle_new_text @header, @body
+     update
+ 
+@@ -231,6 +255,7 @@ protected
+     if curpos < @selectors.length
+       @selectors[curpos].roll_left
+       buffer.mark_dirty
++      update if @account_selector
+     else
+       col_left
+     end
+@@ -240,6 +265,7 @@ protected
+     if curpos < @selectors.length
+       @selectors[curpos].roll_right
+       buffer.mark_dirty
++      update if @account_selector
+     else
+       col_right
+     end
+@@ -251,6 +277,11 @@ protected
+   end
+ 
+   def update
++    if @account_selector
++      account = @account_selector.val
++      @header["From"] = account && account.full_address || @account_user
++    end
++
+     regen_text
+     buffer.mark_dirty if buffer
+   end
+@@ -455,6 +486,12 @@ protected
+       if contacts
+         text = contacts.map { |s| s.full_address }.join(", ")
+         @header[field] = parse_header field, text
++
++        if @account_selector and field == "From"
++          @account_user = @header["From"]
++          @account_selector.set_to nil
++        end
++
+         update
+       end
+     end
+-- 
+1.7.1
+

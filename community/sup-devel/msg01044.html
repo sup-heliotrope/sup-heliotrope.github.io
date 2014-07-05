@@ -1,0 +1,189 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] email threading &#45; tree vs. graph -->
+<!--X-From-R13: @vpbynf Bbhvyyneq <avpbynf.cbhvyyneqNtznvy.pbz> -->
+<!--X-Date: Sun, 21 Feb 2010 09:55:04 &#45;0800 (PST) -->
+<!--X-Message-Id: 4b8172dc.0f67f10a.4111.7dce@mx.google.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 20100218114943.GB911@mjolnir -->
+<!--X-Reference: 1266730498&#45;sup&#45;78@tilus.net -->
+<!--X-Reference: 20100221134249.GA11429@mjolnir -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] email threading - tree vs. graph</title>
+<link rev="made" href="mailto:nicolas.pouillard@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00862.html">Date Prev</a>][<a href="msg01101.html">Date Next</a>][<a href="msg00862.html">Thread Prev</a>][<a href="msg01101.html">Thread Next</a>][<a href="maillist.html#01044">Date Index</a>][<a href="threads.html#01044">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] email threading - tree vs. graph</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] email threading - tree vs. graph</li>
+<li><em>From</em>: Nicolas Pouillard &lt;<a href="mailto:nicolas.pouillard%40gmail.com">nicolas.pouillard@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 21 Feb 2010 09:52:28 -0800 (PST)</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:message-id:date:notmuch-help	:notmuch-help:notmuch-help:notmuch-help:from:subject:to:in-reply-to	:references; bh=raf7nReRXJjJFBd0ObR9r+Q9yuuvHuBA80+RKZ8bz2M=;	b=avXJvDpj25VXhGi6f49S0EfmRt1KkbELmv+qpZs60YZEQT6/vrB3L8w7YiZtDVV//0	BrNRx87QdTI/QNxNr5qysArtt10rgcEA88SZ8/vWksJW3/dmMFGFQKN/dxCrdvcf5Wux	fxJq6TSvKsiaPaLx9VMUcYjfwbdaavCo//liw=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=message-id:date:notmuch-help:from:subject:to:in-reply-to:references; 	b=asJt4rtJCrUcn+491vOKw/EtJkb978VDrr3JQlfcdVgcXg6gIjbUS4r8mfxx0hfFf/	FZ8Uxr9v6dgFWgsB3Yb4MV3qmdGksLlnBMopceufo91wIz9H0NgjPhe/JhrJGHGUxCXj	BIy2qASFu9sEOoRJ79Pj6bKBr4LuaVL4F4abM=</li>
+<li><em>In-reply-to</em>: &lt;20100221134249.GA11429@mjolnir&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Notmuch-help</em>: ,a    - attach a file</li>
+<li><em>Notmuch-help</em>: ,s    - send the message (Notmuch-Help lines will be removed)</li>
+<li><em>Notmuch-help</em>: ,q    - abort the message</li>
+<li><em>Notmuch-help</em>: &lt;Tab&gt; - skip through header lines</li>
+<li><em>References</em>: &lt;20100218114943.GB911@mjolnir&gt; &lt;<a href="msg01032.html">1266730498-sup-78@tilus.net</a>&gt;	&lt;20100221134249.GA11429@mjolnir&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Sun, 21 Feb 2010 08:42:49 -0500, &quot;W. Trevor King&quot; &lt;wking@drexel.edu&gt; wrote:
+&gt; On Sun, Feb 21, 2010 at 08:38:35AM +0200, Tero Tilus wrote:
+[...]
+&gt; &gt; Have a pointer to code?
+&gt; 
+&gt; My code is currently stuffed into an in-transition BE project, but it
+&gt; should be easy to separate.  Grab the whole repo with Bazaar:
+&gt;   bzr branch <a  rel="nofollow" href="http://www.physics.drexel.edu/~wking/code/bzr/be.mailing-list">http://www.physics.drexel.edu/~wking/code/bzr/be.mailing-list</a>
+&gt; Graphing module is libbe/util/graph.py.  My very minimal browser is
+&gt; misc/mailbox-tools/mailgraph.py.  Set up the BE version file with
+&gt;   cd be.mailing-list
+&gt;   make libbe/_version.py
+&gt; and run the browser with
+&gt;   misc/mailbox-tools/mailgraph.py *.mbox
+&gt; Press 'h' for help.
+
+I've tried your program on a 100 messages mbox and got this:
+
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+missing Message-ID: &lt;HIDDEN&gt;
+Traceback (most recent call last):
+  File &quot;misc/mailbox-tools/mailgraph.py&quot;, line 194, in &lt;module&gt;
+    app.run()
+  File &quot;/home/ertai/w/a/be.mailing-list/libbe/ui/util/curses_framework.py&quot;, line 487, in run
+    return curses.wrapper(self._run, list(keys))
+  File &quot;/usr/lib/python2.6/curses/wrapper.py&quot;, line 44, in wrapper
+    return func(stdscr, *args, **kwds)
+  File &quot;/home/ertai/w/a/be.mailing-list/libbe/ui/util/curses_framework.py&quot;, line 494, in _run
+    self._run_init(stdscr)
+  File &quot;/home/ertai/w/a/be.mailing-list/libbe/ui/util/curses_framework.py&quot;, line 520, in _run_init
+    window.initialize()
+  File &quot;/home/ertai/w/a/be.mailing-list/libbe/ui/util/curses_framework.py&quot;, line 172, in initialize
+    self._setup_buffer()
+  File &quot;misc/mailbox-tools/mailgraph.py&quot;, line 51, in _setup_buffer
+    self._buffer = self._graph.ascii_graph().splitlines()
+  File &quot;/home/ertai/w/a/be.mailing-list/libbe/util/graph.py&quot;, line 379, in ascii_graph
+    for row,node in self.graph_rows():
+  File &quot;/home/ertai/w/a/be.mailing-list/libbe/util/graph.py&quot;, line 367, in graph_rows
+    self.topological_sort()
+  File &quot;/home/ertai/w/a/be.mailing-list/libbe/util/graph.py&quot;, line 355, in topological_sort
+    % (orig_len - final_len, orig_len))
+libbe.util.graph.CyclicGraph: 3 of 100 elements not reachable from tips
+
+Best regards,
+
+-- 
+Nicolas Pouillard
+<a  rel="nofollow" href="http://nicolaspouillard.fr">http://nicolaspouillard.fr</a>
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01101" href="msg01101.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+<ul><li><em>From:</em> &quot;W. Trevor King&quot; &lt;wking@drexel.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00984" href="msg00984.html">[sup-devel] email threading - tree vs. graph</a></strong>
+<ul><li><em>From:</em> &quot;W. Trevor King&quot; &lt;wking@drexel.edu&gt;</li></ul></li>
+<li><strong><a name="01032" href="msg01032.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+<li><strong><a name="00862" href="msg00862.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+<ul><li><em>From:</em> &quot;W. Trevor King&quot; &lt;wking@drexel.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00862.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01101.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00862.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01101.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01044"><strong>Date</strong></a></li>
+<li><a href="threads.html#01044"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

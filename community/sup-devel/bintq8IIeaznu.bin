@@ -1,0 +1,36 @@
+From 9f604264731745b30927ac6822739d94a3e4e492 Mon Sep 17 00:00:00 2001
+From: Alvaro Herrera <alvherre@alvh.no-ip.org>
+Date: Tue, 9 Nov 2010 12:13:47 -0300
+Subject: [PATCH 3/3] Make encoding conversion pass //IGNORE to iconv
+
+This makes transcoding failure a bit more user-friendly by discarding
+broken chars and displaying what can be successfully transcoded, instead
+of punting and displaying the ASCII representation.
+
+This is particularly useful when corporate email systems append a
+disclaimer that's encoded in a different encoding than whatever the user
+has set up in the MUA; or when broken remote MUAs fail to re-encode the
+quoted part when they reply in a different encoding.
+---
+ lib/sup/util.rb |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/lib/sup/util.rb b/lib/sup/util.rb
+index 4a0e4e7..8b9c6a5 100644
+--- a/lib/sup/util.rb
++++ b/lib/sup/util.rb
+@@ -712,9 +712,9 @@ class Iconv
+     end
+ 
+     begin
+-      returning(Iconv.iconv(target, charset, text + " ").join[0 .. -2]) { |str| str.check }
++      returning(Iconv.iconv(target + "//IGNORE", charset, text + " ").join[0 .. -2]) { |str| str.check }
+     rescue Errno::EINVAL, Iconv::InvalidEncoding, Iconv::InvalidCharacter, Iconv::IllegalSequence, String::CheckError
+-      debug "couldn't transcode text from #{orig_charset} (#{charset}) to #{target}) (#{text[0 ... 20].inspect}...) (got #{$!.message} (#{$!.class}))"
++      debug "couldn't transcode text from #{orig_charset} (#{charset}) to #{target} (#{text[0 ... 20].inspect}...): got #{$!.class} (#{$!.message})"
+       text.ascii
+     end
+   end
+-- 
+1.7.1
+

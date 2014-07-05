@@ -1,0 +1,149 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] Stop worrying notice when encrypted email not	signed -->
+<!--X-From-R13: Vnzvfu R <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Sun, 17 Oct 2010 15:48:32 &#45;0700 (PDT) -->
+<!--X-Message-Id: AANLkTinEiJYb+&#45;gPcEUkw=1ARwf9mENbF7EOi1eiLfWr@mail.gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] Stop worrying notice when encrypted email not	signed</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00770.html">Date Prev</a>][<a href="msg00696.html">Date Next</a>][<a href="msg00770.html">Thread Prev</a>][<a href="msg00696.html">Thread Next</a>][<a href="maillist.html#00653">Date Index</a>][<a href="threads.html#00653">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] Stop worrying notice when encrypted email not	signed</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] Stop worrying notice when encrypted email not	signed</li>
+<li><em>From</em>: Hamish D &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 17 Oct 2010 23:41:45 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:received:date:message-id	:subject:from:to:content-type;	bh=2+9Aaz8ixt7Z2cKl3KJdGCMDLQGXoS4d9em5xfczF6I=;	b=czMhxeZcCu2inJHjQiyRp0Cr0yuZZg3DHPGxTF+WSmRX/cqfv/TpZDC7hOtUixeERp	Di3t1TliDDAK4jH9B0GszvjbpxTPw61qm3bhlNQ07tXL/fTUrdMGk6aaL3Ih0pibz+Z5	d3xiuq9aIrhu2EvwBwctLjGDHY65mulKdKcyw=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=k6L5l2WIAQpy5QwKhZsshRZQ0XER8BoQwT3xlHT43cLn9f2dJTVYENzJmsc1gKYktJ	zhFr3gV4dXlcytcVho8XwO3NOMDi6HTCfGFPYT7tEkOTzZEII0FqKxEtZC6YKi9iUrZK	X5jVWxRucDBYcBAM3R0pw8FeFPamw1ZkO2I4c=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Stop worrying notice when encrypted email not signed
+
+When no signature is present, there was a message saying
+&quot;Unable to determine validity of cryptographic signature&quot;.
+This fix means that if there are no error messages and no
+messages about signature verification then the message is
+assumed to not be signed at all. This fix also saves the
+encrypted messages to a temp file with a suffix of .asc
+to stop gpg complaining about &quot;unknown suffix&quot;.
+
+Hamish Downer
+</pre><pre>From 38e01f89178f06c3a29d494b56fe28c0aa82de81 Mon Sep 17 00:00:00 2001
+From: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date: Sun, 17 Oct 2010 23:25:20 +0100
+Subject: [PATCH] Stop worrying notice when no signature present
+
+When no signature is present, there was a message saying
+&quot;Unable to determine validity of cryptographic signature&quot;.
+This fix means that if there are no error messages and no
+messages about signature verification then the message is
+assumed to not be signed at all. This fix also saves the
+encrypted messages to a temp file with a suffix of .asc
+to stop gpg complaining about &quot;unknown suffix&quot;.
+---
+ lib/sup/crypto.rb |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index 386dbb8..fd4c91c 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -108,6 +108,9 @@ EOS
+       else
+         Chunk::CryptoNotice.new :invalid, $1, output_lines
+       end
++    elsif output_lines.length == 0 &amp;&amp; rc == 0
++      # the message wasn't signed
++      Chunk::CryptoNotice.new :valid, &quot;Encrypted message wasn't signed&quot;, output_lines
+     else
+       unknown_status output_lines
+     end
+@@ -139,7 +142,7 @@ EOS
+   def decrypt payload, armor=false # a RubyMail::Message object
+     return unknown_status(cant_find_binary) unless @cmd
+ 
+-    payload_fn = Tempfile.new &quot;redwood.payload&quot;
++    payload_fn = Tempfile.new([&quot;redwood.payload&quot;, &quot;.asc&quot;])
+     payload_fn.write payload.to_s
+     payload_fn.close
+ 
+-- 
+1.7.1
+
+</pre><pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00696" href="msg00696.html">Re: [sup-devel] [PATCH] Stop worrying notice when encrypted email	not signed</a></strong>
+<ul><li><em>From:</em> Ben Walton &lt;bwalton@artsci.utoronto.ca&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00770.html">[sup-devel] Fix for decrypting messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00696.html">Re: [sup-devel] [PATCH] Stop worrying notice when encrypted email	not signed</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00770.html">[sup-devel] Fix for decrypting messages</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00696.html">Re: [sup-devel] [PATCH] Stop worrying notice when encrypted email	not signed</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00653"><strong>Date</strong></a></li>
+<li><a href="threads.html#00653"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

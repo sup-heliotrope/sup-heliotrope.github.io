@@ -1,0 +1,165 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH 3/3] simplify sup&#45;add -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Sun, 17 Jan 2010 10:51:51 &#45;0800 (PST) -->
+<!--X-Message-Id: 1263754247&#45;20979&#45;4&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1263754247&#45;20979&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Reference: 1263754247&#45;20979&#45;2&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Reference: 1263754247&#45;20979&#45;3&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH 3/3] simplify sup-add</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01264.html">Date Prev</a>][<a href="msg01417.html">Date Next</a>][<a href="msg01433.html">Thread Prev</a>][<a href="msg01418.html">Thread Next</a>][<a href="maillist.html#01299">Date Index</a>][<a href="threads.html#01299">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH 3/3] simplify sup-add</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH 3/3] simplify sup-add</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Sun, 17 Jan 2010 10:50:47 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01433.html">1263754247-20979-3-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01264.html">1263754247-20979-1-git-send-email-rlane@club.cc.cmu.edu</a>&gt;	&lt;<a href="msg01417.html">1263754247-20979-2-git-send-email-rlane@club.cc.cmu.edu</a>&gt;	&lt;<a href="msg01433.html">1263754247-20979-3-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>---
+ bin/sup-add |   40 ----------------------------------------
+ 1 files changed, 0 insertions(+), 40 deletions(-)
+
+diff --git a/bin/sup-add b/bin/sup-add
+index 059a4e2..e354ea8 100755
+--- a/bin/sup-add
++++ b/bin/sup-add
+@@ -30,50 +30,10 @@ EOS
+   opt :unusual, &quot;Do not automatically poll these sources for new messages.&quot;
+   opt :labels, &quot;A comma-separated set of labels to apply to all messages from this source&quot;, :type =&gt; String
+   opt :force_new, &quot;Create a new account for this source, even if one already exists.&quot;
+-  opt :force_account, &quot;Reuse previously defined account user@hostname.&quot;, :type =&gt; String
+ end
+ 
+ Trollop::die &quot;require one or more sources&quot; if ARGV.empty?
+ 
+-## for sources that require login information, prompt the user for
+-## that. also provide a list of previously-defined login info to
+-## choose from, if any.
+-def get_login_info uri, sources
+-  uri = URI(uri)
+-  accounts = sources.map do |s|
+-    next unless s.respond_to?(:username)
+-    suri = URI(s.uri)
+-    [suri.host, s.username, s.password]
+-  end.compact.uniq.sort_by { |h, u, p| h == uri.host ? 0 : 1 }
+-
+-  username, password = nil, nil
+-  unless accounts.empty? || $opts[:force_new]
+-    if $opts[:force_account]
+-      host, username, password = accounts.find { |h, u, p| $opts[:force_account] == &quot;#{u}@#{h}&quot; }
+-      unless username &amp;&amp; password
+-        say &quot;No previous account #{$opts[:force_account].inspect} found.&quot;
+-      end
+-    else
+-      say &quot;Would you like to use the same account as for a previous source for #{uri}?&quot;
+-      choose do |menu|
+-        accounts.each do |host, olduser, oldpw|
+-          menu.choice(&quot;Use the account info for #{olduser}@#{host}&quot;) { username, password = olduser, oldpw }
+-        end
+-        menu.choice(&quot;Use a new account&quot;) { }
+-        menu.prompt = &quot;Account selection? &quot;
+-      end
+-    end
+-  end
+-
+-  unless username &amp;&amp; password
+-    username = ask(&quot;Username for #{uri.host}: &quot;);
+-    password = ask(&quot;Password for #{uri.host}: &quot;) { |q| q.echo = false }
+-    puts # why?
+-  end
+-
+-  [username, password]
+-end
+-
+ $terminal.wrap_at = :auto
+ Redwood::start
+ index = Redwood::Index.init
+-- 
+1.6.3.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01264" href="msg01264.html">[sup-devel] RFC: Nuke remote sources</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01417" href="msg01417.html">[sup-devel] [PATCH 1/3] remove mbox+ssh source</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01433" href="msg01433.html">[sup-devel] [PATCH 2/3] remove imap source</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01264.html">[sup-devel] RFC: Nuke remote sources</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01417.html">[sup-devel] [PATCH 1/3] remove mbox+ssh source</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01433.html">[sup-devel] [PATCH 2/3] remove imap source</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01418.html">Re: [sup-devel] RFC: Nuke remote sources</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01299"><strong>Date</strong></a></li>
+<li><a href="threads.html#01299"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

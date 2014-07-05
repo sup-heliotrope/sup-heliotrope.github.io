@@ -1,0 +1,163 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] fixed am/pm in thread&#45;list&#45;mode for ruby1.8 -->
+<!--X-From-R13: Pynxr Phexuneg <oohexlNoohexl.pbz> -->
+<!--X-Date: Fri, 1 Jan 2010 21:59:19 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262410432&#45;sup&#45;3347@Backspace.local -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1262270484&#45;sup&#45;8396@changeling.local -->
+<!--X-Reference: 1262289195&#45;sup&#45;4420@masanjin.net -->
+<!--X-Reference: 1262289317&#45;sup&#45;7991@changeling.local -->
+<!--X-Reference: 1262290432&#45;sup&#45;9868@masanjin.net -->
+<!--X-Reference: 1262293338&#45;sup&#45;9364@changeling.local -->
+<!--X-Reference: 1262294449&#45;sup&#45;8418@localdomain -->
+<!--X-Reference: 1262297415&#45;sup&#45;6997@changeling.local -->
+<!--X-Reference: 1262358668&#45;sup&#45;7399@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</title>
+<link rev="made" href="mailto:bburky@bburky.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01163.html">Date Prev</a>][<a href="msg01328.html">Date Next</a>][<a href="msg01168.html">Thread Prev</a>][<a href="msg01328.html">Thread Next</a>][<a href="maillist.html#01262">Date Index</a>][<a href="threads.html#01262">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</li>
+<li><em>From</em>: Blake Burkhart &lt;<a href="mailto:bburky%40bburky.com">bburky@bburky.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 01 Jan 2010 23:59:08 -0600</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01168.html">1262358668-sup-7399@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1262270484-sup-8396@changeling.local&gt;	&lt;<a href="msg01394.html">1262289195-sup-4420@masanjin.net</a>&gt;	&lt;1262289317-sup-7991@changeling.local&gt;	&lt;<a href="msg01278.html">1262290432-sup-9868@masanjin.net</a>&gt;	&lt;1262293338-sup-9364@changeling.local&gt;	&lt;1262294449-sup-8418@localdomain&gt;	&lt;1262297415-sup-6997@changeling.local&gt;	&lt;<a href="msg01168.html">1262358668-sup-7399@masanjin.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from William Morgan's message of Fri Jan 01 09:13:08 -0600 2010:
+&gt; Reformatted excerpts from Eric Sherman's message of 2009-12-31:
+&gt; &gt; Hmm.  Maybe this issue only exists on OSX.
+&gt; 
+&gt; I suspect so. Can you provide a patch that uses the downcase trick and
+&gt; doesn't check for the ruby version or the OS? (Maybe with a helpful
+&gt; comment.) That should work everywhere, lame as it may be.
+
+I don't know if you need any more examples of this, but I'm running Mac OS
+10.6, and can reproduce this with the three different versions of ruby I
+happen to have installed.
+
+Apple supplied ruby:
+$ /usr/bin/ruby --version
+ruby 1.8.7 (2008-08-11 patchlevel 72) [universal-darwin10.0]
+$ /usr/bin/ruby -e 'puts Time.now().strftime(&quot;%l:%M%P&quot;)'
+11:27P
+
+Ruby from the MacPorts package manager, patchlevel 174:
+$ ruby --version
+ruby 1.8.7 (2009-06-12 patchlevel 174) [i686-darwin10]
+$ ruby -e 'puts Time.now().strftime(&quot;%l:%M%P&quot;)'
+11:25P
+
+And [MacRuby][1], which is completely beta everything, but is 1.9:
+$ macruby --version
+MacRuby version 0.5 (ruby 1.9.0) [universal-darwin10.0, x86_64]
+$ macruby -e 'puts Time.now().strftime(&quot;%l:%M%P&quot;)'
+11:25P
+
+I'm pretty sure that *should* work on MacRuby, but it's not. I think that's
+possibly their fault though. I guess I could report it as a bug to them then.
+I'm not really using that ruby version for anything, so I don't know how
+complete it is.
+
+[1]: <a  rel="nofollow" href="http://www.macruby.org/">http://www.macruby.org/</a>
+
+-- 
+Blake Burkhart
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01328" href="msg01328.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01220" href="msg01220.html">[sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01394" href="msg01394.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01165" href="msg01165.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01278" href="msg01278.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01249" href="msg01249.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01436" href="msg01436.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> Beno&#xEE;t PIERRE &lt;benoit.pierre@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01258" href="msg01258.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01168" href="msg01168.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01163.html">[sup-devel] [PATCH] fixed am/pm display for ruby 1.8 darwin (v2)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01328.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01168.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01328.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01262"><strong>Date</strong></a></li>
+<li><a href="threads.html#01262"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

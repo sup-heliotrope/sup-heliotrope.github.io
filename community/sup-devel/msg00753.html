@@ -1,0 +1,100 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] really high wakeup count in powertop -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Wed, 10 Nov 2010 08:13:34 &#45;0800 (PST) -->
+<!--X-Message-Id: 1289405570&#45;sup&#45;2035@qwerzila -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1289349454&#45;sup&#45;1015@think -->
+<!--X-Reference: 1289399902&#45;sup&#45;201@think -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] really high wakeup count in powertop</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00459.html">Date Prev</a>][<a href="msg00732.html">Date Next</a>][<a href="msg00459.html">Thread Prev</a>][<a href="msg00732.html">Thread Next</a>][<a href="maillist.html#00753">Date Index</a>][<a href="threads.html#00753">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] really high wakeup count in powertop</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] really high wakeup count in powertop</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 10 Nov 2010 17:13:48 +0100</li>
+<li><em>In-reply-to</em>: &lt;1289399902-sup-201@think&gt;</li>
+<li><em>References</em>: &lt;1289349454-sup-1015@think&gt; &lt;1289399902-sup-201@think&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Chris Mason's message of 2010-11-10 15:41:30 +0100:
+&gt; strace showed we were hammering on futexes, and a little digging made it
+&gt; clear sup isn't to blame.  The ruby timer thread is polling for
+&gt; signals (or something) every 10ms:
+&gt; 
+&gt; <a  rel="nofollow" href="http://redmine.ruby-lang.org/issues/show/3436">http://redmine.ruby-lang.org/issues/show/3436</a>
+&gt; 
+&gt; I patched up ruby to poll every 500ms and things seem to work.  Not sure
+&gt; why the ruby developers didn't just change the timeout, but chances are
+&gt; good they have a real reason.  I'll post to that bug.
+
+Also noticed sup in powertop; so there's nothing to do on the Sup side ?
+
+- gaute
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00430" href="msg00430.html">[sup-devel] really high wakeup count in powertop</a></strong>
+<ul><li><em>From:</em> Chris Mason &lt;chris.mason@ORACLE.COM&gt;</li></ul></li>
+<li><strong><a name="00459" href="msg00459.html">Re: [sup-devel] really high wakeup count in powertop</a></strong>
+<ul><li><em>From:</em> Chris Mason &lt;chris.mason@oracle.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00459.html">Re: [sup-devel] really high wakeup count in powertop</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00732.html">Re: [sup-devel] really high wakeup count in powertop</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00459.html">Re: [sup-devel] really high wakeup count in powertop</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00732.html">Re: [sup-devel] really high wakeup count in powertop</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00753"><strong>Date</strong></a></li>
+<li><a href="threads.html#00753"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] BRANCH: rerun_crypto_selector -->
+<!--X-From-R13: Vnzvfu R <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Wed, 9 Feb 2011 14:23:36 &#45;0800 (PST) -->
+<!--X-Message-Id: AANLkTinU=eJ4B0d97T&#45;GfX82mQrQPEpyv&#45;37tUQuogfW@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] BRANCH: rerun_crypto_selector</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00737.html">Date Prev</a>][<a href="msg00627.html">Date Next</a>][<a href="msg00759.html">Thread Prev</a>][<a href="msg00627.html">Thread Next</a>][<a href="maillist.html#00598">Date Index</a>][<a href="threads.html#00598">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] BRANCH: rerun_crypto_selector</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] BRANCH: rerun_crypto_selector</li>
+<li><em>From</em>: Hamish D &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 9 Feb 2011 22:03:55 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:date:message-id:subject:from:to	:content-type; bh=zss8032DvjkASD6U6mtXhf/EBJkCH+/cpuc2jhSbJZE=;	b=Ylb9Vs1SRIOLvIBw/sfwQcZoOaLRCnbBdCQrxJZGyfzE6y9ypvULKljGrBtzoJmf4p	tFlykqN/eNsFwvRr/n8dv2MYGaahkpQXLVdODcscwprl9U5W7OkQLb5JWL83KqoJCinf	NFYhw6I9WnE49MfghoJznOyAkapv6FpSRfoCI=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=Vi+AJYUmxIDXHPBDAJs15unXtv+19snNdXMWODFgXLylBImKGMYCd6KomaMX0LuxWW	OFIsJ3FkySqewMoUaBazB6SywwqoeTNGrdOV37z3O0ZVlg1XjMwf7W+KuH7f5pSZ3nx6	X5SlzPRu6ux/hu18D43K8FGBWhq+ppEzCIMsc=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I noticed that if I changed the reply-to selector that my
+crypto-selector hook wasn't getting called, so I've made a branch
+called rerun_crypto_selector (and merged it to next). From the main
+commit message in the branch:
+
+    Re-run the crypto selector hook after message changes.
+
+    The crypto-selector hook will be re-run after the message is edited,
+    or after the recipients change due to changing the &quot;Reply to&quot;
+    selector in reply-mode. So when the recipients change, the default
+    selector will also change.
+
+    However, if the user has manually changed the crypto selector then the
+    hook will not be re-run, so as to avoid over-riding the user's choice.
+
+I've also updated the wiki as the headers[&quot;to&quot;] bit is sometimes an
+array. Working much nicer now. I've pasted in the two patches at the
+end for those who like to review them in the email.
+
+Hamish Downer
+
+
+
+
+commit f111201a469fd1c1dccb143e089cc623ce35025d
+Author: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date:   Tue Feb 8 23:53:13 2011 +0000
+
+    added @changed_by_user to HorizontalSelector
+
+diff --git a/lib/sup/horizontal-selector.rb b/lib/sup/horizontal-selector.rb
+index 35a028e..e6ec6dc 100644
+--- a/lib/sup/horizontal-selector.rb
++++ b/lib/sup/horizontal-selector.rb
+@@ -1,7 +1,7 @@
+ module Redwood
+
+ class HorizontalSelector
+-  attr_accessor :label
++  attr_accessor :label, :changed_by_user
+
+   def initialize label, vals, labels,
+base_color=:horizontal_selector_unselected_color,
+selected_color=:horizontal_selector_selected_color
+     @label = label
+@@ -10,6 +10,7 @@ class HorizontalSelector
+     @base_color = base_color
+     @selected_color = selected_color
+     @selection = 0
++    @changed_by_user = false
+   end
+
+   def set_to val; @selection = @vals.index(val) end
+@@ -37,10 +38,12 @@ class HorizontalSelector
+
+   def roll_left
+     @selection = (@selection - 1) % @labels.length
++    @changed_by_user = true
+   end
+
+   def roll_right
+     @selection = (@selection + 1) % @labels.length
++    @changed_by_user = true
+   end
+ end
+
+
+
+
+
+
+commit 3cbccb471fc73b1593374ef8efea1a22ba237d89
+Author: Hamish Downer &lt;dmishd@gmail.com&gt;
+Date:   Wed Feb 9 18:58:30 2011 +0000
+
+    Re-run the crypto selector hook after message changes.
+
+    The crypto-selector hook will be re-run after the message is edited,
+    or after the recipients change due to changing the &quot;Reply to&quot;
+    selector in reply-mode. So when the recipients change, the default
+    selector will also change.
+
+    However, if the user has manually changed the crypto selector then the
+    hook will not be re-run, so as to avoid over-riding the user's choice.
+
+diff --git a/lib/sup/modes/edit-message-mode.rb
+b/lib/sup/modes/edit-message-mode.rb
+index 734a879..6c2d61c 100644
+--- a/lib/sup/modes/edit-message-mode.rb
++++ b/lib/sup/modes/edit-message-mode.rb
+@@ -179,6 +179,7 @@ EOS
+     header, @body = parse_file @file.path
+     @header = header - NON_EDITABLE_HEADERS
+     handle_new_text @header, @body
++    rerun_crypto_selector_hook
+     update
+
+     @edited
+@@ -215,6 +216,12 @@ EOS
+
+ protected
+
++  def rerun_crypto_selector_hook
++    if @crypto_selector &amp;&amp; !@crypto_selector.changed_by_user
++      HookManager.run &quot;crypto-mode&quot;, :header =&gt; @header, :body =&gt;
+@body, :crypto_selector =&gt; @crypto_selector
++    end
++  end
++
+   def mime_encode string
+     string = [string].pack('M') # basic quoted-printable
+     string.gsub!(/=\n/,'')      # .. remove trailing newline
+diff --git a/lib/sup/modes/reply-mode.rb b/lib/sup/modes/reply-mode.rb
+index 079e4de..ccdf371 100644
+--- a/lib/sup/modes/reply-mode.rb
++++ b/lib/sup/modes/reply-mode.rb
+@@ -165,6 +165,7 @@ protected
+     if @headers[@type_selector.val] != self.header
+       self.header = @headers[@type_selector.val]
+       self.body = @bodies[@type_selector.val] unless @edited
++      rerun_crypto_selector_hook
+       update
+     end
+   end
+@@ -174,6 +175,7 @@ protected
+     if @headers[@type_selector.val] != self.header
+       self.header = @headers[@type_selector.val]
+       self.body = @bodies[@type_selector.val] unless @edited
++      rerun_crypto_selector_hook
+       update
+     end
+   end
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00737.html">[sup-devel] Encoding of message snippet in xapian</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00627.html">[sup-devel] Improved GPG start up checks</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00759.html">Re: [sup-devel] Encoding of message snippet in xapian</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00627.html">[sup-devel] Improved GPG start up checks</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00598"><strong>Date</strong></a></li>
+<li><a href="threads.html#00598"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

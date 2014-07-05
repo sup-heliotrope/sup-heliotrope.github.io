@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [Heliotrope/Turnsole] GPG signature verification -->
+<!--X-From-R13: [vpunry Egncryoret <zvpunry+fhcNfgncryoret.qr> -->
+<!--X-Date: Thu, 1 Mar 2012 04:16:52 &#45;0800 (PST) -->
+<!--X-Message-Id: 1330602132&#45;sup&#45;2087@stapelberg.de -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [Heliotrope/Turnsole] GPG signature verification</title>
+<link rev="made" href="mailto:michael+sup@stapelberg.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00291.html">Date Prev</a>][<a href="msg00242.html">Date Next</a>][<a href="msg00396.html">Thread Prev</a>][<a href="msg00067.html">Thread Next</a>][<a href="maillist.html#00096">Date Index</a>][<a href="threads.html#00096">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [Heliotrope/Turnsole] GPG signature verification</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [Heliotrope/Turnsole] GPG signature verification</li>
+<li><em>From</em>: Michael Stapelberg &lt;<a href="mailto:michael%2Bsup%40stapelberg.de">michael+sup@stapelberg.de</a>&gt;</li>
+<li><em>Date</em>: Thu, 01 Mar 2012 12:58:24 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi,
+
+Before I can actually switch to Heliotrope/Turnsole, I need to have GPG working
+properly. I tried implementing GPG signature verification first, and got it
+nearly working, but before I go down the rabbit hole too far, I decided to ask
+a few questions here first:
+
+1) In ChunkParser#chunks_for_message, the message object has multiple parts,
+   which in turn are just hashes. At least in my tests, the first part usually
+   has a &quot;content&quot; entry, but the second part doesn&#x2019;t. Therefore, I need to
+   request it from heliotrope. Should I introduce a new class for that or am I
+   missing an existing class which I can use for that? Chunk::Attachment has
+   very similar functionality with its content method.
+
+2) For verification, I need the not-decoded MIME part, but heliotrope decodes
+   MIME parts. Thus, I always get a bad signature. How should we fix this? Not
+   decode MIME in heliotrope, but in turnsole? Decode MIME in both? Make
+   turnsole get the raw message, too, for GPG (roundtrip alert!)?
+
+Best regards,
+Michael
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00067" href="msg00067.html">[sup-devel]  [Heliotrope/Turnsole] GPG signature verification</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00291.html">Re: [sup-devel] [Heliotrope] search for cyrillic terms does not work</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00242.html">[sup-devel] [Turnsole] Lack of a test suite</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00396.html">Re: [sup-devel] [Heliotrope] search for cyrillic terms does not work</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00067.html">[sup-devel]  [Heliotrope/Turnsole] GPG signature verification</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00096"><strong>Date</strong></a></li>
+<li><a href="threads.html#00096"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

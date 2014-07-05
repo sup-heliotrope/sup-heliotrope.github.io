@@ -1,0 +1,123 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] heliotrope: Crash with empty message.recipients -->
+<!--X-From-R13: Uertbe Vbssyrvg <tertbeNubssyrvg.qr> -->
+<!--X-Date: Mon, 16 May 2011 08:59:13 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1305560179&#45;sup&#45;7899@sam.mediasupervision.de -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1303314278&#45;sup&#45;9272@sam.mediasupervision.de -->
+<!--X-Reference: 1305049541&#45;sup&#45;4323@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] heliotrope: Crash with empty message.recipients</title>
+<link rev="made" href="mailto:gregor@hoffleit.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00126.html">Date Prev</a>][<a href="msg00274.html">Date Next</a>][<a href="msg00650.html">Thread Prev</a>][<a href="msg00095.html">Thread Next</a>][<a href="maillist.html#00129">Date Index</a>][<a href="threads.html#00129">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] heliotrope: Crash with empty message.recipients</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] heliotrope: Crash with empty message.recipients</li>
+<li><em>From</em>: Gregor Hoffleit &lt;<a href="mailto:gregor%40hoffleit.de">gregor@hoffleit.de</a>&gt;</li>
+<li><em>Date</em>: Mon, 16 May 2011 17:56:36 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00650.html">1305049541-sup-4323@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1303314278-sup-9272@sam.mediasupervision.de&gt;	&lt;<a href="msg00650.html">1305049541-sup-4323@masanjin.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>* William Morgan &lt;wmorgan-sup@masanjin.net&gt; [Di Mai 10 19:45:49 +0200 2011]
+&gt; Reformatted excerpts from Gregor Hoffleit's message of 2011-04-20:
+&gt; &gt; 
+&gt; &gt;     To: , debian-vote@lists.debian.org
+&gt; &gt; 
+&gt; &gt; This code in line 482 of lib/heliotrope/index.rb will fail work if any
+&gt; &gt; recipient is empty:
+&gt; &gt; 
+&gt; &gt;     message.recipients.map { |x| x.indexable_text }.join(&quot; &quot;).downcase
+&gt; 
+&gt; Sorry for the lengthy wait. I believe this has been fixed. Please let me
+&gt; know if you still encounter this problem!
+
+The problem with empty recipient strings is still there, I'm afraid.
+Tested today, with current heliotrope from GIT.
+
+Regards,
+    Gregor
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00095" href="msg00095.html">Re: [sup-devel] heliotrope: Crash with empty message.recipients</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00650" href="msg00650.html">Re: [sup-devel] heliotrope: Crash with empty message.recipients</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00126.html">Re: [sup-devel] Query for largest msg_id?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00274.html">[sup-devel]  Sign and encrypt</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00650.html">Re: [sup-devel] heliotrope: Crash with empty message.recipients</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00095.html">Re: [sup-devel] heliotrope: Crash with empty message.recipients</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00129"><strong>Date</strong></a></li>
+<li><a href="threads.html#00129"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

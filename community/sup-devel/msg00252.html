@@ -1,0 +1,190 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] sup 0.14: Encoding::UndefinedConversionError from	thread: load threads for thread&#45;index&#45;mode -->
+<!--X-From-R13: Uertbe Vbssyrvg <tertbeNubssyrvg.qr> -->
+<!--X-Date: Thu, 15 Aug 2013 09:27:28 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1376582732&#45;sup&#45;7192@sam.mediasupervision.de -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] sup 0.14: Encoding::UndefinedConversionError from	thread: load threads for thread-index-mode</title>
+<link rev="made" href="mailto:gregor@hoffleit.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00376.html">Date Prev</a>][<a href="msg00260.html">Date Next</a>][<a href="msg00287.html">Thread Prev</a>][<a href="msg00260.html">Thread Next</a>][<a href="maillist.html#00252">Date Index</a>][<a href="threads.html#00252">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] sup 0.14: Encoding::UndefinedConversionError from	thread: load threads for thread-index-mode</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] sup 0.14: Encoding::UndefinedConversionError from	thread: load threads for thread-index-mode</li>
+<li><em>From</em>: Gregor Hoffleit &lt;<a href="mailto:gregor%40hoffleit.de">gregor@hoffleit.de</a>&gt;</li>
+<li><em>Date</em>: Thu, 15 Aug 2013 18:21:43 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Sup 0.14 fails for me just after the start with the following exception:
+
+--- Encoding::UndefinedConversionError from thread: load threads for thread-index-mode
+&quot;\xE2&quot; from ASCII-8BIT to UTF-8
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/util.rb:259:in `width'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/util.rb:259:in `display_length'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/scroll_mode.rb:226:in `block in draw_line_from_array'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/scroll_mode.rb:224:in `each'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/scroll_mode.rb:224:in `each_with_index'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/scroll_mode.rb:224:in `draw_line_from_array'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/scroll_mode.rb:199:in `draw_line'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/line_cursor_mode.rb:52:in `draw_line'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/scroll_mode.rb:46:in `block in draw'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/scroll_mode.rb:46:in `each'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/scroll_mode.rb:46:in `draw'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/line_cursor_mode.rb:37:in `draw'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/buffer.rb:118:in `draw'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/buffer.rb:102:in `redraw'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/buffer.rb:335:in `draw_screen'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/buffer.rb:766:in `clear'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/util.rb:639:in `method_missing'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/thread_index_mode.rb:667:in `load_n_threads'
+(eval):12:in `load_n_threads'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup/modes/thread_index_mode.rb:638:in `block in load_n_threads_background'
+/var/lib/gems/1.9.1/gems/sup-0.14.0/lib/sup.rb:85:in `block in reporting_thread'
+
+
+I noticed that this exception looks similar to a report from 2011:
+
+* Horacio Sanson's message of Mo Apr 25 04:25:04 +0200 2011:
+&gt; Any attempt to add a label with Japanese characters crashes the application. 
+&gt; Seems this is a common problem to all Ruby 1.9 applications. I can see Rails 
+&gt; had or has a lot of problems with this:
+&gt; 
+&gt; <a  rel="nofollow" href="http://yehudakatz.com/2010/05/05/ruby-1-9-encodings-a-primer-and-the-solution-for-rails/">http://yehudakatz.com/2010/05/05/ruby-1-9-encodings-a-primer-and-the-solution-for-rails/</a>
+&gt; 
+&gt; <a  rel="nofollow" href="https://rails.lighthouseapp.com/projects/8994/tickets/4683-ascii-8bit-and-utf-8-in-hell">https://rails.lighthouseapp.com/projects/8994/tickets/4683-ascii-8bit-and-utf-8-in-hell</a>
+&gt; 
+&gt; 
+&gt; The backtrace I get follows:
+&gt; 
+&gt; /var/lib/gems/1.9.1/gems/console-0.3/lib/console/string.rb:27:in 
+&gt; `display_width': &quot;\xE3&quot; from ASCII-8BIT to UTF-8 
+&gt; (Encoding::UndefinedConversionError)
+&gt;         from /var/lib/gems/1.9.1/gems/console-0.3/lib/console/string.rb:27:in 
+&gt; `display_width'
+&gt;         from /home/ryujin/Apps/turnsole/lib/turnsole/textfield.rb:129:in 
+&gt; `handle_input'
+&gt;         from /home/ryujin/Apps/turnsole/lib/turnsole/input.rb:108:in `ask'
+&gt;         from /home/ryujin/Apps/turnsole/lib/turnsole/input.rb:141:in 
+&gt; `ask_many_with_completions'
+&gt;         from /home/ryujin/Apps/turnsole/lib/turnsole/input.rb:198:in 
+&gt; `ask_for_labels'
+&gt;         from /home/ryujin/Apps/turnsole/lib/turnsole/modes/thread-index-
+&gt; mode.rb:585:in `block in edit_labels'
+&gt;         from /home/ryujin/Apps/turnsole/lib/turnsole/input.rb:42:in `asking'
+&gt;         from /home/ryujin/Apps/turnsole/lib/turnsole/modes/thread-index-
+&gt; mode.rb:584:in `edit_labels'
+&gt;         from /home/ryujin/Apps/turnsole/lib/turnsole/input.rb:92:in `handle'
+&gt;         from /home/ryujin/Apps/turnsole/lib/turnsole/ui.rb:73:in `step'
+&gt;         from bin/turnsole:134:in `&lt;main&gt;'
+
+
+to which William responded:
+
+&gt; Thanks for the bug report. This is a bit tricky. The problem is
+&gt; actually that ncurses is giving me the characters one byte at a time.
+&gt; I'll see what I can do to fix this.
+
+
+Do you need any more information to debug this problem?
+
+I'm using Ruby 1.9.3p194 on Debian 7.1. I installed Sup 0.14 with
+&quot;gem1.9.1 install sup&quot;, which pulled in the following dependencies:
+
+# gem1.9.1 list --local
+
+*** LOCAL GEMS ***
+
+chronic (0.9.1)
+highline (1.6.19)
+locale (2.0.8)
+lockfile (2.1.0)
+mime-types (1.24)
+ncursesw-sup (1.3.1.3)
+rmail (1.0.0)
+sup (0.14.0)
+trollop (2.0)
+unicode (0.4.4)
+xapian-ruby (1.2.15.1)
+
+
+
+Regards,
+    Gregor Hoffleit
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00260" href="msg00260.html">Re: [sup-devel] sup 0.14: Encoding::UndefinedConversionError from thread: load threads for thread-index-mode</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00376.html">[sup-devel] Is maildir-sync ready for prime time?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00260.html">Re: [sup-devel] sup 0.14: Encoding::UndefinedConversionError from thread: load threads for thread-index-mode</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00287.html">Sup Release 0.14.0</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00260.html">Re: [sup-devel] sup 0.14: Encoding::UndefinedConversionError from thread: load threads for thread-index-mode</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00252"><strong>Date</strong></a></li>
+<li><a href="threads.html#00252"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

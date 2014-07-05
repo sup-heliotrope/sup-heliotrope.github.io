@@ -1,0 +1,115 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Accept ASCII_8BIT in String.check -->
+<!--X-From-R13: =?WEA&#45;8859&#45;1?C?Xbunaa_Yy=S4ua?= <xywbunaaNtznvy.pbz> -->
+<!--X-Date: Wed, 24 Mar 2010 19:30:37 &#45;0700 (PDT) -->
+<!--X-Message-Id: b0bc07101003241921t5183709j67e7848025aac824@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: b0bc07101003241915t22d13ea2w26468d9d72df972f@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Accept ASCII_8BIT in String.check</title>
+<link rev="made" href="mailto:kljohann@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00971.html">Date Prev</a>][<a href="msg01129.html">Date Next</a>][<a href="msg00858.html">Thread Prev</a>][<a href="msg01129.html">Thread Next</a>][<a href="maillist.html#00812">Date Index</a>][<a href="threads.html#00812">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Accept ASCII_8BIT in String.check</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] Accept ASCII_8BIT in String.check</li>
+<li><em>From</em>: Johann Kl&#xE4;hn &lt;<a href="mailto:kljohann%40gmail.com">kljohann@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 25 Mar 2010 03:21:32 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:in-reply-to:references	:from:date:message-id:subject:to:content-type	:content-transfer-encoding;	bh=Q9Jvzd2N/S6qZcpcSJT+nyAS6i2OVoqIkV8xzhDr5Sw=;	b=T0csS0FwLSgU6SKUfKriC2iRUOgOddgm4D6UHRYafLuwVCkCG9OcqGKhtTIFBboUje	kuvosO2e/kw1bwuHP0LfosVUhi2Ro1bMh4pqOrDTX5fyGnXNRDyqmpZVD3ehDWH9o99G	vT8dU/2sqAZe+ge4Ert064qdItSKlHGeEKv2Y=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:in-reply-to:references:from:date:message-id:subject:to	:content-type:content-transfer-encoding;	b=kvFEHOlcr4LOVqldOgljg1YQxCihQufiHbKrdnByedZxr/2ahGi8G4NLBGHo2BnhGu	TSXjjDArA2zdUaAndn6Rc3hPt4cuwN8UZapjMT/79NgMXJVA3e7MphPK2YhkmGBezh7K	livdo8LUGxs16HniiOaOgZkwTmXxL0+e2Z2O0=</li>
+<li><em>In-reply-to</em>: &lt;b0bc07101003241915t22d13ea2w26468d9d72df972f@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;b0bc07101003241915t22d13ea2w26468d9d72df972f@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I was having problems with encoded emails. Using archlinux / ruby
+1.9.1_p378 Iconv.iconv returns the encoding ASCII_8BIT,
+which was rejected by String.check.
+
+Before I was getting debug messages like this when converting mails or
+building the index:
+&#xA0;couldn't transcode text from ISO-8859-1 (ISO-8859-1) to utf8) (...)
+(got unexpected encoding ASCII-8BIT (String::CheckError))
+My String.check now contains:
+&#xA0; if respond_to?(:encoding) &amp;&amp; !(encoding == Encoding::UTF_8 ||
+encoding == Encoding::ASCII || encoding == Encoding::ASCII_8BIT)
+And everything is working as expected. Instead of text.ascii the real
+umlauts are displayed.
+
+Hope that helps,
+Johann
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01129" href="msg01129.html">Re: [sup-devel] Accept ASCII_8BIT in String.check</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00971.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01129.html">Re: [sup-devel] Accept ASCII_8BIT in String.check</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00858.html">Re: [sup-devel] [PATCH] Start gpg with LC_MESSAGES=C</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01129.html">Re: [sup-devel] Accept ASCII_8BIT in String.check</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00812"><strong>Date</strong></a></li>
+<li><a href="threads.html#00812"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

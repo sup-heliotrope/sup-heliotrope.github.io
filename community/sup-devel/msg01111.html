@@ -1,0 +1,144 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Adding backward synchronization for Maildir sources -->
+<!--X-From-R13: Rnzvra Zrbar <qnzvra.yrbarNsrafnyve.se> -->
+<!--X-Date: Fri, 9 Jul 2010 10:35:33 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1278695023&#45;sup&#45;8869@mailer -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 1278693172&#45;sup&#45;6247@mailer -->
+<!--X-Reference: 1278694430&#45;sup&#45;914@ezyang -->
+<!--X-Derived: pgp3fNg69xY9e.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Adding backward synchronization for Maildir sources</title>
+<link rev="made" href="mailto:damien.leone@fensalir.fr">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00921.html">Date Prev</a>][<a href="msg01054.html">Date Next</a>][<a href="msg00921.html">Thread Prev</a>][<a href="msg01054.html">Thread Next</a>][<a href="maillist.html#01111">Date Index</a>][<a href="threads.html#01111">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Adding backward synchronization for Maildir sources</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Adding backward synchronization for Maildir sources</li>
+<li><em>From</em>: Damien Leone &lt;<a href="mailto:damien.leone%40fensalir.fr">damien.leone@fensalir.fr</a>&gt;</li>
+<li><em>Date</em>: Fri, 09 Jul 2010 19:14:58 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:sender:subject:from:to	:in-reply-to:references:date:message-id:user-agent	:content-transfer-encoding:content-type:mime-version;	bh=zfBMEnuBdKJS1o1wgoq57/7TZmf6iXuohPAGDmYe6gA=;	b=guA++ZRV6oY45gwMZHu4VGEaj0ys0F3G3D38Lnk9mrPJkjjDVD1x1qSt7qI8foP00C	wAmOdquZWWbeHC6GJyTBBc9vbUyubc8QwB21uKS/+7jkdSyaKlwAyOTbvgqiKSBisWOd	drw9mXmO/91GYudliHh3aH4QkfD/08sXW+aE0=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=sender:subject:from:to:in-reply-to:references:date:message-id	:user-agent:content-transfer-encoding:content-type:mime-version;	b=A2h2/Zz2Nh3NSwPznpOtlum5qKW4hnCQgQPWBpfLI+XX/QDhOMe2w0ZZVBciZ/zrul	BDOnTBQf68XJJIYE1TT6+r6S/ZFQKylCj4reo3tdQK/cQOHjJlIn5z23lrcXj5qKzUZU	p3ZfpxVIEs0nNUbJcYxw0JtdHyYoq2QwsIPk0=</li>
+<li><em>In-reply-to</em>: &lt;1278694430-sup-914@ezyang&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1278693172-sup-6247@mailer&gt; &lt;1278694430-sup-914@ezyang&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello Edward,
+
+&gt; 1. Suppose we decide to test your branch, and run into some show-stopper
+&gt;    bugs.  What&#x2019;s the procedure for backing out changes?
+
+You should backup your Maildir directories and your xapian index, this
+is what I did and if something goes wrong I can still restore my
+backups and run offlineimap to resynch everything as it was before on
+the IMAP server.
+
+But for my initial tests I used a test Maildir containing nothing
+important so maybe this is what you should do. ;)
+
+&gt; 2. What precisely are the semantics for handling Sup labels?
+
+I followed the Maildir documentation [0]. When synching a message, Sup
+builds the flags string and relink the file to the disk, moving it
+from new/ to cur/ or vice versa if needed.
+
+Related labels are: unread, replied, forwarded, deleted, draft (but it
+won't work for now because draft messages in Sup are handled
+separately), flagged (aka starred).
+
+Every other labels are ignored because not supported.
+
+[0] <a  rel="nofollow" href="http://cr.yp.to/proto/maildir.html">http://cr.yp.to/proto/maildir.html</a>
+
+--
+Damien Leone &lt;damien.leone@fensalir.fr&gt;
+
+Web: <a  rel="nofollow" href="http://dleone.fensalir.fr/">http://dleone.fensalir.fr/</a>
+GPG: 0x82EB4DDF
+</pre><p><strong>Attachment:
+<a href="pgp3fNg69xY9e.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01054" href="msg01054.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01055" href="msg01055.html">[sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+<li><strong><a name="00921" href="msg00921.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00921.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01054.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00921.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01054.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01111"><strong>Date</strong></a></li>
+<li><a href="threads.html#01111"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH&#45;insta&#45;save] make the undo hooks also save	the threads -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Tue, 5 Jan 2010 15:47:12 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262735108&#45;sup&#45;1634@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1262726732&#45;sup&#45;3562@masanjin.net -->
+<!--X-Reference: 1262731539&#45;29227&#45;1&#45;git&#45;send&#45;email&#45;pi+sup@pihost.us -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH-insta-save] make the undo hooks also save	the threads</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01296.html">Date Prev</a>][<a href="msg01319.html">Date Next</a>][<a href="msg01296.html">Thread Prev</a>][<a href="msg01425.html">Thread Next</a>][<a href="maillist.html#01237">Date Index</a>][<a href="threads.html#01237">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH-insta-save] make the undo hooks also save	the threads</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH-insta-save] make the undo hooks also save	the threads</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 05 Jan 2010 15:47:08 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01414.html">1262731539-29227-1-git-send-email-pi+sup@pihost.us</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01268.html">1262726732-sup-3562@masanjin.net</a>&gt;	&lt;<a href="msg01414.html">1262731539-29227-1-git-send-email-pi+sup@pihost.us</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Reformatted excerpts from Anthony Martinez's message of 2010-01-05:
+&gt; As requested, a patch against insta-save. Hopefully this works out better.
+
+Applied to insta-save and remerged into next. Thanks!
+
+&gt; I generated this by rebasing my local next onto origin/next, then
+&gt; checked out a local insta-save and cherry-picked next. There shouldn't
+&gt; be any dependences on unpublished commits, though, git says my next is
+&gt; only head by this one patch.
+
+Ah, the magic of git!
+
+Thanks for all your recent patches, btw. Top notch stuff.
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01268" href="msg01268.html">Re: [sup-devel] [PATCH 3/3] make the undo hooks also save the	threads</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01414" href="msg01414.html">[sup-devel] [PATCH-insta-save] make the undo hooks also save the	threads</a></strong>
+<ul><li><em>From:</em> Anthony Martinez &lt;pi+sup@pihost.us&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01296.html">[sup-devel] [PATCH] make the undo hooks also save the threads</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01319.html">Re: [sup-devel] [PATCH] only open mail files in binary mode on Ruby	1.9</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01296.html">[sup-devel] [PATCH] make the undo hooks also save the threads</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01425.html">Re: [sup-devel] [PATCH 2/3] undoing read_and_archive should	preserve unread state</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01237"><strong>Date</strong></a></li>
+<li><a href="threads.html#01237"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

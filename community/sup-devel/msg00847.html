@@ -1,0 +1,153 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Adding backward synchronization for Maildir sources -->
+<!--X-From-R13: "Sqjneq L. Knat" <rmlnatN[WF.SRG> -->
+<!--X-Date: Tue, 20 Jul 2010 17:54:48 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1279672865&#45;sup&#45;6946@ezyang -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1278693172&#45;sup&#45;6247@mailer -->
+<!--X-Reference: 1279492496&#45;sup&#45;3638@ezyang -->
+<!--X-Reference: 1279618205&#45;sup&#45;993@mailer -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Adding backward synchronization for Maildir sources</title>
+<link rev="made" href="mailto:ezyang@MIT.EDU">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00779.html">Date Prev</a>][<a href="msg01084.html">Date Next</a>][<a href="msg00936.html">Thread Prev</a>][<a href="msg01012.html">Thread Next</a>][<a href="maillist.html#00847">Date Index</a>][<a href="threads.html#00847">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Adding backward synchronization for Maildir sources</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Damien Leone &lt;<a href="mailto:damien.leone%40fensalir.fr">damien.leone@fensalir.fr</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Adding backward synchronization for Maildir sources</li>
+<li><em>From</em>: &quot;Edward Z. Yang&quot; &lt;<a href="mailto:ezyang%40MIT.EDU">ezyang@MIT.EDU</a>&gt;</li>
+<li><em>Date</em>: Tue, 20 Jul 2010 20:44:38 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1279618205-sup-993@mailer&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1278693172-sup-6247@mailer&gt; &lt;1279492496-sup-3638@ezyang&gt;	&lt;1279618205-sup-993@mailer&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Damien Leone's message of Tue Jul 20 05:39:41 -0400 2010:
+&gt; Excerpts from Edward Z. Yang's message of Mon Jul 19 00:46:33 +0200 2010:
+&gt; &gt; It makes Sup very crashy and there's some strange behavior.  This is probably
+&gt; &gt; the sixth time I'm composing this message (yeah, haven't learned my
+&gt; &gt; lesson.) In more detail...
+&gt; 
+&gt; I'm impressed, I never experienced such crashes, it is quite stable
+&gt; here but I use only very basic hooks.
+
+In retrospect, I'm fairly certain the majority of crashes were from user hooks.
+
+&gt; &gt; * Backwards syncing appears to make old deleted mail show up again; I'm not
+&gt; &gt;   sure if it's because touching the Maildir causes Sup to pick up on deleted
+&gt; &gt;   tags again or something, but I had to go back and delete lots of deleted mail.
+&gt; 
+&gt; Hmm, strange, do you use the latest commits of the branch? I pushed a
+&gt; fix for deleted mails about 10 days ago.
+&gt; 
+&gt; The mails that show up again don't have the deleted flag at all?
+
+My Sup is running off of f150276f62e263d146fa81ede645b5e90e06a8a1.  They don't
+appear to have the deleted flag, but I didn't look too closely.  It's *possible*
+that a regular synchronization would have picked them up, if they accidentally
+got dropped from my Sup index but were still inside my Maildir.  I suggest not
+worrying too much about this unless someone else reproduces.
+
+&gt; I did not test the code with hooks, what do you suggest for this one?
+
+I mentioned this in the id and Nil message; basically, when iterating over all
+messages messages might disappear, and some hooks need to check if a message is
+Nil before doing anything to it.
+
+&gt; &gt; * In a similar vein, while messages are going away, '@' will occasionally return
+&gt; &gt;   no messages (pressing again usually fixes it).  Messages that are labelled inbox
+&gt; &gt;   will show up in 'U', but not in the inbox view without a Sup restart.
+&gt; 
+&gt; I never use this keybinding but indeed I noticed that pressing '@' two
+&gt; times in a row was not showing anything.
+
+It is possible that this is a bug in vanilla Sup.
+
+Cheers,
+Edward
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01012" href="msg01012.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01055" href="msg01055.html">[sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+<li><strong><a name="00968" href="msg00968.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+<li><strong><a name="00936" href="msg00936.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00779.html">Re: [sup-devel] Crash,	getting &quot;wrong id on nil&quot; when loading new messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01084.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00936.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01012.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00847"><strong>Date</strong></a></li>
+<li><a href="threads.html#00847"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

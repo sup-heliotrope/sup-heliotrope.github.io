@@ -1,0 +1,33 @@
+From 4f552d9ac51fe200c5cbef3f8a5a3cf875a563af Mon Sep 17 00:00:00 2001
+From: Gaute Hope <eg@gaute.vetsj.com>
+Date: Tue, 9 Nov 2010 11:06:04 +0100
+Subject: [PATCH 2/2] [UTF-8] Force UTF-8 in ask_many_emails..
+
+A mix-up occurs when you first tab complete a UTF-8 contact, then try to
+complete an ASCII encoded contact.
+
+They are all stored as UTF-8 in file and when loaded - but will
+apparently be converted to ASCII if possible when a Person object is
+created.
+---
+ lib/sup/buffer.rb |    3 +++
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/buffer.rb b/lib/sup/buffer.rb
+index ee32f1e..d1fef5a 100644
+--- a/lib/sup/buffer.rb
++++ b/lib/sup/buffer.rb
+@@ -481,7 +481,10 @@ EOS
+       prefix, target = partial.split_on_commas_with_remainder
+       target ||= prefix.pop || ""
+       target.force_encoding 'UTF-8' if target.methods.include?(:encoding)
++
+       prefix = prefix.join(", ") + (prefix.empty? ? "" : ", ")
++      prefix.force_encoding 'UTF-8' if prefix.methods.include?(:encoding)
++
+       completions.select { |x| x =~ /^#{Regexp::escape target}/i }.sort_by { |c| [ContactManager.contact_for(c) ? 0 : 1, c] }.map { |x| [prefix + x, x] }
+     end
+   end
+-- 
+1.7.3.2
+

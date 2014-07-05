@@ -1,0 +1,183 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue125] sup&#45;mail broke -->
+<!--X-From-R13: nabalzbhf <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Thu, 4 Nov 2010 04:20:28 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1288868572.96.0.0451510169956.issue125@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1288868572.96.0.0451510169956.issue125@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue125] sup-mail broke</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00407.html">Date Prev</a>][<a href="msg00528.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#00445">Date Index</a>][<a href="threads.html#00445">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue125] sup-mail broke</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue125] sup-mail broke</li>
+<li><em>From</em>: anonymous &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 04 Nov 2010 11:02:53 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00445.html">1288868572.96.0.0451510169956.issue125@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from anonymous:
+
+sup-mail
+[Thu Nov 04 16:26:59 +0530 2010] WARNING: can't find character set by using 
+locale, defaulting to utf-8
+[Thu Nov 04 16:28:53 +0530 2010] ERROR: oh crap, an exception
+----------------------------------------------------------------
+I'm very sorry. It seems that an error occurred in Sup. Please
+accept my sincere apologies. Please submit the contents of
+/home/jagadeesh/.sup/exception-log.txt and a brief report of the
+circumstances to <a  rel="nofollow" href="http://masanjin.net/sup-bugs/">http://masanjin.net/sup-bugs/</a> so that I might
+address this problem. Thank you!
+
+Sincerely,
+William
+----------------------------------------------------------------
+--- NoMethodError from thread: poll after loading inbox
+undefined method `[]' for nil:NilClass
+/usr/lib/ruby/1.8/sup/xapian_index.rb:572:in `mkterm'
+/usr/lib/ruby/1.8/sup/xapian_index.rb:347:in `find_docid'
+/usr/lib/ruby/1.8/sup/xapian_index.rb:353:in `find_doc'
+/usr/lib/ruby/1.8/sup/xapian_index.rb:363:in `get_entry'
+/usr/lib/ruby/1.8/sup/xapian_index.rb:77:in `build_message'
+/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+/usr/lib/ruby/1.8/sup/xapian_index.rb:372:in `synchronize'
+/usr/lib/ruby/1.8/sup/xapian_index.rb:77:in `build_message'
+/usr/lib/ruby/1.8/sup/index.rb:236:in `send'
+/usr/lib/ruby/1.8/sup/index.rb:236:in `method_missing'
+/usr/lib/ruby/1.8/sup/poll.rb:110:in `do_poll'
+/usr/lib/ruby/1.8/sup/poll.rb:169:in `each_message_from'
+/usr/lib/ruby/1.8/sup/maildir.rb:160:in `each'
+/usr/lib/ruby/1.8/sup/maildir.rb:157:in `upto'
+/usr/lib/ruby/1.8/sup/maildir.rb:157:in `each'
+/usr/lib/ruby/1.8/sup/util.rb:599:in `send'
+/usr/lib/ruby/1.8/sup/util.rb:599:in `__pass'
+/usr/lib/ruby/1.8/sup/util.rb:586:in `method_missing'
+/usr/lib/ruby/1.8/sup/poll.rb:157:in `each_message_from'
+/usr/lib/ruby/1.8/sup/poll.rb:109:in `do_poll'
+/usr/lib/ruby/1.8/sup/poll.rb:97:in `each'
+/usr/lib/ruby/1.8/sup/poll.rb:97:in `do_poll'
+/usr/lib/ruby/1.8/sup/poll.rb:96:in `synchronize'
+/usr/lib/ruby/1.8/sup/poll.rb:96:in `do_poll'
+/usr/lib/ruby/1.8/sup/util.rb:559:in `send'
+/usr/lib/ruby/1.8/sup/util.rb:559:in `method_missing'
+/usr/lib/ruby/1.8/sup/modes/poll-mode.rb:15:in `poll'
+/usr/lib/ruby/1.8/sup/poll.rb:47:in `poll_with_sources'
+/usr/lib/ruby/1.8/sup/poll.rb:62:in `poll'
+/usr/lib/ruby/1.8/sup/util.rb:559:in `send'
+/usr/lib/ruby/1.8/sup/util.rb:559:in `method_missing'
+/usr/bin/sup-mail:224
+/usr/lib/ruby/1.8/sup.rb:76:in `reporting_thread'
+/usr/lib/ruby/1.8/sup.rb:74:in `initialize'
+/usr/lib/ruby/1.8/sup.rb:74:in `new'
+/usr/lib/ruby/1.8/sup.rb:74:in `reporting_thread'
+/usr/bin/sup-mail:224
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:674:in `call'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:674
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:615:in `call'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:615:in 
+`load_n_threads_background'
+/usr/lib/ruby/1.8/sup.rb:76:in `reporting_thread'
+/usr/lib/ruby/1.8/sup.rb:74:in `initialize'
+/usr/lib/ruby/1.8/sup.rb:74:in `new'
+/usr/lib/ruby/1.8/sup.rb:74:in `reporting_thread'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:613:in 
+`load_n_threads_background'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:684:in 
+`__unprotected_load_threads'
+(eval):12:in `load_threads'
+/usr/bin/sup-mail:224
+
+----------
+messages: 297
+nosy: anonymous
+priority: bug
+ruby_version: ruby 1.8.7 (2010-01-10 patchlevel 249) [i486-linux]
+status: unread
+sup_version: 0.10.2
+title: sup-mail broke
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue125">http://masanjin.net/sup-bugs/issue125</a>&gt;
+_________________________________________
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00445" href="msg00445.html">[sup-devel] [issue125] sup-mail broke</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00445" href="msg00445.html">[sup-devel] [issue125] sup-mail broke</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00407.html">[sup-devel] Message#text_to_chunks performance</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00528.html">[PATCH] More UTF-8 support; load all labels as UTF-8</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00445"><strong>Date</strong></a></li>
+<li><a href="threads.html#00445"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

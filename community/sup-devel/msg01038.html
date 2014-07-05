@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Will sup blow up after adding 10k sources? -->
+<!--X-From-R13: Pra Inygba <ojnygbaNnegfpv.hgbebagb.pn> -->
+<!--X-Date: Tue, 29 Jun 2010 06:16:04 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1277817081&#45;sup&#45;1172@pinkfloyd.chass.utoronto.ca -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1277801600&#45;sup&#45;3476@twin.sascha.silbe.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Will sup blow up after adding 10k sources?</title>
+<link rev="made" href="mailto:bwalton@artsci.utoronto.ca">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00790.html">Date Prev</a>][<a href="msg00900.html">Date Next</a>][<a href="msg00790.html">Thread Prev</a>][<a href="msg00900.html">Thread Next</a>][<a href="maillist.html#01038">Date Index</a>][<a href="threads.html#01038">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Will sup blow up after adding 10k sources?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Will sup blow up after adding 10k sources?</li>
+<li><em>From</em>: Ben Walton &lt;<a href="mailto:bwalton%40artsci.utoronto.ca">bwalton@artsci.utoronto.ca</a>&gt;</li>
+<li><em>Date</em>: Tue, 29 Jun 2010 09:15:56 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00790.html">1277801600-sup-3476@twin.sascha.silbe.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00790.html">1277801600-sup-3476@twin.sascha.silbe.org</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Sascha Silbe's message of Tue Jun 29 04:54:22 -0400 2010:
+
+Hi Sascha,
+
+&gt; Wouldn't it be better to (*) use small fixed source ids for
+&gt; SentManager/DraftManager and let SourceManager start above a number
+&gt; of reserved ids (say: 50)? Is there something in sup that depends on
+&gt; the non-special source ids not to have &quot;holes&quot; (or will waste
+&gt; resources in that case)?
+
+I agree that this would have been a better choice early on.  Assign
+the lowest possible id's to the Sent/Draft sources and then hand out
+id's dynmaically from there.
+
+&gt; Another approach would be to make the SentManager/DraftManager
+&gt; source ids dynamic and add them to sources.yaml.
+
+I'd have to look, but changing these id's after they've been used will
+cause problems requiring a resync, I believe.
+
+I'm sure others that have been more active in this part of the source
+lately can provide more info too.
+
+HTH.
+-Ben
+--
+Ben Walton
+Systems Programmer - CHASS
+University of Toronto
+C:416.407.5610 | W:416.978.4302
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00790" href="msg00790.html">[sup-devel] Will sup blow up after adding 10k sources?</a></strong>
+<ul><li><em>From:</em> Sascha Silbe &lt;sascha-ml-email-sup-devel@silbe.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00790.html">[sup-devel] Will sup blow up after adding 10k sources?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00900.html">[sup-devel] [PATCH] parse_header: don't use empty or invalid	Message-ID header</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00790.html">[sup-devel] Will sup blow up after adding 10k sources?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00900.html">[sup-devel] [PATCH] parse_header: don't use empty or invalid	Message-ID header</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01038"><strong>Date</strong></a></li>
+<li><a href="threads.html#01038"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] email threading &#45; tree vs. graph -->
+<!--X-From-R13: "I. Feribe Yvat" <jxvatNqerkry.rqh> -->
+<!--X-Date: Sun, 21 Feb 2010 05:30:43 &#45;0800 (PST) -->
+<!--X-Message-Id: 20100221134249.GA11429@mjolnir -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 20100218114943.GB911@mjolnir -->
+<!--X-Reference: 1266730498&#45;sup&#45;78@tilus.net -->
+<!--X-Derived: pgpPOTA7lEJIL.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] email threading - tree vs. graph</title>
+<link rev="made" href="mailto:wking@drexel.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01018.html">Date Prev</a>][<a href="msg01044.html">Date Next</a>][<a href="msg01032.html">Thread Prev</a>][<a href="msg01044.html">Thread Next</a>][<a href="maillist.html#00862">Date Index</a>][<a href="threads.html#00862">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] email threading - tree vs. graph</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] email threading - tree vs. graph</li>
+<li><em>From</em>: &quot;W. Trevor King&quot; &lt;<a href="mailto:wking%40drexel.edu">wking@drexel.edu</a>&gt;</li>
+<li><em>Date</em>: Sun, 21 Feb 2010 08:42:49 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01032.html">1266730498-sup-78@tilus.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;20100218114943.GB911@mjolnir&gt; &lt;<a href="msg01032.html">1266730498-sup-78@tilus.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mutt/1.5.20 (2009-06-14)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Sun, Feb 21, 2010 at 08:38:35AM +0200, Tero Tilus wrote:
+&gt; &gt; For example, here's a slice from the recent be-devel list as a graph:
+&gt; &gt;   ...............
+&gt; &gt;   | *-|-\     | | Mon Jan 25  W. Trevor King  Re: Project releases
+&gt; &gt;   | * | |     | | Sat Jan 23  Gianluca Montecchi  Re: Project releases
+&gt; &gt;   | | | | t   | | Sat Jan 23  Gianluca Montecchi  Re: Project releases
+&gt; &gt;   | *-|-|-|-\ | | Fri Jan 22  Ben Finney  Re: Project releases
+&gt; &gt;   | | | * | | | | Fri Jan 22  W. Trevor King  Re: Project releases
+&gt; &gt;   | | | *-/ | | | Thu Jan 21  Ben Finney  Re: Project releases
+&gt; &gt;   | * | |   | | | Thu Jan 21  Gianluca Montecchi  Re: Project releases
+&gt; &gt;   *-|-|-/   | | | Thu Jan 21  W. Trevor King  Re: Project releases
+&gt; &gt;   ...............
+&gt; &gt;          ^--- inheritence graph.
+&gt; &gt; You can see that Ben's Fri message and my Mon message both have two
+&gt; &gt; parents.
+&gt; 
+&gt; Honestly.  That took fair bit of staring and prolly wouldn't have
+&gt; opened to me without your explanation.  :) But that might only be due
+&gt; to the external noise in the graph.  Without those extra through-lines
+&gt; it looks a bit more readable.
+
+It's a snip from the full list sorted by date, so there are a bunch of
+through-lines when threads went out of fasion for a while ;).
+If you sorted by oldest parent date first, you would probably have
+fewer.
+
+&gt; I can't really see how this would lump significantly more mail into
+&gt; one thread.  Do you have examples of otherwise disconnected trees
+&gt; connected only by multi-parent mail?
+
+  *-\-\-\-\-\-\-\-\ Fri May 16  Chris Ball  how to use the git backend?
+  r | | | | | | | | Fri May 16  Christian Garbs  how to use the git backend?
+  r-/ | | | | | | | Wed May 14  Jelmer Vernooij  [MERGE] Two tiny fixes
+  r---/ | | | | | | Mon Apr 21  Ben Finney  [MERGE] Manual page for 'be' command.
+  *-----/ | | | | | Mon Apr 21  Ben Finney  [MERGE] Makefile: add skeleton 'build' ..
+  r       | | | | | Mon Apr 21  Ben Finney  [MERGE] Makefile: Add with 'clean' targ..
+  *-------/ | | | | Fri Apr 18  Ben Finney  [MERGE] Add bug 00f (now fixed)
+  r         | | | | Fri Apr 18  Ben Finney  [MERGE] Updated GPLv2 text and FSF addr..
+  r---------/ | | | Fri Apr 18  Ben Finney  [MERGE] Bugs-Everywhere-Web/libbe: Fix ..
+  *-----------/ | | Mon Apr 14  j@oil21.org  [PATCH] Bugs-Everywhere-Web identity
+  r             | | Mon Apr 14  j@oil21.org  [PATCH] Bugs-Everywhere-Web identity
+  r-------------/ | Mon Apr 14  j@oil21.org  [MERGE] update about
+  r---------------/ Mon Apr 14  j@oil21.org  [MERGE] Bugs-Everywhere-Web works with .
+
+Where Chris' mail was &quot;...  I also merged patches from...&quot;.  Another
+case that comes up is that a user will post with a problem that's been
+discussed before, and we reply and link to the previous discussion.
+These are both software mailing list specific though.  I don't have
+examples from other settings.
+
+&gt; &gt; With your thread-centric approach, you'll want to break threads when
+&gt; &gt; the topic mutates too far from the original, and that could be
+&gt; &gt; difficult for meshy-graphs.
+&gt; 
+&gt; Topic-mutation happens within a tree as well.  And pruning (boy I've
+&gt; wanted to do that quite a few times, I notice) afaik essentially
+&gt; requires scanning (and potentially modifying) all the messages in the
+&gt; thread.  Technically I don't see how this is very different.
+&gt; &quot;Politically&quot; it however could be.  If your mail graph is one big lump
+&gt; of spaghetti, it might be difficult to decide where to cut it off.  ;)
+
+My infant be.mailing-list branch (link below) is an attempt to address
+this by leaving the spaghetti alone, and attaching entry-point tags
+wherever you feel the subject makes a significant shift.  Really, you
+*want* the spaghetti, since its human-generated cross-linking that
+reduces duplication-of-search effort.  Assuming you trust the human in
+question ;).
+
+&gt; &gt; On an implementation level, I've got the above graph browser going
+&gt; &gt; in python/curses, so it should be easy to port to ruby/curses.
+&gt; 
+&gt; Have a pointer to code?
+
+My code is currently stuffed into an in-transition BE project, but it
+should be easy to separate.  Grab the whole repo with Bazaar:
+  bzr branch <a  rel="nofollow" href="http://www.physics.drexel.edu/~wking/code/bzr/be.mailing-list">http://www.physics.drexel.edu/~wking/code/bzr/be.mailing-list</a>
+Graphing module is libbe/util/graph.py.  My very minimal browser is
+misc/mailbox-tools/mailgraph.py.  Set up the BE version file with
+  cd be.mailing-list
+  make libbe/_version.py
+and run the browser with
+  misc/mailbox-tools/mailgraph.py *.mbox
+Press 'h' for help.
+
+The graph module is pretty clean, but the others are not ;).
+
+&gt; I would love to see sup being able to do something usefull with
+&gt; multiple parent messages.
+
+If you want to use this in the wild, you'll need to figure out how to
+integrate multiple-parent In-Reply-To\s with your current JWZ
+threading which only uses References.  From RFC 2822, section 3.6.4:
+
+   Note: Some implementations parse the &quot;References:&quot; field to display
+   the &quot;thread of the discussion&quot;.  These implementations assume that
+   each new message is a reply to a single parent and hence that they
+   can walk backwards through the &quot;References:&quot; field to find the parent
+   of each message listed there.  Therefore, trying to form a
+   &quot;References:&quot; field for a reply that has multiple parents is
+   discouraged and how to do so is not defined in this document.
+
+On major benefit of JWZ-threading is that it's self-healing.  If some
+users don't thread their replies, you can thread them locally and
+reply, fixing the threading for others recieving your reply.  The
+In-Reply-To alternative is to reply to both the broken message and the
+original thread:
+  *-\ fixing response
+  | r broken message
+  * original thread
+which is needlessly uglier than
+  * fixing response
+  * broken message
+  * original thread
+if it is clear from the content of the broken message that it really
+was a reply.
+
+I think it would be best to leave view-graph and
+browse-to-other-parent as peripheral options, to be used on curated
+archives where you can trust In-Reply-To to be RFC 2822 compliant
+(e.g. the eventual be.mailing-list ;).
+
+-- 
+This email may be signed or encrypted with GPG (<a  rel="nofollow" href="http://www.gnupg.org">http://www.gnupg.org</a>).
+The GPG signature (if present) will be attached as 'signature.asc'.
+For more information, see <a  rel="nofollow" href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">http://en.wikipedia.org/wiki/Pretty_Good_Privacy</a>
+
+My public key is at <a  rel="nofollow" href="http://www.physics.drexel.edu/~wking/pubkey.txt">http://www.physics.drexel.edu/~wking/pubkey.txt</a>
+</pre><p><strong>Attachment:
+<a href="pgpPOTA7lEJIL.pgp" ><tt>pgpPOTA7lEJIL.pgp</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01044" href="msg01044.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+<ul><li><em>From:</em> Nicolas Pouillard &lt;nicolas.pouillard@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00984" href="msg00984.html">[sup-devel] email threading - tree vs. graph</a></strong>
+<ul><li><em>From:</em> &quot;W. Trevor King&quot; &lt;wking@drexel.edu&gt;</li></ul></li>
+<li><strong><a name="01032" href="msg01032.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01018.html">[sup-devel] [PATCH] Make automatic jumping to first/next open	message configurable</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01044.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01032.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01044.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00862"><strong>Date</strong></a></li>
+<li><a href="threads.html#00862"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

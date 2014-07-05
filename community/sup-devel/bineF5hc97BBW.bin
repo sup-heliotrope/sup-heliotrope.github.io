@@ -1,0 +1,37 @@
+#!/usr/bin/ruby1.9.1
+require 'sup'
+require 'pp'
+
+include Redwood
+
+start
+
+class Index
+  def load_index
+    @xapian = Xapian::Database.new('/home/michael/.sup/xapian')
+    @enquire = Xapian::Enquire.new @xapian
+    @enquire.weighting_scheme = Xapian::BoolWeight.new
+    @enquire.docid_order = Xapian::Enquire::ASCENDING
+  end
+end
+
+i = Index.init
+i.load
+
+query = Index.parse_query "label:inbox NOT label:killed NOT label:spam NOT label:deleted"
+ids = Index.run_query_ids query[:qobj], 0, Index.size
+
+ts = ThreadSet.new Index.instance, true
+
+ids.each do |i|
+  msg = Index.build_message i
+  ts.load_thread_for_message msg, :skip_killed => true
+end
+
+target = "/home/michael/sup-unread-as-maildir/maildir/"
+
+ts.threads.each do |thread|
+  thread.each do |msg|
+    File.open(File.join(target, msg.source_info), 'w') { |f| f.write(msg.raw_message) }
+  end
+end

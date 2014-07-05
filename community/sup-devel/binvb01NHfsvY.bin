@@ -1,0 +1,42 @@
+From c7a534f7766a166b7d5a85b2f7abe15b1991e112 Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Wed, 20 Oct 2010 10:57:02 +0200
+Subject: [PATCH] =?UTF-8?q?Bugfix:=20Don=E2=80=99t=20call=20handle=5Fadded=5Fmessage=20for=20old=20messages=20with=20a=20new=20location?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+When sup finds a message, it always called handle_added_message which in turn
+invokes add_or_unhide. This is bad, because for killed messages (or marked as
+spam), this would bring the message up in the inbox again. After this commit,
+handle_added_message is only called when the message is either new or an
+existing location of it was updated (to update the labels).
+
+The normal usecase for receiving a message with the same ID is being subscribed
+to a mailing list via two different mail addresses.
+---
+ lib/sup/poll.rb |    8 +++++++-
+ 1 files changed, 7 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/poll.rb b/lib/sup/poll.rb
+index 5327429..52b1e28 100644
+--- a/lib/sup/poll.rb
++++ b/lib/sup/poll.rb
+@@ -166,7 +166,13 @@ EOS
+           HookManager.run "before-add-message", :message => m
+           yield :add, m, old_m if block_given?
+           Index.sync_message m, true
+-          UpdateManager.relay self, :added, m
++
++          ## We need to add or unhide the message when it either did not exist
++          ## before at all or when it was updated. We do *not* add/unhide when
++          ## the same message was found at a different location
++          if !old_m or not old_m.locations.member? m.location
++            UpdateManager.relay self, :added, m
++          end
+         when :delete
+           Index.each_message :location => [source.id, args[:info]] do |m|
+             m.locations.delete Location.new(source, args[:info])
+-- 
+1.7.1
+

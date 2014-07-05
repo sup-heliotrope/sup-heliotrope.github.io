@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: A maildir root source: syncing labels with maildirs (imap folders) -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Mon, 25 Nov 2013 07:27:05 &#45;0800 (PST) -->
+<!--X-Message-Id: 1385392376&#45;sup&#45;8491@qwerzila -->
+<!--X-Content-Type: multipart/signed -->
+<!--X-Derived: pgppX9YgIQoff.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>A maildir root source: syncing labels with maildirs (imap folders)</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00288.html">Date Prev</a>][<a href="msg00404.html">Date Next</a>][<a href="msg00150.html">Thread Prev</a>][<a href="msg00404.html">Thread Next</a>][<a href="maillist.html#00057">Date Index</a>][<a href="threads.html#00057">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>A maildir root source: syncing labels with maildirs (imap folders)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: A maildir root source: syncing labels with maildirs (imap folders)</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 25 Nov 2013 16:24:58 +0100</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi fellow suppers,
+
+for a while I have been using a 'maildir-root' source that I created.
+It is based on the maildir-syncback code, but goes further: you only
+specify a root folder with maildirs to the source, then each sub folder
+(maildirsub) is mapped to a label. Some of the labels are special: like
+deleted, inbox and archive (the special-label to maildirsub mapping can
+be specified in the source configuration).
+
+This means that a sup label corresponds to maildir inside the
+maildir-root and the behavior works like this:
+
+  - (remote to local) if a message is found in a maildirsub that label is added to it.
+  - (remote to local) if a message is removed from a maildirsub that
+    label is removed (unless it has just been moved).
+  - (local to remote) if you add a label the message is written to that
+    maildirsub (of all the maildir-roots the message belongs to)
+  - (local to remote) if you remove a label from a message the message is deleted
+    from that maildirsub. if it is deleted from all maildirsubs it is
+    copied to the archive maildirsub.
+  - (local to remote) if you archive a message it is removed from the
+    inbox maildirsub, if it doesn't belong to any other
+    labels/maildirsubs it is copied to archive.
+  - (local to remote / remote to local) the same flag features as
+    maildir-syncback (done on all copies in all maildirsubs)
+  - (local to remote) if you add a label to a message and the message
+    belongs to a maildir-root where no corresponding maildirsub exists a
+    maildir will be created for it.
+
+I have been using it for 4-5 months now and it is getting fairly stable.
+It works fairly well on gmail (label sync), but I am also using it on
+regular IMAP servers (here it might, in the future, be useful to always keep a copy in
+archive).
+
+If you are interested in trying this please have a look at:
+<a  rel="nofollow" href="https://github.com/gauteh/sup/blob/maildir-root/lib/sup/maildirroot.rb">https://github.com/gauteh/sup/blob/maildir-root/lib/sup/maildirroot.rb</a>
+
+or my branch: <a  rel="nofollow" href="https://github.com/gauteh/sup/tree/maildir-root">https://github.com/gauteh/sup/tree/maildir-root</a>, but please
+be careful.
+
+I am using this with offlineimap and utf-7-imap to utf-8 conversion. It
+is probably necessary to do a full sync every time to make sure things
+stay in sync. Remember that it is technically possible to still do
+changes to the maildir while offlineimap is syncing, I haven't had any
+problems with this (except read flag), but it is potentially a little
+careless.
+
+
+Cheers, Gaute
+
+</pre><p><strong>Attachment:
+<a href="pgppX9YgIQoff.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00404" href="msg00404.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+<ul><li><em>From:</em> Steven Schmeiser &lt;steven@schmeiser.org&gt;</li></ul></li>
+<li><strong><a name="00061" href="msg00061.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+<ul><li><em>From:</em> Matthieu Rakotojaona &lt;matthieu.rakotojaona@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00140" href="msg00140.html">Re: A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00288.html">Re: [sup-devel] sup 0.15?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00404.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00150.html">Release 0.15.0</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00404.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00057"><strong>Date</strong></a></li>
+<li><a href="threads.html#00057"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

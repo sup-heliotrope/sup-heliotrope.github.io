@@ -1,0 +1,215 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] [issue14] poll updates accumulate while idle -->
+<!--X-From-R13: Sevp Eurezna <ulcreobyvfgNtznvy.pbz> -->
+<!--X-Date: Mon, 4 Jan 2010 03:51:44 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262605439&#45;sup&#45;7146@changeling.local -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1262585888&#45;sup&#45;7490@changeling.local -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] [issue14] poll updates accumulate while idle</title>
+<link rev="made" href="mailto:hyperbolist@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01173.html">Date Prev</a>][<a href="msg01380.html">Date Next</a>][<a href="msg01173.html">Thread Prev</a>][<a href="msg01380.html">Thread Next</a>][<a href="maillist.html#01192">Date Index</a>][<a href="threads.html#01192">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] [issue14] poll updates accumulate while idle</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] [issue14] poll updates accumulate while idle</li>
+<li><em>From</em>: Eric Sherman &lt;<a href="mailto:hyperbolist%40gmail.com">hyperbolist@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 04 Jan 2010 06:47:46 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:in-reply-to:references:date:message-id:user-agent	:content-transfer-encoding;	bh=/uUk8wANxN8Xedj8ZRPjd49YXEsn7tKMr9lgq+NlppM=;	b=N5dTtcTCgbzh6uenI8ynOKMk3+uRV23DJc3I3SeEPgSpK58FfM+OMUZYJEvFTK3BDW	wJdRcQia1dxeDl1lWlr8fCy2pOtvxcfbwDcxMSOES0ZsaIg5jL9xqn9GFq89VajZh5Qg	fRwRVRmylnqtTGd1bc473+SfitU3OBKac+k0Y=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:in-reply-to:references:date:message-id	:user-agent:content-transfer-encoding;	b=bVOyr+MgZkmEQVaL0IDEqTDsLrQ5CGFcIVOVvn/e4EXNw7q1F0FGBtoYlGG5/DBu8p	82IKBm2R2PJUSncvmZp9egczB3pux/Nydunitr14D9hk0175+u04OC4GeiqvEqefA/jQ	ArgLWciK1SZpaRZzgta8S2owNDJSkZE4xad7U=</li>
+<li><em>In-reply-to</em>: &lt;1262585888-sup-7490@changeling.local&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1262585888-sup-7490@changeling.local&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Eric Sherman's message of Mon Jan 04 01:20:34 -0500 2010:
+&gt; If you were to leave sup running for a long time, this patch would
+&gt; enable you to get a glance summary of new mail activity since sup was
+&gt; last touched, by letting the poll update message accumulate its tally
+&gt; while idle.
+&gt; 
+&gt; On keystrokes, BufferManager sends an :unidle update if the last
+&gt; keystroke occurred more than :idle_threshold seconds ago.  PollManager
+&gt; listens for :unidle updates to clear PollTally, which will otherwise
+&gt; accumulate.
+&gt; 
+&gt; * :idle_threshold defaults to 60 seconds if not defined in config.yaml
+&gt; * presently no :idle update is sent when becoming idle
+&gt; * after-poll behavior is unaffected
+&gt; ---
+&gt;  lib/sup.rb        |    3 ++-
+&gt;  lib/sup/buffer.rb |    5 +++++
+&gt;  lib/sup/poll.rb   |   23 +++++++++++++++++++++--
+&gt;  3 files changed, 28 insertions(+), 3 deletions(-)
+&gt; 
+&gt; diff --git a/lib/sup.rb b/lib/sup.rb
+&gt; index 840b3fc..a6de0ab 100644
+&gt; --- a/lib/sup.rb
+&gt; +++ b/lib/sup.rb
+&gt; @@ -229,7 +229,8 @@ else
+&gt;      :confirm_top_posting =&gt; true,
+&gt;      :discard_snippets_from_encrypted_messages =&gt; false,
+&gt;      :default_attachment_save_dir =&gt; &quot;&quot;,
+&gt; -    :sent_source =&gt; &quot;sup://sent&quot;
+&gt; +    :sent_source =&gt; &quot;sup://sent&quot;,
+&gt; +    :idle_threshold =&gt; 60
+&gt;    }
+&gt;    begin
+&gt;      FileUtils.mkdir_p Redwood::BASE_DIR
+&gt; diff --git a/lib/sup/buffer.rb b/lib/sup/buffer.rb
+&gt; index c826ab9..c34917d 100644
+&gt; --- a/lib/sup/buffer.rb
+&gt; +++ b/lib/sup/buffer.rb
+&gt; @@ -212,6 +212,7 @@ EOS
+&gt;      @in_x = ENV[&quot;TERM&quot;] =~ /(xterm|rxvt|screen)/
+&gt;      @sigwinch_happened = false
+&gt;      @sigwinch_mutex = Mutex.new
+&gt; +    @idle_since = Time.now
+&gt;    end
+&gt;  
+&gt;    def sigwinch_happened!; @sigwinch_mutex.synchronize { @sigwinch_happened = true } end
+&gt; @@ -269,6 +270,8 @@ EOS
+&gt;          @focus_buf.mode.cancel_search!
+&gt;          @focus_buf.mark_dirty
+&gt;        end
+&gt; +      UpdateManager.relay self, :unidle, Time.at(@idle_since) if idle?
+&gt; +      @idle_since = Time.now
+&gt;        @focus_buf.mode.handle_input c
+&gt;      end
+&gt;    end
+&gt; @@ -797,5 +800,7 @@ private
+&gt;      end
+&gt;      @users
+&gt;    end
+&gt; +
+&gt; +  def idle?; Time.now.to_i - @idle_since.to_i &gt;= ($config[:idle_threshold] || 60); end
+&gt;  end
+&gt;  end
+&gt; diff --git a/lib/sup/poll.rb b/lib/sup/poll.rb
+&gt; index 4f30505..fb684df 100644
+&gt; --- a/lib/sup/poll.rb
+&gt; +++ b/lib/sup/poll.rb
+&gt; @@ -37,6 +37,8 @@ EOS
+&gt;      @polling = false
+&gt;      @poll_sources = nil
+&gt;      @mode = nil
+&gt; +    PollTally.init
+&gt; +    UpdateManager.register self
+&gt;    end
+&gt;  
+&gt;    def poll_with_sources
+&gt; @@ -45,8 +47,9 @@ EOS
+&gt;  
+&gt;      BufferManager.flash &quot;Polling for new messages...&quot;
+&gt;      num, numi, from_and_subj, from_and_subj_inbox, loaded_labels = @mode.poll
+&gt; -    if num &gt; 0
+&gt; -      BufferManager.flash &quot;Loaded #{num.pluralize 'new message'}, #{numi} to inbox. Labels: #{loaded_labels.map{|l| l.to_s}.join(', ')}&quot;
+&gt; +    PollTally.add :num =&gt; num, :num_inbox =&gt; numi, :loaded_labels =&gt; loaded_labels
+&gt; +    if PollTally.num &gt; 0
+&gt; +      BufferManager.flash &quot;Loaded #{PollTally.num.pluralize 'new message'}, #{PollTally.num_inbox} to inbox. Labels: #{PollTally.loaded_labels.map{|l| l.to_s}.join(', ')}&quot;
+&gt;      else
+&gt;        BufferManager.flash &quot;No new messages.&quot; 
+&gt;      end
+&gt; @@ -183,6 +186,22 @@ EOS
+&gt;      Index.add_message m
+&gt;      UpdateManager.relay self, :added, m
+&gt;    end
+&gt; +
+&gt; +  def handle_unidle_update sender, idle_since; PollTally.clear; end
+&gt; +end
+&gt; +
+&gt; +class PollTally
+&gt; +  include Singleton
+&gt; +  attr_reader :num, :num_inbox, :loaded_labels
+&gt; +
+&gt; +  def initialize; @num = 0; @num_inbox = 0; @loaded_labels = Set.new; end
+&gt; +  def clear; @num = 0; @num_inbox = 0; @loaded_labels.clear; end
+&gt; +
+&gt; +  def add opts={}
+&gt; +    @num += opts[:num]||0
+&gt; +    @num_inbox += opts[:num_inbox]||0
+&gt; +    @loaded_labels = Set.new(opts[:loaded_labels] || []) + @loaded_labels
+&gt; +  end
+&gt;  end
+&gt;  
+&gt;  end
+
+Oops, please disregard this patch.  If one never goes idle, one can never 
+go unidle, and so the PollTally will never clear.  I will resubmit a 
+revised patch which clears the PollTally on polling unless idle.
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01173" href="msg01173.html">[sup-devel] [PATCH] [issue14] poll updates accumulate while idle</a></strong>
+<ul><li><em>From:</em> Eric Sherman &lt;hyperbolist@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01173.html">[sup-devel] [PATCH] [issue14] poll updates accumulate while idle</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01380.html">[sup-devel] [PATCHv2] [issue14] poll updates accumulate while idle</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01173.html">[sup-devel] [PATCH] [issue14] poll updates accumulate while idle</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01380.html">[sup-devel] [PATCHv2] [issue14] poll updates accumulate while idle</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01192"><strong>Date</strong></a></li>
+<li><a href="threads.html#01192"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [PATCH] Update status on jump on line in line&#45;cursor&#45;mode -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Thu, 23 Sep 2010 03:37:39 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1285238213&#45;sup&#45;3935@dolk -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[PATCH] Update status on jump on line in line-cursor-mode</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00875.html">Date Prev</a>][<a href="msg00834.html">Date Next</a>][<a href="msg00639.html">Thread Prev</a>][<a href="msg00850.html">Thread Next</a>][<a href="maillist.html#00831">Date Index</a>][<a href="threads.html#00831">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[PATCH] Update status on jump on line in line-cursor-mode</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [PATCH] Update status on jump on line in line-cursor-mode</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 23 Sep 2010 12:37:34 +0200</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>The line number isn't updated in the status field when you jump to the
+end or beginning, or do page up or down before the next redraw is done.
+
+Updating the status manually in set_cursor_pos.
+---
+ lib/sup/modes/line-cursor-mode.rb |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/modes/line-cursor-mode.rb b/lib/sup/modes/line-cursor-mode.rb
+index 1bd4ed1..1cae994 100644
+--- a/lib/sup/modes/line-cursor-mode.rb
++++ b/lib/sup/modes/line-cursor-mode.rb
+@@ -66,6 +66,7 @@ protected
+     return if @curpos == p
+     @curpos = p.clamp @cursor_top, lines
+     buffer.mark_dirty
++    set_status
+   end
+ 
+   ## override search behavior to be cursor-based. this is a stupid
+-- 
+1.7.3
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00875.html">Re: [sup-devel] [PATCH] utf-8 script encoding</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00834.html">Re: [sup-devel] sup for sale</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00639.html">Re: [sup-devel] [PATCH] prefer To and Cc adresses of accounts on	reply</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00850.html">[sup-devel] [PATCH] fix searching for non-lowercase labels</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00831"><strong>Date</strong></a></li>
+<li><a href="threads.html#00831"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

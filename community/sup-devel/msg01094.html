@@ -1,0 +1,161 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [issue87] undefined method `<' for nil:NilClass	in	index.rb:truncate_date -->
+<!--X-From-R13: nabalzbhf <fhc&#45;ohtfNznfnawva.arg> -->
+<!--X-Date: Mon, 29 Mar 2010 13:38:48 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1269895111.8.0.502890815182.issue87@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1269895111.8.0.502890815182.issue87@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [issue87] undefined method `&lt;' for nil:NilClass	in	index.rb:truncate_date</title>
+<link rev="made" href="mailto:sup-bugs@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01004.html">Date Prev</a>][<a href="msg01000.html">Date Next</a>][Thread Prev][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#01094">Date Index</a>][<a href="threads.html#01094">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [issue87] undefined method `&lt;' for nil:NilClass	in	index.rb:truncate_date</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [issue87] undefined method `&lt;' for nil:NilClass	in	index.rb:truncate_date</li>
+<li><em>From</em>: anonymous &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 29 Mar 2010 20:38:31 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01094.html">1269895111.8.0.502890815182.issue87@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup issue tracker &lt;<a href="mailto:sup-bugs%40masanjin.net">sup-bugs@masanjin.net</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+New submission from anonymous:
+
+[Mon Mar 29 13:36:23 -0700 2010] ERROR: oh crap, an exception
+----------------------------------------------------------------
+I'm very sorry. It seems that an error occurred in Sup. Please
+accept my sincere apologies. Please submit the contents of
+/home/emarinelli/.sup/exception-log.txt and a brief report of the
+circumstances to <a  rel="nofollow" href="http://masanjin.net/sup-bugs/">http://masanjin.net/sup-bugs/</a> so that I might
+address this problem. Thank you!
+
+Sincerely,
+William
+----------------------------------------------------------------
+j--- NoMethodError from thread: user-invoked poll
+undefined method `&lt;' for nil:NilClass
+/home/emarinelli/sup_experimental/sup/lib/sup/index.rb:691:in `truncate_date'
+/home/emarinelli/sup_experimental/sup/lib/sup/index.rb:580:in `sync_message'
+/home/emarinelli/sup_experimental/sup/lib/sup/index.rb:122:in `add_message'
+/home/emarinelli/sup_experimental/sup/lib/sup/util.rb:570:in `send'
+/home/emarinelli/sup_experimental/sup/lib/sup/util.rb:570:in `method_missing'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:190:in `add_new_message'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:132:in `do_poll'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:176:in `each_message_from'
+/home/emarinelli/sup_experimental/sup/lib/sup/maildir.rb:160:in `each'
+/home/emarinelli/sup_experimental/sup/lib/sup/maildir.rb:157:in `upto'
+/home/emarinelli/sup_experimental/sup/lib/sup/maildir.rb:157:in `each'
+/home/emarinelli/sup_experimental/sup/lib/sup/util.rb:610:in `send'
+/home/emarinelli/sup_experimental/sup/lib/sup/util.rb:610:in `__pass'
+/home/emarinelli/sup_experimental/sup/lib/sup/util.rb:597:in `method_missing'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:164:in `each_message_from'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:116:in `do_poll'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:104:in `each'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:104:in `do_poll'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:103:in `synchronize'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:103:in `do_poll'
+/home/emarinelli/sup_experimental/sup/lib/sup/util.rb:570:in `send'
+/home/emarinelli/sup_experimental/sup/lib/sup/util.rb:570:in `method_missing'
+/home/emarinelli/sup_experimental/sup/lib/sup/modes/poll-mode.rb:15:in `poll'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:50:in `poll_with_sources'
+/home/emarinelli/sup_experimental/sup/lib/sup/poll.rb:69:in `poll'
+/home/emarinelli/sup_experimental/sup/lib/sup/util.rb:570:in `send'
+/home/emarinelli/sup_experimental/sup/lib/sup/util.rb:570:in `method_missing'
+/home/emarinelli/sup_experimental/sup/bin/sup:332
+/home/emarinelli/sup_experimental/sup/lib/sup.rb:76:in `reporting_thread'
+/home/emarinelli/sup_experimental/sup/lib/sup.rb:74:in `initialize'
+/home/emarinelli/sup_experimental/sup/lib/sup.rb:74:in `new'
+/home/emarinelli/sup_experimental/sup/lib/sup.rb:74:in `reporting_thread'
+/home/emarinelli/sup_experimental/sup/bin/sup:332
+
+----------
+messages: 206
+nosy: anonymous
+priority: bug
+ruby_version: ruby 1.8.7 (2009-06-12 patchlevel 174) [x86_64-linux]
+status: unread
+sup_version: 1835048a7eaffbf1823b464f219302497080c11b
+title: undefined method `&lt;' for nil:NilClass in index.rb:truncate_date
+
+_________________________________________
+Sup issue tracker &lt;sup-bugs@masanjin.net&gt;
+&lt;<a  rel="nofollow" href="http://masanjin.net/sup-bugs/issue87">http://masanjin.net/sup-bugs/issue87</a>&gt;
+_________________________________________
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01094" href="msg01094.html">[sup-devel] [issue87] undefined method `&lt;' for nil:NilClass	in	index.rb:truncate_date</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01094" href="msg01094.html">[sup-devel] [issue87] undefined method `&lt;' for nil:NilClass	in	index.rb:truncate_date</a></strong>
+<ul><li><em>From:</em> anonymous &lt;sup-bugs@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01004.html">[sup-devel] [issue86] git-style delta storage</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01000.html">Re: [sup-devel] [issue86] git-style delta storage</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [sup-talk] [PATCH] If we have a COLUMNS environment variable,	wrap to that instead of 80.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01094"><strong>Date</strong></a></li>
+<li><a href="threads.html#01094"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Adding backward synchronization for Maildir sources -->
+<!--X-From-R13: "Sqjneq L. Knat" <rmlnatN[WF.SRG> -->
+<!--X-Date: Sun, 18 Jul 2010 15:46:50 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1279492496&#45;sup&#45;3638@ezyang -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1278693172&#45;sup&#45;6247@mailer -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Adding backward synchronization for Maildir sources</title>
+<link rev="made" href="mailto:ezyang@MIT.EDU">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00929.html">Date Prev</a>][<a href="msg01057.html">Date Next</a>][<a href="msg01103.html">Thread Prev</a>][<a href="msg00936.html">Thread Next</a>][<a href="maillist.html#00968">Date Index</a>][<a href="threads.html#00968">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Adding backward synchronization for Maildir sources</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Damien Leone &lt;<a href="mailto:damien.leone%40fensalir.fr">damien.leone@fensalir.fr</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Adding backward synchronization for Maildir sources</li>
+<li><em>From</em>: &quot;Edward Z. Yang&quot; &lt;<a href="mailto:ezyang%40MIT.EDU">ezyang@MIT.EDU</a>&gt;</li>
+<li><em>Date</em>: Sun, 18 Jul 2010 18:46:33 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1278693172-sup-6247@mailer&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1278693172-sup-6247@mailer&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Sup Damien,
+
+I cut over to your branch, plus one patch of my own making.
+
+THE GOOD NEWS
+
+It works!  Whereby, messages are marked read in my webmail client and
+deleted messages go away.
+
+THE BAD NEWS
+
+It makes Sup very crashy and there's some strange behavior.  This is probably
+the sixth time I'm composing this message (yeah, haven't learned my
+lesson.) In more detail...
+
+* You want the following OfflineImap patch, because otherwise the massive
+  changes to labels that will surely be induced by backwards syncing will
+  cause OfflineImap to CRAWL.
+
+diff --git a/offlineimap/folder/LocalStatus.py b/offlineimap/folder/LocalStatus.py
+index 157989d..7f4dc5b 100644
+--- a/offlineimap/folder/LocalStatus.py
++++ b/offlineimap/folder/LocalStatus.py
+@@ -33,7 +33,7 @@ class LocalStatusFolder(BaseFolder):
+         self.messagelist = None
+         self.repository = repository
+         self.savelock = threading.Lock()
+-        self.doautosave = 1
++        self.doautosave = 0
+         self.accountname = accountname
+         BaseFolder.__init__(self)
+
+  Though, you probably want to undo this patch when you're done.  Autosaving
+  means partial progress is saved.
+
+* Backwards syncing appears to make old deleted mail show up again; I'm not
+  sure if it's because touching the Maildir causes Sup to pick up on deleted
+  tags again or something, but I had to go back and delete lots of deleted mail.
+
+* When Sup is deleting messages, it is /extremely/ unsafe to iterate over
+  a list of all messages in the index and query them for info: the threading means
+  that any given message might not exist anymore.  I had a hook that kept triggering
+  this bug, and earlier on in the process drawing functions would also frequently
+  Nil error.  This is probably under-tested codepaths in Sup that we should track
+  down; unfortunately I didn't have the presence of mind to record traces until
+  later (and the ones I got all look like my hooks fault).
+
+* In a similar vein, while messages are going away, '@' will occasionally return
+  no messages (pressing again usually fixes it).  Messages that are labelled inbox
+  will show up in 'U', but not in the inbox view without a Sup restart.
+
+I haven't done a code review yet.
+
+Cheers,
+Edward
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00936" href="msg00936.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01055" href="msg01055.html">[sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00929.html">[sup-devel] [PATCH] Return nothing between if end index is not	found.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01057.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01103.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00936.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00968"><strong>Date</strong></a></li>
+<li><a href="threads.html#00968"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

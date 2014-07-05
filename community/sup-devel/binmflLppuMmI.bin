@@ -1,0 +1,41 @@
+From a0e7f31ea57c9e452052bc05dfab0425d9334b2c Mon Sep 17 00:00:00 2001
+From: Damien Leone <damien.leone@fensalir.fr>
+Date: Sat, 12 Jun 2010 11:21:39 +0200
+Subject: [PATCH] Mark the thread as read after the ThreadViewMode has been instancied and displayed
+
+---
+ lib/sup/modes/thread-index-mode.rb |    3 +++
+ lib/sup/modes/thread-view-mode.rb  |    3 ---
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index e04e873..89bd218 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -124,6 +124,9 @@ EOS
+       ## the first draw_screen is needed before topline and botline
+       ## are set, and the second to show the cursor having moved
+ 
++      t.remove_label :unread
++      Index.save_thread t
++
+       update_text_for_line curpos
+       UpdateManager.relay self, :read, t.first
+       when_done.call if when_done
+diff --git a/lib/sup/modes/thread-view-mode.rb b/lib/sup/modes/thread-view-mode.rb
+index 955d71f..ac80143 100644
+--- a/lib/sup/modes/thread-view-mode.rb
++++ b/lib/sup/modes/thread-view-mode.rb
+@@ -146,9 +146,6 @@ EOS
+ 
+     @layout[latest].state = :open if @layout[latest].state == :closed
+     @layout[earliest].state = :detailed if earliest.has_label?(:unread) || @thread.size == 1
+-
+-    @thread.remove_label :unread
+-    Index.save_thread @thread
+   end
+ 
+   def toggle_wrap
+-- 
+1.7.2.3
+

@@ -1,0 +1,149 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] sup 0.15? -->
+<!--X-From-R13: Egrira Vhz <fqbguhzNtznvy.pbz> -->
+<!--X-Date: Sun, 10 Nov 2013 07:49:01 &#45;0800 (PST) -->
+<!--X-Message-Id: 1384097900&#45;sup&#45;2821@luna -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1383637745&#45;sup&#45;2758@qwerzila -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] sup 0.15?</title>
+<link rev="made" href="mailto:sdothum@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00150.html">Date Prev</a>][<a href="msg00164.html">Date Next</a>][<a href="msg00316.html">Thread Prev</a>][<a href="msg00164.html">Thread Next</a>][<a href="maillist.html#00056">Date Index</a>][<a href="threads.html#00056">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] sup 0.15?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] sup 0.15?</li>
+<li><em>From</em>: Steven Hum &lt;<a href="mailto:sdothum%40gmail.com">sdothum@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 10 Nov 2013 10:42:00 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:sdothum%40gmail.com">sdothum@gmail.com</a> designates 2607:f8b0:4001:c03::234 as permitted sender) smtp.mail=<a href="mailto:sdothum%40gmail.com">sdothum@gmail.com</a>;       dkim=pass header.i=@gmail.com;       dmarc=pass (p=NONE dis=NONE) header.from=gmail.com</li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed;        d=gmail.com; s=20120113;        h=content-type:from:to:cc:subject:in-reply-to:references:date         :message-id:user-agent:content-transfer-encoding;        bh=IVAuGbF5M8sI/Vl6fvii8jVUoWTaLeTw80c/Sqd2Vkk=;        b=eRRfFFm+AMNOCQ4g1cv08kyDxDXWnr1xw4xtszLRGO17x+1YcDXFJd7GecxCKJaoS1         DEOhSiSLOUDKuLhFX5Qp9zEjQNoKtd4efMcLgCC+0SS6NyfphxBTFuddDHYChOBjfl5r         K9aytQVBOWoAS7mDpbhWiUBOyTcS9FHdBChPAuENTaSO4YWZesxFrMB5KLiFerRP+kwN         VLzede8PdX9EhWigKNZREC6k870NohyP7cHZcJfvqa+H/PSADBJRB1HgQF3y4OFm4A5s         sUTVTvwvrRb19MY6CX2vtlrVaEY7WdAAul1c+iKBGq8gXHVxhzGJFWihTmUfuEw72RbY         px7w==</li>
+<li><em>In-reply-to</em>: &lt;1383637745-sup-2758@qwerzila&gt;</li>
+<li><em>References</em>: &lt;1383637745-sup-2758@qwerzila&gt;</li>
+<li><em>User-agent</em>: Sup/0.14.1.1</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Hello Gaute,
+
+I did a gem install of 0.15.0 on a Debian Sid system and got this error:
+
+
+--- RuntimeError from thread: load threads for thread-index-mode
+invalid source 13
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/index.rb:237:in `block in build_message'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/index.rb:235:in `map'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/index.rb:235:in `build_message'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/index.rb:161:in `block (2 levels) in each_id_by_date'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/thread.rb:338:in `call'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/thread.rb:338:in `block in load_n_threads'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/index.rb:161:in `block in each_id_by_date'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/index.rb:284:in `block in each_id'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/index.rb:284:in `each'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/index.rb:284:in `each_id'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/index.rb:161:in `each_id_by_date'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/thread.rb:334:in `load_n_threads'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/modes/thread_index_mode.rb:674:in `load_n_threads'
+(eval):12:in `load_n_threads'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup/modes/thread_index_mode.rb:658:in `block in load_n_threads_background'
+/var/lib/gems/1.9.1/gems/sup-0.15.0/lib/sup.rb:87:in `block in reporting_thread'
+
+
+Gem version 0.14.1.1 works fine on Debian Sid (rmail did not appear to 
+be installed with 0.15.0 but that doesn't seem to be related to the 
+above error).
+
+Regards,
+Steven
+
+
+Excerpts from Gaute Hope's message of 2013-11-05 02:51:42 -0500:
+&gt; hi there,
+&gt; 
+&gt; any objections to releasing sup 0.15 (I figured it deserves a whole new
+&gt; version number!) with maildir-syncback as it is now? Is it ready to be
+&gt; released into the wild?
+&gt; 
+&gt; (maildir-syncback is now in 'develop' - go ahead and test if you
+&gt; haven't)
+&gt; 
+&gt; Cheers, Gaute
+&gt; 
+
+-- 
+&quot;Truth or die.&quot;
+
+Steven Hum  
+5 - 28 Gilmour St  
+Ottawa, ON K2P 0N3  
+email sdothum@gmail.com  
+tel 613.237.9058  
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00164" href="msg00164.html">Re: [sup-devel] sup 0.15?</a></strong>
+<ul><li><em>From:</em> Steven Hum &lt;sdothum@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00237" href="msg00237.html">Re: [sup-devel] sup 0.15?</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00182" href="msg00182.html">sup 0.15?</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00150.html">Release 0.15.0</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00164.html">Re: [sup-devel] sup 0.15?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00316.html">Re: [sup-devel] sup 0.15?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00164.html">Re: [sup-devel] sup 0.15?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00056"><strong>Date</strong></a></li>
+<li><a href="threads.html#00056"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

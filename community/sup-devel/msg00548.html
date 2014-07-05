@@ -1,0 +1,139 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] Fix signing of multipart messages -->
+<!--X-From-R13: Unhqram Egrvayva <tnhqramNfbmvbybtvr.pu> -->
+<!--X-Date: Tue, 12 Oct 2010 14:46:39 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1286919925&#45;sup&#45;9064@meteor.durcheinandertal.local -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: binddWxPF4zdR.bin -->
+<!--X-Derived: bineRjAbEJYRC.bin -->
+<!--X-Derived: pgplNcGUHB3ph.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] Fix signing of multipart messages</title>
+<link rev="made" href="mailto:gaudenz@soziologie.ch">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00631.html">Date Prev</a>][<a href="msg00705.html">Date Next</a>][<a href="msg00663.html">Thread Prev</a>][<a href="msg00642.html">Thread Next</a>][<a href="maillist.html#00548">Date Index</a>][<a href="threads.html#00548">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] Fix signing of multipart messages</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [PATCH] Fix signing of multipart messages</li>
+<li><em>From</em>: Gaudenz Steinlin &lt;<a href="mailto:gaudenz%40soziologie.ch">gaudenz@soziologie.ch</a>&gt;</li>
+<li><em>Date</em>: Tue, 12 Oct 2010 23:46:19 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi
+
+Sup currently crashes when you try to sign a multipart message. This
+is fixed by the first patch.
+
+Additionally the signatures created for multipart messages are wrong,
+because the incorrect MIME-Version header is stripped before signing
+but not when actually constructing the message.
+
+RMail automagically adds these MIME-Version headers on serialization.
+This also creates problems on signature verification of signed
+multipart messages. 
+
+The second patch addresses these two problems by monkey patching RMail
+to no longer automagically add MIME-Version headers. This is not
+really elegant, but I could not come up with a better way to avoid the
+various side effects on signatures of automatically messing with mail
+parts on serialization.
+
+For the monkey patch to be applied the require statements had to be
+rearranged so that rmail is included before sup/util.
+
+If someone knows a better fix than monkey patching I would be more
+than happy...
+
+Gaudenz
+
+P.S.: Do you rather prefer patches as attachments or inline patches?
+--
+Ever tried. Ever failed. No matter.
+Try again. Fail again. Fail better.
+~ Samuel Beckett ~
+</pre><p><strong>Attachment:
+<a href="binddWxPF4zdR.bin" ><tt>0001-Encode-multipart-messages-for-crypt-operations.patch</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+<p><strong>Attachment:
+<a href="bineRjAbEJYRC.bin" ><tt>0002-Monkey-patch-RMails-MIME-Version-header-handling.patch</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+<p><strong>Attachment:
+<a href="pgplNcGUHB3ph.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00642" href="msg00642.html">Re: [sup-devel] [PATCH] Fix signing of multipart messages</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00631.html">[sup-devel] [PATCH] Bugfix: Correctly split list of mail addresses</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00705.html">Re: [sup-devel] [PATCH] Bugfix: Set background color for starred	messages</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00663.html">Re: [sup-devel] [PATCH] Bugfix: Correctly split list of mail	addresses</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00642.html">Re: [sup-devel] [PATCH] Fix signing of multipart messages</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00548"><strong>Date</strong></a></li>
+<li><a href="threads.html#00548"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

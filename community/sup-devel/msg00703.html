@@ -1,0 +1,224 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Adding backward synchronization for Maildir sources -->
+<!--X-From-R13: Rnzvra Zrbar <qnzvra.yrbarNsrafnyve.se> -->
+<!--X-Date: Sun, 13 Mar 2011 09:41:23 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1300032886&#45;sup&#45;4779@mailer -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1278693172&#45;sup&#45;6247@mailer -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Adding backward synchronization for Maildir sources</title>
+<link rev="made" href="mailto:damien.leone@fensalir.fr">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00496.html">Date Prev</a>][<a href="msg00628.html">Date Next</a>][<a href="msg01105.html">Thread Prev</a>][<a href="msg00303.html">Thread Next</a>][<a href="maillist.html#00703">Date Index</a>][<a href="threads.html#00703">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Adding backward synchronization for Maildir sources</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Adding backward synchronization for Maildir sources</li>
+<li><em>From</em>: Damien Leone &lt;<a href="mailto:damien.leone%40fensalir.fr">damien.leone@fensalir.fr</a>&gt;</li>
+<li><em>Date</em>: Sun, 13 Mar 2011 17:41:04 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:sender:content-type:subject:from:to:in-reply-to	:references:date:message-id:user-agent:content-transfer-encoding;	bh=80OVbeSV0xk0qsrbvaLFwMI1hVIl4H/STkPQK+X6NpA=;	b=HAHA7PhapDn6K2jNDT0+o4cmdqowqip9+FkpAw3L3URZ1uT2EqRNtQK/g396BfDrlj	jgelQqDH/0Q5TeSoYj5DGVMHNYgQeDtu6jt0wqvySdTvwK3ziLRPkOXkyNfI0WKVsHsI	y0LKwbythdTx4tyw0vf7WP/iEPh0nGVBVtI8M=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=sender:content-type:subject:from:to:in-reply-to:references:date	:message-id:user-agent:content-transfer-encoding;	b=q4OtkVxtuMJtV37GAMTzGzFYugNmhnv0hQIeOi3xnIOzdHKLRp+ClzwdC9cppmj+wH	RldJDaey5DkbxArupT2wcInG+qOY284MqQj3SMDIRCFWD3KoJJuot2WIzHgcumBSNA5v	8VkhxkVNGtrqLZFDHOo4NjwpckX7G5FRhpbkY=</li>
+<li><em>In-reply-to</em>: &lt;1278693172-sup-6247@mailer&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1278693172-sup-6247@mailer&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Sup guys,
+
+Sorry for having been so long.
+
+What's new:
+
+- I added an option in sup-sync-back-maildir to merge the :replied and
+:forwarded labels/flags so the first time you run the script you
+should not lose any information on the IMAP side;
+
+- A way to detect if sup-sync-back-to-maildir should be executed in
+order to synchronize your index back to the Maildir source in order to
+prevent any loss of information. A magic file is written in the
+configuration directory everytime the script is executed and it is
+removed when the sync_back_to_maildir option is set from false to
+true;
+
+- I fixed a case when messages were not properly updated when they
+were remotely modified.
+
+I have pushed the last commits to the maildir-sync branch [0], it is
+rebased from master. I also have a branch rebased from next on my own
+repository if you'd rather a more up to date branch [1].
+
+Please test and review! For more informations and a howto, read the
+message quoted below this mail.
+
+[0] <a  rel="nofollow" href="http://gitorious.org/sup/mainline/commits/maildir-sync">http://gitorious.org/sup/mainline/commits/maildir-sync</a>
+[1] <a  rel="nofollow" href="http://git.fensalir.fr/?p=dleone/sup.git">http://git.fensalir.fr/?p=dleone/sup.git</a>
+
+Excerpts from Damien Leone's message of ven. juil. 09 18:44:01 +0200 2010:
+&gt; Sup guys,
+&gt; 
+&gt; I have been working on backward synchronization for Maildir sources
+&gt; last week and I need your help to test and review the code.
+&gt; 
+&gt; I pushed my commits (based on the 'next' branch) to my repo which you
+&gt; can find here [0] for the web interface and here [1] for the git
+&gt; address.
+&gt; 
+&gt; The following is related to Maildir sources ONLY.
+&gt; 
+&gt; So what does work and what does not (if you don't want to read this,
+&gt; scroll to the quick howto below):
+&gt; 
+&gt; - Sup will now stay synchronized with your remote sources by detecting
+&gt; if a message has been remotely updated (ie: you change a flag from
+&gt; another client), these updates will be applied to your local index and
+&gt; your thread-view-mode buffers should be properly refreshed;
+&gt; 
+&gt; - When a message is remotely deleted, it should now disappear from
+&gt; your index;
+&gt; 
+&gt; - There is a new configuration option called &quot;sync_back_to_maildir&quot;
+&gt; which is false by default. When true, this option updates your actual
+&gt; Maildir files when you change a label, this is done in real time
+&gt; before being saved to xapian. So for instance if you use offlineimap
+&gt; the changes should be synched back to your IMAP server by the next
+&gt; poll in Sup (assuming that your before-poll hook runs offlineimap);
+&gt; 
+&gt; - I wrote a &quot;sup-sync-back-maildir&quot; script that will synchronize all
+&gt; messages from your sources at once. This should be executed the first
+&gt; time BEFORE any polling, otherwise your IMAP server will be synched to
+&gt; your Sup index and if you did not used another client to mark your
+&gt; emails as read etc. (like me) and to update your IMAP server then you
+&gt; will lose all what you did in Sup (labels, etc.);
+&gt; 
+&gt; - I added two new hidden labels in Sup: 'replied' and 'forwarded',
+&gt; they are automatically added when replying, forwarding or bouncing a
+&gt; message, this is to bring a better Maildir support to Sup, this should
+&gt; be invisible for users;
+&gt; 
+&gt; - However you will probably lose all your remote 'replied' and
+&gt; 'forwarded' flags after your first backward synchronization to Maildir
+&gt; since Sup dropped these labels when it added your messages to xapian.
+&gt; 
+&gt; - Moving a message from a Maildir source to another is not (yet?)
+&gt; supported.
+&gt; 
+&gt; So, you should now be able to use multiple clients to handle your
+&gt; emails, for instance I can use gmail to mark messages as starred or
+&gt; so, it will be reflected in Sup. In the same way, if I mark a message
+&gt; as read in Sup it will appear as read in the gmail web interface.
+&gt; 
+&gt; I tested this code with my main account (2 GB and like 15 Maildir
+&gt; sources) it works fine so far.
+&gt; 
+&gt; Be warned that it is highly experimental, but if you use offlineimap
+&gt; it has a realdelete option so you *should* not lose any email, in the
+&gt; worst case it might mess your flags/labels up.
+&gt; 
+&gt; I tested it only with offlineimap working with a gmail account.
+&gt; 
+&gt; Quick howto:
+&gt; 
+&gt; 1. Close sup
+&gt; 2. Backup your emails and your xapian index or use another Sup session
+&gt; 3. Clone the branch [1]
+&gt; 4. IMPORTANT: run &quot;bin/sup-sync-back-maildir&quot; to synchronize the
+&gt;    Maildirs you wish, check the help
+&gt; 5. Add &quot;:sync_back_to_maildir: true&quot; to your config.yaml
+&gt; 6. Run and use sup
+&gt; 
+&gt; Please test it and make reviews! :)
+&gt; 
+&gt; NOTE: if you want this to work, get sure that you are not calling
+&gt; offlineimap with the '-q' option (as suggested in the wiki) otherwise
+&gt; it will ignore the flag updates on IMAP server, so check your
+&gt; before-poll hook.
+&gt; 
+&gt; [0] <a  rel="nofollow" href="http://git.fensalir.fr/?p=dleone/sup.git">http://git.fensalir.fr/?p=dleone/sup.git</a>
+&gt; [1] $ git clone git://fensalir.fr/dleone/sup.git -b maildir-sync
+&gt; 
+
+-- 
+Damien Leone &lt;damien.leone@fensalir.fr&gt;
+
+Web: <a  rel="nofollow" href="http://dleone.fensalir.fr/">http://dleone.fensalir.fr/</a>
+GPG: 0x82EB4DDF
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00303" href="msg00303.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> Justin Mazzi &lt;jmazzi@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01055" href="msg01055.html">[sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00496.html">Re: [sup-devel] [PATCH] Mark the thread as read after the	ThreadViewMode has been instancied and displayed</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00628.html">[sup-devel] [PATCHES] Add an account selector in edit-mode</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01105.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00303.html">Re: [sup-devel] Adding backward synchronization for Maildir sources</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00703"><strong>Date</strong></a></li>
+<li><a href="threads.html#00703"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

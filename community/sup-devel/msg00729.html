@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Strange maildir/OfflineImap/maildir&#45;sync behavior -->
+<!--X-From-R13: Rnzvra Zrbar <qnzvra.yrbarNsrafnyve.se> -->
+<!--X-Date: Wed, 19 Jan 2011 13:44:15 &#45;0800 (PST) -->
+<!--X-Message-Id: 1295471435&#45;sup&#45;7039@mailer -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1295445524&#45;sup&#45;9310@ezyang -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</title>
+<link rev="made" href="mailto:damien.leone@fensalir.fr">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00436.html">Date Prev</a>][<a href="msg00467.html">Date Next</a>][<a href="msg00494.html">Thread Prev</a>][<a href="msg00694.html">Thread Next</a>][<a href="maillist.html#00729">Date Index</a>][<a href="threads.html#00729">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</li>
+<li><em>From</em>: Damien Leone &lt;<a href="mailto:damien.leone%40fensalir.fr">damien.leone@fensalir.fr</a>&gt;</li>
+<li><em>Date</em>: Wed, 19 Jan 2011 22:12:13 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:sender:content-type:subject:from:to:in-reply-to	:references:date:message-id:user-agent:content-transfer-encoding;	bh=RV6lu0Pn+D282vQ7GhfB19o5BgKQIUZteoucqKOKfk4=;	b=f+ZZr7Emsaoi8CKx5Se/C1oFmlfPKpKRMh7NGhazEjnA3Drqwgx/Z0XiH9MBvFMBHN	gi1S5PYQTeWjVC5gb/j45nf4H9W9ZBMHK6TQ0J12FQKsUs1Ylb/c6EujS5zG86v2+9Tv	QdetYVGz6UMKXwZtbHxL2iucz/XR0CTD7wkCs=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=sender:content-type:subject:from:to:in-reply-to:references:date	:message-id:user-agent:content-transfer-encoding;	b=I0KzD/GU5Gg8wkziFZnHqsY3ctipyKrrnQJIrlzAbO7vLkpKnl9sbAsu7eVbucldz4	stxJS2I8oIiKqLz9w1GaDjIXESF1msprFtancQNw/s8JcXL68gT7eLbO8P0xBf6kNAne	e3fFg91MBAkrCKpse4dXXPolloQzFy/Otws9U=</li>
+<li><em>In-reply-to</em>: &lt;1295445524-sup-9310@ezyang&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1295445524-sup-9310@ezyang&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Sup Edward,
+
+Excerpts from Edward Z. Yang's message of mer. janv. 19 15:08:23 +0100 2011:
+&gt; One day, I opened up an old thread to reread an email, and much
+&gt; to my dismay, it was GONE!  Instead, there was one of those little
+&gt; red flags that Sup sticks on mail that is referenced by other
+&gt; threads, but which you don't have a copy of.
+&gt; 
+&gt; This was a bit bothersome, because no one likes it when their mail mysteriously
+&gt; disappears. (It harkens back to a time when I accidentally deleted my entire
+&gt; inbox, tried to undo, but Sup crashed in the process and then offlineimap
+&gt; decided to sync the changes back to my main account, so I had to restore from
+&gt; backup and run with maxage... but that's a story for another time...)
+&gt; 
+&gt; Some sleuthing, however, revealed that the messages had not disappeared; they
+&gt; were still in my Maildir.  And sure enough, when I made Sup repoll the entire
+&gt; Maildir (by restarting it), the messages reappeared (along with another 50
+&gt; messages that I /swear/ I archived).
+&gt; 
+&gt; So my question is, why did Sup lose track of the messages?  Did it pick them
+&gt; up while they were in new and then OfflineIMAP moved them and they got lost?
+&gt; Can I make Sup tell me where it thinks a message should be living on my filesystem
+&gt; so I can track these things?  Is this actually OfflineIMAP's fault?
+
+I didn't notice this bug so I have no idea for the moment. :/
+
+&gt; P.S. Hey Damien, I know you're not planning on working on getting maildir-sync
+&gt; merged to master until later this January, but I was wondering if a version of
+&gt; the branch rebased on master would be of any use to you.
+
+Sure! I was maintaining a maildir-sync-master branch on my repository
+but it doesn't include the last bunch of commits.
+
+-- 
+Damien Leone &lt;damien.leone@fensalir.fr&gt;
+
+Web: <a  rel="nofollow" href="http://dleone.fensalir.fr/">http://dleone.fensalir.fr/</a>
+GPG: 0x82EB4DDF
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00720" href="msg00720.html">[sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00436.html">Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00467.html">Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00494.html">Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00694.html">Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00729"><strong>Date</strong></a></li>
+<li><a href="threads.html#00729"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

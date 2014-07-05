@@ -1,0 +1,170 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] switch default index to Xapian -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Fri, 1 Jan 2010 19:30:52 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262403040&#45;24105&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] switch default index to Xapian</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01159.html">Date Prev</a>][<a href="msg01160.html">Date Next</a>][<a href="msg01367.html">Thread Prev</a>][<a href="msg01398.html">Thread Next</a>][<a href="maillist.html#01284">Date Index</a>][<a href="threads.html#01284">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] switch default index to Xapian</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] switch default index to Xapian</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Fri,  1 Jan 2010 19:30:40 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Previous versions didn't add an :index entry in config.yaml, so preserve
+compatibility by using Ferret if no index is specified and the ferret directory
+exists.
+---
+This patch is meant for 0.10.
+
+AFAIK the xapian index has feature-parity with ferret. There are a couple of
+issues remaining with queries:
+
+Names are stemmed and otherwise munged for convenient searching by
+Xapian::TermGenerator, while email addresses are stored verbatim.
+Xapian::QueryParser needs to do the same alterations to search terms, so the
+parser uses separate from_{name,email} fields. This is not user-friendly but
+could be worked around by having parse_query insert an OR over both fields
+where it sees a from: prefix (same for to).
+
+A more pernicious issue is that QueryParser defaults to AND if there isn't an
+explicit operator (which is what we want), but if there are multiple boolean
+(label/email) terms over the same field it will OR them. So, &quot;label:sup
+label:patch&quot; will result in the union instead of the intersection. Assuming we
+don't want to write our own query parser, this needs to be made configurable in
+Xapian. I took a stab at it a few months ago but didn't get anywhere.
+
+There's also the issue of long delays when flushing the index to disk on exit.
+One option is to keep the delay and log an info message saying what's going on.
+A second option is to set the XAPIAN_FLUSH_THRESHOLD environment variable to
+something low in bin/sup, which will limit the final delay but potentially
+cause short delays during normal use. A third option is to detect when the user
+has been idle for a while and flush the index then.
+
+We can easily fix the first and third issues before 0.10. Are there any others
+I've forgotten?
+
+ lib/sup.rb       |    5 +++--
+ lib/sup/index.rb |    2 +-
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/lib/sup.rb b/lib/sup.rb
+index 144f5e3..fa19de2 100644
+--- a/lib/sup.rb
++++ b/lib/sup.rb
+@@ -54,7 +54,7 @@ module Redwood
+   YAML_DOMAIN = &quot;masanjin.net&quot;
+   YAML_DATE = &quot;2006-10-01&quot;
+ 
+-  DEFAULT_INDEX = 'ferret'
++  DEFAULT_INDEX = 'xapian'
+ 
+   ## record exceptions thrown in threads nicely
+   @exceptions = []
+@@ -229,7 +229,8 @@ else
+     :confirm_top_posting =&gt; true,
+     :discard_snippets_from_encrypted_messages =&gt; false,
+     :default_attachment_save_dir =&gt; &quot;&quot;,
+-    :sent_source =&gt; &quot;sup://sent&quot;
++    :sent_source =&gt; &quot;sup://sent&quot;,
++    :index =&gt; Redwood::DEFAULT_INDEX,
+   }
+   begin
+     FileUtils.mkdir_p Redwood::BASE_DIR
+diff --git a/lib/sup/index.rb b/lib/sup/index.rb
+index 87d8d52..cc78292 100644
+--- a/lib/sup/index.rb
++++ b/lib/sup/index.rb
+@@ -174,7 +174,7 @@ class BaseIndex
+   end
+ end
+ 
+-index_name = ENV['SUP_INDEX'] || $config[:index] || DEFAULT_INDEX
++index_name = ENV['SUP_INDEX'] || $config[:index] || (File.exists?(File.join(BASE_DIR, 'ferret')) ? 'ferret' : DEFAULT_INDEX)
+ case index_name
+   when &quot;xapian&quot;; require &quot;sup/xapian_index&quot;
+   when &quot;ferret&quot;; require &quot;sup/ferret_index&quot;
+-- 
+1.6.3.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01398" href="msg01398.html">Re: [sup-devel] [PATCH] switch default index to Xapian</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01159.html">Re: [sup-devel] [PATCH 01/10] open mail source files as binary</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01160.html">[sup-devel] [PATCH] xapian: translate from/to query term prefixes	to search over both name and email fields</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01367.html">Re: [sup-devel] [PATCH] ruby 1.9: expect nil start_offset when an	MBox::Loader is first created</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01398.html">Re: [sup-devel] [PATCH] switch default index to Xapian</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01284"><strong>Date</strong></a></li>
+<li><a href="threads.html#01284"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

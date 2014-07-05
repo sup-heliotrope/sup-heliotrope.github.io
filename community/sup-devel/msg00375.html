@@ -1,0 +1,223 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Heliotrope improving but still found some issues -->
+<!--X-From-R13: Vbenpvb Enafba <ufnafbaNtznvy.pbz> -->
+<!--X-Date: Mon, 4 Jul 2011 18:53:08 &#45;0700 (PDT) -->
+<!--X-Message-Id: 201107051052.53166.hsanson@gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Heliotrope improving but still found some issues</title>
+<link rev="made" href="mailto:hsanson@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00075.html">Date Prev</a>][<a href="msg00343.html">Date Next</a>][<a href="msg00075.html">Thread Prev</a>][<a href="msg00295.html">Thread Next</a>][<a href="maillist.html#00375">Date Index</a>][<a href="threads.html#00375">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Heliotrope improving but still found some issues</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] Heliotrope improving but still found some issues</li>
+<li><em>From</em>: Horacio Sanson &lt;<a href="mailto:hsanson%40gmail.com">hsanson@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 5 Jul 2011 10:52:53 +0900</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=from:organization:to:subject:date:user-agent:mime-version	:content-type:message-id;	bh=FmwSQvjFh6i/NSrkIkEyzf3xJ46p/0K1A0AyBF5iVrI=;	b=qxjpNiahPBlUaGjqMdKhJLEz8zdZReglxP0lKAzz97sNiA7r6r8VulZbPahaXjlnB2	gx/aeGD1I3ERGhvAVvD0Dt1APSkhGnoMJMbUz8YMjfVPmCc5wXj/Y0EGdLQbFP0W4RYx	jKDsPjfEyDd+R9TrH3+6n0NDWCUUGILcoyEqs=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Organization</em>: piaotech</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: KMail/1.13.5 (Linux/2.6.35-28-generic; KDE/4.5.5; x86_64; ; )</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+So I tried the latest heliotrope with the leveldb-ruby 0.6 gem, whistlepig 0.7 
+and MeCab hooks for Japanese text support and it works better than before. 
+Unfortunately got two issues:
+
+First any attempt to search using japanese text fails with the dreaded 
+incompatible character encodings error:
+
+#####################################################
+[2011-07-05 10:22:17] INFO  WEBrick 1.3.1
+[2011-07-05 10:22:17] INFO  ruby 1.9.2 (2010-08-18) [x86_64-linux]
+[2011-07-05 10:22:17] INFO  WEBrick::HTTPServer#start: pid=13523 port=8042
+search(body:&quot;&#x624B;&#x7D19;&quot;, 0, 20) took 2.1ms
+Encoding::CompatibilityError - incompatible character encodings: ASCII-8BIT 
+and UTF-8:
+ bin/heliotrope-server:223:in `block in &lt;class:HeliotropeServer&gt;'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:1152:in `call'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:1152:in `block in 
+compile!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:724:in 
+`instance_eval'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:724:in 
+`route_eval'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:708:in `block (2 
+levels) in route!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:758:in `block in 
+process_route'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:755:in `catch'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:755:in 
+`process_route'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:707:in `block in 
+route!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:706:in `each'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:706:in `route!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:843:in `dispatch!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:644:in `block in 
+call!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:808:in 
+`instance_eval'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:808:in `block in 
+invoke'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:808:in `catch'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:808:in `invoke'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:644:in `call!'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/base.rb:629:in `call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/head.rb:9:in `call'
+ /var/lib/gems/1.9.1/gems/sinatra-1.2.5/lib/sinatra/showexceptions.rb:21:in 
+`call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/lint.rb:48:in `_call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/lint.rb:36:in `call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/showexceptions.rb:24:in `call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/commonlogger.rb:18:in `call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+ /var/lib/gems/1.9.1/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in 
+`service'
+ /usr/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+ /usr/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+ /usr/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+127.0.0.1 - - [05/Jul/2011 10:22:20] &quot;GET /search?q=%E6%89%8B%E7%B4%99 
+HTTP/1.1&quot; 500 89118 0.0331
+localhost - - [05/Jul/2011:10:22:20 JST] &quot;GET /search?q=%E6%89%8B%E7%B4%99 
+HTTP/1.0&quot; 500 89118
+- -&gt; /search?q=%E6%89%8B%E7%B4%99
+[2011-07-05 10:22:20] ERROR Errno::ECONNRESET: Connection reset by peer
+        /usr/lib/ruby/1.9.1/webrick/httpserver.rb:56:in `eof?'
+        /usr/lib/ruby/1.9.1/webrick/httpserver.rb:56:in `run'
+#######################################################
+
+The problem seems to be the header method in the heliotrope-server that uses 
+multiline strings (e.g. &lt;&lt;- EOS). By forcing the resulting text to UTF-8 
+encoding the search works as expected with japanese and non japanese text (see 
+attached patch).
+
+
+The second problem is actually not heliotrope problem. Is the artificial 
+limitations imposed by Gmail. After running heliotrope-add for some time it 
+would fail when the IMAP fetch returns nil. Just after it failed I tried to 
+use my current email reader (kmail) and got an interesting error saying: 
+&quot;exceeded IMAP bandwidth limits&quot;. These indicates the nil is due to Gmail 
+limiting the maximum bandwidth I can consume downloading emails.
+
+The latest heliotrope now catches this error and ignores it but after a while 
+ignoring it I started getting sys-write errors on the socket. I believe this 
+is also GMail abruptly breaking the socket connection to enforce it's 
+bandwidth limits. 
+
+Maybe limiting the rate of gmail-dumper so it reads mails at a lower pace 
+would eliminate these problems or simply stop reading emails for some time 
+when we get the first nil response.
+
+Overall heliotrope is now usable for Japanese language users (at least for me 
+). Now I will start playing with turnsole to see if it can handle japanese.
+
+-- 
+regards,                                                                                                                                                                                                       
+Horacio Sanson
+</pre><pre>From a056837d1ebe5054106e65ac7155b4e8e422a382 Mon Sep 17 00:00:00 2001
+From: Horacio Sanson &lt;hsanson@gmail.com&gt;
+Date: Tue, 5 Jul 2011 10:31:33 +0900
+Subject: [PATCH] Fix encoding exception.
+
+---
+ bin/heliotrope-server |    3 +++
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+
+diff --git a/bin/heliotrope-server b/bin/heliotrope-server
+index 15dc897..def9909 100644
+--- a/bin/heliotrope-server
++++ b/bin/heliotrope-server
+@@ -557,6 +557,9 @@ td {
+   &lt;input type=&quot;submit&quot; value=&quot;go&quot;/&gt;
+   &lt;/form&gt;&lt;/div&gt;
+     EOS
++
++    title.force_encoding(Encoding::UTF_8) if title.respond_to?(:force_encoding) # sigh...
++    title
+   end
+ 
+   def footer
+-- 
+1.7.4.1
+
+</pre><pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00295" href="msg00295.html">Re: [sup-devel] Heliotrope improving but still found some issues</a></strong>
+<ul><li><em>From:</em> Horacio Sanson &lt;hsanson@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00267" href="msg00267.html">Re: [sup-devel] Heliotrope improving but still found some issues</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="00068" href="msg00068.html">Re: [sup-devel] Heliotrope improving but still found some issues</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00075.html">[sup-devel] [PATCH v2] Catch errors while saving a message to disk	for editing</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00343.html">Re: [sup-devel] gmail limits [was: Heliotrope improving but still found some issues]</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00075.html">[sup-devel] [PATCH v2] Catch errors while saving a message to disk	for editing</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00295.html">Re: [sup-devel] Heliotrope improving but still found some issues</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00375"><strong>Date</strong></a></li>
+<li><a href="threads.html#00375"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

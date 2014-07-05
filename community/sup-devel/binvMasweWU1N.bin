@@ -1,0 +1,24 @@
+From adc49a0a31b986701ef4c888de44d7ada65b0f4e Mon Sep 17 00:00:00 2001
+From: Gaute Hope <eg@gaute.vetsj.com>
+Date: Mon, 4 Oct 2010 10:33:15 +0200
+Subject: [PATCH] UTF-8 label completion: Convert existing labels
+
+---
+ lib/sup/buffer.rb |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/buffer.rb b/lib/sup/buffer.rb
+index 9b2bbcb..f3cfb8a 100644
+--- a/lib/sup/buffer.rb
++++ b/lib/sup/buffer.rb
+@@ -470,6 +470,7 @@ EOS
+           raise "william screwed up completion: #{partial.inspect}"
+         end
+ 
++      prefix.force_encoding 'UTF-8' if prefix.methods.include?(:encoding)
+       target.force_encoding 'UTF-8' if target.methods.include?(:encoding)
+       completions.select { |x| x =~ /^#{Regexp::escape target}/i }.map { |x| [prefix + x, x] }
+     end
+-- 
+1.7.3
+

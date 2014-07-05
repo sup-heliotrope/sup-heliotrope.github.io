@@ -1,0 +1,37 @@
+From 27c8180771977d0c4e76f403813134d345d28ec8 Mon Sep 17 00:00:00 2001
+From: Daniel Schoepe <daniel.schoepe@googlemail.com>
+Date: Fri, 30 Jul 2010 01:11:38 +0200
+Subject: [PATCH] Fix crash when sending signed/encrypted messages with attachments
+
+This fixes a crash where sup died due to a TypeError in
+EditMessageMode.build_message.
+---
+ lib/sup/modes/edit-message-mode.rb |   12 +++++++++---
+ 1 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/lib/sup/modes/edit-message-mode.rb b/lib/sup/modes/edit-message-mode.rb
+index 89b9da0..6939d7b 100644
+--- a/lib/sup/modes/edit-message-mode.rb
++++ b/lib/sup/modes/edit-message-mode.rb
+@@ -383,9 +383,15 @@ protected
+     if @crypto_selector && @crypto_selector.val != :none
+       from_email = Person.from_address(@header["From"]).email
+       to_email = [@header["To"], @header["Cc"], @header["Bcc"]].flatten.compact.map { |p| Person.from_address(p).email }
+-      m.header["Content-Transfer-Encoding"] = 'base64'
+-      m.body = [m.body].pack('m')
+-
++      if @attachments.empty?
++        m.body = [m.body].pack('m')
++        m.header["Content-Transfer-Encoding"] = 'base64'
++      else
++        old_m = m.part(0)
++        old_m.body = [old_m.body].pack('m')
++        old_m.header["Content-Transfer-Encoding"] = 'base64'
++        m.body[0] = old_m
++      end
+       m = CryptoManager.send @crypto_selector.val, from_email, to_email, m
+     end
+ 
+-- 
+1.7.1
+

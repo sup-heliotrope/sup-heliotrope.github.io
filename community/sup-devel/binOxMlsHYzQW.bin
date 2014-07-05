@@ -1,0 +1,61 @@
+Content-Type: multipart/signed; micalg=PGP-SHA1;
+ boundary="Sig_//bFY=D0OKHxcuPQV_U6beli"; protocol="application/pgp-signature"
+
+--Sig_//bFY=D0OKHxcuPQV_U6beli
+Content-Type: multipart/mixed; boundary="MP_/+kacMkT=yx+FKvl3YUds1sR"
+
+--MP_/+kacMkT=yx+FKvl3YUds1sR
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+
+
+--=20
+ceterum censeo microsoftem esse delendam.
+
+--MP_/+kacMkT=yx+FKvl3YUds1sR
+Content-Type: text/plain; charset=US_ASCII
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment; filename="text1.txt"
+
+/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
+CwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRQBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQU
+
+--MP_/+kacMkT=yx+FKvl3YUds1sR
+Content-Type: text/plain; charset=US_ASCII
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment; filename="text2.txt"
+
+/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
+CwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRQBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQU
+
+--MP_/+kacMkT=yx+FKvl3YUds1sR
+Content-Type: text/plain; charset=US_ASCII
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment; filename="text3.txt"
+
+/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
+CwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRQBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQU
+
+--MP_/+kacMkT=yx+FKvl3YUds1sR
+Content-Type: text/plain; charset=US_ASCII
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment; filename="text4.txt"
+
+/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
+d1awmU5G4oSBya92lg6cKcLGbqvaPQ//2Q==
+
+--MP_/+kacMkT=yx+FKvl3YUds1sR--
+
+--Sig_//bFY=D0OKHxcuPQV_U6beli
+Content-Type: application/pgp-signature; name=signature.asc
+Content-Disposition: attachment; filename=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+xIQAoI9H0qgqosPpYu96x/mMr6MO/5WA
+-----END PGP SIGNATURE-----
+
+--Sig_//bFY=D0OKHxcuPQV_U6beli--

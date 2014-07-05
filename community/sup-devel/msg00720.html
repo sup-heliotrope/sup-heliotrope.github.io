@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Strange maildir/OfflineImap/maildir&#45;sync behavior -->
+<!--X-From-R13: "Sqjneq L. Knat" <rmlnatN[WF.SRG> -->
+<!--X-Date: Wed, 19 Jan 2011 06:39:52 &#45;0800 (PST) -->
+<!--X-Message-Id: 1295445524&#45;sup&#45;9310@ezyang -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</title>
+<link rev="made" href="mailto:ezyang@MIT.EDU">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00511.html">Date Prev</a>][<a href="msg00735.html">Date Next</a>][<a href="msg00614.html">Thread Prev</a>][<a href="msg00677.html">Thread Next</a>][<a href="maillist.html#00720">Date Index</a>][<a href="threads.html#00720">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</li>
+<li><em>From</em>: &quot;Edward Z. Yang&quot; &lt;<a href="mailto:ezyang%40MIT.EDU">ezyang@MIT.EDU</a>&gt;</li>
+<li><em>Date</em>: Wed, 19 Jan 2011 09:08:23 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>One day, I opened up an old thread to reread an email, and much
+to my dismay, it was GONE!  Instead, there was one of those little
+red flags that Sup sticks on mail that is referenced by other
+threads, but which you don't have a copy of.
+
+This was a bit bothersome, because no one likes it when their mail mysteriously
+disappears. (It harkens back to a time when I accidentally deleted my entire
+inbox, tried to undo, but Sup crashed in the process and then offlineimap
+decided to sync the changes back to my main account, so I had to restore from
+backup and run with maxage... but that's a story for another time...)
+
+Some sleuthing, however, revealed that the messages had not disappeared; they
+were still in my Maildir.  And sure enough, when I made Sup repoll the entire
+Maildir (by restarting it), the messages reappeared (along with another 50
+messages that I /swear/ I archived).
+
+So my question is, why did Sup lose track of the messages?  Did it pick them
+up while they were in new and then OfflineIMAP moved them and they got lost?
+Can I make Sup tell me where it thinks a message should be living on my filesystem
+so I can track these things?  Is this actually OfflineIMAP's fault?
+
+Cheers,
+Edward
+
+P.S. Hey Damien, I know you're not planning on working on getting maildir-sync
+merged to master until later this January, but I was wondering if a version of
+the branch rebased on master would be of any use to you.
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00677" href="msg00677.html">Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</a></strong>
+<ul><li><em>From:</em> Roni Choudhury &lt;roni@cs.utah.edu&gt;</li></ul></li>
+<li><strong><a name="00729" href="msg00729.html">Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+<li><strong><a name="00694" href="msg00694.html">Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</a></strong>
+<ul><li><em>From:</em> &quot;Edward Z. Yang&quot; &lt;ezyang@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00511.html">[sup-devel] [PATCH] add sup-import-dump: import message state in	sup-dump format</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00735.html">Re: [sup-devel] [PATCH 2/2] {config,	sources}.yaml: preserve symlinks and permissions</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00614.html">Re: [sup-devel] console gem 0.3</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00677.html">Re: [sup-devel] Strange maildir/OfflineImap/maildir-sync behavior</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00720"><strong>Date</strong></a></li>
+<li><a href="threads.html#00720"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

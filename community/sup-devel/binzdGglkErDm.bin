@@ -1,0 +1,26 @@
+From 52f17a9a7d7d4ece6db05953627abc65f4145e54 Mon Sep 17 00:00:00 2001
+From: Gaute Hope <eg@gaute.vetsj.com>
+Date: Thu, 10 Nov 2011 01:09:22 +0100
+Subject: [PATCH] Working check for alias on ruby 1.9.3
+
+---
+ lib/sup/contact.rb |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/contact.rb b/lib/sup/contact.rb
+index 382896d..83ab1d5 100644
+--- a/lib/sup/contact.rb
++++ b/lib/sup/contact.rb
+@@ -27,7 +27,8 @@ class ContactManager
+   def contacts_with_aliases; @a2p.values.uniq end
+ 
+   def update_alias person, aalias=nil
+-    if(old_aalias = @p2a[person]) # remove old alias
++    old_aalias = @p2a[person]
++    if(old_aalias != nil and old_aalias != "") # remove old alias
+       @a2p.delete old_aalias
+       @e2p.delete old_aalias.email
+     end
+-- 
+1.7.7.3
+

@@ -1,0 +1,73 @@
+From 5661f904fd66e1a5f294a2fb602691947860cd97 Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Tue, 9 Mar 2010 23:56:02 +0100
+Subject: [PATCH] Use multiple body arrays when calling before-edit for each reply type
+
+This allows for before-edit hooks which modify the body of the message
+based on the different headers (previously, they could only modify
+headers).
+
+As an example, I use it to sign mail in english if one of the recipients
+(not *the* recipient, but one of them) is speaking english.
+---
+ lib/sup/modes/reply-mode.rb |   13 +++++++++++--
+ 1 files changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/lib/sup/modes/reply-mode.rb b/lib/sup/modes/reply-mode.rb
+index 3d39a8a..bbac922 100644
+--- a/lib/sup/modes/reply-mode.rb
++++ b/lib/sup/modes/reply-mode.rb
+@@ -42,6 +42,7 @@ EOS
+ 
+   def initialize message, type_arg=nil
+     @m = message
++    @edited = false
+ 
+     ## it's important to put this early because it forces a read of
+     ## the full headers (most importantly the list-post header, if
+@@ -150,11 +151,13 @@ EOS
+         :recipient
+       end)
+ 
++    @bodies = {}
+     @headers.each do |k, v|
+-      HookManager.run "before-edit", :header => v, :body => body
++      @bodies[k] = body
++      HookManager.run "before-edit", :header => v, :body => @bodies[k]
+     end
+ 
+-    super :header => @headers[@type_selector.val], :body => body, :twiddles => false
++    super :header => @headers[@type_selector.val], :body => @bodies[@type_selector.val], :twiddles => false
+     add_selector @type_selector
+   end
+ 
+@@ -164,6 +167,7 @@ protected
+     super
+     if @headers[@type_selector.val] != self.header
+       self.header = @headers[@type_selector.val]
++      self.body = @bodies[@type_selector.val] unless @edited
+       update
+     end
+   end
+@@ -172,6 +176,7 @@ protected
+     super
+     if @headers[@type_selector.val] != self.header
+       self.header = @headers[@type_selector.val]
++      self.body = @bodies[@type_selector.val] unless @edited
+       update
+     end
+   end
+@@ -188,6 +193,10 @@ protected
+   end
+ 
+   def handle_new_text new_header, new_body
++    if new_body != @bodies[@type_selector.val]
++      @bodies[@type_selector.val] = new_body
++      @edited = true
++    end
+     old_header = @headers[@type_selector.val]
+     if new_header.size != old_header.size || old_header.any? { |k, v| new_header[k] != v }
+       @type_selector.set_to :user
+-- 
+1.6.5
+

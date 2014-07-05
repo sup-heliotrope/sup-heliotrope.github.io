@@ -1,0 +1,236 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH v2] don't leak fds for mbox sources -->
+<!--X-From-R13: Enfpun Evyor <fnfpun&#45;ctcNfvyor.bet> -->
+<!--X-Date: Tue, 18 Jan 2011 10:49:01 &#45;0800 (PST) -->
+<!--X-Message-Id: 1295373573&#45;1146&#45;1&#45;git&#45;send&#45;email&#45;sascha&#45;pgp@silbe.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1278987576&#45;sup&#45;9788@zyrg.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH v2] don't leak fds for mbox sources</title>
+<link rev="made" href="mailto:sascha-pgp@silbe.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00413.html">Date Prev</a>][<a href="msg00472.html">Date Next</a>][<a href="msg00941.html">Thread Prev</a>][<a href="msg00476.html">Thread Next</a>][<a href="maillist.html#00708">Date Index</a>][<a href="threads.html#00708">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH v2] don't leak fds for mbox sources</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] [PATCH v2] don't leak fds for mbox sources</li>
+<li><em>From</em>: Sascha Silbe &lt;<a href="mailto:sascha-pgp%40silbe.org">sascha-pgp@silbe.org</a>&gt;</li>
+<li><em>Date</em>: Tue, 18 Jan 2011 18:59:33 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00941.html">1278987576-sup-9788@zyrg.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Mail-followup-to</em>: &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00941.html">1278987576-sup-9788@zyrg.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sascha Silbe &lt;<a href="mailto:sascha-ml-reply-to-2011-1%40silbe.org">sascha-ml-reply-to-2011-1@silbe.org</a>&gt;,	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Only open the mbox when it's actually used and close it again once we're
+finished iterating over it.
+
+Adds a method go_idle to Source to inform the source we're unlikely to
+use it in the near future so it can do internal clean-up as appropriate.
+
+Signed-off-by: Sascha Silbe &lt;sascha-pgp@silbe.org&gt;
+---
+v1-&gt;v2: rebased on next
+
+ lib/sup/mbox.rb   |   22 ++++++++++++++++++++--
+ lib/sup/poll.rb   |    2 ++
+ lib/sup/source.rb |    6 ++++++
+ 3 files changed, 28 insertions(+), 2 deletions(-)
+
+diff --git a/lib/sup/mbox.rb b/lib/sup/mbox.rb
+index b03a99c..78f7296 100644
+--- a/lib/sup/mbox.rb
++++ b/lib/sup/mbox.rb
+@@ -22,7 +22,7 @@ class MBox &lt; Source
+       raise ArgumentError, &quot;not an mbox uri&quot; unless uri.scheme == &quot;mbox&quot;
+       raise ArgumentError, &quot;mbox URI ('#{uri}') cannot have a host: #{uri.host}&quot; if uri.host
+       raise ArgumentError, &quot;mbox URI must have a path component&quot; unless uri.path
+-      @f = File.open uri.path, 'rb'
++      @f = nil
+       @path = uri.path
+     else
+       @f = uri_or_fp
+@@ -45,9 +45,23 @@ class MBox &lt; Source
+     end
+   end
+ 
++  def ensure_open
++    @f = File.open @path, 'rb' if @f.nil?
++  end
++  private :ensure_open
++
++  def go_idle
++    @mutex.synchronize do
++      return if @f.nil? or @path.nil?
++      @f.close
++      @f = nil
++    end
++  end
++
+   def load_header offset
+     header = nil
+     @mutex.synchronize do
++      ensure_open
+       @f.seek offset
+       header = parse_raw_email_header @f
+     end
+@@ -56,6 +70,7 @@ class MBox &lt; Source
+ 
+   def load_message offset
+     @mutex.synchronize do
++      ensure_open
+       @f.seek offset
+       begin
+         ## don't use RMail::Mailbox::MBoxReader because it doesn't properly ignore
+@@ -74,6 +89,7 @@ class MBox &lt; Source
+   def raw_header offset
+     ret = &quot;&quot;
+     @mutex.synchronize do
++      ensure_open
+       @f.seek offset
+       until @f.eof? || (l = @f.gets) =~ /^\r*$/
+         ret &lt;&lt; l
+@@ -105,6 +121,7 @@ class MBox &lt; Source
+   ## sup-sync-back has to do it.
+   def each_raw_message_line offset
+     @mutex.synchronize do
++      ensure_open
+       @f.seek offset
+       until @f.eof? || MBox::is_break_line?(l = @f.gets)
+         yield l
+@@ -118,7 +135,7 @@ class MBox &lt; Source
+ 
+   def poll
+     first_offset = first_new_message
+-		offset = first_offset
++    offset = first_offset
+     end_offset = File.size @f
+     while offset and offset &lt; end_offset
+       yield :add,
+@@ -131,6 +148,7 @@ class MBox &lt; Source
+ 
+   def next_offset offset
+     @mutex.synchronize do
++      ensure_open
+       @f.seek offset
+       nil while line = @f.gets and not MBox::is_break_line? line
+       offset = @f.tell
+diff --git a/lib/sup/poll.rb b/lib/sup/poll.rb
+index a17a199..afd3d95 100644
+--- a/lib/sup/poll.rb
++++ b/lib/sup/poll.rb
+@@ -182,6 +182,8 @@ EOS
+           end
+         end
+       end
++
++      source.go_idle
+     rescue SourceError =&gt; e
+       warn &quot;problem getting messages from #{source}: #{e.message}&quot;
+     end
+diff --git a/lib/sup/source.rb b/lib/sup/source.rb
+index ebda6b8..204ebd5 100644
+--- a/lib/sup/source.rb
++++ b/lib/sup/source.rb
+@@ -40,6 +40,7 @@ class Source
+   ## - raw_header offset
+   ## - raw_message offset
+   ## - check (optional)
++  ## - go_idle (optional)
+   ## - next (or each, if you prefer): should return a message and an
+   ##   array of labels.
+   ##
+@@ -81,6 +82,11 @@ class Source
+ 
+   def read?; false; end
+ 
++  ## release resources that are easy to reacquire. it is called
++  ## after processing a source (e.g. polling) to prevent resource
++  ## leaks (esp. file descriptors).
++  def go_idle; end
++
+   ## Yields values of the form [Symbol, Hash]
+   ## add: info, labels, progress
+   ## delete: info, progress
+-- 
+1.7.2.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00476" href="msg00476.html">Re: [sup-devel] [PATCH v2] don't leak fds for mbox sources</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00941" href="msg00941.html">Re: [sup-devel] [PATCH] don't leak fds for mbox sources</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00413.html">[sup-devel] [PATCH] fix EOL spaces</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00472.html">[sup-devel] [PATCH] gen_sign_user_opts: fall back to default	account if no account matches sender</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00941.html">Re: [sup-devel] [PATCH] don't leak fds for mbox sources</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00476.html">Re: [sup-devel] [PATCH v2] don't leak fds for mbox sources</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00708"><strong>Date</strong></a></li>
+<li><a href="threads.html#00708"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] A maildir root source: syncing labels with maildirs (imap folders) -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Wed, 27 Nov 2013 13:12:46 &#45;0800 (PST) -->
+<!--X-Message-Id: 1385584974&#45;sup&#45;8936@qwerzila -->
+<!--X-Content-Type: multipart/signed -->
+<!--X-Reference: 1385392376&#45;sup&#45;8491@qwerzila -->
+<!--X-Reference: 1385415206&#45;sup&#45;5054@qwerzila -->
+<!--X-Reference: 1385476504&#45;sup&#45;9378@indy.local -->
+<!--X-Reference: 1385478548&#45;sup&#45;9110@qwerzila -->
+<!--X-Reference: 2AC33855&#45;6B00&#45;42FB&#45;9F3B&#45;D160D8B556D4@schmeiser.org -->
+<!--X-Reference: 1385484573&#45;sup&#45;869@qwerzila -->
+<!--X-Reference: 1385513221&#45;sup&#45;4344@indy.local -->
+<!--X-Reference: 1385533106&#45;sup&#45;5646@qwerzila -->
+<!--X-Reference: 1385555365&#45;sup&#45;7389@indy.local -->
+<!--X-Reference: 1385557223&#45;sup&#45;3280@qwerzila -->
+<!--X-Reference: 1385576444&#45;sup&#45;3271@kpad -->
+<!--X-Derived: pgpxrqR2plkz2.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00040.html">Date Prev</a>][<a href="msg00197.html">Date Next</a>][<a href="msg00040.html">Thread Prev</a>][<a href="msg00197.html">Thread Next</a>][<a href="maillist.html#00322">Date Index</a>][<a href="threads.html#00322">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 27 Nov 2013 22:10:38 +0100</li>
+<li><em>In-reply-to</em>: &lt;1385576444-sup-3271@kpad&gt;</li>
+<li><em>References</em>: &lt;1385392376-sup-8491@qwerzila&gt; &lt;1385415206-sup-5054@qwerzila&gt; &lt;1385476504-sup-9378@indy.local&gt; &lt;1385478548-sup-9110@qwerzila&gt; &lt;<a href="msg00081.html">2AC33855-6B00-42FB-9F3B-D160D8B556D4@schmeiser.org</a>&gt; &lt;1385484573-sup-869@qwerzila&gt; &lt;1385513221-sup-4344@indy.local&gt; &lt;1385533106-sup-5646@qwerzila&gt; &lt;1385555365-sup-7389@indy.local&gt; &lt;1385557223-sup-3280@qwerzila&gt; &lt;1385576444-sup-3271@kpad&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Matthieu Rakotojaona's message of 2013-11-27 19:32:02 +0100:
+&gt; Excerpts from Gaute Hope's message of 2013-11-27 14:08:36 +0100:
+&gt; &gt; I noticed Gmail does it that way in their IMAP interface (archive on no
+&gt; &gt; other labels), thats why I did it.
+&gt;
+&gt; _Any_ email in gmail is also in the All Mail [0], except when it is
+&gt; manually moved to the [Gmail]/Trash folder, in which case it disappears
+&gt; forever (well, at least for you :). I think this is the best solution,
+&gt; because it is the most understandable for all MUAs out there: the fact
+&gt; that &quot;a maildir is a label&quot; is something pretty specific to
+&gt; gmail-pioneered MUAs, so at least when I backup the [Gmail]/All Mail I
+&gt; know I won't have lost any of them (even if I have lost the labels).
+
+Hm ok. I just figured it out by trail-and-error, I probably missed
+something. I have changed sync_back to always make sure the message is
+present in the archive. This does not have any effect on existing
+messages before you do some edit that triggers sync_back. It also
+currently does not check new messages (since non-gmail sources will not
+have a copy in archive), we should do a check upon :add in
+poll.rb#do_poll to the source that checks if existing_sources has
+@archive, if not add and return to poll with updated locations (no
+sync_back needed and no index sync needed as poll will do that
+afterwards).
+
+About deletion, current behavior:
+- apply :deleted label; this means:
+- the message is moved to the trash folder
+- the T flag is added to all the labels it is part of
+
+this might not work exactly as it should on GMail, but it is the only
+way to preserve labels (in case of restore).
+
+&gt; Regarding hardlinking, I'm afraid of the cross-platform issues. I know
+&gt; some people here use Mac OSX, is it safe to use hardlinking on this
+&gt; platform ?
+
+I am using the util function I created for maildir-sync (in develop)
+which falls back to copying the file if hardlinking fails, that function
+works on Mac OS X. Hardlinking doesn't work for me since I am using
+encfs to store mail.
+
+
+&gt; (Oh and by the way I found a script [1] that basically hardlinks every
+&gt; copy of an email, this could be especially useful for gmail-based
+&gt; installations)
+&gt;
+&gt; [0] <a  rel="nofollow" href="https://support.google.com/mail/answer/78755?hl=en">https://support.google.com/mail/answer/78755?hl=en</a>
+&gt; [1] <a  rel="nofollow" href="http://jak-linux.org/projects/hardlink/">http://jak-linux.org/projects/hardlink/</a>
+
+That could be very useful and run as a cronjob now and then.
+
+- gaute
+
+</pre><p><strong>Attachment:
+<a href="pgpxrqR2plkz2.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00197" href="msg00197.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00057" href="msg00057.html">A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00140" href="msg00140.html">Re: A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00269" href="msg00269.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+<ul><li><em>From:</em> Steven Schmeiser &lt;steven@schmeiser.org&gt;</li></ul></li>
+<li><strong><a name="00186" href="msg00186.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00081" href="msg00081.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+<ul><li><em>From:</em> Steven Schmeiser &lt;steven@schmeiser.org&gt;</li></ul></li>
+<li><strong><a name="00170" href="msg00170.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00344" href="msg00344.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+<ul><li><em>From:</em> Steven Schmeiser &lt;steven@schmeiser.org&gt;</li></ul></li>
+<li><strong><a name="00324" href="msg00324.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00391" href="msg00391.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+<ul><li><em>From:</em> Steven Schmeiser &lt;steven@schmeiser.org&gt;</li></ul></li>
+<li><strong><a name="00345" href="msg00345.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00040" href="msg00040.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+<ul><li><em>From:</em> Matthieu Rakotojaona &lt;matthieu.rakotojaona@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00040.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00197.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00040.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00197.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00322"><strong>Date</strong></a></li>
+<li><a href="threads.html#00322"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

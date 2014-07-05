@@ -1,0 +1,146 @@
+From news@gmane.org Tue Mar 04 03:33:20 2003
+From: Alexey Shvetsov <alexxy-aBrp7R+bbdUdnm+yROfE0A@public.gmane.org>
+Subject: Re: Progress on cvs->git migration
+Date: Sat, 05 Nov 2011 22:31:20 +0300
+Lines: 21
+Message-ID: <b116b61ce6e0ef5f30f5d3260493fc9f@omrb.pnpi.spb.ru>
+References: <adea9ecc7d234f563928bae9878a65d2@omrb.pnpi.spb.ru>
+Reply-To: gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org
+Mime-Version: 1.0
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+To: <gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+X-From: gentoo-scm+bounces-292-glgs-gentoo-scm=m.gmane.org-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org Sat Nov 05 20:31:33 2011
+Return-path: <gentoo-scm+bounces-292-glgs-gentoo-scm=m.gmane.org-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+Envelope-to: glgs-gentoo-scm@m.gmane.org
+Received: from pigeon.gentoo.org ([208.92.234.80] helo=lists.gentoo.org)
+	by lo.gmane.org with esmtp (Exim 4.69)
+	(envelope-from <gentoo-scm+bounces-292-glgs-gentoo-scm=m.gmane.org-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>)
+	id 1RMlxk-0007HD-MR
+	for glgs-gentoo-scm@m.gmane.org; Sat, 05 Nov 2011 20:31:32 +0100
+Received: from pigeon.gentoo.org (localhost [127.0.0.1])
+	by pigeon.gentoo.org (Postfix) with SMTP id 10B7421C023;
+	Sat,  5 Nov 2011 19:31:22 +0000 (UTC)
+X-Original-To: gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org
+Delivered-To: gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org
+Received: from omrb.pnpi.spb.ru (omrb.pnpi.spb.ru [195.19.214.195])
+	by pigeon.gentoo.org (Postfix) with ESMTP id 5B37221C023
+	for <gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>; Sat,  5 Nov 2011 19:31:22 +0000 (UTC)
+Received: from omrb.pnpi.spb.ru (omrb.pnpi.spb.ru [195.19.214.195])
+	by omrb.pnpi.spb.ru (Postfix) with ESMTP id AE595B651
+	for <gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>; Sat,  5 Nov 2011 23:31:20 +0400 (MSK)
+Precedence: bulk
+List-Post: <mailto:gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+List-Help: <mailto:gentoo-scm+help-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+List-Unsubscribe: <mailto:gentoo-scm+unsubscribe-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+List-Subscribe: <mailto:gentoo-scm+subscribe-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+List-Id: Gentoo SCM discussions <gentoo-scm.gentoo.org>
+X-BeenThere: gentoo-scm-aBrp7R+bbdUdnm+yROfE0A@public.gmane.org
+X-BeenThere: gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org
+In-Reply-To: <adea9ecc7d234f563928bae9878a65d2-heEE5zn7HfaV8fSEjHp0FA@public.gmane.org>
+X-Sender: alexxy-aBrp7R+bbdUdnm+yROfE0A@public.gmane.org
+User-Agent: Roundcube Webmail/0.6
+X-Spam-Status: No, score=-0.5 required=5.0 tests=BAYES_05,UNPARSEABLE_RELAY
+	autolearn=ham version=3.3.2
+X-Spam-Checker-Version: SpamAssassin 3.3.2 (2011-06-06) on omrb.pnpi.spb.ru
+Archived-At: <http://permalink.gmane.org/gmane.linux.gentoo.scm-migration/113>
+
+Hi all!
+
+Any progress on this topic?
+
+portage already has thin manifest and some king of changelog generation 
+functionality.
+what else we need to proceed with migration?
+
+PS there were no updates in tracker bug
+-- 
+Best Regards,
+Alexey 'Alexxy' Shvetsov
+Petersburg Nuclear Physics Institute, Russia
+Department of Molecular and Radiation Biophysics
+Gentoo Team Ru
+Gentoo Linux Dev
+mailto:alexxyum-Re5JQEeQqe8AvxtiuMwx3w@public.gmane.org
+mailto:alexxy-aBrp7R+bbdUdnm+yROfE0A@public.gmane.org
+mailto:alexxy-heEE5zn7HfaV8fSEjHp0FA@public.gmane.org
+
+
+
+
+From news@gmane.org Tue Mar 04 03:33:20 2003
+From: "Robin H. Johnson" <robbat2-aBrp7R+bbdUdnm+yROfE0A@public.gmane.org>
+Subject: Re: Progress on cvs->git migration
+Date: Sat, 5 Nov 2011 20:18:07 +0000
+Lines: 27
+Message-ID: <20111105201807.GB1846@orbis-terrarum.net>
+References: <adea9ecc7d234f563928bae9878a65d2@omrb.pnpi.spb.ru>
+Reply-To: gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+To: gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org
+X-From: gentoo-scm+bounces-293-glgs-gentoo-scm=m.gmane.org-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org Sat Nov 05 21:18:19 2011
+Return-path: <gentoo-scm+bounces-293-glgs-gentoo-scm=m.gmane.org-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+Envelope-to: glgs-gentoo-scm@m.gmane.org
+Received: from pigeon.gentoo.org ([208.92.234.80] helo=lists.gentoo.org)
+	by lo.gmane.org with esmtp (Exim 4.69)
+	(envelope-from <gentoo-scm+bounces-293-glgs-gentoo-scm=m.gmane.org-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>)
+	id 1RMmh0-00005Z-10
+	for glgs-gentoo-scm@m.gmane.org; Sat, 05 Nov 2011 21:18:18 +0100
+Received: from pigeon.gentoo.org (localhost [127.0.0.1])
+	by pigeon.gentoo.org (Postfix) with SMTP id D32F521C0A8;
+	Sat,  5 Nov 2011 20:18:08 +0000 (UTC)
+X-Original-To: gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org
+Delivered-To: gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org
+Received: from smtp.gentoo.org (smtp.gentoo.org [140.211.166.183])
+	by pigeon.gentoo.org (Postfix) with ESMTP id A3FA221C0A8
+	for <gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>; Sat,  5 Nov 2011 20:18:08 +0000 (UTC)
+Received: from grubbs.orbis-terrarum.net (localhost [127.0.0.1])
+	(using TLSv1 with cipher ECDHE-RSA-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by smtp.gentoo.org (Postfix) with ESMTPS id B684F1B4063
+	for <gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>; Sat,  5 Nov 2011 20:18:07 +0000 (UTC)
+Received: (qmail 22024 invoked by uid 10000); 5 Nov 2011 20:18:07 -0000
+Precedence: bulk
+List-Post: <mailto:gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+List-Help: <mailto:gentoo-scm+help-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+List-Unsubscribe: <mailto:gentoo-scm+unsubscribe-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+List-Subscribe: <mailto:gentoo-scm+subscribe-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org>
+List-Id: Gentoo SCM discussions <gentoo-scm.gentoo.org>
+X-BeenThere: gentoo-scm-aBrp7R+bbdUdnm+yROfE0A@public.gmane.org
+X-BeenThere: gentoo-scm-cnFmAm88PdgLnqt3yJz4RQ@public.gmane.org
+Content-Disposition: inline
+In-Reply-To: <b116b61ce6e0ef5f30f5d3260493fc9f-heEE5zn7HfaV8fSEjHp0FA@public.gmane.org>
+User-Agent: Mutt/1.5.21 (2010-09-15)
+Archived-At: <http://permalink.gmane.org/gmane.linux.gentoo.scm-migration/114>
+
+On Sat, Nov 05, 2011 at 10:31:20PM +0300, Alexey Shvetsov wrote:
+> Hi all!
+> 
+> Any progress on this topic?
+> 
+> portage already has thin manifest and some king of changelog generation 
+> functionality.
+> what else we need to proceed with migration?
+> 
+> PS there were no updates in tracker bug
+Pending from the last update:
+- commit signing
+- merge policy
+
+Commit signing is locked up in discussion on the upstream Git list.
+
+Merge policy looks like it might be dictated by how the commit signing
+goes: some of the models for signing include having explicit merge
+commits that are signed.
+
+-- 
+Robin Hugh Johnson
+Gentoo Linux: Developer, Trustee & Infrastructure Lead
+E-Mail     : robbat2-aBrp7R+bbdUdnm+yROfE0A@public.gmane.org
+GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
+
+
+
+

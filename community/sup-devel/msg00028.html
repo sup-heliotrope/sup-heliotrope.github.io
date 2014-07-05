@@ -1,0 +1,188 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] use&#45;mail branch and other work -->
+<!--X-From-R13: =?hgs&#45;8?d?[negva_P=Q3=O4ue?= <zonrueNrznvy.nepuyno.ghjvra.np.ng> -->
+<!--X-Date: Sun, 30 Mar 2014 03:10:23 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1396168444&#45;sup&#45;8010@email.archlab.tuwien.ac.at -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] use-mail branch and other work</title>
+<link rev="made" href="mailto:mbaehr@email.archlab.tuwien.ac.at">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00001.html">Date Prev</a>][<a href="msg00009.html">Date Next</a>][<a href="msg00000.html">Thread Prev</a>][<a href="msg00009.html">Thread Next</a>][<a href="maillist.html#00028">Date Index</a>][<a href="threads.html#00028">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] use-mail branch and other work</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] use-mail branch and other work</li>
+<li><em>From</em>: Martin B&#xE4;hr &lt;<a href="mailto:mbaehr%40email.archlab.tuwien.ac.at">mbaehr@email.archlab.tuwien.ac.at</a>&gt;</li>
+<li><em>Date</em>: Sun, 30 Mar 2014 11:51:43 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>hi,
+
+i'd like to introduce what i am working on and some ideas that i have for sup.
+
+first of all, i was very enthusiastic when i discovered sup (i was checking out
+a fork of mutt, which was including notmuch, which was inspired by sup. the
+mutt fork or notmuch were not really interesting to me, but sup is!)
+
+i have been using mutt since more than 15 years, and in recent years i have
+been running more and more into limitations.
+i knew knew right away that sup could be a platform to overcome those
+limitations. i was even more delighted when i found out that several of the
+mutt limitations i ran into are already solved in sup.
+
+ongoing work:
+add support for a &quot;new&quot; state that is different from unread.
+  the idea here is that the new state of a message can be cleared without
+  reading the message or marking it as read. this distinction is important
+  because i have lots of old unread mail, and so i can't see where i have
+  actual new mail.
+  i don't want to mark everything as read because occasionally i am searching
+  for an old message where i read about something specific, which is hard if i
+  can't tell the difference between what i read and what i didn't read. 
+  not to mention that it is very hard to mark 500+K messages as read.
+
+use the use-mail branch and fix problems as i discover them.
+  i stumbled into this by accident. i tried use-mail because current stable and
+  develop branches have problems on debian 6. as a result i discovered that the
+  use-mail branch is stable enough for my needs. since this branch is
+  inevitably the way forward given that RMail is dead, i figured that my time
+  is better spent fixing my problems here, and avoid RMail alltogether.
+
+some ideas:
+    i'd like the ability to apply a label change to all messages that match a
+  given search, not just the ones loaded into the buffer.
+
+  i have imported a lot of uncategorized messages from my mutt inbox, and i
+  want to make use of sup's tagging to group them. instead of loading all
+  messages in a search with !! it would be nice to just let sup tagg those
+  messages in the background.
+
+    i am using procmail still to prefilter mail. it's going to take a while to
+  switch to a sup based filtering, and i am not sure i even want that, at least
+  not until sup can reliably filter mails into folders.
+
+  procmail also filters spam, and in sup those sources are automatically tagged
+  as spam. my spam filters are aggressive, and do have false positives. sup
+  should be able to determine that any message that is a reply to a known
+  non-spam message is also not spam, and should thus not apply the spam label
+  to this message.
+
+  the same goes for any message from an email address that i have sent mail to.
+  iaw, all my contacts should automatically be whitelisted.
+
+    occasionally, when writing mail i need to look up something in other mails.
+  with mutt i &quot;solved&quot; this by running two instances of mutt in parallel. (the
+  main reason for that was to be able to switch between the inbox and other
+  folders without having to reload the inbox all the time. sup solves that part
+  nicely by allowing me to switch between buffers.)
+
+  so what i want here is some way to switch back and forth between vim and sup.
+  possibly this can be done with tmux or screen by opening vim in another
+  window.
+
+    i'd like to treat saved searches as virtual folders. they should be in a
+  combined list with labels, and i'd like to be able to open them by typing the
+  name in the search prompt.
+
+    related to this and above, i'd like to auto-label searches. instead of
+  writing a hook, i'd like to just say: always label messages matching this
+  search, and have sup generate the necessary hook by itself
+
+  i have some more ideas that don't come to mind right now.
+
+you can find my work on <a  rel="nofollow" href="https://github.com/embee/sup">https://github.com/embee/sup</a> in the use-mail and
+work-in-progress branches.
+
+greetings, martin.
+
+-- 
+eKita                   -   the online platform for your entire academic life
+hackerspace beijing     -                                    <a  rel="nofollow" href="http://qike.info">http://qike.info</a>
+-- 
+chief engineer                                                       eKita.co
+pike programmer      pike.lysator.liu.se    caudium.net     societyserver.org
+BLUG secretary                                                 beijinglug.org
+foresight developer  foresightlinux.org                            realss.com
+unix sysadmin
+Martin B&#xE4;hr          working in china        <a  rel="nofollow" href="http://societyserver.org/mbaehr/">http://societyserver.org/mbaehr/</a>
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00009" href="msg00009.html">Re: [sup-devel] use-mail branch and other work</a></strong>
+<ul><li><em>From:</em> Steven Schmeiser &lt;steven@schmeiser.org&gt;</li></ul></li>
+<li><strong><a name="00038" href="msg00038.html">Re: [sup-devel] use-mail branch and other work</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00006" href="msg00006.html">Re: [sup-devel] use-mail branch and other work</a></strong>
+<ul><li><em>From:</em> Matthieu Rakotojaona &lt;matthieu.rakotojaona@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00001.html">Re: [sup-devel] [sup] Maildir root: Keep labels in sync with	maildir folders (#253)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00009.html">Re: [sup-devel] use-mail branch and other work</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00000.html">sup 0.16.0 released</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00009.html">Re: [sup-devel] use-mail branch and other work</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00028"><strong>Date</strong></a></li>
+<li><a href="threads.html#00028"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

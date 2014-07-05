@@ -1,0 +1,122 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] sup 0.15? -->
+<!--X-From-R13: Sevp Irvxy <revp.jrvxyNtzk.arg> -->
+<!--X-Date: Tue, 12 Nov 2013 11:42:55 &#45;0800 (PST) -->
+<!--X-Message-Id: 1384285065&#45;sup&#45;2892@alderaan -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1383637745&#45;sup&#45;2758@qwerzila -->
+<!--X-Reference: 1384097900&#45;sup&#45;2821@luna -->
+<!--X-Reference: 1384112448&#45;sup&#45;9012@qwerzila -->
+<!--X-Reference: 1384175088&#45;sup&#45;8928@luna -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] sup 0.15?</title>
+<link rev="made" href="mailto:eric.weikl@gmx.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00160.html">Date Prev</a>][<a href="msg00288.html">Date Next</a>][<a href="msg00160.html">Thread Prev</a>][<a href="msg00288.html">Thread Next</a>][<a href="maillist.html#00380">Date Index</a>][<a href="threads.html#00380">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] sup 0.15?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Steven Hum &lt;<a href="mailto:sdothum%40gmail.com">sdothum@gmail.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] sup 0.15?</li>
+<li><em>From</em>: Eric Weikl &lt;<a href="mailto:eric.weikl%40gmx.net">eric.weikl@gmx.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 12 Nov 2013 20:42:50 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:eric.weikl%40gmx.net">eric.weikl@gmx.net</a> designates 212.227.15.15 as permitted sender) smtp.mail=<a href="mailto:eric.weikl%40gmx.net">eric.weikl@gmx.net</a></li>
+<li><em>Cc</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;, sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>In-reply-to</em>: &lt;1384175088-sup-8928@luna&gt;</li>
+<li><em>References</em>: &lt;1383637745-sup-2758@qwerzila&gt; &lt;1384097900-sup-2821@luna&gt; &lt;1384112448-sup-9012@qwerzila&gt; &lt;1384175088-sup-8928@luna&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Steven,
+
+On 11/11/2013 14:18:45, Steven Hum wrote:
+&gt; Thanks for pointing me in the right direction. My sources.yaml file was
+&gt; unchanged from sup 0.14.x but only had one source defined in it. I was
+&gt; using a startup.rb hook to scan and define my offlineimap sources and
+&gt; that is where the problem seems to have originated for sup 0.15.0..
+&gt; (due to a possible change to the SourceManager.add_source?)
+&gt; 
+&gt; By eliminating my startup hook and manually defining all my sources, I
+&gt; was able to reinitialize the xapian mail database and all seems to be
+&gt; functioning now.
+&gt; 
+&gt; Guess I will have to poke around to find out why my startup hook 
+&gt; appears to be causing problems.
+
+Hmm... I'm not aware of any changes that could cause that behavior.
+Could you post your hook? I'd like to make sure we didn't change any
+expected behavior.
+
+Cheers,
+Eric
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00288" href="msg00288.html">Re: [sup-devel] sup 0.15?</a></strong>
+<ul><li><em>From:</em> Steven Hum &lt;sdothum@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00182" href="msg00182.html">sup 0.15?</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00056" href="msg00056.html">Re: [sup-devel] sup 0.15?</a></strong>
+<ul><li><em>From:</em> Steven Hum &lt;sdothum@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00237" href="msg00237.html">Re: [sup-devel] sup 0.15?</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00341" href="msg00341.html">Re: [sup-devel] sup 0.15?</a></strong>
+<ul><li><em>From:</em> Steven Hum &lt;sdothum@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00160.html">Re: [sup-devel] sup 0.15?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00288.html">Re: [sup-devel] sup 0.15?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00160.html">Re: [sup-devel] sup 0.15?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00288.html">Re: [sup-devel] sup 0.15?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00380"><strong>Date</strong></a></li>
+<li><a href="threads.html#00380"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

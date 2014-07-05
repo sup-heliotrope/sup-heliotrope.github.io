@@ -1,0 +1,117 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Preparing for sup 0.13 -->
+<!--X-From-R13: Vnzvfu R <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Sun, 16 Oct 2011 05:21:26 &#45;0700 (PDT) -->
+<!--X-Message-Id: CAOxvSbcBz11N1Ac_fr970dPRqDv=e89xzicZoLbH+zTSJTEpcg@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Preparing for sup 0.13</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00334.html">Date Prev</a>][<a href="msg00189.html">Date Next</a>][<a href="msg00162.html">Thread Prev</a>][<a href="msg00189.html">Thread Next</a>][<a href="maillist.html#00133">Date Index</a>][<a href="threads.html#00133">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Preparing for sup 0.13</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;, 	Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Preparing for sup 0.13</li>
+<li><em>From</em>: Hamish D &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 16 Oct 2011 13:09:41 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	bh=SY9UbuJneyBUywID2c/Ct2XHLwfbPWQjddjdQgfQ+i4=;	b=iTiU0C0bGivFqH2Bxc+/BpSSVOKM2q1FvNMLodwW76jN+kHo50Om4psK5roD44m8fM	N/Z7vVXakWvRLOy3iJ/ZsUoAiIDWSkeWjeZUJ/R7t7rxiRf+0rV+H1MHLP1coOmMQg0K	OXeuQAejVIdwGxvuwqKhscRV12c/FYWXGChwE=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I've merged the next branch into master in preparation for releasing
+sup 0.13. So this is a call for people to try it out and report any
+problems they have before we push it out the door. For basic details
+about running from git see
+<a  rel="nofollow" href="http://sup.rubyforge.org/wiki/wiki.pl?Running_From_Git">http://sup.rubyforge.org/wiki/wiki.pl?Running_From_Git</a>
+
+The major changes since sup 0.12 are:
+
+* crypto stuff rewritten to use the gpgme library, leading to smoother
+operations with encrypted email.
+* add an option for whether sent mail is archived
+* added an account selector when composing email for those who have
+multiple possible from addresses
+* added an asynchronous edit mode - this allows you to carry on using
+sup while composing a message in an external editor
+
+along with various bug fixes large and small.
+
+I'm hoping we can push out 0.13 in November.
+
+Hamish
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00189" href="msg00189.html">Re: [sup-devel] [sup-talk] Preparing for sup 0.13</a></strong>
+<ul><li><em>From:</em> Mark Alexander &lt;marka@pobox.com&gt;</li></ul></li>
+<li><strong><a name="00201" href="msg00201.html">Re: [sup-devel] [sup-talk] Preparing for sup 0.13</a></strong>
+<ul><li><em>From:</em> Mark Alexander &lt;marka@pobox.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00334.html">[PATCH] Don't fail on empty lines while expanding</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00189.html">Re: [sup-devel] [sup-talk] Preparing for sup 0.13</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00162.html">Re: [sup-devel] [PATCH] Don't fail on empty lines while expanding</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00189.html">Re: [sup-devel] [sup-talk] Preparing for sup 0.13</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00133"><strong>Date</strong></a></li>
+<li><a href="threads.html#00133"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

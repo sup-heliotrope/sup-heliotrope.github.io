@@ -1,0 +1,155 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] email threading &#45; tree vs. graph -->
+<!--X-From-R13: "I. Feribe Yvat" <jxvatNqerkry.rqh> -->
+<!--X-Date: Thu, 18 Feb 2010 04:03:09 &#45;0800 (PST) -->
+<!--X-Message-Id: 20100218114943.GB911@mjolnir -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: pgp2HJwtbdDXV.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] email threading - tree vs. graph</title>
+<link rev="made" href="mailto:wking@drexel.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00913.html">Date Prev</a>][<a href="msg01081.html">Date Next</a>][<a href="msg00860.html">Thread Prev</a>][<a href="msg01032.html">Thread Next</a>][<a href="maillist.html#00984">Date Index</a>][<a href="threads.html#00984">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] email threading - tree vs. graph</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] email threading - tree vs. graph</li>
+<li><em>From</em>: &quot;W. Trevor King&quot; &lt;<a href="mailto:wking%40drexel.edu">wking@drexel.edu</a>&gt;</li>
+<li><em>Date</em>: Thu, 18 Feb 2010 06:49:44 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mutt/1.5.20 (2009-06-14)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hey all,
+
+I thought I'd ask this on sup-devel, since you guys have been thinking
+about email organization and &quot;a better mutt&quot; sounds pretty awesome ;).
+Sorry if it's too far off topic.
+
+Since email can have multiple parents [1], why does everyone make
+threads trees rather than directed, acyclic graphs (DAGs)?  DAGs seem
+really common for version control systems, and completely missing for
+email clients, even though the inheritence structure is identical.
+For example, here's a slice from the recent be-devel list as a graph:
+  ...............
+  | *-|-\     | | Mon Jan 25  W. Trevor King  Re: Project releases
+  | * | |     | | Sat Jan 23  Gianluca Montecchi  Re: Project releases
+  | | | | t   | | Sat Jan 23  Gianluca Montecchi  Re: Project releases
+  | *-|-|-|-\ | | Fri Jan 22  Ben Finney  Re: Project releases
+  | | | * | | | | Fri Jan 22  W. Trevor King  Re: Project releases
+  | | | *-/ | | | Thu Jan 21  Ben Finney  Re: Project releases
+  | * | |   | | | Thu Jan 21  Gianluca Montecchi  Re: Project releases
+  *-|-|-/   | | | Thu Jan 21  W. Trevor King  Re: Project releases
+  ...............
+         ^--- inheritence graph.
+You can see that Ben's Fri message and my Mon message both have two
+parents.
+
+On a sup-specific level, problems with the graph (vs. tree) is that it
+may make threads too 'sticky'.  With your thread-centric approach,
+you'll want to break threads when the topic mutates too far from the
+original, and that could be difficult for meshy-graphs.  Perhaps you
+will want to leave the sup guts unchanged, tack on an optional graph
+view, and add an 'other-parents' option when browsing from messages
+with multiple parents.
+
+On an implementation level, I've got the above graph browser going
+in python/curses, so it should be easy to port to ruby/curses.
+
+Thoughs?
+
+Thanks,
+Trevor
+
+
+[1] RFC 2822, section 3.6.4, <a  rel="nofollow" href="http://www.faqs.org/rfcs/rfc2822.html">http://www.faqs.org/rfcs/rfc2822.html</a>
+
+  The &quot;In-Reply-To:&quot; field will contain the contents of the
+  &quot;Message-ID:&quot; field of the message to which this one is a reply (the
+  &quot;parent message&quot;).  If there is more than one parent message, then
+  the &quot;In-Reply-To:&quot; field will contain the contents of all of the
+  parents' &quot;Message-ID:&quot; fields.
+
+-- 
+This email may be signed or encrypted with GPG (<a  rel="nofollow" href="http://www.gnupg.org">http://www.gnupg.org</a>).
+The GPG signature (if present) will be attached as 'signature.asc'.
+For more information, see <a  rel="nofollow" href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">http://en.wikipedia.org/wiki/Pretty_Good_Privacy</a>
+
+My public key is at <a  rel="nofollow" href="http://www.physics.drexel.edu/~wking/pubkey.txt">http://www.physics.drexel.edu/~wking/pubkey.txt</a>
+</pre><p><strong>Attachment:
+<a href="pgp2HJwtbdDXV.pgp" ><tt>pgp2HJwtbdDXV.pgp</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01032" href="msg01032.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00913.html">[sup-devel] [PATCH] Implement inline GPG</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01081.html">[sup-devel]	[PATCH] Bugfix: Don&#x2019;t call Ncurses.getch when in shell&#xFFFD;out mode</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00860.html">Re: [sup-devel] [PATCH] Implement inline GPG (updated)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01032.html">Re: [sup-devel] email threading - tree vs. graph</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00984"><strong>Date</strong></a></li>
+<li><a href="threads.html#00984"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

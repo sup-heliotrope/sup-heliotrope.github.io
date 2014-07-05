@@ -1,0 +1,47 @@
+From f86d0bb6c2cc9a1d8ef544a34f9c10f73850767c Mon Sep 17 00:00:00 2001
+From: Gaudenz Steinlin <gaudenz@soziologie.ch>
+Date: Thu, 17 Feb 2011 15:13:31 +0100
+Subject: [PATCH 2/3] Check for ArgumentError on signature verification
+
+Broken signatures can cause a NULL pointer which results in an
+ArguementError when calling ctx.verify_result even if the previous call
+to ctx.verify does not raise an exception.
+
+The underling cause is probably a bug in GPGME.
+---
+ lib/sup/crypto.rb |   12 ++++++++++--
+ 1 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index a3771bf..cbd0751 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -183,7 +183,11 @@ EOS
+     rescue GPGME::Error => exc
+       return unknown_status [gpgme_exc_msg(exc.message)]
+     end
+-    self.verified_ok? ctx.verify_result
++    begin
++      self.verified_ok? ctx.verify_result
++    rescue ArgumentError => exc
++      return unknown_status [gpgme_exc_msg(exc.message)]
++    end
+   end
+ 
+   ## returns decrypted_message, status, desc, lines
+@@ -201,7 +205,11 @@ EOS
+     rescue GPGME::Error => exc
+       return Chunk::CryptoNotice.new(:invalid, "This message could not be decrypted", gpgme_exc_msg(exc.message))
+     end
+-    sig = self.verified_ok? ctx.verify_result
++    begin
++      sig = self.verified_ok? ctx.verify_result
++    rescue ArgumentError => exc
++      sig = unknown_status [gpgme_exc_msg(exc.message)]
++    end
+     plain_data.seek(0, IO::SEEK_SET)
+     output = plain_data.read
+     output.force_encoding Encoding::ASCII_8BIT if output.respond_to? :force_encoding
+-- 
+1.7.2.3
+

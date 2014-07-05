@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Accept ASCII_8BIT in String.check -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Wed, 24 Mar 2010 20:21:16 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1269487066&#45;sup&#45;656@zyrg.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: b0bc07101003241915t22d13ea2w26468d9d72df972f@mail.gmail.com -->
+<!--X-Reference: b0bc07101003241921t5183709j67e7848025aac824@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Accept ASCII_8BIT in String.check</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00812.html">Date Prev</a>][<a href="msg01009.html">Date Next</a>][<a href="msg00812.html">Thread Prev</a>][<a href="msg00944.html">Thread Next</a>][<a href="maillist.html#01129">Date Index</a>][<a href="threads.html#01129">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Accept ASCII_8BIT in String.check</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Johann Kl&#xE4;hn &lt;<a href="mailto:kljohann%40gmail.com">kljohann@gmail.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Accept ASCII_8BIT in String.check</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Wed, 24 Mar 2010 23:20:13 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00812.html">b0bc07101003241921t5183709j67e7848025aac824@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;b0bc07101003241915t22d13ea2w26468d9d72df972f@mail.gmail.com&gt;	&lt;<a href="msg00812.html">b0bc07101003241921t5183709j67e7848025aac824@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Johann Kl&#xE4;hn's message of 2010-03-24 22:21:32 -0400:
+&gt; I was having problems with encoded emails. Using archlinux / ruby
+&gt; 1.9.1_p378 Iconv.iconv returns the encoding ASCII_8BIT,
+&gt; which was rejected by String.check.
+&gt; 
+&gt; Before I was getting debug messages like this when converting mails or
+&gt; building the index:
+&gt; &#xA0;couldn't transcode text from ISO-8859-1 (ISO-8859-1) to utf8) (...)
+&gt; (got unexpected encoding ASCII-8BIT (String::CheckError))
+&gt; My String.check now contains:
+&gt; &#xA0; if respond_to?(:encoding) &amp;&amp; !(encoding == Encoding::UTF_8 ||
+&gt; encoding == Encoding::ASCII || encoding == Encoding::ASCII_8BIT)
+&gt; And everything is working as expected. Instead of text.ascii the real
+&gt; umlauts are displayed.
+&gt; 
+&gt; Hope that helps,
+&gt; Johann
+
+An ASCII_8BIT string means there's a bug in sup. Please add an assertion
+so that the program exits when the encoding is ASCII_8BIT and post the
+backtrace. Also, what sup version is this?
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00944" href="msg00944.html">Re: [sup-devel] Accept ASCII_8BIT in String.check</a></strong>
+<ul><li><em>From:</em> Johann Kl&#xE4;hn &lt;kljohann@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00812" href="msg00812.html">[sup-devel] Accept ASCII_8BIT in String.check</a></strong>
+<ul><li><em>From:</em> Johann Kl&#xE4;hn &lt;kljohann@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00812.html">[sup-devel] Accept ASCII_8BIT in String.check</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01009.html">Re: [sup-devel] [PATCH 2/2] Use nanosecond resolution of mtime for	generating the unique id for each message</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00812.html">[sup-devel] Accept ASCII_8BIT in String.check</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00944.html">Re: [sup-devel] Accept ASCII_8BIT in String.check</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01129"><strong>Date</strong></a></li>
+<li><a href="threads.html#01129"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

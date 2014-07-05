@@ -1,0 +1,269 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] make the undo hooks also save the threads -->
+<!--X-From-R13: Oagubal [negvarm <cv+fhcNcvubfg.hf> -->
+<!--X-Date: Tue, 5 Jan 2010 14:45:51 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262731539&#45;29227&#45;2&#45;git&#45;send&#45;email&#45;pi+sup@pihost.us -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1262726732&#45;sup&#45;3562@masanjin.net -->
+<!--X-Reference: 1262731539&#45;29227&#45;1&#45;git&#45;send&#45;email&#45;pi+sup@pihost.us -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] make the undo hooks also save the threads</title>
+<link rev="made" href="mailto:pi+sup@pihost.us">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01414.html">Date Prev</a>][<a href="msg01237.html">Date Next</a>][<a href="msg01414.html">Thread Prev</a>][<a href="msg01237.html">Thread Next</a>][<a href="maillist.html#01296">Date Index</a>][<a href="threads.html#01296">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] make the undo hooks also save the threads</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] make the undo hooks also save the threads</li>
+<li><em>From</em>: Anthony Martinez &lt;<a href="mailto:pi%2Bsup%40pihost.us">pi+sup@pihost.us</a>&gt;</li>
+<li><em>Date</em>: Tue,  5 Jan 2010 15:45:39 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01414.html">1262731539-29227-1-git-send-email-pi+sup@pihost.us</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01268.html">1262726732-sup-3562@masanjin.net</a>&gt;	&lt;<a href="msg01414.html">1262731539-29227-1-git-send-email-pi+sup@pihost.us</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Since there is no explicit sync any longer, any action that has an
+Index.save_thread must also repeat the save when the action is undone.
+Failure to do this will result in an exception upon quit when the index
+notices that there are still dirty messages.
+---
+ lib/sup/modes/inbox-mode.rb        |    4 ++++
+ lib/sup/modes/thread-index-mode.rb |   18 ++++++++++++------
+ lib/sup/modes/thread-view-mode.rb  |    4 ++++
+ 3 files changed, 20 insertions(+), 6 deletions(-)
+
+diff --git a/lib/sup/modes/inbox-mode.rb b/lib/sup/modes/inbox-mode.rb
+index 9220925..e2452e5 100644
+--- a/lib/sup/modes/inbox-mode.rb
++++ b/lib/sup/modes/inbox-mode.rb
+@@ -29,6 +29,7 @@ class InboxMode &lt; ThreadIndexMode
+     UndoManager.register &quot;archiving thread&quot; do
+       thread.apply_label :inbox
+       add_or_unhide thread.first
++      Index.save_thread thread
+     end
+ 
+     cursor_thread.remove_label :inbox
+@@ -42,6 +43,7 @@ class InboxMode &lt; ThreadIndexMode
+       threads.map do |t|
+         t.apply_label :inbox
+         add_or_unhide t.first
++        Index.save_thread t
+       end
+       regen_text
+     end
+@@ -62,6 +64,7 @@ class InboxMode &lt; ThreadIndexMode
+       thread.apply_label :inbox
+       thread.apply_label :unread
+       add_or_unhide thread.first
++      Index.save_thread thread
+     end
+ 
+     cursor_thread.remove_label :unread
+@@ -85,6 +88,7 @@ class InboxMode &lt; ThreadIndexMode
+       threads.zip(old_labels).each do |t, l|
+         t.labels = l
+         add_or_unhide t.first
++        Index.save_thread t
+       end
+       regen_text
+     end
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index bbc9044..7808190 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -265,7 +265,7 @@ EOS
+   def toggle_starred 
+     t = cursor_thread or return
+     undo = actually_toggle_starred t
+-    UndoManager.register &quot;toggling thread starred status&quot;, undo
++    UndoManager.register &quot;toggling thread starred status&quot;, undo, lambda { Index.save_thread t }
+     update_text_for_line curpos
+     cursor_down
+     Index.save_thread t
+@@ -273,7 +273,8 @@ EOS
+ 
+   def multi_toggle_starred threads
+     UndoManager.register &quot;toggling #{threads.size.pluralize 'thread'} starred status&quot;,
+-      threads.map { |t| actually_toggle_starred t }
++      threads.map { |t| actually_toggle_starred t },
++      lambda { threads.each { |t| Index.save_thread t } }
+     regen_text
+     threads.each { |t| Index.save_thread t }
+   end
+@@ -351,14 +352,16 @@ EOS
+   def toggle_archived 
+     t = cursor_thread or return
+     undo = actually_toggle_archived t
+-    UndoManager.register &quot;deleting/undeleting thread #{t.first.id}&quot;, undo, lambda { update_text_for_line curpos }
++    UndoManager.register &quot;deleting/undeleting thread #{t.first.id}&quot;, undo, lambda { update_text_for_line curpos },
++                         lambda { Index.save_thread t }
+     update_text_for_line curpos
+     Index.save_thread t
+   end
+ 
+   def multi_toggle_archived threads
+     undos = threads.map { |t| actually_toggle_archived t }
+-    UndoManager.register &quot;deleting/undeleting #{threads.size.pluralize 'thread'}&quot;, undos, lambda { regen_text }
++    UndoManager.register &quot;deleting/undeleting #{threads.size.pluralize 'thread'}&quot;, undos, lambda { regen_text },
++                         lambda { threads.each { |t| Index.save_thread t } }
+     regen_text
+     threads.each { |t| Index.save_thread t }
+   end
+@@ -425,7 +428,7 @@ EOS
+   def multi_toggle_spam threads
+     undos = threads.map { |t| actually_toggle_spammed t }
+     UndoManager.register &quot;marking/unmarking  #{threads.size.pluralize 'thread'} as spam&quot;,
+-                         undos, lambda { regen_text }
++                         undos, lambda { regen_text }, lambda { threads.each { |t| Index.save_thread t } }
+     regen_text
+     threads.each { |t| Index.save_thread t }
+   end
+@@ -439,7 +442,7 @@ EOS
+   def multi_toggle_deleted threads
+     undos = threads.map { |t| actually_toggle_deleted t }
+     UndoManager.register &quot;deleting/undeleting #{threads.size.pluralize 'thread'}&quot;,
+-                         undos, lambda { regen_text }
++                         undos, lambda { regen_text }, lambda { threads.each { |t| Index.save_thread t } }
+     regen_text
+     threads.each { |t| Index.save_thread t }
+   end
+@@ -455,6 +458,7 @@ EOS
+       threads.each do |t|
+         t.remove_label :killed
+         add_or_unhide t.first
++        Index.save_thread t
+       end
+       regen_text
+     end
+@@ -530,6 +534,7 @@ EOS
+       thread.labels = old_labels
+       update_text_for_line pos
+       UpdateManager.relay self, :labeled, thread.first
++      Index.save_thread thread
+     end
+ 
+     UpdateManager.relay self, :labeled, thread.first
+@@ -567,6 +572,7 @@ EOS
+       threads.zip(old_labels).map do |t, old_labels|
+         t.labels = old_labels
+         UpdateManager.relay self, :labeled, t.first
++        Index.save_thread t
+       end
+       regen_text
+     end
+diff --git a/lib/sup/modes/thread-view-mode.rb b/lib/sup/modes/thread-view-mode.rb
+index 99abb04..ddac113 100644
+--- a/lib/sup/modes/thread-view-mode.rb
++++ b/lib/sup/modes/thread-view-mode.rb
+@@ -262,6 +262,7 @@ EOS
+     Index.save_thread @thread
+     UndoManager.register &quot;labeling thread&quot; do
+       @thread.labels = old_labels
++      Index.save_thread @thread
+       UpdateManager.relay self, :labeled, @thread.first
+     end
+   end
+@@ -484,6 +485,7 @@ EOS
+       Index.save_thread @thread
+       UndoManager.register &quot;archiving 1 thread&quot; do
+         @thread.apply_label :inbox
++        Index.save_thread @thread
+         UpdateManager.relay self, :unarchived, @thread.first
+       end
+     end
+@@ -496,6 +498,7 @@ EOS
+       Index.save_thread @thread
+       UndoManager.register &quot;marking 1 thread as spam&quot; do
+         @thread.remove_label :spam
++        Index.save_thread @thread
+         UpdateManager.relay self, :unspammed, @thread.first
+       end
+     end
+@@ -508,6 +511,7 @@ EOS
+       Index.save_thread @thread
+       UndoManager.register &quot;deleting 1 thread&quot; do
+         @thread.remove_label :deleted
++        Index.save_thread @thread
+         UpdateManager.relay self, :undeleted, @thread.first
+       end
+     end
+-- 
+1.6.5
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01268" href="msg01268.html">Re: [sup-devel] [PATCH 3/3] make the undo hooks also save the	threads</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01414" href="msg01414.html">[sup-devel] [PATCH-insta-save] make the undo hooks also save the	threads</a></strong>
+<ul><li><em>From:</em> Anthony Martinez &lt;pi+sup@pihost.us&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01414.html">[sup-devel] [PATCH-insta-save] make the undo hooks also save the	threads</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01237.html">Re: [sup-devel] [PATCH-insta-save] make the undo hooks also save	the threads</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01414.html">[sup-devel] [PATCH-insta-save] make the undo hooks also save the	threads</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01237.html">Re: [sup-devel] [PATCH-insta-save] make the undo hooks also save	the threads</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01296"><strong>Date</strong></a></li>
+<li><a href="threads.html#01296"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

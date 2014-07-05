@@ -1,0 +1,132 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] Bug: UTF&#45;8 error when sending messages -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Tue, 01 Feb 2011 05:33:07 &#45;0800 (PST) -->
+<!--X-Message-Id: 1296566276&#45;sup&#45;4340@qwerzila -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: mailman.75.1296431981.25874.sup&#45;devel@rubyforge.org -->
+<!--X-Reference: 1296497911&#45;sup&#45;5024@poincare -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] Bug: UTF-8 error when sending messages</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00667.html">Date Prev</a>][<a href="msg00604.html">Date Next</a>][<a href="msg00667.html">Thread Prev</a>][<a href="msg00621.html">Thread Next</a>][<a href="maillist.html#00681">Date Index</a>][<a href="threads.html#00681">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] Bug: UTF-8 error when sending messages</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] Bug: UTF-8 error when sending messages</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 01 Feb 2011 14:34:10 +0100</li>
+<li><em>In-reply-to</em>: &lt;1296497911-sup-5024@poincare&gt;</li>
+<li><em>References</em>: &lt;mailman.75.1296431981.25874.sup-devel@rubyforge.org&gt; &lt;1296497911-sup-5024@poincare&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Adeel Ahmad Khan's message of 2011-01-31 19:24:42 +0100:
+&gt; 
+&gt; Tero Tilus &lt;tero@tilus.net&gt;:
+&gt; &gt; Adeel Ahmad Khan, 2011-01-29 05:11:
+&gt; &gt; &gt;     invalid byte sequence in UTF-8
+&gt; &gt; ...
+&gt; &gt; &gt; I am using a nearly fresh installation of Sup 0.12.1 with Ruby
+&gt; &gt; &gt; 1.9.2p136.  I have LOCALE=&quot;en_US.UTF-8&quot;.
+
+What editor are you using ? Could you attach some buggy text (make sure
+it is transferred in binary - ie upload an archive somewhere like
+<a  rel="nofollow" href="http://paste.xinu.at/">http://paste.xinu.at/</a>)?
+
+&gt; &gt; Both the errors were from regex matches against message body.  Somehow
+&gt; &gt; your editor doesn't know your locale or is not obeying it.  As a
+&gt; &gt; result non-utf8 stuff gets saved to disk and sup gets confused.
+&gt;
+&gt; You were right.  It turned out to be an issue with editor.
+
+I'm not so sure. I think it is a problem with Ruby (1.9) degrading the
+the text it reads to US-ASCII (8bit). And when you later try to do UTF-8
+stuff with it (append, or regexp with UTF-8) it fails. Perhaps even when
+trying to access chars in the string (the body) that are not really
+US-ASCII [2].
+
+What my patch does is tell Ruby that the string is an UTF-8 string, no
+matter what it deduced from reading the file in the first place - or
+what might have happened throughout Sup's processing of the text.
+
+Try this patch, it forces encoding on the entire body: <a  rel="nofollow" href="http://ix.io/1rO">http://ix.io/1rO</a>
+
+(these patches are workarounds; not to be applied to source-tree)
+
+The same happened with labels.txt (or with contacts). Whenever a label
+string could be degraded to US-ASCII, Ruby did so (how should it know it
+was UTF-8 anyway?), then when trying to append, match or work with the
+US-ASCII string towards UTF-8 input it failed.
+
+What I think must be done (as an alternative to supporting different
+encodings all the way) - is to _always_ read all files in UTF-8 [1] (or
+transcode to UTF-8), and perhaps most difficultly _keep_ the strings
+UTF-8 throught the entire Sup processes.
+
+[1] <a  rel="nofollow" href="http://blog.grayproductions.net/articles/ruby_19s_three_default_encodings">http://blog.grayproductions.net/articles/ruby_19s_three_default_encodings</a>
+[2] <a  rel="nofollow" href="http://www.ruby-forum.com/topic/194493">http://www.ruby-forum.com/topic/194493</a>
+
+Best regards,
+Gaute
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00667" href="msg00667.html">Re: [sup-devel] Bug: UTF-8 error when sending messages</a></strong>
+<ul><li><em>From:</em> Adeel Ahmad Khan &lt;adeel@adeel.ru&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00667.html">Re: [sup-devel] Bug: UTF-8 error when sending messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00604.html">[sup-devel] couple more gpg related patches</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00667.html">Re: [sup-devel] Bug: UTF-8 error when sending messages</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00621.html">[sup-devel] UTF-8 error when sending messages</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00681"><strong>Date</strong></a></li>
+<li><a href="threads.html#00681"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

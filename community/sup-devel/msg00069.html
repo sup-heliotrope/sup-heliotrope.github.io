@@ -1,0 +1,167 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] How are the queries supposed to work? -->
+<!--X-From-R13: Vbenpvb Enafba <ufnafbaNtznvy.pbz> -->
+<!--X-Date: Wed, 6 Jul 2011 19:31:30 &#45;0700 (PDT) -->
+<!--X-Message-Id: 201107071124.16433.hsanson@gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] How are the queries supposed to work?</title>
+<link rev="made" href="mailto:hsanson@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00295.html">Date Prev</a>][<a href="msg00058.html">Date Next</a>][<a href="msg00343.html">Thread Prev</a>][<a href="msg00058.html">Thread Next</a>][<a href="maillist.html#00069">Date Index</a>][<a href="threads.html#00069">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] How are the queries supposed to work?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] How are the queries supposed to work?</li>
+<li><em>From</em>: Horacio Sanson &lt;<a href="mailto:hsanson%40gmail.com">hsanson@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 7 Jul 2011 11:24:15 +0900</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=from:organization:to:subject:date:user-agent:mime-version	:content-type:content-transfer-encoding:message-id;	bh=PJhcULeHhat4BY1O4rWjj5Sugh4jBKh9GjpmSqxZl4s=;	b=FH9OcE29+yQBPoc8PYabcg9y1H6FJv/sjuqB8JIL0VFc1xqMqOgwHGe7vls0GAjN/S	BRG/Ajw7QXRjWP3JPtO4G4vh8Q3e0jmWd32f2mh2Yfyy8unvx31DhFoSYLHdcfiUhvYI	wyiLeQ//6cUNfhZABXGnx9U6kpZJZpIg2691A=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Organization</em>: piaotech</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: KMail/1.13.5 (Linux/2.6.35-28-generic; KDE/4.5.5; x86_64; ; )</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Finally after several attempts the gmail-dumper finished indexing my +450,000 
+emails but searching emails does not work as I expected or I am doing 
+something wrong.
+
+Here is an example I have been trying to understand:
+
+I am using the heliotrope-console with this command:
+
+bash&gt; ruby1.9.1 -Ilib bin/heliotrope-console -d ~/.heliotrope
+
+Then in that console :
+
+# Create a query for EVERY
+index.set_query(Query.new(&quot;body&quot;, &quot;*&quot;))
+
+# Get first 5 matches
+r = index.get_some_results 5
+
+# Inspect the one result
+
+puts r[1][:subject] 
+=&gt; [Rails] Test fixtures not loading
+
+puts r[1][:direct_recipients].inspect
+=&gt; #&lt;Set: {&quot;Ruby on Rails: Talk &lt;rubyonrails-talk@googlegroups.com&gt;&quot;}&gt;
+
+puts r[1][:snippet].inspect
+=&gt; PLEASE HELP. This is driving me insane. I have a simple database table
+
+puts r[1][:labels]
+=&gt; #&lt;Set: {&quot;unread&quot;}&gt;
+
+
+# So I have a message indexed with a subject that contains &quot;Rails&quot; a direct 
+recipient with &quot;rubyonrails-talk@googlegroups.com&quot; and a body that contains 
+&quot;PLEASE HELP&quot;.
+
+
+# Now I tried several queries that I thought would return that message but 
+they all returned zero results:
+
+index.set_query(Query.new(&quot;body&quot;, &quot;HELP&quot;))
+index.set_query(Query.new(&quot;body&quot;, &quot;PLEASE&quot;))
+index.set_query(Query.new(&quot;labels&quot;, &quot;unread&quot;)
+index.set_query(Query.new(&quot;from&quot;, &quot;rubyonrails-talk@googlegroups.com&quot;)
+index.set_query(Query.new(&quot;to&quot;, &quot;rubyonrails-talk@googlegroups.com&quot;)
+index.set_query(Query.new(&quot;body&quot;, &quot;rubyonrails-talk@googlegroups.com&quot;)
+
+# And the interesting part is that these queries do return the message I 
+expect:
+
+index.set_query(Query.new(&quot;body&quot;, &quot;fixtures&quot;))
+index.set_query(Query.new(&quot;subject&quot;, &quot;fixtures&quot;))
+
+# This made me think that only the subject is searchable since the word 
+&quot;fixtures&quot; only appears in the subject but then these queries with words in the 
+subject return zero results:
+
+index.set_query(Query.new(&quot;subject&quot;, &quot;Rails&quot;))
+index.set_query(Query.new(&quot;subject&quot;, &quot;[Rails]&quot;))
+index.set_query(Query.new(&quot;subject&quot;, &quot;Test fixtures&quot;))
+index.set_query(Query.new(&quot;subject&quot;, &quot;test fixtures&quot;))
+ 
+On all tests I made sure to run index.reset_query! before setting the new 
+query with index.set_query. Is this the correct way???
+
+-- 
+regards,                                                                                                                                                                                                       
+Horacio Sanson
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00058" href="msg00058.html">Re: [sup-devel] How are the queries supposed to work?</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00295.html">Re: [sup-devel] Heliotrope improving but still found some issues</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00058.html">Re: [sup-devel] How are the queries supposed to work?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00343.html">Re: [sup-devel] gmail limits [was: Heliotrope improving but still found some issues]</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00058.html">Re: [sup-devel] How are the queries supposed to work?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00069"><strong>Date</strong></a></li>
+<li><a href="threads.html#00069"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

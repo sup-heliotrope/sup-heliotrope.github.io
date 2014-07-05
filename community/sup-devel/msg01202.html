@@ -1,0 +1,147 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] Exception when composing messages -->
+<!--X-From-R13: Wfenry Vreenvm <vfenNureenvm.bet> -->
+<!--X-Date: Mon, 25 Jan 2010 05:53:35 &#45;0800 (PST) -->
+<!--X-Message-Id: 1264427161&#45;sup&#45;6711@duck -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] Exception when composing messages</title>
+<link rev="made" href="mailto:isra@herraiz.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01356.html">Date Prev</a>][<a href="msg01411.html">Date Next</a>][<a href="msg00848.html">Thread Prev</a>][<a href="msg01411.html">Thread Next</a>][<a href="maillist.html#01202">Date Index</a>][<a href="threads.html#01202">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] Exception when composing messages</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-devel] Exception when composing messages</li>
+<li><em>From</em>: Israel Herraiz &lt;<a href="mailto:isra%40herraiz.org">isra@herraiz.org</a>&gt;</li>
+<li><em>Date</em>: Mon, 25 Jan 2010 14:53:12 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:sender:content-type:subject	:from:to:date:message-id:user-agent:content-transfer-encoding;	bh=TEJuunDCAovsSH2QR9hVUi8lKS42CR1LoyomLFUImZY=;	b=nJZloGGOWFJJWUj7O8yuMQTIrm5I/UAzYbj/Rx4L8iT1AXFWGNOtAurvu/Cmp+QsHg	4/Ev5buOnnZQcwO54modzssuN9x0UGsD+aUhyEJRPemHizl35uVI6wy9oy/tJBqsOqP0	HdMW34j5FTwxRy9dDwwVuoqU7O4ybMMLUUyVM=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=sender:content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=t3nhpn252Ywix2lQPhXKVyNIZF68Txayu24Q5RkWc3U8SOeKiCjQVtldICdkLZVhdI	Ej+5fwTihw5S9wLV/DU30SMPrkPwYOaDGs2vZuiUS7H7/zJ/kjWUJjj/4lslb+cxpWMm	RDJVkbIeBLGdcgS6/W9N6/HHAGLNzxzq7g+Pk=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi all,
+
+I am using the next branch of Sup, and since a couple of commits ago,
+whenever I try to compose a message (new, forward, etc), I obtain this
+exception:
+
+	--- RuntimeError from thread: main
+	Invalid email term type any
+	./lib/sup/xapian_index.rb:573:in `mkterm'
+	./lib/sup/xapian_index.rb:410:in `build_xapian_query'
+	./lib/sup/xapian_index.rb:410:in `map'
+	./lib/sup/xapian_index.rb:410:in `build_xapian_query'
+	./lib/sup/xapian_index.rb:114:in `each_id'
+	./lib/sup/xapian_index.rb:124:in `each_id_by_date'
+	./lib/sup/xapian_index.rb:155:in `load_contacts'
+	./lib/sup/index.rb:236:in `send'
+	./lib/sup/index.rb:236:in `method_missing'
+	./lib/sup/buffer.rb:543:in `ask_for_contacts'
+	./lib/sup/util.rb:553:in `send'
+	./lib/sup/util.rb:553:in `method_missing'
+	./lib/sup/modes/compose-mode.rb:24:in `spawn_nicely'
+	bin/sup:327
+
+The problem seems to be between lines 410 and 573 of
+lib/sup/xapian_index.rb
+
+Some time ago, around line 573, there was the following line in the
+file:
+
+	when :any then PREFIX['email']
+
+Adding that to the current version of file does not solve the problem
+though. I obtain another exception telling that it cannot convert from
+String to Array. 
+
+If I change line 410 to the following (undoing my previous change), it
+works again:
+
+        participant_terms = opts[:participants].map { |p| mkterm(:email,:to, (Redwood::Person === p) ? p.email : p) }
+
+Notice that I have just substituted :any by :to.
+
+I have to admit that I am not really aware of what that change
+implies. I have tried to find the commit that changed the behavior,
+without success. But in any case I think this is a bug :-).
+	
+Cheers,
+Israel
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01411" href="msg01411.html">Re: [sup-devel] Exception when composing messages</a></strong>
+<ul><li><em>From:</em> Israel Herraiz &lt;isra@herraiz.org&gt;</li></ul></li>
+<li><strong><a name="01427" href="msg01427.html">Re: [sup-devel] Exception when composing messages</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01356.html">[sup-devel] [issue49] crash when pressing 'c' to compose</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01411.html">Re: [sup-devel] Exception when composing messages</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00848.html">Re: [sup-devel] [PATCH 3/3] keybindings hook</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01411.html">Re: [sup-devel] Exception when composing messages</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01202"><strong>Date</strong></a></li>
+<li><a href="threads.html#01202"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

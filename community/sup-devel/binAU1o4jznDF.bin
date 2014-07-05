@@ -1,0 +1,32 @@
+From f8be268c221f666d4db4eb09c0f547d76df511bb Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Tue, 27 Jul 2010 14:37:01 +0200
+Subject: [PATCH] Use the configured real name combined with the actual email address as Sender when replying
+
+For example, mails with "To: michael+sup@stapelberg.de" don't get the
+sender "michael+sup <michael+sup@stapelberg.de>" anymore but
+"Michael Stapelberg <michael+sup@stapelberg.de>"
+---
+ lib/sup/modes/reply-mode.rb |    6 +++++-
+ 1 files changed, 5 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/modes/reply-mode.rb b/lib/sup/modes/reply-mode.rb
+index bbac922..74ffe5d 100644
+--- a/lib/sup/modes/reply-mode.rb
++++ b/lib/sup/modes/reply-mode.rb
+@@ -76,7 +76,11 @@ EOS
+     ## otherwise, try and find an account somewhere in the list of to's
+     ## and cc's.
+     elsif(b = (@m.to + @m.cc).find { |p| AccountManager.is_account? p })
+-      b
++      ## Because people do not always include the full name in the recipient
++      ## field of their mails, we compose the configured realname of this
++      ## account with the email address the mail was sent to
++      acc = AccountManager.account_for b.email
++      Person.new acc.name, b.email
+     ## if all else fails, use the default
+     else
+       AccountManager.default_account
+-- 
+1.7.1
+

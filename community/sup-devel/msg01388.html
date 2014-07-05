@@ -1,0 +1,137 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] [PATCH] add console commands to get/set loglevel -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Mon, 4 Jan 2010 11:19:47 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262632780&#45;3661&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] [PATCH] add console commands to get/set loglevel</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01238.html">Date Prev</a>][<a href="msg01368.html">Date Next</a>][<a href="msg01234.html">Thread Prev</a>][<a href="msg01317.html">Thread Next</a>][<a href="maillist.html#01388">Date Index</a>][<a href="threads.html#01388">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] [PATCH] add console commands to get/set loglevel</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] [PATCH] add console commands to get/set loglevel</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Mon,  4 Jan 2010 11:19:40 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>---
+ lib/sup/logger.rb             |    3 ++-
+ lib/sup/modes/console-mode.rb |    4 ++++
+ 2 files changed, 6 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/logger.rb b/lib/sup/logger.rb
+index ccaeae0..ab97e47 100644
+--- a/lib/sup/logger.rb
++++ b/lib/sup/logger.rb
+@@ -14,13 +14,14 @@ class Logger
+ 
+   def initialize level=nil
+     level ||= ENV[&quot;SUP_LOG_LEVEL&quot;] || &quot;info&quot;
+-    @level = LEVELS.index(level) or raise ArgumentError, &quot;invalid log level #{level.inspect}: should be one of #{LEVELS * ', '}&quot;
++    self.level = level
+     @mutex = Mutex.new
+     @buf = StringIO.new
+     @sinks = []
+   end
+ 
+   def level; LEVELS[@level] end
++  def level=(level); @level = LEVELS.index(level) || raise(ArgumentError, &quot;invalid log level #{level.inspect}: should be one of #{LEVELS * ', '}&quot;); end
+ 
+   def add_sink s, copy_current=true
+     @mutex.synchronize do
+diff --git a/lib/sup/modes/console-mode.rb b/lib/sup/modes/console-mode.rb
+index e9bf47c..8ea8f38 100644
+--- a/lib/sup/modes/console-mode.rb
++++ b/lib/sup/modes/console-mode.rb
+@@ -21,6 +21,10 @@ class Console
+ 
+   def xapian; Index.instance.instance_variable_get :@xapian; end
+   def ferret; Index.instance.instance_variable_get :@index; end
++
++  def loglevel; Redwood::Logger.level; end
++  def set_loglevel(level); Redwood::Logger.level = level; end
++
+   def special_methods; methods - Object.methods end
+ 
+   ## files that won't cause problems when reloaded
+-- 
+1.6.3.3
+
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01317" href="msg01317.html">Re: [sup-devel] [PATCH] add console commands to get/set loglevel</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01238.html">[sup-devel] [issue43] fails to start after running current next</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01368.html">[sup-devel] [PATCH] implement String#each on Ruby 1.9 for lockfile</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01234.html">Re: [sup-devel] [PATCH] [issue7] configurable poll interval</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01317.html">Re: [sup-devel] [PATCH] add console commands to get/set loglevel</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01388"><strong>Date</strong></a></li>
+<li><a href="threads.html#01388"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

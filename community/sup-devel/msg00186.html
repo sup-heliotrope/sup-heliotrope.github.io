@@ -1,0 +1,156 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] A maildir root source: syncing labels with maildirs (imap folders) -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Tue, 26 Nov 2013 07:16:31 &#45;0800 (PST) -->
+<!--X-Message-Id: 1385478548&#45;sup&#45;9110@qwerzila -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1385392376&#45;sup&#45;8491@qwerzila -->
+<!--X-Reference: 1385415206&#45;sup&#45;5054@qwerzila -->
+<!--X-Reference: 1385476504&#45;sup&#45;9378@indy.local -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00269.html">Date Prev</a>][<a href="msg00081.html">Date Next</a>][<a href="msg00269.html">Thread Prev</a>][<a href="msg00081.html">Thread Next</a>][<a href="maillist.html#00186">Date Index</a>][<a href="threads.html#00186">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] A maildir root source: syncing labels with maildirs (imap folders)</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 26 Nov 2013 16:14:25 +0100</li>
+<li><em>In-reply-to</em>: &lt;1385476504-sup-9378@indy.local&gt;</li>
+<li><em>References</em>: &lt;1385392376-sup-8491@qwerzila&gt; &lt;1385415206-sup-5054@qwerzila&gt; &lt;1385476504-sup-9378@indy.local&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Steven Schmeiser's message of 2013-11-26 15:43:49 +0100:
+&gt; I've installed the branch and am trying it out.  So far it looks good, but there have been a few oddities...
+&gt; 
+&gt; I'm running with a standard IMAP account (not Gmail).  The root looks like
+&gt; 
+&gt; [steve@indy ~]$ ls -l .mail
+&gt; total 0
+&gt; drwx------  5 steve  staff  170 Nov 19 13:44 Archive
+&gt; drwx------  5 steve  staff  170 Nov 22 12:31 INBOX
+&gt; drwx------  5 steve  staff  170 Nov 19 13:44 drafts
+&gt; drwx------  5 steve  staff  170 Nov 19 13:44 econpapers
+&gt; drwx------  5 steve  staff  170 Nov 19 13:44 sent
+&gt; drwx------  5 steve  staff  170 Nov 19 13:44 spam
+&gt; drwx------  5 steve  staff  170 Nov 25 19:25 trash
+&gt; 
+&gt; and my sources are configured as follows
+&gt; 
+&gt; [steve@indy ~]$ more .sup/sources.yaml
+&gt; ---
+&gt; - !supmua.org,2006-10-01/Redwood/MaildirRoot
+&gt;   uri: maildirroot:///Users/steve/.mail
+&gt;   usual: true
+&gt;   archived: false
+&gt;   id: 1
+&gt;   labels: []
+&gt;   sync_back: true
+&gt;   confirm_enable_experimental: true
+&gt;   maildir_creation_allowed: true
+&gt;   inbox_folder: INBOX
+&gt;   sent_folder: sent
+&gt;   drafts_folder: drafts
+&gt;   spam_folder: spam
+&gt;   trash_folder: trash
+&gt;   archive_folder: Archive
+&gt; - !supmua.org,2006-10-01/Redwood/SentLoader{}
+&gt; 
+&gt; I had around 40k messages in the Archive folder and ~20 in the INBOX.  After sup-sync, around 10k of the messages in Archive were moved into sup's inbox with labels 'INBOX' and 'Inbox'.  They were also (incorrectly) marked as unread.
+&gt; 
+&gt; I'll keep experimenting.  Thanks for your effort -- I think this is a great new feature and would really like to see it merged into the mainline someday.
+
+Ok, there are likely to be a few more of the oddities - you are brave :)
+
+Please set the environment variable: SUP_LOG_LEVEL=debug and try to
+start sup, it would be interesting to see how the maildirsubs are
+initialized (the startup section from ~/.sup/log).
+
+Were any of the messages in Archive also somewhere else (duplicates with
+the same id)? Also, if sup discovers a message that is part of a thread
+it will join them and (possibly) apply all the labels to all the
+messages in that thread. If any of those are unread it might be
+affected.
+
+The labels 'INBOX' and 'Inbox' are both not the same as the special
+label 'inbox', so apparently it is not recognized as the special label
+but a custom label.
+
+It could be that you have more luck with starting with a clean index and
+just starting regular sup (not sup-sync). You can follow the log by
+doing: tail -f ~/.sup/log.
+
+- gaute
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00081" href="msg00081.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+<ul><li><em>From:</em> Steven Schmeiser &lt;steven@schmeiser.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00057" href="msg00057.html">A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00140" href="msg00140.html">Re: A maildir root source: syncing labels with maildirs (imap folders)</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00269" href="msg00269.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+<ul><li><em>From:</em> Steven Schmeiser &lt;steven@schmeiser.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00269.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00081.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00269.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00081.html">Re: [sup-devel] A maildir root source: syncing labels with maildirs	(imap folders)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00186"><strong>Date</strong></a></li>
+<li><a href="threads.html#00186"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

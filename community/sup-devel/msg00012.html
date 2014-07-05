@@ -1,0 +1,97 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: deprecating psych migration -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Tue, 18 Mar 2014 07:25:36 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1395152363&#45;sup&#45;3117@qwerzila -->
+<!--X-Content-Type: multipart/signed -->
+<!--X-Derived: pgprBLD7fHkxN.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>deprecating psych migration</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00033.html">Date Prev</a>][<a href="msg00000.html">Date Next</a>][<a href="msg00016.html">Thread Prev</a>][<a href="msg00000.html">Thread Next</a>][<a href="maillist.html#00012">Date Index</a>][<a href="threads.html#00012">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>deprecating psych migration</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: deprecating psych migration</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 18 Mar 2014 15:24:28 +0100</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>hi,
+
+i just pushed a pull request (#268) which deprecates yaml migration from
+old 1.8 style configs. the tests for ruby &gt; 2.1 were broken (for the
+yaml migration bit) and I figured it was futile/not worth it to keep the
+migration script running for successive rubies.
+
+so, as of ruby 2.1.0 it won't be possible to migrate your old config
+files automatically from pre 0.13 sup. the upgrade path will then either
+involve using ruby &lt; 2.0.0 to migrate, or to just manually
+migrate/re-configure sup (which I think is will be the preferred way).
+
+
+currently sup tests pass on 2.0 to 2.1.1 and I am running sup on ruby
+2.1.1. seems to work fine.
+
+- gaute
+
+</pre><p><strong>Attachment:
+<a href="pgprBLD7fHkxN.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00033.html">Re: [sup] Maildir root: Keep labels in sync with maildir folders (#253)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00000.html">sup 0.16.0 released</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00016.html">Re: [sup-devel] [sup] Maildir root: Keep labels in sync with	maildir folders (#253)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00000.html">sup 0.16.0 released</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00012"><strong>Date</strong></a></li>
+<li><a href="threads.html#00012"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

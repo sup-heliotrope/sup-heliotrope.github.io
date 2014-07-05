@@ -1,0 +1,26 @@
+From 40f65498b4ef3fd6f058b67cfb975062a230555a Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Fri, 19 Mar 2010 16:31:40 +0100
+Subject: [PATCH 1/2] Make sup-tweak-labels work with ruby 1.9
+
+---
+ bin/sup-tweak-labels |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/bin/sup-tweak-labels b/bin/sup-tweak-labels
+index 03c727c..ef3c12f 100755
+--- a/bin/sup-tweak-labels
++++ b/bin/sup-tweak-labels
+@@ -84,7 +84,8 @@ begin
+ 
+   parsed_query = index.parse_query query
+   parsed_query.merge! :load_spam => true, :load_deleted => true, :load_killed => true
+-  ids = Enumerable::Enumerator.new(index, :each_id, parsed_query).map
++  ids = Array.new
++  index.each_id(parsed_query) { |id| ids.push(id) }
+   num_total = ids.size
+ 
+   $stderr.puts "Found #{num_total} documents across #{source_ids.length} sources. Scanning..."
+-- 
+1.6.5
+

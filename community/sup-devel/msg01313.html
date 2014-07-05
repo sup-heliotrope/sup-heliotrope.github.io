@@ -1,0 +1,162 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order -->
+<!--X-From-R13: Freb Fvyhf <grebNgvyhf.arg> -->
+<!--X-Date: Fri, 1 Jan 2010 05:20:41 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262345828&#45;sup&#45;6789@tilus.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1261485246&#45;sup&#45;4236@tilus.net -->
+<!--X-Reference: 1261938751&#45;sup&#45;9421@zyrg.net -->
+<!--X-Reference: 1262136474&#45;sup&#45;312@tilus.net -->
+<!--X-Reference: 1262182085&#45;sup&#45;1405@masanjin.net -->
+<!--X-Reference: 1262190807&#45;sup&#45;434@zyrg.net -->
+<!--X-Reference: 1262287125&#45;sup&#45;5933@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</title>
+<link rev="made" href="mailto:tero@tilus.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01216.html">Date Prev</a>][<a href="msg01168.html">Date Next</a>][<a href="msg01276.html">Thread Prev</a>][<a href="msg01409.html">Thread Next</a>][<a href="maillist.html#01313">Date Index</a>][<a href="threads.html#01313">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</li>
+<li><em>From</em>: Tero Tilus &lt;<a href="mailto:tero%40tilus.net">tero@tilus.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 01 Jan 2010 15:19:45 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01276.html">1262287125-sup-5933@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1261485246-sup-4236@tilus.net&gt; &lt;<a href="msg01294.html">1261938751-sup-9421@zyrg.net</a>&gt;	&lt;<a href="msg01391.html">1262136474-sup-312@tilus.net</a>&gt; &lt;<a href="msg01218.html">1262182085-sup-1405@masanjin.net</a>&gt;	&lt;<a href="msg01190.html">1262190807-sup-434@zyrg.net</a>&gt; &lt;<a href="msg01276.html">1262287125-sup-5933@masanjin.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>William Morgan, 2009-12-31 21:41:
+&gt; Out of curiousity, Tero, could the problem also be solved by giving
+&gt; the in-reply-to header precedence over the references header?
+
+Well, yes and no.  ;)
+
+I think what it needs is to do is 
+
+ a) consider only the first message in In-reply-to: (like it already
+    does),
+ b) prioritize In-reply-to: ahead of References: (like it already
+    does!) and
+ c) if In-reply-to: would create a loop or diamond, resolve by
+    dropping another link (&quot;topmost&quot; conflicting?) and keep the one
+    from In-reply-to: (currently it drops the link suggested by
+    In-reply-to: over another potentially coming from (messed up)
+    References:).
+
+Lemme speculate on this a bit.
+
+Current threading implementation tries to give In-reply-to: precedence
+over References: but it still could leave the (in my previous mail
+described way) malformed References: affecting the real root of the
+thread.  By the time we encounter the In-reply-to: headers which would
+need to take precedence over the References:, there could already be
+bogus parent to the root.
+
+Say we have
+
+First (no In-reply-to: or References:)
+ +- Second (In-reply-to: First; References: First)
+     +- Third (In-reply-to: Second, First; no References:)
+         +- Fourth (In-reply-to: Third; References: Second, First, Third)
+
+If Third is a reply to both Second and First (in that order). Then
+Fourth might have References: Second, First, Third.  If, when
+threading, Fourth is the first processed message then First is seen as
+a reply to Second.  Now when itself Second is processed, the
+In-reply-to: in it would create a loop and is discarded, (see
+ThreadSet#link).  Resulting in
+
+Second
+ +- First
+     +- Third
+         +- Fourth
+
+which is exactly what the example headers I posted seem to produce
+(real root jumps in the middle of one of the branches).
+
+-- 
+Tero Tilus ## 050 3635 235 ## <a  rel="nofollow" href="http://tero.tilus.net/">http://tero.tilus.net/</a>
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01294" href="msg01294.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01391" href="msg01391.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+<li><strong><a name="01218" href="msg01218.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01190" href="msg01190.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01276" href="msg01276.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01216.html">[sup-devel] [PATCH 10/10] decode header fields of enclosed messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01168.html">Re: [sup-devel] [PATCH] fixed am/pm in thread-list-mode for ruby1.8</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01276.html">Re: [sup-devel] [PATCH] XapianIndex.each_message_in_thread_for	yields messages in cronological order</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01409.html">[sup-devel] What's your workflow?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01313"><strong>Date</strong></a></li>
+<li><a href="threads.html#01313"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,26 @@
+From 72e5d033926916f619c0c94cafba934c82739581 Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Mon, 19 Jul 2010 21:37:36 +0200
+Subject: [PATCH 1/2] Bugfix: Make sure to use UNIX line-endings for GPG decrypted payloads
+
+Otherwise, RMail will fail to correctly parse multipart/signed messages
+---
+ lib/sup/crypto.rb |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index 289fb0e..ca33052 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -153,6 +153,8 @@ EOS
+ 
+     output = IO.read output_fn.path
+     output.force_encoding Encoding::ASCII_8BIT if output.respond_to? :force_encoding
++    ## make sure to use UNIX line-endings (payloads may contain \r\n)
++    output = output.gsub("\r\n", "\n")
+ 
+     ## check for a valid signature in an extra run because gpg aborts if the
+     ## signature cannot be verified (but it is still able to decrypt)
+-- 
+1.6.5
+

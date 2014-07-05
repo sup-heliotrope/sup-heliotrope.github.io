@@ -1,0 +1,139 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: Invalid encoding symbol when doing Marshal.load -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Thu, 09 Jun 2011 04:31:42 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1307618816&#45;sup&#45;5149@qwerzila -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1307025076&#45;sup&#45;2874@qwerzila -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: Invalid encoding symbol when doing Marshal.load</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00159.html">Date Prev</a>][<a href="msg00249.html">Date Next</a>][<a href="msg00342.html">Thread Prev</a>][<a href="msg00153.html">Thread Next</a>][<a href="maillist.html#00230">Date Index</a>][<a href="threads.html#00230">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: Invalid encoding symbol when doing Marshal.load</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: Invalid encoding symbol when doing Marshal.load</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 09 Jun 2011 13:28:07 +0200</li>
+<li><em>In-reply-to</em>: &lt;1307025076-sup-2874@qwerzila&gt;</li>
+<li><em>References</em>: &lt;1307025076-sup-2874@qwerzila&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Gaute Hope's message of 2011-06-02 16:36:04 +0200:
+&gt; Hi,
+&gt; 
+&gt; I've been searching a bit through some old mail and suddenly encountered
+&gt; the following error:
+&gt; 
+&gt;   --- EncodingError from thread: load threads for thread-index-mode
+&gt;   invalid encoding symbol
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:796:in `load'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:796:in `entry'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:571:in `get_entry'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:200:in `block in build_message'
+&gt;   /usr/lib/ruby/1.9.1/monitor.rb:201:in `mon_synchronize'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:579:in `synchronize'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:200:in `build_message'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:155:in `block (2 levels) in each_id_by_date'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/thread.rb:338:in `call'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/thread.rb:338:in `block in load_n_threads'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:155:in `block in each_id_by_date'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:250:in `block in each_id'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:250:in `each'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:250:in `each_id'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/index.rb:155:in `each_id_by_date'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/thread.rb:334:in `load_n_threads'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/modes/thread-index-mode.rb:643:in `load_n_threads'
+&gt;   (eval):12:in `load_n_threads'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup/modes/thread-index-mode.rb:627:in `block in load_n_threads_background'
+&gt;   /home/gaute/dev/ruby/sup.git/lib/sup.rb:78:in `block in reporting_thread'
+
+Also perhaps worth mentioning; I get an error on several documents when
+doing sup-dump:
+
+failed to dump document 2192065433
+failed to dump document 2195211019
+failed to dump document 2195211571
+failed to dump document 2197009224
+failed to dump document 2197023569
+failed to dump document 2197023801
+failed to dump document 2198792521
+failed to dump document 2199089510
+failed to dump document 2199602802
+failed to dump document 2199602803
+failed to dump document 2200333894
+failed to dump document 2201147825
+failed to dump document 2201629209
+failed to dump document 2207757157
+failed to dump document 2207760235
+failed to dump document 2209183158
+failed to dump document 2209239264
+failed to dump document 2210514594
+failed to dump document 2211271070
+failed to dump document 2211437027
+
+Could perhaps be related.
+
+- Gaute
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00342" href="msg00342.html">Invalid encoding symbol when doing Marshal.load</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00159.html">Re: [sup-devel] Cannot query Japanese characters</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00249.html">Re: Another UTF-8 exception: edit-message-mode.rb</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00342.html">Invalid encoding symbol when doing Marshal.load</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00153.html">[sup-devel] Invalid meta data error in OklahomaMixer</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00230"><strong>Date</strong></a></li>
+<li><a href="threads.html#00230"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>
