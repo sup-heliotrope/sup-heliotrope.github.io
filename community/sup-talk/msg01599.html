@@ -1,0 +1,118 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Using TLS instead of ssl -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Mon, 2 Nov 2009 07:58:12 &#45;0800 (PST) -->
+<!--X-Message-Id: 1257177347&#45;sup&#45;2023@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 2b29d9f30910270434k65550eaqf5187d048b604020@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Using TLS instead of ssl</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01561.html">Date Prev</a>][<a href="msg01605.html">Date Next</a>][<a href="msg01649.html">Thread Prev</a>][<a href="msg01602.html">Thread Next</a>][<a href="maillist.html#01599">Date Index</a>][<a href="threads.html#01599">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Using TLS instead of ssl</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Using TLS instead of ssl</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 02 Nov 2009 07:57:50 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01649.html">2b29d9f30910270434k65550eaqf5187d048b604020@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01649.html">2b29d9f30910270434k65550eaqf5187d048b604020@mail.gmail.com</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Reformatted excerpts from k.v.ramakrishna reddy's message of 2009-10-27:
+&gt; What are the changes that i need to make so that sup uses TLS instead
+&gt; of ssl when connecting to my source ?
+
+Honestly I'm not sure. I'm not that familiar with IMAP. Is that
+something that's negotiated during setting up a connection?
+
+&gt; Further more how can i delete a source ?
+
+There's not a great way right now. You can remove it from
+~/.sup/sources.yaml manually, and then you can remove the messages from
+the index with something like this:
+
+  $ sh devel/console.sh
+  &gt;&gt; q = Index.parse_query &quot;source_id:4&quot;
+  =&gt; # ...
+  &gt;&gt; Index.each_id(q) { |id| Index.delete id }
+  =&gt; nil
+  &gt;&gt; Index.save
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01649" href="msg01649.html">[sup-talk] Using TLS instead of ssl</a></strong>
+<ul><li><em>From:</em> &quot;k.v.ramakrishna reddy&quot; &lt;kvrkreddy@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01561.html">Re: [sup-talk] [PATCH] minor nits in exception apology message</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01605.html">Re: [sup-talk] Completion for search queries</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01649.html">[sup-talk] Using TLS instead of ssl</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01602.html">[sup-talk] exception in mainline</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01599"><strong>Date</strong></a></li>
+<li><a href="threads.html#01599"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

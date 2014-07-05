@@ -1,0 +1,156 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Bug report, importing emails into sup -->
+<!--X-From-R13: Runiny Uvnav <quniny.tvnavNtznvy.pbz> -->
+<!--X-Date: Tue, 17 Nov 2009 11:55:41 &#45;0800 (PST) -->
+<!--X-Message-Id: 8aa016e10911171104t7fd3e913y96e85e039c53ce98@mail.gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Bug report, importing emails into sup</title>
+<link rev="made" href="mailto:dhaval.giani@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01515.html">Date Prev</a>][<a href="msg01629.html">Date Next</a>][<a href="msg01636.html">Thread Prev</a>][<a href="msg01629.html">Thread Next</a>][<a href="maillist.html#01539">Date Index</a>][<a href="threads.html#01539">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Bug report, importing emails into sup</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Bug report, importing emails into sup</li>
+<li><em>From</em>: Dhaval Giani &lt;<a href="mailto:dhaval.giani%40gmail.com">dhaval.giani@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 18 Nov 2009 00:34:27 +0530</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:date:message-id:subject	:from:to:content-type;	bh=c1zTseGHKz69bbmTK/2WOAXPzN6SnhyNlXPPaNUHikI=;	b=cPKYu+F82+SJgRVAU1UqHiRWrGNtd1w7AlzLCvG65xBej/k2PxcVFflcQdL9cddyd9	kwLO6khfpSopLg3PtUcVEI4cX71OBBjnlbEpgGUGuAy6NYqscpLBrGhs/5/IxzXUi4QI	E7TnA2y9TQbnVeoQ7/futyDs09wZp51GN2xKA=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=oNTibmr2wSCzztnKcG2Y9SpLIO5iC7rwTMSqvZrt9jElCPYH/9t3VQ3V1GR8MiEGn7	H5kjAMMce/bKYV2hYacHcOHYScPLztn1F0bX4BymRjcCxexCc9+JCDqbicjxKArEqtPU	hs4DKW9bow2HmBi2+owa1eUBeb88voXHjGlVc=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi,
+
+Attached an exception log.
+
+Failure occured when trying to import mails from mbox after setting up
+using sup-config whicch failed and i tried to run sup after that
+
+[dhaval@gondor sup]$ sup --version
+sup v0.9
+[dhaval@gondor sup]$
+
+
+Thanks,
+Dhaval
+-- 
+
+Joan Crawford  - &quot;I, Joan Crawford, I believe in the dollar.
+Everything I earn, I spend.&quot; -
+<a  rel="nofollow" href="http://www.brainyquote.com/quotes/authors/j/joan_crawford.html">http://www.brainyquote.com/quotes/authors/j/joan_crawford.html</a>
+</pre><pre>--- NoMethodError from thread: poll after loading inbox
+undefined method `downcase' for nil:NilClass
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/message.rb:502:in `message_to_chunks'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/message.rb:239:in `load_from_source!'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/message.rb:335:in `build_from_source'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/poll.rb:145:in `each_message_from'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/source.rb:104:in `each'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/util.rb:560:in `send'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/util.rb:560:in `__pass'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/util.rb:547:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/poll.rb:139:in `each_message_from'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/poll.rb:93:in `do_poll'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/poll.rb:81:in `each'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/poll.rb:81:in `do_poll'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/poll.rb:80:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/poll.rb:80:in `do_poll'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/util.rb:520:in `send'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/util.rb:520:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/modes/poll-mode.rb:15:in `poll'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/poll.rb:48:in `poll'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/util.rb:520:in `send'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/util.rb:520:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/bin/sup:196
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup.rb:77:in `reporting_thread'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup.rb:75:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup.rb:75:in `new'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup.rb:75:in `reporting_thread'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/bin/sup:196
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/modes/thread-index-mode.rb:669:in `call'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/modes/thread-index-mode.rb:669:in `__unprotected_load_threads'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/modes/thread-index-mode.rb:610:in `call'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/modes/thread-index-mode.rb:610:in `load_n_threads_background'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup.rb:77:in `reporting_thread'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup.rb:75:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup.rb:75:in `new'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup.rb:75:in `reporting_thread'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/modes/thread-index-mode.rb:608:in `load_n_threads_background'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/lib/sup/modes/thread-index-mode.rb:679:in `__unprotected_load_threads'
+(eval):12:in `load_threads'
+/usr/lib/ruby/gems/1.8/gems/sup-0.9/bin/sup:196
+/usr/bin/sup:19:in `load'
+/usr/bin/sup:19
+</pre><pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01629" href="msg01629.html">Re: [sup-talk] Bug report, importing emails into sup</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01515.html">Re: [sup-talk] Problems with undo archive and thread focus</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01629.html">Re: [sup-talk] Bug report, importing emails into sup</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01636.html">Re: [sup-talk] offlineimap before-poll.rb undefined method 'usual_sources'</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01629.html">Re: [sup-talk] Bug report, importing emails into sup</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01539"><strong>Date</strong></a></li>
+<li><a href="threads.html#01539"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Get text at current line in ThredViewMode -->
+<!--X-From-R13: [vpnu Rhxr <zvpnuNqhxrsbb.pbz> -->
+<!--X-Date: Tue, 15 Apr 2014 12:11:29 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1397588679&#45;sup&#45;4084@ArchNemesis -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1397511511&#45;sup&#45;2550@ArchNemesis -->
+<!--X-Reference: 1397545869&#45;sup&#45;4820@kpad -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Get text at current line in ThredViewMode</title>
+<link rev="made" href="mailto:micah@dukefoo.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00098.html">Date Prev</a>][<a href="msg00016.html">Date Next</a>][<a href="msg00098.html">Thread Prev</a>][<a href="msg00016.html">Thread Next</a>][<a href="maillist.html#00060">Date Index</a>][<a href="threads.html#00060">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Get text at current line in ThredViewMode</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Get text at current line in ThredViewMode</li>
+<li><em>From</em>: Micah Duke &lt;<a href="mailto:micah%40dukefoo.com">micah@dukefoo.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 15 Apr 2014 14:10:24 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1397545869-sup-4820@kpad&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1397511511-sup-2550@ArchNemesis&gt; &lt;1397545869-sup-4820@kpad&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Thanks Matthieu!
+
+Ultimately that is what I was trying to do-open URI under cursor line.
+
+I arrived at a similar solution. I will repost mine here, in case anyone
+else finds it helpful.
+
+
+class Redwood::ThreadViewMode
+  def open_link_at_cursor
+    BufferManager.flash &quot;Extracting URL...#{'(turn text wrap off for better results)' if @wrap}&quot;
+    line_text = get_textline_at_cursor
+    url = line_text.slice(URI::regexp)
+    spawn &quot;chromium&quot;,&quot;--new-window&quot;, url,[:in, :out, :err] =&gt; &quot;/dev/null&quot; unless !url
+    BufferManager.flash &quot;No URL found at cursor line&quot; if !url
+  end
+  def get_textline_at_cursor
+    self[curpos].last.last.to_s
+  end
+end
+
+-Micah
+
+
+Excerpts from Matthieu Rakotojaona's message of 2014-04-15 13:38:15 -0500:
+&gt; Hello,
+&gt; 
+&gt; Take a look at this PR:
+&gt; 
+&gt;   <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/pull/241">https://github.com/sup-heliotrope/sup/pull/241</a>
+&gt; 
+&gt; In this PR I take the text on the current line, try to extract an URI
+&gt; out of it and open it with the system's xdg-open. The line you're
+&gt; interested in is thread_view_mobe.rb:718. Basically a view is a list of
+&gt; tuples: [color, data]. color denotes how to paint the data. The one
+&gt; you're interested in is certainly :text_color.
+&gt; 
+&gt; This PR really old, and I should work on it, but I got distracted ...
+&gt; 
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00094" href="msg00094.html">[sup-talk] Get text at current line in ThredViewMode</a></strong>
+<ul><li><em>From:</em> Micah Duke &lt;micah@dukefoo.com&gt;</li></ul></li>
+<li><strong><a name="00098" href="msg00098.html">Re: [sup-talk] Get text at current line in ThredViewMode</a></strong>
+<ul><li><em>From:</em> Matthieu Rakotojaona &lt;matthieu.rakotojaona@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00098.html">Re: [sup-talk] Get text at current line in ThredViewMode</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00016.html">[sup-talk] Programmatically removing tags (:inbox)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00098.html">Re: [sup-talk] Get text at current line in ThredViewMode</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00016.html">[sup-talk] Programmatically removing tags (:inbox)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00060"><strong>Date</strong></a></li>
+<li><a href="threads.html#00060"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

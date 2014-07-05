@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Sup&#45;sync exception -->
+<!--X-From-R13: @rq Zhqq <rqjneqyhqqNtznvy.pbz> -->
+<!--X-Date: Fri, 20 Nov 2009 08:22:05 &#45;0800 (PST) -->
+<!--X-Message-Id: 65a36ed50911200750q53cda26h5c5d374c6228a5a@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Sup-sync exception</title>
+<link rev="made" href="mailto:edwardludd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01454.html">Date Prev</a>][<a href="msg01142.html">Date Next</a>][<a href="msg01685.html">Thread Prev</a>][<a href="msg01142.html">Thread Next</a>][<a href="maillist.html#01357">Date Index</a>][<a href="threads.html#01357">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Sup-sync exception</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Sup-sync exception</li>
+<li><em>From</em>: Ned Ludd &lt;<a href="mailto:edwardludd%40gmail.com">edwardludd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 20 Nov 2009 10:50:47 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:date:message-id:subject	:from:to:content-type;	bh=RAY2kpn9hT8bQ6iE9OVdgcJYL80r3J1uyNa7kO0Wt/Q=;	b=AB6UAYY5/Xt87AspoTvCgeH4q/WQJzAE53C6SVVfw+o3ggQZB0BG3QODGb1GAW+uJf	wk0wIqtXRmvBOnIfLRIt5/RE/i6rvqCP1lQ3MWknD/XxQ6HDsdXiBvuLOpcOXDiwKl3d	fVETMrLiQuR89AewQ5K7TFsJJXDufjluMeRFE=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=GCwSMuwgcCeNdtBTqoJlX9TwUTbno0WnYvHNTR73t6ofvfCKSVGzI/dLSFVVxBq0uJ	yztNADCM2O9dk+/SSdQv1bPfs34O7sfiA9J2ynbqnk0ThUGk60z0fXrX2T/n7r26tjal	YYJFjKu1mtHC9J34aaQkDRWdtKFXyfIdcFbwc=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>There was a message about this a week or so ago.  Did anyone ever find a fix?
+
+When I run &quot;sup-sync&quot;, regardless or the source (I tried IMAP and
+Maildir), I get this error:
+
+$ sup-sync
+Scanning maildir:/home/nedludd/.mail/INBOX...
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/source.rb:88:in `done?':
+undefined method `&gt;=' for true:TrueClass (NoMethodError)
+	from /usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/util.rb:560:in `__pass'
+	from /usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/util.rb:547:in
+`method_missing'
+	from /usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/poll.rb:137:in
+`each_message_from'
+	from /usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/util.rb:520:in
+`method_missing'
+	from /usr/lib/ruby/gems/1.9.1/gems/sup-0.9/bin/sup-sync:146:in `block
+in &lt;top (required)&gt;'
+	from /usr/lib/ruby/gems/1.9.1/gems/sup-0.9/bin/sup-sync:141:in `each'
+	from /usr/lib/ruby/gems/1.9.1/gems/sup-0.9/bin/sup-sync:141:in `&lt;top
+(required)&gt;'
+	from /usr/bin/supbin/sup-sync:19:in `load'
+	from /usr/bin/supbin/sup-sync:19:in `&lt;main&gt;'
+
+
+[I'm on Arch with sup 0.9 and Ruby 1.9.1]
+
+-----
+Ned Ludd
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01142" href="msg01142.html">Re: [sup-talk] Sup-sync exception</a></strong>
+<ul><li><em>From:</em> Andrei Thorp &lt;garoth@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01273" href="msg01273.html">Re: [sup-talk] Sup-sync exception</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01454.html">Re: [sup-talk] Problems with undo archive and thread focus</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01142.html">Re: [sup-talk] Sup-sync exception</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01685.html">Re: [sup-talk] Sup-sync exception</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01142.html">Re: [sup-talk] Sup-sync exception</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01357"><strong>Date</strong></a></li>
+<li><a href="threads.html#01357"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

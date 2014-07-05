@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] best method for before&#45;add&#45;message.rb -->
+<!--X-From-R13: Buvyvccr ZrQninyvre <fhccbegNcyrpninyvre.pbz> -->
+<!--X-Date: Thu, 10 Feb 2011 07:05:54 &#45;0800 (PST) -->
+<!--X-Message-Id: 1297346751&#45;sup&#45;70@plc.intranet.plecavalier.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] best method for before-add-message.rb</title>
+<link rev="made" href="mailto:support@plecavalier.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00698.html">Date Prev</a>][<a href="msg00584.html">Date Next</a>][<a href="msg00608.html">Thread Prev</a>][<a href="msg00425.html">Thread Next</a>][<a href="maillist.html#00613">Date Index</a>][<a href="threads.html#00613">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] best method for before-add-message.rb</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] best method for before-add-message.rb</li>
+<li><em>From</em>: Philippe LeCavalier &lt;<a href="mailto:support%40plecavalier.com">support@plecavalier.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 10 Feb 2011 09:44:18 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/0.12.1</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi All.
+
+I'm still working on my initial labeling/hooks and best choices thereof.
+
+I'm torn between a few options.
+
+i)external file reference (would be my preferred method)
+-can't list anything other than full email addresses in the file
+@domain.com, wildcards...etc. would be nice
+-can't comment in the file. It would be nice to weed out comments
+-is it possible that when an address has a subdomain the example in the wiki breaks? ie list@list.domain.com
+none of my hooks for these types of addresses seem to work
+-is Sup caching the referenced file? if not, I presume this option significantly slows things down
+
+ii)not using an external file makes the hook file lengthy. However it seems to be the only safe way of adding multiple labels - which I feel crucial to making a strong searchable system. Perhaps a label(s)-markread-archive would be nice :)
+-using this method I find myself writing a ton of rules for the same thread.
+a)label the thread from a particular community/client/area
+b)label the thread from a particular person within said community/clientel/area
+c)label it something useful ie (not)important/archive/redirect/bounce(hehe)...etc.
+
+
+I'm assuming my difficulties spring from a few basic assumptions;
+I can't write any code let alone Ruby, if my life depended on it.
+The wiki has solid working examples for those who can work with Ruby. Again I don't speak Ruby.
+And mostly, I come form a world where things get filtered to folders :-( I'm really trying to keep an open mind and I know I'll get there but my inbox now has thousands of mails in it and I'm the type that kept a strict 0 count. In order for me to move to Sup I had to get *real* disorganized before getting *real* organized ;-) All that to say that for types like me, it's all about copying other, less ruby-challenged, peoples work. So for the past three weeks I've been living in the wiki....It's a pretty lonely place out there!
+
+In keeping an open mind about all this, I'm open to hearing examples of how others handle there workflow that are achieving the same goal I have in mind. ie label everything with individual labels and archive it all using the least/simplest/most efficient code possible. This way I can search for clients,client A,reports,after:tue-jan-18(I think the latter is prob. wrong but feel like looking up chronic's standards at the moment:-) )
+
+My mail is really important to me so if the only response I get from this is &quot;learn Ruby you lazy-ass-bastard!&quot; I'll get the message(lousy pun eh?) ;-)
+-- 
+Thanks,
+Phil
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00425" href="msg00425.html">Re: [sup-talk] best method for before-add-message.rb</a></strong>
+<ul><li><em>From:</em> Mark Alexander &lt;marka@pobox.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00698.html">[sup-talk] Loosing first line of body, intentional or bug?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00584.html">Re: [sup-talk] Loosing first line of body, intentional or bug?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00608.html">Re: [sup-talk] Loosing first line of body, intentional or bug?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00425.html">Re: [sup-talk] best method for before-add-message.rb</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00613"><strong>Date</strong></a></li>
+<li><a href="threads.html#00613"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

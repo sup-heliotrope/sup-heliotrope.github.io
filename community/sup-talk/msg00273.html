@@ -1,0 +1,114 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Documentation of the heliotrope API -->
+<!--X-From-R13: [ngguvrh Dnxbgbwnban <zngguvrh.enxbgbwnbanNtznvy.pbz> -->
+<!--X-Date: Wed, 30 May 2012 13:36:30 &#45;0700 (PDT) -->
+<!--X-Message-Id: CAMiZLn2ESrDxTFhfzLAH36&#45;7gJy7oy6uCWAxKYxHD5M1A9Pe_A@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Documentation of the heliotrope API</title>
+<link rev="made" href="mailto:matthieu.rakotojaona@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00132.html">Date Prev</a>][<a href="msg00048.html">Date Next</a>][<a href="msg00132.html">Thread Prev</a>][<a href="msg00051.html">Thread Next</a>][<a href="maillist.html#00273">Date Index</a>][<a href="threads.html#00273">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Documentation of the heliotrope API</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;, sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Documentation of the heliotrope API</li>
+<li><em>From</em>: Matthieu Rakotojaona &lt;<a href="mailto:matthieu.rakotojaona%40gmail.com">matthieu.rakotojaona@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 30 May 2012 22:35:46 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20120113;	h=mime-version:from:date:message-id:subject:to:content-type;	bh=H1T9du768Sc3df9HJkE42eQ9MPdh7u2PD6bxkolKy+E=;	b=Otb1qr53MCcgjZ376Qee3b8xjBUp+ervfijHodoINE9Zhd6vv9cH5gSHvtZjlHdwK+	AAZXCpI+BG/sUOi4Qu0AqF4I9ZeAna74AXsIiCR1puwx4YshLlM2M60szHJOt+HMphrX	eZI8osoonVGfSVwTWQ5IefkO8VeTugMQdehKzE1fPpkNLHJQi2Huj6J5WMED0JDHk3Mt	uMNjTJYcazRop8TRfntCyvPbiq1OeF36ZHUItZfsrTx7jn/hiCGkDGY6i4p2GwwbcLlU	aG5ssmG43vusGgzHLZWHwWU5tDnStCt+OQl9pCxaR6QVwGrUrWLwrn6cXDB2PkUjDKzx	3X4Q==</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello everyone,
+
+While browsing the interwebs, I realized that many people are also
+tired of the cumbersomeness of the IMAP protocol, and a few of them
+has started some work on implementing what they would love to see. For
+instance, you can find a thread talking about it in [0] which links to
+a few other thoughts. What is interesting is that many people have the
+same approach to use JSON-over-HTTP in a RESTful manner. I think each
+of these implementations' problem is the same: they lack visibility to
+gather improvements.
+
+Seeing this, I thought that to give Heliotrope a little more
+visibility, we should improve the documentation a little bit. I have
+started [1] by the first step: the API. Feel free to comment back on
+this, or fork/edit the pages yourself.
+
+
+Cheers,
+
+-- 
+Matthieu RAKOTOJAONA
+
+
+[0] <a  rel="nofollow" href="http://blog.gaborcselle.com/2010/02/how-to-replace-imap.html">http://blog.gaborcselle.com/2010/02/how-to-replace-imap.html</a>
+[1] <a  rel="nofollow" href="https://github.com/rakoo/heliotrope/wiki/A-brief-overview-of-the-heliotrope-api">https://github.com/rakoo/heliotrope/wiki/A-brief-overview-of-the-heliotrope-api</a>
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00132.html">[sup-talk] sup dislikes gpgme on Ubuntu 12.04</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00048.html">[sup-talk] [PATCH] detect and set charset on text/* attachments</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00132.html">[sup-talk] sup dislikes gpgme on Ubuntu 12.04</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00051.html">[sup-talk] Detection of messages with Fake Sender</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00273"><strong>Date</strong></a></li>
+<li><a href="threads.html#00273"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

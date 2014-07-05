@@ -1,0 +1,192 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Bug: Xapian exception after having polled -->
+<!--X-From-R13: Uhvyynhzr Chvagneq <thvyynhzr.dhvagneqNtznvy.pbz> -->
+<!--X-Date: Tue, 6 Oct 2009 03:22:06 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1e5fdab70910060314i6a4cce5ck92e7605ec54f98a1@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 25727581.post@talk.nabble.com -->
+<!--X-Reference: 1254594099&#45;sup&#45;719@zyrg.net -->
+<!--X-Reference: 20091004101550.GA7330@qwerzila.bluecom.no -->
+<!--X-Reference: 1254681739&#45;sup&#45;4089@zyrg.net -->
+<!--X-Reference: 5a5b14cf0910041156q7e755931w4fb75ce57f9f4339@mail.gmail.com -->
+<!--X-Reference: 1254682966&#45;sup&#45;6629@zyrg.net -->
+<!--X-Reference: 5a5b14cf0910041220p26a4c830va172df0e33542480@mail.gmail.com -->
+<!--X-Reference: 1254780036&#45;sup&#45;3214@qwerzila -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Bug: Xapian exception after having polled</title>
+<link rev="made" href="mailto:guillaume.quintard@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01538.html">Date Prev</a>][<a href="msg01647.html">Date Next</a>][<a href="msg01514.html">Thread Prev</a>][<a href="msg01652.html">Thread Next</a>][<a href="maillist.html#01595">Date Index</a>][<a href="threads.html#01595">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Bug: Xapian exception after having polled</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Bug: Xapian exception after having polled</li>
+<li><em>From</em>: Guillaume Quintard &lt;<a href="mailto:guillaume.quintard%40gmail.com">guillaume.quintard@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 6 Oct 2009 12:14:43 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:sender:received:in-reply-to	:references:date:x-google-sender-auth:message-id:subject:from:to	:content-type; bh=Ted4CXJbStPxvejmez0YeiMkabh6Sxu3WxesjXXdD+w=;	b=vo2Piy8CJCpMi6BSsuQYvSTISuvqSSoBDhD4yk2mpuiNu6u5nVtYwviLpSQcjepLuK	DxOxGRb5qyx2c3dmfLFtFmg4z96YYWU5Csw2L4Sdc4LyiFfUDe9MvDMTRqtY6hl+yG+O	usqJ1jc1lU6EAjZI6rUyW0BbAzoMnlRYTmYWU=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:sender:in-reply-to:references:date	:x-google-sender-auth:message-id:subject:from:to:content-type;	b=jZALmOZtJj0RRm+4ofobV1+q+sMvl4qKhnQAQYemT7wFDmCQugZ3+xonXTvEjed1hy	1sCf9MroIgtfZHM5h3W0NDjf5TmgWzbcB3T9m2PRvKxLkARYxEziwwkboFm1Xf50ijaF	p+0zslJyA6/Bil5Eg6qKgNLr3evTTjYb3eF9Q=</li>
+<li><em>In-reply-to</em>: &lt;1254780036-sup-3214@qwerzila&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;25727581.post@talk.nabble.com&gt; &lt;<a href="msg01645.html">1254594099-sup-719@zyrg.net</a>&gt;	&lt;<a href="msg01516.html">20091004101550.GA7330@qwerzila.bluecom.no</a>&gt;	&lt;<a href="msg01488.html">1254681739-sup-4089@zyrg.net</a>&gt;	&lt;<a href="msg01772.html">5a5b14cf0910041156q7e755931w4fb75ce57f9f4339@mail.gmail.com</a>&gt;	&lt;<a href="msg01598.html">1254682966-sup-6629@zyrg.net</a>&gt;	&lt;<a href="msg01678.html">5a5b14cf0910041220p26a4c830va172df0e33542480@mail.gmail.com</a>&gt;	&lt;1254780036-sup-3214@qwerzila&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Tue, Oct 6, 2009 at 12:01 AM, Gaute Hope &lt;eg@gaute.vetsj.com&gt; wrote:
+&gt; Did a 'sup-sync --changed -o' and the problem seems to be gone.
+
+It doesn't for me. During sup-sync I get this:
+
+[Tue Oct 06 11:22:55 +0200 2009] hook: error running hook: cannot
+generate tempfile `/tmp/12016-9-attachments/389068.html'
+[Tue Oct 06 11:22:55 +0200 2009] hook:
+/usr/lib/ruby/1.8/tempfile.rb:52:in `initialize'
+./lib/sup/message-chunks.rb:149:in `new'
+./lib/sup/message-chunks.rb:149:in `write_to_disk'
+./lib/sup/message-chunks.rb:105:in `initialize'
+./lib/sup/hook.rb:51:in `call'
+./lib/sup/hook.rb:51:in `filename'
+/home/shivan/.sup/hooks/mime-decode.rb:4:in `__run'
+./lib/sup/hook.rb:42:in `__run'
+./lib/sup/hook.rb:82:in `run'
+./lib/sup/util.rb:520:in `send'
+./lib/sup/util.rb:520:in `method_missing'
+./lib/sup/message-chunks.rb:104:in `initialize'
+./lib/sup/message.rb:503:in `new'
+./lib/sup/message.rb:503:in `message_to_chunks'
+./lib/sup/message.rb:435:in `message_to_chunks'
+./lib/sup/message.rb:435:in `map'
+./lib/sup/message.rb:435:in `message_to_chunks'
+./lib/sup/message.rb:239:in `load_from_source!'
+./lib/sup/message.rb:335:in `build_from_source'
+./lib/sup/poll.rb:160:in `each_message_from'
+./lib/sup/source.rb:104:in `each'
+./lib/sup/util.rb:560:in `send'
+./lib/sup/util.rb:560:in `__pass'
+./lib/sup/util.rb:547:in `method_missing'
+./lib/sup/poll.rb:154:in `each_message_from'
+./lib/sup/util.rb:520:in `send'
+./lib/sup/util.rb:520:in `method_missing'
+bin/sup-sync:146
+bin/sup-sync:141:in `each'
+bin/sup-sync:141
+
+I got rid of the hooks, ran sup-sync again, the message goes away, but
+I still get:
+
+--- RuntimeError from thread: load threads for thread-index-mode
+wrong id called on nil
+./lib/sup.rb:17:in `id'
+./lib/sup/modes/thread-index-mode.rb:225:in `update'
+./lib/sup/hook.rb:121:in `sort_by'
+./lib/sup/modes/thread-index-mode.rb:225:in `each'
+./lib/sup/modes/thread-index-mode.rb:225:in `sort_by'
+./lib/sup/modes/thread-index-mode.rb:225:in `update'
+./lib/sup/modes/thread-index-mode.rb:223:in `synchronize'
+./lib/sup/modes/thread-index-mode.rb:223:in `update'
+./lib/sup/modes/thread-index-mode.rb:637:in `__unprotected_load_n_threads'
+(eval):12:in `load_n_threads'
+./lib/sup/modes/thread-index-mode.rb:609:in `load_n_threads_background'
+./lib/sup.rb:77:in `reporting_thread'
+./lib/sup.rb:75:in `initialize'
+./lib/sup.rb:75:in `new'
+./lib/sup.rb:75:in `reporting_thread'
+./lib/sup/modes/thread-index-mode.rb:608:in `load_n_threads_background'
+./lib/sup/modes/thread-index-mode.rb:679:in `__unprotected_load_threads'
+(eval):12:in `load_threads'
+bin/sup:197
+
+upon loading
+
+-- 
+Guillaume
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01652" href="msg01652.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01726" href="msg01726.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01645" href="msg01645.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01516" href="msg01516.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01488" href="msg01488.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01772" href="msg01772.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01598" href="msg01598.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01678" href="msg01678.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01514" href="msg01514.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01538.html">Re: [sup-talk] Simple E-Mail Delaying</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01647.html">Re: [sup-talk] Crash, bad index, and ensuing misery</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01514.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01652.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01595"><strong>Date</strong></a></li>
+<li><a href="threads.html#01595"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

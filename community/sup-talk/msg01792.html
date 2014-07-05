@@ -1,0 +1,146 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Mon, 19 Oct 2009 23:14:03 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1256019034&#45;sup&#45;9298@zyrg.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 20091012223449.GB31940@tilus.net -->
+<!--X-Reference: 1256016877&#45;5238&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01518.html">Date Prev</a>][<a href="msg01502.html">Date Next</a>][<a href="msg01518.html">Thread Prev</a>][<a href="msg01502.html">Thread Next</a>][<a href="maillist.html#01792">Date Index</a>][<a href="threads.html#01792">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Tue, 20 Oct 2009 02:13:58 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01518.html">1256016877-5238-1-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01542.html">20091012223449.GB31940@tilus.net</a>&gt;	&lt;<a href="msg01518.html">1256016877-5238-1-git-send-email-rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Disregard this one. (I thought master had already gotten my
+update-message-state patch)
+
+Excerpts from Rich Lane's message of Tue Oct 20 01:34:37 -0400 2009:
+&gt; ---
+&gt;  lib/sup/xapian_index.rb |   25 +++++++++++++++++++++++++
+&gt;  1 files changed, 25 insertions(+), 0 deletions(-)
+&gt; 
+&gt; diff --git a/lib/sup/xapian_index.rb b/lib/sup/xapian_index.rb
+&gt; index e1cfe65..c373c17 100644
+&gt; --- a/lib/sup/xapian_index.rb
+&gt; +++ b/lib/sup/xapian_index.rb
+&gt; @@ -560,7 +560,32 @@ EOS
+&gt;        raise &quot;Invalid term type #{type}&quot;
+&gt;      end
+&gt;    end
+&gt; +end
+&gt;  
+&gt;  end
+&gt;  
+&gt; +class Xapian::Document
+&gt; +  def entry
+&gt; +    Marshal.load data
+&gt; +  end
+&gt; +
+&gt; +  def entry=(x)
+&gt; +    self.data = Marshal.dump x
+&gt; +  end
+&gt; +
+&gt; +  def index_text text, prefix, weight=1
+&gt; +    term_generator = Xapian::TermGenerator.new
+&gt; +    term_generator.stemmer =
+&gt; Xapian::Stem.new(Redwood::XapianIndex::STEM_LANGUAGE)
+&gt; +    term_generator.document = self
+&gt; +    term_generator.index_text text, weight, prefix
+&gt; +  end
+&gt; +
+&gt; +  alias old_add_term add_term
+&gt; +  def add_term term
+&gt; +    if term.length &lt;= Redwood::XapianIndex::MAX_TERM_LENGTH
+&gt; +      old_add_term term
+&gt; +    else
+&gt; +      warn &quot;dropping excessively long term #{term}&quot;
+&gt; +    end
+&gt; +  end
+&gt;  end
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01542" href="msg01542.html">[sup-talk] Xapian: Term too long</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+<li><strong><a name="01518" href="msg01518.html">[sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01518.html">[sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01502.html">[sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01518.html">[sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01502.html">[sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01792"><strong>Date</strong></a></li>
+<li><a href="threads.html#01792"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

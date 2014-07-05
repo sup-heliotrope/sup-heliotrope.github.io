@@ -1,0 +1,132 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Problems with undo archive and thread focus -->
+<!--X-From-R13: [ngguvnf Uhrqrznaa <zngguvnf.thrqrznaaNbith.qr> -->
+<!--X-Date: Mon, 16 Nov 2009 02:00:03 &#45;0800 (PST) -->
+<!--X-Message-Id: 1258363822&#45;sup&#45;5470@pc44es141.cs.uni&#45;magdeburg.de -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1257409101&#45;sup&#45;7780@pc44es141.cs.uni&#45;magdeburg.de -->
+<!--X-Reference: 1258045702&#45;sup&#45;9760@pimlott.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Problems with undo archive and thread focus</title>
+<link rev="made" href="mailto:matthias.guedemann@ovgu.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01523.html">Date Prev</a>][<a href="msg01539.html">Date Next</a>][<a href="msg01535.html">Thread Prev</a>][<a href="msg01454.html">Thread Next</a>][<a href="maillist.html#01515">Date Index</a>][<a href="threads.html#01515">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Problems with undo archive and thread focus</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Problems with undo archive and thread focus</li>
+<li><em>From</em>: Matthias Guedemann &lt;<a href="mailto:matthias.guedemann%40ovgu.de">matthias.guedemann@ovgu.de</a>&gt;</li>
+<li><em>Date</em>: Mon, 16 Nov 2009 10:42:18 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01535.html">1258045702-sup-9760@pimlott.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01578.html">1257409101-sup-7780@pc44es141.cs.uni-magdeburg.de</a>&gt;	&lt;<a href="msg01535.html">1258045702-sup-9760@pimlott.net</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Hi Andrew,
+
+&gt; The patch is appended.  (This is the first time I've done this with git.)
+
+thanks, works perfectly.
+
+&gt; That's the next most annying thing for me.  Hope to get a chance to work
+&gt; on it.
+
+I had a look at the code and it should not be too hard, basically when a reply
+buffer is spawned (e.g. thread-view-mode line 168), a hook to call set_sursor_pos
+0 (as ThreadViewMode is a subclass of LineCursorMode) after successful sending of
+the reply should do the job. 
+
+But unfortunately I don't know too much about the inner workings of sup (can the
+HookManager be used for this? or should the hook be supplied as attribute to the
+reply-buffer?), or even Ruby, to do it at the moment.
+
+best regards
+
+Matthias
+
+
+-- 
+__________________________________________________________
+                                            ___  __    __
+Dipl. Inf. Matthias Guedemann              / __\/ _\  /__\
+Computer Systems in Engineering           / /   \ \  /_\
+Otto-von-Guericke Universitaet Magdeburg / /___ _\ \//__
+Tel.: 0391 / 67-19359                    \____/ \__/\__/
+__________________________________________________________
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01578" href="msg01578.html">[sup-talk] Problems with undo archive and thread focus</a></strong>
+<ul><li><em>From:</em> Matthias Guedemann &lt;matthias.guedemann@ovgu.de&gt;</li></ul></li>
+<li><strong><a name="01535" href="msg01535.html">Re: [sup-talk] Problems with undo archive and thread focus</a></strong>
+<ul><li><em>From:</em> Andrew Pimlott &lt;andrew@pimlott.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01523.html">Re: [sup-talk] Sup not working anymore after abrupt reboot</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01539.html">[sup-talk] Bug report, importing emails into sup</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01535.html">Re: [sup-talk] Problems with undo archive and thread focus</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01454.html">Re: [sup-talk] Problems with undo archive and thread focus</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01515"><strong>Date</strong></a></li>
+<li><a href="threads.html#01515"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

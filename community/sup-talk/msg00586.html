@@ -1,0 +1,122 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Hook for in&#45;reply&#45;to -->
+<!--X-From-R13: Pra Inygba <ojnygbaNnegfpv.hgbebagb.pn> -->
+<!--X-Date: Fri, 17 Dec 2010 06:31:00 &#45;0800 (PST) -->
+<!--X-Message-Id: 1292596203&#45;sup&#45;4988@pinkfloyd.chass.utoronto.ca -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: AANLkTikBr_82a9=28kzmePD8jgMksGrCa6FfMyy2G&#45;iP@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Hook for in-reply-to</title>
+<link rev="made" href="mailto:bwalton@artsci.utoronto.ca">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00688.html">Date Prev</a>][<a href="msg00523.html">Date Next</a>][<a href="msg00688.html">Thread Prev</a>][<a href="msg00611.html">Thread Next</a>][<a href="maillist.html#00586">Date Index</a>][<a href="threads.html#00586">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Hook for in-reply-to</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Hook for in-reply-to</li>
+<li><em>From</em>: Ben Walton &lt;<a href="mailto:bwalton%40artsci.utoronto.ca">bwalton@artsci.utoronto.ca</a>&gt;</li>
+<li><em>Date</em>: Fri, 17 Dec 2010 09:30:49 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;AANLkTikBr_82a9=28kzmePD8jgMksGrCa6FfMyy2G-iP@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;AANLkTikBr_82a9=28kzmePD8jgMksGrCa6FfMyy2G-iP@mail.gmail.com&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Matti Eiden's message of Fri Dec 17 09:03:38 -0500 2010:
+
+Hi Matti,
+
+&gt; In what file should I use it in? And is there a way to make the
+&gt; whole index go through the hook, so I can recover all my old moodle
+&gt; emails and get them threaded properly too?
+
+I _think_ you'd want to apply that in the before-add-message hook
+(~/.sup/hooks/before-add-message.rb).  That type of things makes me
+want to cry...glad moodle fixed it though.
+
+Thanks
+-Ben
+--
+Ben Walton
+Systems Programmer - CHASS
+University of Toronto
+C:416.407.5610 | W:416.978.4302
+
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00611" href="msg00611.html">Re: [sup-talk] Hook for in-reply-to</a></strong>
+<ul><li><em>From:</em> Matti Eiden &lt;snaipperi@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00688" href="msg00688.html">[sup-talk] Hook for in-reply-to</a></strong>
+<ul><li><em>From:</em> Matti Eiden &lt;snaipperi@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00688.html">[sup-talk] Hook for in-reply-to</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00523.html">Re: [sup-talk] change automagicaly inserted line in reply messages</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00688.html">[sup-talk] Hook for in-reply-to</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00611.html">Re: [sup-talk] Hook for in-reply-to</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00586"><strong>Date</strong></a></li>
+<li><a href="threads.html#00586"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

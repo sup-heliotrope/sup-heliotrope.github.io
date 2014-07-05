@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Showing archived messages -->
+<!--X-From-R13: Rvrtb Xbff <qvrtb.wbffNuvfcrrq.pu> -->
+<!--X-Date: Thu, 29 Sep 2011 16:24:35 &#45;0700 (PDT) -->
+<!--X-Message-Id: 20110929223233.GA7353@hispeed.ch -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1315588865&#45;sup&#45;1492@v2.zyria.de -->
+<!--X-Reference: 1317330195&#45;sup&#45;9666@nyx.local -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Showing archived messages</title>
+<link rev="made" href="mailto:diego.joss@hispeed.ch">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00294.html">Date Prev</a>][<a href="msg00049.html">Date Next</a>][<a href="msg00294.html">Thread Prev</a>][<a href="msg00049.html">Thread Next</a>][<a href="maillist.html#00218">Date Index</a>][<a href="threads.html#00218">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Showing archived messages</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Showing archived messages</li>
+<li><em>From</em>: Diego Joss &lt;<a href="mailto:diego.joss%40hispeed.ch">diego.joss@hispeed.ch</a>&gt;</li>
+<li><em>Date</em>: Fri, 30 Sep 2011 00:32:33 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1317330195-sup-9666@nyx.local&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Mail-followup-to</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00220.html">1315588865-sup-1492@v2.zyria.de</a>&gt; &lt;1317330195-sup-9666@nyx.local&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mutt/1.5.21 (2010-09-15)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi,
+
+if I'm not mistaken, you can use the 'all' keyword to match all
+messages. I haven't tested with sup, but sup is using xapian, and with
+notmuch (<a  rel="nofollow" href="http://notmuchmail.org/">http://notmuchmail.org/</a>), which also uses xapian, it works.
+
+thus try:
+all -label:inbox
+
+Diego
+
+On Thu, Sep 29, 2011 at 02:06:29PM -0700, David J. Hamilton wrote:
+&gt; Excerpts from jomat's message of Fri Sep 09 10:35:30 -0700 2011:
+&gt; &gt; Now I don't know if I didn't understand
+&gt; &gt; it, but shouldn't a search for -label:inbox show my archive?
+&gt; 
+&gt; I gather from experimentation (rather than documentation) that queries must have
+&gt; at least one positive clause.  A query with a single negative clause is treated
+&gt; as a positive clause.  I don't know of a way to search for &#x201C;anything&#x201D;, but
+&gt; here's an example of a query that almost gets you what you want:
+&gt; 
+&gt;   to:me -label:inbox
+&gt; 
+&gt; I expect this is a bug and that `-label:inbox` is intended to work as you
+&gt; expect.
+&gt; -- 
+&gt; med v&#xE4;nlig h&#xE4;lsning
+&gt; David J. Hamilton
+&gt; _______________________________________________
+&gt; sup-talk mailing list
+&gt; sup-talk@rubyforge.org
+&gt; <a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00049" href="msg00049.html">Re: [sup-talk] Showing archived messages</a></strong>
+<ul><li><em>From:</em> David J. Hamilton &lt;groups@hjdivad.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00220" href="msg00220.html">[sup-talk] Showing archived messages</a></strong>
+<ul><li><em>From:</em> jomat &lt;jomat+sup-talk@jmt.gr&gt;</li></ul></li>
+<li><strong><a name="00294" href="msg00294.html">Re: [sup-talk] Showing archived messages</a></strong>
+<ul><li><em>From:</em> David J. Hamilton &lt;groups@hjdivad.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00294.html">Re: [sup-talk] Showing archived messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00049.html">Re: [sup-talk] Showing archived messages</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00294.html">Re: [sup-talk] Showing archived messages</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00049.html">Re: [sup-talk] Showing archived messages</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00218"><strong>Date</strong></a></li>
+<li><a href="threads.html#00218"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

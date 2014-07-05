@@ -1,0 +1,120 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Hook for in&#45;reply&#45;to -->
+<!--X-From-R13: [nggv Svqra <fanvccrevNtznvy.pbz> -->
+<!--X-Date: Fri, 17 Dec 2010 06:25:41 &#45;0800 (PST) -->
+<!--X-Message-Id: AANLkTikBr_82a9=28kzmePD8jgMksGrCa6FfMyy2G&#45;iP@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Hook for in-reply-to</title>
+<link rev="made" href="mailto:snaipperi@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00590.html">Date Prev</a>][<a href="msg00586.html">Date Next</a>][<a href="msg00520.html">Thread Prev</a>][<a href="msg00586.html">Thread Next</a>][<a href="maillist.html#00688">Date Index</a>][<a href="threads.html#00688">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Hook for in-reply-to</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Hook for in-reply-to</li>
+<li><em>From</em>: Matti Eiden &lt;<a href="mailto:snaipperi%40gmail.com">snaipperi@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 17 Dec 2010 16:03:38 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:received:date:message-id	:subject:from:to:content-type;	bh=pL88uzYfKKohCLagOqQsH9GEyDNnGcGK+jMVy0vvzpg=;	b=Caq5++06G+KEJ8/kjG+suGW9jsHJ73ikjpydUpceksIooeNwD0OhmzSsTNHQebHkQR	oTuGp6TZBNSCyPggTlf5RmqqO+XcXxv00R/7G2Fy8rRE/CJ0KVnWkHWDK0BEzVIYToh4	Vvccr/ofq7WiZKn29v83KNyo5CxecljIJt1Zg=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=lmWsG29L7L+1RRCUVdSMXt1g3nI6m7o+qzxW1lNJg/wF8WIfTnmt2hMrtsr2PPxB8W	Qfwlejd3e18cyAAGse5lfbaUnVX34qbqXdhz6I8M95Cas9u2wnLyPrXnoAakqP7Shi4J	wXrNcQkKEq9NYDK71C/YL3m4qWpn6KkHYv68I=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hey folks,
+
+I gave up using sup a while ago (read half a year) when I began
+getting a lot of email from my university's Moodle. Moodle has/had a
+rather stupid bug (now fixed, but it's gonna take years to reach my
+university), which was that every email that wasn't based on a reply
+(For example a new forum thread notification at moodle), received a
+default In-Reply-To header of &quot;moodlepost0@moodle.tamk.fi&quot;.
+
+You can probably imagine what happens: Every email coming from moodle
+gets threaded under non-existing email &quot;moodlepost0&quot;. In fact, they
+wont appear in my inbox at all.
+
+So I'd need a hook to kill this moodlepost0 from every email I
+receive. I found this on pastebin, which looks like sup stuff:
+
+<a  rel="nofollow" href="http://pastebin.com/vzuXu9gr">http://pastebin.com/vzuXu9gr</a>
+
+In what file should I use it in? And is there a way to make the whole
+index go through the hook, so I can recover all my old moodle emails
+and get them threaded properly too?
+
+
+Thanks,
+Matti Eiden
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00586" href="msg00586.html">Re: [sup-talk] Hook for in-reply-to</a></strong>
+<ul><li><em>From:</em> Ben Walton &lt;bwalton@artsci.utoronto.ca&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00590.html">Re: [sup-talk] change automagicaly inserted line in reply messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00586.html">Re: [sup-talk] Hook for in-reply-to</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00520.html">Re: [sup-talk] change automagicaly inserted line in reply messages</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00586.html">Re: [sup-talk] Hook for in-reply-to</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00688"><strong>Date</strong></a></li>
+<li><a href="threads.html#00688"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

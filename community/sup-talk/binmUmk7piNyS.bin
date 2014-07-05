@@ -1,0 +1,43 @@
+commit 7ac173c5ca6ff3ec48ba776321a38fb21980a0fc
+Author: Rich Lane <rlane@club.cc.cmu.edu>
+Date:   Sat Oct 3 11:19:08 2009 -0700
+
+    nil msgid assertions
+
+diff --git a/lib/sup/message.rb b/lib/sup/message.rb
+index f9f87de..979597a 100644
+--- a/lib/sup/message.rb
++++ b/lib/sup/message.rb
+@@ -77,6 +77,8 @@ class Message
+       id
+     end
+ 
++    fail "nil msgid, header was #{header['message-id'].inspect}" unless @id
++
+     @from = Person.from_address(if header["from"]
+       header["from"]
+     else
+diff --git a/lib/sup/poll.rb b/lib/sup/poll.rb
+index b59237f..d992a6c 100644
+--- a/lib/sup/poll.rb
++++ b/lib/sup/poll.rb
+@@ -143,6 +143,7 @@ EOS
+         end
+ 
+         m = Message.build_from_source source, offset
++        fail unless m.id
+         m.labels += source_labels + (source.archived? ? [] : [:inbox])
+         m.labels.delete :unread if m.source_marked_read? # preserve read status if possible
+         m.labels.each { |l| LabelManager << l }
+diff --git a/lib/sup/xapian_index.rb b/lib/sup/xapian_index.rb
+index ab25ea0..91a5cc0 100644
+--- a/lib/sup/xapian_index.rb
++++ b/lib/sup/xapian_index.rb
+@@ -72,6 +72,7 @@ EOS
+   end
+ 
+   def build_message id
++    fail unless id
+     entry = synchronize { get_entry id }
+     return unless entry
+ 

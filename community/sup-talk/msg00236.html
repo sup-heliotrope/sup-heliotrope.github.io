@@ -1,0 +1,434 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Adding hooks to sup&#45;mail -->
+<!--X-From-R13: Xbanguna Wcfre <wbangunavcfreNtznvy.pbz> -->
+<!--X-Date: Sun, 22 May 2011 15:07:19 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1305988436&#45;sup&#45;5041@jon&#45;laptop -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Adding hooks to sup-mail</title>
+<link rev="made" href="mailto:jonathanipser@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00083.html">Date Prev</a>][<a href="msg00202.html">Date Next</a>][<a href="msg00102.html">Thread Prev</a>][<a href="msg00202.html">Thread Next</a>][<a href="maillist.html#00236">Date Index</a>][<a href="threads.html#00236">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Adding hooks to sup-mail</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Adding hooks to sup-mail</li>
+<li><em>From</em>: Jonathan Ipser &lt;<a href="mailto:jonathanipser%40gmail.com">jonathanipser@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 21 May 2011 10:49:59 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:content-type:subject:from:to:date:message-id	:user-agent:content-transfer-encoding;	bh=7a77AJNvICw04oDVhDhT/IE7LdMmm7KiGa+JAPt5r2I=;	b=BqKMosXksd1eueGWAaszCk1m5zTMY2To2LmrZDS4/owCAiwcmpO++Kn7qRwtZ+JJQn	HfEZtPFhKnqXuL2+8zy18HyFIGz7j12qzdE/AXVNipIQJBiPsNwrHgV66fXgFaTrHdUK	pxfzfn36D5BtsZ+6TbJaByRMm3JzMRIKRIqgs=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=mwb8NlFK5qHSPAFKi+lsWPYQsidBKAqHrmQxqGi1mg6TNehC+RbmSAO7cr7ZVYZx5k	LVA1Wp0CX3SOpIyuW6GhewJ8jpus4F5638isHFpNblu+i0yRTF+oB9QzlFs75z6TJPYI	iRu0IKy/UNzlo52iS7aEDIJn8+zl2pk3uBl7o=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/0.11</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello All,
+
+I have recently started using sup-mail, and have found the simplicity of the user-interface a refreshing change from other email-clients.
+
+One problem I am having though has to do with adding hooks to sup-mail.  When I run &quot;sup-mail -l&quot;, I am presented with a list of 30 hooks that are registered on my system (see output below). None of these scripts are found in the location listed, however (the .sup/hooks directory is empty). Running the 'find' command does not detect the scripts elsewhere on my system, either. Also, nothing changes when I try to overwrite the listed hooks by adding scripts to the .sup/hooks directory. 
+
+Any information on how to add/modify hooks with sup-mail would be much appreciated. FYI, I installed sup-mail (v. 0.11) using the standard installation procedure for my Xubuntu OS. I am running sup-mail as the root user.   
+
+Regards,
+Jonathan
+
+
+
+
+-------output of 'sup-mail -l'
+Have 30 registered hooks:
+
+after-poll
+----------
+File: ~/.sup/hooks/after-poll.rb
+Executes immediately after a poll for new messages completes.
+Variables:
+                   num: the total number of new messages added in this poll
+             num_inbox: the number of new messages added in this poll which
+                        appear in the inbox (i.e. were not auto-archived).
+num_inbox_total_unread: the total number of unread messages in the inbox
+         from_and_subj: an array of (from email address, subject) pairs
+   from_and_subj_inbox: an array of (from email address, subject) pairs for
+                        only those messages appearing in the inbox
+
+attribution
+-----------
+File: ~/.sup/hooks/attribution.rb
+Generates an attribution (&quot;Excerpts from Joe Bloggs's message of Fri Jan 11 09:54:32 -0500 2008:&quot;).
+Variables:
+  message: a message object representing the message being replied to
+    (useful values include message.from.name and message.date)
+Return value:
+  A string containing the text of the quote line (can be multi-line)
+
+before-add-message
+------------------
+File: ~/.sup/hooks/before-add-message.rb
+Executes immediately before a message is added to the index.
+Variables:
+  message: the new message
+
+before-edit
+-----------
+File: ~/.sup/hooks/before-edit.rb                                                                                                                              
+Modifies message body and headers before editing a new message. Variables                                                                                                           
+should be modified in place.                                                                                                                                                        
+Variables:                                                                                                                                                                          
+        header: a hash of headers. See 'signature' hook for documentation.                                                                                                          
+        body: an array of lines of body text.                                                                                                                                       
+Return value:                                                                                                                                                                       
+        none                                                                                                                                                                        
+
+before-poll
+-----------
+File: ~/.sup/hooks/before-poll.rb
+Executes immediately before a poll for new messages commences.
+No variables.
+
+bounce-command
+--------------
+File: ~/.sup/hooks/bounce-command.rb
+Determines the command used to bounce a message.
+Variables:
+      from: The From header of the message being bounced
+            (eg: likely _not_ your address).
+        to: The addresses you asked the message to be bounced to as an array.
+Return value:
+  A string representing the command to pipe the mail into.  This
+  should include the entire command except for the destination addresses,
+  which will be appended by sup.
+
+crypto-mode
+-----------
+File: ~/.sup/hooks/crypto-mode.rb
+Modifies cryptography settings based on header and message content, before
+editing a new message. This can be used to set, for example, default cryptography
+settings.
+Variables:
+    header: a hash of headers. See 'signature' hook for documentation.
+    body: an array of lines of body text.
+    crypto_selector: the UI element that controls the current cryptography setting.
+Return value:
+     none
+
+custom-search
+-------------
+File: ~/.sup/hooks/custom-search.rb
+Executes before a string search is applied to the index,
+returning a new search string.
+Variables:
+  subs: The string being searched.
+
+detailed-headers
+----------------
+File: ~/.sup/hooks/detailed-headers.rb
+Add or remove headers from the detailed header display of a message.
+Variables:
+  message: The message whose headers are to be formatted.
+  headers: A hash of header (name, value) pairs, initialized to the default
+           headers.
+Return value:
+  None. The variable 'headers' should be modified in place.
+
+extra-contact-addresses
+-----------------------
+File: ~/.sup/hooks/extra-contact-addresses.rb
+A list of extra addresses to propose for tab completion, etc. when the
+user is entering an email address. Can be plain email addresses or can
+be full &quot;User Name &lt;email@domain.tld&gt;&quot; entries.
+
+Variables: none
+Return value: an array of email address strings.
+
+gpg-args
+--------
+File: ~/.sup/hooks/gpg-args.rb
+Runs before gpg is executed, allowing you to modify the arguments (most
+likely you would want to add something to certain commands, like
+--trust-model always to signing/encrypting a message, but who knows).
+
+Variables:
+args: arguments for running GPG
+
+Return value: the arguments for running GPG
+
+index-mode-date-widget
+----------------------
+File: ~/.sup/hooks/index-mode-date-widget.rb
+Generates the per-thread date widget for each thread.
+Variables:
+  thread: The message thread to be formatted.
+
+index-mode-size-widget
+----------------------
+File: ~/.sup/hooks/index-mode-size-widget.rb
+Generates the per-thread size widget for each thread.
+Variables:
+  thread: The message thread to be formatted.
+
+keybindings
+-----------
+File: ~/.sup/hooks/keybindings.rb
+Add custom keybindings.
+Methods:
+  modes: Hash from mode names to mode classes.
+  global_keymap: The top-level keymap.
+
+label-list-filter
+-----------------
+File: ~/.sup/hooks/label-list-filter.rb
+Filter the label list, typically to sort.
+Variables:
+  counted: an array of counted labels.
+Return value:
+  An array of counted labels with sort_by output structure.
+
+label-list-format
+-----------------
+File: ~/.sup/hooks/label-list-format.rb
+Create the sprintf format string for label-list-mode.
+Variables:
+  width: the maximum label width
+  tmax: the maximum total message count
+  umax: the maximum unread message count
+Return value:
+  A format string for sprintf
+
+mark-as-spam
+------------
+File: ~/.sup/hooks/mark-as-spam.rb
+This hook is run when a thread is marked as spam
+Variables:
+  thread: The message thread being marked as spam.
+
+mentions-attachments
+--------------------
+File: ~/.sup/hooks/mentions-attachments.rb
+Detects if given message mentions attachments the way it is probable
+that there should be files attached to the message.
+Variables:
+        header: a hash of headers. See 'signature' hook for documentation.
+        body: an array of lines of body text.
+Return value:
+        True if attachments are mentioned.
+
+mime-decode
+-----------
+File: ~/.sup/hooks/mime-decode.rb
+Decodes a MIME attachment into text form. The text will be displayed
+directly in Sup. For attachments that you wish to use a separate program
+to view (e.g. images), you should use the mime-view hook instead.
+
+Variables:
+   content_type: the content-type of the attachment
+        charset: the charset of the attachment, if applicable
+       filename: the filename of the attachment as saved to disk
+  sibling_types: if this attachment is part of a multipart MIME attachment,
+                 an array of content-types for all attachments. Otherwise,
+                 the empty array.
+Return value:
+  The decoded text of the attachment, or nil if not decoded.
+
+mime-view
+---------
+File: ~/.sup/hooks/mime-view.rb
+Views a non-text MIME attachment. This hook allows you to run
+third-party programs for attachments that require such a thing (e.g.
+images). To instead display a text version of the attachment directly in
+Sup, use the mime-decode hook instead.
+
+Note that by default (at least on systems that have a run-mailcap command),
+Sup uses the default mailcap handler for the attachment's MIME type. If
+you want a particular behavior to be global, you may wish to change your
+mailcap instead.
+
+Variables:
+   content_type: the content-type of the attachment
+       filename: the filename of the attachment as saved to disk
+Return value:
+  True if the viewing was successful, false otherwise. If false, calling
+  /usr/bin/run-mailcap will be tried.
+
+publish
+-------
+File: ~/.sup/hooks/publish.rb
+Executed when a message or a chunk is requested to be published.
+Variables:
+     chunk: Redwood::Message or Redwood::Chunk::* to be published.
+Return value:
+  None.
+
+reply-from
+----------
+File: ~/.sup/hooks/reply-from.rb
+Selects a default address for the From: header of a new reply.
+Variables:
+  message: a message object representing the message being replied to
+    (useful values include message.recipient_email, message.to, and message.cc)
+Return value:
+  A Person to be used as the default for the From: header, or nil to use the
+  default behavior.
+
+reply-to
+--------
+File: ~/.sup/hooks/reply-to.rb
+Set the default reply-to mode.
+Variables:
+  modes: array of valid modes to choose from, which will be a subset of
+             [:sender, :recipient, :list, :all, :user]
+         The default behavior is equivalent to
+             ([:list, :sender, :recipent] &amp; modes)[0]
+Return value:
+  The reply mode you desire, or nil to use the default behavior.
+
+search-list-filter
+------------------
+File: ~/.sup/hooks/search-list-filter.rb
+Filter the search list, typically to sort.
+Variables:
+  counted: an array of counted searches.
+Return value:
+  An array of counted searches with sort_by output structure.
+
+search-list-format
+------------------
+File: ~/.sup/hooks/search-list-format.rb
+Create the sprintf format string for search-list-mode.
+Variables:
+  n_width: the maximum search name width
+  tmax: the maximum total message count
+  umax: the maximum unread message count
+  s_width: the maximum search string width
+Return value:
+  A format string for sprintf
+
+shutdown
+--------
+File: ~/.sup/hooks/shutdown.rb
+Executes when sup is shutting down. May be run when sup is crashing,
+so don't do anything too important. Run before the label, contacts,
+and people are saved.
+No variables.
+No return value.
+
+signature
+---------
+File: ~/.sup/hooks/signature.rb
+Generates a message signature.
+Variables:
+      header: an object that supports string-to-string hashtable-style access
+              to the raw headers for the message. E.g., header[&quot;From&quot;],
+              header[&quot;To&quot;], etc.
+  from_email: the email part of the From: line, or nil if empty
+Return value:
+  A string (multi-line ok) containing the text of the signature, or nil to
+  use the default signature, or :none for no signature.
+
+startup
+-------
+File: ~/.sup/hooks/startup.rb
+Executes at startup
+No variables.
+No return value.
+
+status-bar-text
+---------------
+File: ~/.sup/hooks/status-bar-text.rb
+Sets the status bar. The default status bar contains the mode name, the buffer
+title, and the mode status. Note that this will be called at least once per
+keystroke, so excessive computation is discouraged.
+
+Variables:
+         num_inbox: number of messages in inbox
+  num_inbox_unread: total number of messages marked as unread
+         num_total: total number of messages in the index
+          num_spam: total number of messages marked as spam
+             title: title of the current buffer
+              mode: current mode name (string)
+            status: current mode status (string)
+Return value: a string to be used as the status bar.
+
+terminal-title-text
+-------------------
+File: ~/.sup/hooks/terminal-title-text.rb
+Sets the title of the current terminal, if applicable. Note that this will be
+called at least once per keystroke, so excessive computation is discouraged.
+
+Variables: the same as status-bar-text hook.
+Return value: a string to be used as the terminal title.
+
+
+ 
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00202" href="msg00202.html">Re: [sup-talk] Adding hooks to sup-mail</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00083.html">Re: [sup-talk] Word wrap for quoted lines</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00202.html">Re: [sup-talk] Adding hooks to sup-mail</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00102.html">Re: [sup-talk] Sup + offlineimap + Gmail</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00202.html">Re: [sup-talk] Adding hooks to sup-mail</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00236"><strong>Date</strong></a></li>
+<li><a href="threads.html#00236"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

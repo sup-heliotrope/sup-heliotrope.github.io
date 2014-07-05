@@ -1,0 +1,66 @@
+From 735a5ceb757599af71702d4ece8d29cb11f2c65b Mon Sep 17 00:00:00 2001
+From: Helge Titlestad <helgedt@tihlde.org>
+Date: Mon, 19 Oct 2009 16:03:56 +0200
+Subject: [PATCH] Detect charset for text/* file attachments.
+
+Adds dependency on chardet gem, and uses it to detect the charset.
+---
+ README.txt      |    1 +
+ Rakefile        |    1 +
+ lib/sup/util.rb |    8 +++++++-
+ 3 files changed, 9 insertions(+), 1 deletions(-)
+
+diff --git a/README.txt b/README.txt
+index 4204270..3a98fa3 100644
+--- a/README.txt
++++ b/README.txt
+@@ -106,6 +106,7 @@ Current limitations which will be fixed:
+  - mime-types
+  - gettext
+  - fastthread
++ - chardet
+ 
+ == INSTALL:
+ 
+diff --git a/Rakefile b/Rakefile
+index 67cd0d2..3fb0d5e 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -57,6 +57,7 @@ spec = Gem::Specification.new do |s|
+   s.add_dependency "mime-types", "~> 1"
+   s.add_dependency "gettext"
+   s.add_dependency "fastthread"
++  s.add_dependency "chardet", ">= 0.9.0"
+ end
+ 
+ Rake::GemPackageTask.new(spec) do |pkg|
+diff --git a/lib/sup/util.rb b/lib/sup/util.rb
+index f99e1c1..ef7b892 100644
+--- a/lib/sup/util.rb
++++ b/lib/sup/util.rb
+@@ -3,6 +3,7 @@ require 'lockfile'
+ require 'mime/types'
+ require 'pathname'
+ require 'set'
++require 'UniversalDetector'
+ 
+ ## time for some monkeypatching!
+ class Lockfile
+@@ -71,8 +72,13 @@ module RMail
+ 
+     def self.make_attachment payload, mime_type, encoding, filename
+       a = Message.new
++
++      cs = UniversalDetector::chardet(payload)['encoding'] if mime_type =~ /^text\//i
++      ct = "#{mime_type}; name=#{filename.inspect}"
++      ct += "; charset=#{cs}" if cs
++      
+       a.header.add "Content-Disposition", "attachment; filename=#{filename.inspect}"
+-      a.header.add "Content-Type", "#{mime_type}; name=#{filename.inspect}"
++      a.header.add "Content-Type", ct
+       a.header.add "Content-Transfer-Encoding", encoding if encoding
+       a.body =
+         case encoding
+-- 
+1.5.6.5
+

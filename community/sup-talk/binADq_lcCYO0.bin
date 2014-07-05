@@ -1,0 +1,15 @@
+--- sent.rb.original	2010-04-08 22:41:18.000000000 +0100
++++ sent.rb	2010-04-08 22:23:06.000000000 +0100
+@@ -50,7 +50,11 @@
+   def uri; 'sup://sent' end
+ 
+   def id; 9998; end
+-  def labels; [:inbox, :sent]; end
++  if $config[:sent_appears_in_inbox] then 
++  	def labels; [:inbox, :sent]; end
++  else	
++  	def labels; [:sent]; end
++  end
+ end
+ 
+ end

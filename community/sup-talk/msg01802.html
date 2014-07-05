@@ -1,0 +1,170 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] [PATCH] Allow thread index view to sort oldest first -->
+<!--X-From-R13: Qney Ibegu <pjbeguNpjbegu.bet> -->
+<!--X-Date: Mon, 12 Oct 2009 16:02:40 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1255388543&#45;sup&#45;7477@yoom.home.cworth.org -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 1253911610&#45;sup&#45;2052@yoom.home.cworth.org -->
+<!--X-Reference: 1255350472&#45;sup&#45;5679@masanjin.net -->
+<!--X-Derived: pgpBAJWenpHwe.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] [PATCH] Allow thread index view to sort oldest first</title>
+<link rev="made" href="mailto:cworth@cworth.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01542.html">Date Prev</a>][<a href="msg01801.html">Date Next</a>][<a href="msg01710.html">Thread Prev</a>][<a href="msg01665.html">Thread Next</a>][<a href="maillist.html#01802">Date Index</a>][<a href="threads.html#01802">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] [PATCH] Allow thread index view to sort oldest first</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] [PATCH] Allow thread index view to sort oldest first</li>
+<li><em>From</em>: Carl Worth &lt;<a href="mailto:cworth%40cworth.org">cworth@cworth.org</a>&gt;</li>
+<li><em>Date</em>: Mon, 12 Oct 2009 16:02:30 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01710.html">1255350472-sup-5679@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1253911610-sup-2052@yoom.home.cworth.org&gt;	&lt;<a href="msg01710.html">1255350472-sup-5679@masanjin.net</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from William Morgan's message of Mon Oct 12 05:48:50 -0700 2009:
+&gt; I've finally gotten a chance to look at this. It looks good so far.
+
+Thanks for taking a look at it.
+
+&gt; So I definitely don't want the second patch which changes the default
+&gt; order. The configuration boolean is fine. (And if you want to add a
+&gt; question to sup-config, that's icing on the cake.)
+
+I totally understand that, and that's why I did that part as a
+separate patch.
+
+&gt; I would also like to disable forcing the loading of all messages.
+
+I can understand that too.
+
+&gt; It is possible in Ferret: remove the DESC in ferret_index.rb line 160.
+&gt; It is also possible in Xapian, but we're building the Xapian index to
+&gt; optimize newest-first access. (Of course that would also be possible to
+&gt; change, but then we're talking about a total index rebuild.)
+&gt; 
+&gt; If you wanted to tweak that, the load-all-threads wouldn't be necessary.
+
+How do we get this behavior in xapian? I'm fine if the index is not
+optimized for this. The current newest-first optimization is perfect
+for actual searching, (as opposed to reading of new messages), and the
+patches don't change that.
+
+&gt; Either way, I'm happy to merge the first patch with the &quot;n = -1&quot; thing
+&gt; removed.
+
+I wouldn't want the patch accepted with just that change. It results
+in a &quot;broken&quot; view, (it claims to be showing the oldest message first,
+but it doesn't, and trying to scroll &quot;up&quot; to see earlier messages also
+doesn't work).
+
+So I'll see if I can figure out how to just load the N oldest message
+instead. (My working theory was that this perform similarly to
+actually loading all the messages, and that's why the patch just did
+that).
+
+&gt; Pretty easy to change. In thread.rb, there's a date method which takes a
+&gt; max; you can make it take a min instead.
+
+Excellent. I'll take a look at that.
+
+&gt; The hard work for both of these things is wiring this option through.
+&gt; Although $config is a global variable, I don't really want to use it
+&gt; directly in e.g. thread.rb.
+
+OK. I'll see if there's nearby code to mimic for this.
+
+-Carl
+
+&gt; &gt; PS. We're still total ruby newbies, so please point out any silly
+&gt; &gt; mistakes we're missing with respect to ruby idioms.
+&gt; 
+&gt; Everything looks good. The only slgihtly non-idiomatic thing is using
+&gt; &quot;if !x&quot; instead of &quot;unless x&quot;.
+
+Heh. Just today I noticed &quot;unless&quot; while poking around in some sup
+code. I have to say that &quot;unless ... else&quot; seems like a downright
+malicious construct to unleash against people reading code.
+</pre><p><strong>Attachment:
+<a href="pgpBAJWenpHwe.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01665" href="msg01665.html">Re: [sup-talk] [PATCH] Allow thread index view to sort oldest first</a></strong>
+<ul><li><em>From:</em> Olly Betts &lt;olly@survex.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01710" href="msg01710.html">Re: [sup-talk] [PATCH] Allow thread index view to sort oldest first</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01542.html">[sup-talk] Xapian: Term too long</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01801.html">[sup-talk] RMail chokes on broken headers</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01710.html">Re: [sup-talk] [PATCH] Allow thread index view to sort oldest first</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01665.html">Re: [sup-talk] [PATCH] Allow thread index view to sort oldest first</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01802"><strong>Date</strong></a></li>
+<li><a href="threads.html#01802"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Running sup on Ruby 1.9.2 (Arch Linux) -->
+<!--X-From-R13: [nggv Svqra <fanvccrevNtznvy.pbz> -->
+<!--X-Date: Fri, 24 Dec 2010 13:47:04 &#45;0800 (PST) -->
+<!--X-Message-Id: AANLkTik9gqBwR29aUO0KMR5wvqOJ2OB18yZKoG72jrAb@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Running sup on Ruby 1.9.2 (Arch Linux)</title>
+<link rev="made" href="mailto:snaipperi@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00599.html">Date Prev</a>][<a href="msg00646.html">Date Next</a>][<a href="msg00587.html">Thread Prev</a>][<a href="msg00646.html">Thread Next</a>][<a href="maillist.html#00551">Date Index</a>][<a href="threads.html#00551">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Running sup on Ruby 1.9.2 (Arch Linux)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Running sup on Ruby 1.9.2 (Arch Linux)</li>
+<li><em>From</em>: Matti Eiden &lt;<a href="mailto:snaipperi%40gmail.com">snaipperi@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 24 Dec 2010 23:44:08 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:received:date:message-id	:subject:from:to:content-type;	bh=gsw4xrLEPJr+tnDD+26+LSw53eTsgTvxndoH6gs5rkE=;	b=NYzbh8JndLmS+JYXtExVt6K5LOpd9dLiNntl3XXpT1ooHBhUFF3AFJ4yFxom0HPNEY	hzejRWwrdQfjS+HBEdbtPCn00AotMqaXOs/o2qS88CJZ3FBQ4qi3IDbkDduoYjhhaiCr	jn9u6Z7IdWye1CYabmrL1uyKnrQDnUoatxaa4=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=eAg54YWCNCB2yOYcAWn9+adsalTXC5tlUBQTQO8GNI9V3+3vzalOj+8UlTuWCarsKo	SEuGdfsDeAEe0B/b4hRETDr6rgLh0uAOviW5zLj8G/Dxayug9X5ru1+2+3CyjM1oG3dX	bStq4GLnnhrdZUZSLUh8hFv7gzu/jSzvZLQkc=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hey folks,
+
+I somehow broke my Ruby 1.8 installation a few days ago and ended up
+trying to run sup with Ruby 1.9.2. I grabbed it from git, however the
+rake would fail for not finding &quot;sup-files&quot; and &quot;sup-version&quot;. I
+changed these two lines in the Rakefile
+
+from
+
+require 'sup-files'
+require 'sup-version'
+
+to
+
+require './sup-files.rb'
+require './sup-version.rb'
+
+and a nice gem came out. Does anyone know what caused this? Has Ruby
+syntax for requiring local files changed or is my system just being
+weird?
+
+Also, after installing the gem it failed to run because rubygems was
+nagging I didn't have two other gems: ncurses and xapian-full.
+(xapian-full is provided in arch linux by xapian-ruby-bindings).
+Ncurses for 1.9.2.. I don't know if that even exists. And ncursesw
+works just fine. I guess there's a method to compile the gem to ignore
+dependencies? Anyway I just removed those dependencies to get it to
+work. I cloned earlier my own repository of sup where I made these
+changes if anybody wants to look (or get sup run on arch+ruby 1.9.2).
+It's available here: <a  rel="nofollow" href="http://gitorious.org/sup/ruby192-arch">http://gitorious.org/sup/ruby192-arch</a>
+
+Other than that, sup seems to work very well under 1.9.2! Nice job!
+Matti Eiden
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00599.html">Re: [sup-talk] Hook before-add-message,	any way to know if this message is in a topic I replied to ?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00646.html">[sup-talk] Sharing code and data between hooks</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00587.html">Re: [sup-talk] Maildir sent_source</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00646.html">[sup-talk] Sharing code and data between hooks</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00551"><strong>Date</strong></a></li>
+<li><a href="threads.html#00551"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

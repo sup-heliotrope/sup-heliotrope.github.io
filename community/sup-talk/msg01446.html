@@ -1,0 +1,194 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] PGP INLINE &#45; can't make it work -->
+<!--X-From-R13: cvbge.xrzcnNjc.rh -->
+<!--X-Date: Tue, 2 Mar 2010 05:46:31 &#45;0800 (PST) -->
+<!--X-Message-Id: 201003021149.59760.piotr.kempa@wp.eu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 201002261808.36354.kosmici&#45;atakuja@wp.pl -->
+<!--X-Reference: 1267205858&#45;sup&#45;7113@hysbald -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] PGP INLINE - can't make it work</title>
+<link rev="made" href="mailto:piotr.kempa@wp.eu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01327.html">Date Prev</a>][<a href="msg01423.html">Date Next</a>][<a href="msg01251.html">Thread Prev</a>][<a href="msg01423.html">Thread Next</a>][<a href="maillist.html#01446">Date Index</a>][<a href="threads.html#01446">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] PGP INLINE - can't make it work</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: Re: [sup-talk] PGP INLINE - can't make it work</li>
+<li><em>From</em>: <a href="mailto:piotr.kempa%40wp.eu">piotr.kempa@wp.eu</a></li>
+<li><em>Date</em>: Tue, 2 Mar 2010 11:49:59 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1267205858-sup-7113@hysbald&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01177.html">201002261808.36354.kosmici-atakuja@wp.pl</a>&gt;	&lt;1267205858-sup-7113@hysbald&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: KMail/1.13.0 (Linux/2.6.32-ck; KDE/4.4.0; x86_64; ; )</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I digged a bit further, trying to decode the emails from commandline with &quot;gpg 
+--decode&quot;. For some of the inline GPG emails the commandline version fails, 
+but for some other it works. Even for those that it works, sup just shows 
+undecoded version which leads me to believe it doesn't even try to decode, 
+which means it doesn't recognize the email as encrypted at all. 
+
+As far as I can deduct, sup only recognizes encrypted emails if they have 
+something like this inside:
+Content-Type: multipart/encrypted;
+  boundary=&quot;nextPart15239034.i9UOPnLxZ9&quot;;
+  protocol=&quot;application/pgp-encrypted&quot;
+
+Or similar. Which is a reasonable behaviour.
+
+On the other hand, if the damned enigmail creates an email with &quot;Content-Type: 
+text/plain;&quot; and then proceeds to include &quot;-----BEGIN PGP MESSAGE-----&quot; in the 
+body, sup treats this as (no surprise) text/plain and doesn't decode. If it 
+tried, it would succeed since this message passed through gpg --decode is 
+decoded okay.
+
+So, I guess if this functionality is to be included in sup (and I think it 
+doesn't have to be since enigmail just makes broken messages and there's no 
+reason why anybody should put up with that:) it should not be in crypto.rb but 
+somewhere else, where the decision is made to even use functions from 
+crypto.rb (like decrypt) on a message. I'm no programmer but I guess it should 
+be something like this:
+if payload contains &quot;BEGIN PGP MESSAGE&quot; then run the decrypt function from 
+crypto.rb on it. 
+
+For now - does anybody know a way to mass decrypt all messages in my mailbox 
+so I can keep them in plain text and use sup anyway? That would be ideal 
+solution but I just can't find a program to do that. And gpg itself isn't 
+helpful since it just prints decoded payload on --output, without the headers, 
+so it's no use in batch. I can try to code this in bash but maybe there's 
+something out there already?
+
+Thank you
+Piotr
+
+On Friday 26 February 2010 18:43:04 Sven Schober wrote:
+&gt; Excerpts from kosmici-atakuja's message of Fri Feb 26 18:08:36 +0100 2010:
+&gt; &gt; First of wall I want to say I absolutely love sup! I used all the major 
+mail 
+&gt; &gt; clients like mutt, claws, thunderbird, kmail. All mail clients just fail 
+(mutt 
+&gt; &gt; was the closest though...). Sup so far has the potential to be the best of 
+&gt; &gt; them. If only I can get it to read the inline gpg that enigmail makes...
+&gt; &gt; 
+&gt; +1
+&gt; 
+&gt; &gt; Is there anything I can do to get this working? This is a crucial feature 
+for 
+&gt; &gt; me...
+&gt; &gt; 
+&gt; +1
+&gt; &gt; Moreover, I searched the list archives and it looks like some people have 
+got 
+&gt; &gt; it working as there have been patches to make it work a couple of months 
+ago. 
+&gt; &gt; And my version is recent (January) so those patches should be in it. It 
+just 
+&gt; &gt; doesn't for me for some reason :(
+&gt; &gt; 
+&gt; I think there was a (preliminary) patch from Michael Stapelberg
+&gt; floating around, but somehow that didn't make it into next?
+&gt; 
+&gt; &gt; I know I should read crypto.rb and figure it out from there. I tried, I 
+just 
+&gt; &gt; can't understand it, as I'm not experienced in ruby, or email clients code 
+for 
+&gt; &gt; that matter. 
+&gt; &gt; 
+&gt; +1
+&gt; 
+&gt; &gt; Please help!
+&gt; +1
+&gt; 
+&gt; &gt; Thank you
+&gt; &gt; Piotr
+&gt; 
+&gt; Ciao,
+&gt;   Sven
+&gt; -- 
+&gt; Sven Schober, sven.schober@uni-ulm.de                    |UNI ULM
+&gt; <a  rel="nofollow" href="http://www-vs.informatik.uni-ulm.de/dept/staff/schober/">http://www-vs.informatik.uni-ulm.de/dept/staff/schober/</a>  |DISTRIBUTED
+&gt; Room O27-346, Phone: +49-731-5024146 [+49-179-5060182]   |SYSTEMS LAB
+&gt; 
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01423" href="msg01423.html">Re: [sup-talk] PGP INLINE - can't make it work</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+<li><strong><a name="01283" href="msg01283.html">Re: [sup-talk] PGP INLINE - can't make it work</a></strong>
+<ul><li><em>From:</em> Sam Hall &lt;samhall@riseup.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01177" href="msg01177.html">[sup-talk] PGP INLINE - can't make it work</a></strong>
+<ul><li><em>From:</em> kosmici-atakuja@wp.pl</li></ul></li>
+<li><strong><a name="01251" href="msg01251.html">Re: [sup-talk] PGP INLINE - can't make it work</a></strong>
+<ul><li><em>From:</em> Sven Schober &lt;sven.schober@uni-ulm.de&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01327.html">Re: [sup-talk] index options, by addressee instead of by sender</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01423.html">Re: [sup-talk] PGP INLINE - can't make it work</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01251.html">Re: [sup-talk] PGP INLINE - can't make it work</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01423.html">Re: [sup-talk] PGP INLINE - can't make it work</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01446"><strong>Date</strong></a></li>
+<li><a href="threads.html#01446"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

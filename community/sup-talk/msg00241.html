@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Release Sup 0.13.1 -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Sat, 03 Aug 2013 02:49:05 &#45;0700 (PDT) -->
+<!--X-Message-Id: 51FCD1CF.7010708@gaute.vetsj.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: mailman.20.1375449469.10946.sup&#45;talk@rubyforge.org -->
+<!--X-Reference: 51FC26D9.5020708@clear.net.nz -->
+<!--X-Reference: 51FC34D1.9050302@gaute.vetsj.com -->
+<!--X-Reference: 51FCCF18.1040807@gaute.vetsj.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Release Sup 0.13.1</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00240.html">Date Prev</a>][<a href="msg00226.html">Date Next</a>][<a href="msg00240.html">Thread Prev</a>][<a href="msg00226.html">Thread Next</a>][<a href="maillist.html#00241">Date Index</a>][<a href="threads.html#00241">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Release Sup 0.13.1</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Adam Bogacki &lt;<a href="mailto:adam.bogacki%40clear.net.nz">adam.bogacki@clear.net.nz</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Release Sup 0.13.1</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 03 Aug 2013 11:47:59 +0200</li>
+<li><em>Cc</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00240.html">51FCCF18.1040807@gaute.vetsj.com</a>&gt;</li>
+<li><em>References</em>: &lt;mailman.20.1375449469.10946.sup-talk@rubyforge.org&gt; &lt;<a href="msg00069.html">51FC26D9.5020708@clear.net.nz</a>&gt; &lt;<a href="msg00207.html">51FC34D1.9050302@gaute.vetsj.com</a>&gt; &lt;<a href="msg00240.html">51FCCF18.1040807@gaute.vetsj.com</a>&gt;</li>
+<li><em>User-agent</em>: Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20130625 Thunderbird/17.0.7</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On 03. aug. 2013 11:36, Gaute Hope wrote:
+&gt; On 03. aug. 2013 00:38, Gaute Hope wrote:
+&gt;&gt; On 02. aug. 2013 23:38, Adam Bogacki wrote:
+------------
+&gt;&gt;&gt;&gt; --- TypeError from thread: main can't convert String into Array 
+&gt;&gt;&gt;&gt; /usr/lib/ruby/vendor_ruby/sup/account.rb:64:in `add_account' 
+&gt;&gt;&gt;&gt; /usr/lib/ruby/vendor_ruby/sup/account.rb:38:in `initialize' 
+&gt;&gt;&gt;&gt; /usr/lib/ruby/vendor_ruby/sup/util.rb:576:in `new' 
+&gt;&gt;&gt;&gt; /usr/lib/ruby/vendor_ruby/sup/util.rb:576:in `init' 
+&gt;&gt;&gt;&gt; /usr/lib/ruby/vendor_ruby/sup.rb:166:in `start' 
+&gt;&gt;&gt;&gt; /usr/bin/sup-mail:164:in `&lt;module:Redwood&gt;' 
+&gt;&gt;&gt;&gt; /usr/bin/sup-mail:80:in `&lt;main&gt;' adam@Candide:~$
+&gt;&gt;&gt; .. and it has been that way ever since.
+&gt;&gt;
+&gt;&gt;&gt; Can anyone explain what is happening and recommend a fix ?
+
+The problem is likely an incorrectly set up :alternates: in config.yaml,
+it should be of the format:
+
+:alternates:
+  - email2@asdf.asdf
+  - email3@asdf.as
+
+if it is set up like:
+:alternates: asdfa@adsf.asdf
+
+if will fail. A more descriptive error message should be shown with the
+patch in pull request #119 [0]. Please test it if you have the chance,
+otherwise let me know if changing config.yaml did the trick.
+
+[0] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/pull/119">https://github.com/sup-heliotrope/sup/pull/119</a>
+
+Cheers, Gaute
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00069" href="msg00069.html">Re: [sup-talk] Release Sup 0.13.1</a></strong>
+<ul><li><em>From:</em> Adam Bogacki &lt;adam.bogacki@clear.net.nz&gt;</li></ul></li>
+<li><strong><a name="00207" href="msg00207.html">Re: [sup-talk] Release Sup 0.13.1</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00240" href="msg00240.html">Re: [sup-talk] Release Sup 0.13.1</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00240.html">Re: [sup-talk] Release Sup 0.13.1</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00226.html">Sup Release 0.14.0</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00240.html">Re: [sup-talk] Release Sup 0.13.1</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00226.html">Sup Release 0.14.0</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00241"><strong>Date</strong></a></li>
+<li><a href="threads.html#00241"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

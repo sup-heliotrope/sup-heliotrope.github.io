@@ -1,0 +1,27 @@
+From 7972c2d85e83f2ebc2ba6aded67a62e567d3cd3b Mon Sep 17 00:00:00 2001
+From: Carl Worth <cworth@cworth.org>
+Date: Fri, 25 Sep 2009 12:29:38 -0700
+Subject: [PATCH 2/2] Change the default sort for inbox mode to be oldest first.
+
+This allows for more natural reading of messages in the order
+they were actually created.
+---
+ lib/sup/modes/inbox-mode.rb |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/modes/inbox-mode.rb b/lib/sup/modes/inbox-mode.rb
+index 1da61ec..85746a6 100644
+--- a/lib/sup/modes/inbox-mode.rb
++++ b/lib/sup/modes/inbox-mode.rb
+@@ -13,7 +13,7 @@ class InboxMode < ThreadIndexMode
+     if !$config[:inbox_newest_first].nil?
+       $config[:inbox_newest_first]
+     else
+-      true
++      false
+     end
+   end
+ 
+-- 
+1.6.4.3
+

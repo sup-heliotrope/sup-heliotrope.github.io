@@ -1,0 +1,142 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Ruby 1.9: encodings -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Fri, 18 Dec 2009 07:37:16 &#45;0800 (PST) -->
+<!--X-Message-Id: 5a5b14cf0912180737n600fc2acx30fa14028d4a7662@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 80055d7c0911061922w64ef7cb0qf0c7bed008cc728c@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Ruby 1.9: encodings</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01346.html">Date Prev</a>][<a href="msg01124.html">Date Next</a>][<a href="msg01739.html">Thread Prev</a>][<a href="msg01194.html">Thread Next</a>][<a href="maillist.html#01390">Date Index</a>][<a href="threads.html#01390">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Ruby 1.9: encodings</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Andrei Thorp &lt;<a href="mailto:garoth%40gmail.com">garoth@gmail.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Ruby 1.9: encodings</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 18 Dec 2009 16:37:16 +0100</li>
+<li><em>Cc</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01739.html">80055d7c0911061922w64ef7cb0qf0c7bed008cc728c@mail.gmail.com</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01739.html">80055d7c0911061922w64ef7cb0qf0c7bed008cc728c@mail.gmail.com</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I just tried.. im getting the same, afraid im not skilled enough to
+figure out what is wrong thou..
+
+--- ArgumentError from thread: load threads for thread-index-mode
+invalid byte sequence in US-ASCII
+/home/gaute/dev/ruby/sup.git/lib/sup/util.rb:181:in `scan'
+/home/gaute/dev/ruby/sup.git/lib/sup/util.rb:181:in `display_length'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/scroll-mode.rb:224:in
+`block in draw_line_from_array'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/scroll-mode.rb:222:in `each'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/scroll-mode.rb:222:in
+`each_with_index'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/scroll-mode.rb:222:in
+`draw_line_from_array'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/scroll-mode.rb:197:in `draw_line'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/line-cursor-mode.rb:50:in `draw_line'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/scroll-mode.rb:48:in `block in draw'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/scroll-mode.rb:48:in `each'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/scroll-mode.rb:48:in `draw'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/line-cursor-mode.rb:37:in `draw'
+/home/gaute/dev/ruby/sup.git/lib/sup/buffer.rb:108:in `draw'
+/home/gaute/dev/ruby/sup.git/lib/sup/buffer.rb:92:in `redraw'
+/home/gaute/dev/ruby/sup.git/lib/sup/buffer.rb:329:in `draw_screen'
+/home/gaute/dev/ruby/sup.git/lib/sup/buffer.rb:744:in `clear'
+/home/gaute/dev/ruby/sup.git/lib/sup/util.rb:520:in `method_missing'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/thread-index-mode.rb:638:in
+`load_n_threads'
+(eval):12:in `load_n_threads'
+/home/gaute/dev/ruby/sup.git/lib/sup/modes/thread-index-mode.rb:609:in
+`block in load_n_threads_background'
+/home/gaute/dev/ruby/sup.git/lib/sup.rb:78:in `block in reporting_thread'
+
+- gaute
+
+On Sat, Nov 7, 2009 at 4:22 AM, Andrei Thorp &lt;garoth@gmail.com&gt; wrote:
+&gt; Eh, bad news.
+&gt;
+&gt; So I've been testing Sup in an 1.9 environment further, and I have
+&gt; found that there are a great deal of problems with regards to
+&gt; encodings. &quot;invalid byte sequence in US-ASCII&quot; is something you'll see
+&gt; frequently. This seems to be when parsing messages that have non-ascii
+&gt; chararacters.
+&gt;
+&gt; Ouch :(
+&gt;
+&gt; Has this already been taken care of in the git somewhere?
+&gt;
+&gt; -AT
+&gt; _______________________________________________
+&gt; sup-talk mailing list
+&gt; sup-talk@rubyforge.org
+&gt; <a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+&gt;
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01194" href="msg01194.html">Re: [sup-talk] Ruby 1.9: encodings</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01739" href="msg01739.html">[sup-talk]  Ruby 1.9: encodings</a></strong>
+<ul><li><em>From:</em> Andrei Thorp &lt;garoth@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01346.html">[sup-talk] exception after polling</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01124.html">[sup-talk] AM/PM display</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01739.html">[sup-talk]  Ruby 1.9: encodings</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01194.html">Re: [sup-talk] Ruby 1.9: encodings</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01390"><strong>Date</strong></a></li>
+<li><a href="threads.html#01390"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

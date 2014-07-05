@@ -1,0 +1,121 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] reproducable crashing / encoding problem -->
+<!--X-From-R13: Xbua Ilmre <wbua.jlmreNtzk.qr> -->
+<!--X-Date: Mon, 5 Dec 2011 09:46:05 &#45;0800 (PST) -->
+<!--X-Message-Id: 1323106615&#45;sup&#45;792@localhost -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] reproducable crashing / encoding problem</title>
+<link rev="made" href="mailto:john.wyzer@gmx.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00296.html">Date Prev</a>][<a href="msg00283.html">Date Next</a>][<a href="msg00296.html">Thread Prev</a>][<a href="msg00283.html">Thread Next</a>][<a href="maillist.html#00248">Date Index</a>][<a href="threads.html#00248">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] reproducable crashing / encoding problem</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] reproducable crashing / encoding problem</li>
+<li><em>From</em>: John Wyzer &lt;<a href="mailto:john.wyzer%40gmx.de">john.wyzer@gmx.de</a>&gt;</li>
+<li><em>Date</em>: Mon, 05 Dec 2011 18:45:24 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I'm on sup/mainline:master (commit aaa852fbe513291144301bb31af50558177f891c) 
+Opening one specific thread, sup always crashes with the attached trace.
+Best regards! :-)
+
+----------------------------------------------------------------
+--- Encoding::CompatibilityError from thread: load messages for thread-view-mode
+incompatible character encodings: UTF-8 and ASCII-8BIT
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:789:in `message_patina_lines'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:863:in `chunk_to_lines'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:721:in `block in regen_text'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:68:in `block in each'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:176:in `block (2 levels) in each_with_stuff'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:176:in `block (2 levels) in each_with_stuff'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:174:in `each_with_stuff'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:176:in `block in each_with_stuff'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:175:in `each'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:175:in `each_with_stuff'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:176:in `block in each_with_stuff'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:175:in `each'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:175:in `each_with_stuff'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:67:in `each'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:710:in `regen_text'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:172:in `buffer='
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/buffer.rb:388:in `spawn'
+(eval):1:in `spawn'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-index-mode.rb:120:in `block in select'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup.rb:79:in `block in reporting_thread'
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00283" href="msg00283.html">Re: [sup-talk] reproducable crashing / encoding problem</a></strong>
+<ul><li><em>From:</em> jomat+sup-talk@jmt.gr</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00296.html">Re: [sup-talk] before-pull hook etc.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00283.html">Re: [sup-talk] reproducable crashing / encoding problem</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00296.html">Re: [sup-talk] before-pull hook etc.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00283.html">Re: [sup-talk] reproducable crashing / encoding problem</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00248"><strong>Date</strong></a></li>
+<li><a href="threads.html#00248"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

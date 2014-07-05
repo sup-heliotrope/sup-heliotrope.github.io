@@ -1,0 +1,140 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Bug: Xapian exception after having polled -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Sun, 4 Oct 2009 11:56:31 &#45;0700 (PDT) -->
+<!--X-Message-Id: 5a5b14cf0910041156q7e755931w4fb75ce57f9f4339@mail.gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 25727581.post@talk.nabble.com -->
+<!--X-Reference: 1254594099&#45;sup&#45;719@zyrg.net -->
+<!--X-Reference: 20091004101550.GA7330@qwerzila.bluecom.no -->
+<!--X-Reference: 1254681739&#45;sup&#45;4089@zyrg.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Bug: Xapian exception after having polled</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01488.html">Date Prev</a>][<a href="msg01598.html">Date Next</a>][<a href="msg01488.html">Thread Prev</a>][<a href="msg01598.html">Thread Next</a>][<a href="maillist.html#01772">Date Index</a>][<a href="threads.html#01772">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Bug: Xapian exception after having polled</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Bug: Xapian exception after having polled</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 4 Oct 2009 20:56:31 +0200</li>
+<li><em>Cc</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01488.html">1254681739-sup-4089@zyrg.net</a>&gt;</li>
+<li><em>References</em>: &lt;25727581.post@talk.nabble.com&gt; &lt;<a href="msg01645.html">1254594099-sup-719@zyrg.net</a>&gt;	 &lt;<a href="msg01516.html">20091004101550.GA7330@qwerzila.bluecom.no</a>&gt;	 &lt;<a href="msg01488.html">1254681739-sup-4089@zyrg.net</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Still having problems, but got a bit more output, see attached exception.log
+
+[sup.git](next) $ git log --oneline -6
+a209178 more id assertions
+0eee097 Merge branch 'master' into next
+93b5552 more release-script updates
+f56badb Merge branch 'master' into next
+b9071e5 change date for 0.9 release
+9a5c0d1 Merge branch 'save-all-attachments' into next
+
+- gaute
+
+On Sun, Oct 4, 2009 at 8:45 PM, Rich Lane &lt;rlane@club.cc.cmu.edu&gt; wrote:
+&gt; Ok, I've attached a patch with more assertions. Also, can you try with a clean
+&gt; checkout of next and see if the problem still occurs?
+&gt;
+</pre><pre>--- RuntimeError from thread: main
+@id nil
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/message.rb:342:in `build_from_source'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:160:in `each_message_from'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/maildir.rb:160:in `each'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/maildir.rb:157:in `upto'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/maildir.rb:157:in `each'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/util.rb:560:in `send'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/util.rb:560:in `__pass'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/util.rb:547:in `method_missing'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:154:in `each_message_from'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:108:in `do_poll'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:96:in `each'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:96:in `do_poll'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:95:in `synchronize'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:95:in `do_poll'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/util.rb:520:in `send'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/util.rb:520:in `method_missing'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/modes/poll-mode.rb:15:in `poll'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:47:in `poll_with_sources'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:62:in `poll'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/util.rb:520:in `send'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/util.rb:520:in `method_missing'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/bin/sup:287
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup.rb:73:in `reporting_thread'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/bin/sup:287
+/home/gaute/.gem/ruby/1.8/bin/sup:19:in `load'
+/home/gaute/.gem/ruby/1.8/bin/sup:19
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01598" href="msg01598.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01645" href="msg01645.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01516" href="msg01516.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01488" href="msg01488.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01488.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01598.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01488.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01598.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01772"><strong>Date</strong></a></li>
+<li><a href="threads.html#01772"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

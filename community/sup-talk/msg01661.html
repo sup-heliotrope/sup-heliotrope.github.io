@@ -1,0 +1,181 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] mbox date fail -->
+<!--X-From-R13: [vxr Yryyl <cvbgbNcvbgb.bet> -->
+<!--X-Date: Fri, 23 Oct 2009 14:23:59 &#45;0700 (PDT) -->
+<!--X-Message-Id: 2aeb4e149305569502f106c7e54ae107@localhost -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] mbox date fail</title>
+<link rev="made" href="mailto:pioto@pioto.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01724.html">Date Prev</a>][<a href="msg01653.html">Date Next</a>][<a href="msg01501.html">Thread Prev</a>][<a href="msg01615.html">Thread Next</a>][<a href="maillist.html#01661">Date Index</a>][<a href="threads.html#01661">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] mbox date fail</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] mbox date fail</li>
+<li><em>From</em>: Mike Kelly &lt;<a href="mailto:pioto%40pioto.org">pioto@pioto.org</a>&gt;</li>
+<li><em>Date</em>: Fri, 23 Oct 2009 17:13:35 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: RoundCube Webmail/0.3-stable</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Hi,
+
+I seem to be caught in a bit of a catch-22. I can't reliably use mbox
+because of shortcomings in its format. And, I can't use maildir because
+sup-sync-back doesn't support it.
+
+More specifically, I seem to come across this much more often that I
+should. It's caused by someone starting a line of their message with
+&quot;From&quot;. For example:
+
+  ...
+  X-Bogosity: Ham, tests=bogofilter, spamicity=0.000000, version=1.2.0
+  Status: 
+  X-Keywords:                                                             
+       
+  Content-Length: 1742
+
+  From the ticket he states that 1.2.3.4 is the IP:
+
+  ...
+
+That yields this exception:
+
+  [Fri Oct 23 17:07:00 -0400 2009] unlocking
+/usr/home/staff/mike/.sup/lock...
+  /usr/local/lib/ruby/1.8/time.rb:184:in `local': argument out of range
+(ArgumentError)
+        from /usr/local/lib/ruby/1.8/time.rb:184:in `make_time'
+        from /usr/local/lib/ruby/1.8/time.rb:243:in `parse'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/mbox.rb:15:in
+`is_break_line?'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/mbox/loader.rb:165:in
+`next'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/mbox/loader.rb:145:in
+`synchronize'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/mbox/loader.rb:145:in
+`next'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/source.rb:103:in
+`each'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/util.rb:560:in
+`send'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/util.rb:560:in
+`__pass'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/util.rb:547:in
+`method_missing'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/poll.rb:139:in
+`each_message_from'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/util.rb:520:in
+`send'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/lib/sup/util.rb:520:in
+`method_missing'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/bin/sup-sync:146
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/bin/sup-sync:141:in
+`each'
+        from
+/usr/home/staff/mike/lib/ruby/gems/1.8/gems/sup-999/bin/sup-sync:141
+        from /usr/home/staff/mike/lib/ruby/gems/1.8/bin/sup-sync:19:in
+`load'
+        from /usr/home/staff/mike/lib/ruby/gems/1.8/bin/sup-sync:19
+
+Is there much of anything that I can do to mitigate this problem, aside
+from manually altering every offending message?
+
+It seems like the messages' Content-Length header should be used to skip
+past the body and ignore the offending Froms? Or, at least, if that sort of
+ArgumentError is thrown, maybe it should be caught and handled better?
+
+I'm running current master (2dfd378b616243d03203e49f5ee29636051d3cbf).
+
+Thanks.
+
+-- 
+Mike Kelly
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01615" href="msg01615.html">Re: [sup-talk] mbox date fail</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01724.html">Re: [sup-talk] A fix for the joining threads bug with Ferret</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01653.html">[sup-talk] Can't search without crashing</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01501.html">Re: [sup-talk] A fix for the joining threads bug with Ferret</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01615.html">Re: [sup-talk] mbox date fail</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01661"><strong>Date</strong></a></li>
+<li><a href="threads.html#01661"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

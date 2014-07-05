@@ -1,0 +1,205 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] gem install sup fail -->
+<!--X-From-R13: @rvy Egrjneg <arvy.fgrjnegNjnejvpx.np.hx> -->
+<!--X-Date: Thu, 8 Apr 2010 05:05:26 &#45;0700 (PDT) -->
+<!--X-Message-Id: alpine.DEB.1.10.1004081300340.23329@stewart.warwick.ac.uk -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: alpine.DEB.1.10.1004081146590.23329@stewart.warwick.ac.uk -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] gem install sup fail</title>
+<link rev="made" href="mailto:neil.stewart@warwick.ac.uk">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00785.html">Date Prev</a>][<a href="msg01097.html">Date Next</a>][<a href="msg00785.html">Thread Prev</a>][<a href="msg01100.html">Thread Next</a>][<a href="maillist.html#00963">Date Index</a>][<a href="threads.html#00963">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] gem install sup fail</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: Re: [sup-talk] gem install sup fail</li>
+<li><em>From</em>: Neil Stewart &lt;<a href="mailto:neil.stewart%40warwick.ac.uk">neil.stewart@warwick.ac.uk</a>&gt;</li>
+<li><em>Date</em>: Thu, 8 Apr 2010 13:04:48 +0100 (BST)</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00785.html">alpine.DEB.1.10.1004081146590.23329@stewart.warwick.ac.uk</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00785.html">alpine.DEB.1.10.1004081146590.23329@stewart.warwick.ac.uk</a>&gt;</li>
+<li><em>Reply-to</em>: Neil Stewart &lt;<a href="mailto:neil.stewart%40warwick.ac.uk">neil.stewart@warwick.ac.uk</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Alpine 1.10 (DEB 962 2008-03-14)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+So I've installed a load of gems
+
+# gem list --local
+
+*** LOCAL GEMS ***
+
+archive-tar-minitar (0.5.2)
+gettext (2.1.0)
+highline (1.5.2)
+hoe (2.6.0)
+json_pure (1.2.4)
+locale (2.0.5)
+lockfile (1.4.3)
+mime-types (1.16)
+ncurses (0.9.1)
+net-ssh (2.0.21)
+nokogiri (1.4.1)
+racc (1.4.6)
+rake (0.8.7)
+rexical (1.0.4)
+rmail (1.0.0)
+rubyforge (2.0.4)
+sup (0.11)
+trollop (1.16.2)
+xapian-full (1.1.3.4)
+
+which fixes my earlier problem:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+But how do I run sup? This fails:
+
+# /var/lib/gems/1.8/bin/sup
+/usr/lib/ruby/1.8/rubygems.rb:578:in `report_activate_error': Could not find
+/RubyGem archive-tar-minitar (~&gt; 0.5) (Gem::LoadError)
+       from /usr/lib/ruby/1.8/rubygems.rb:134:in `activate'
+       from /usr/lib/ruby/1.8/rubygems.rb:158:in `activate'
+       from /usr/lib/ruby/1.8/rubygems.rb:157:in `each'
+       from /usr/lib/ruby/1.8/rubygems.rb:157:in `activate'
+       from /usr/lib/ruby/1.8/rubygems.rb:158:in `activate'
+       from /usr/lib/ruby/1.8/rubygems.rb:157:in `each'
+       from /usr/lib/ruby/1.8/rubygems.rb:157:in `activate'
+       from /usr/lib/ruby/1.8/rubygems.rb:49:in `gem'
+       from /var/lib/gems/1.8/bin/sup:18
+</pre></blockquote><pre style="margin: 0em;">
+
+I had to upgrade to gem 1.3.5 from debian testing to get the hoe gem to
+install.
+
+Now I'm getting a new error:
+
+# /var/lib/gems/1.8/bin/sup
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require':
+/no such file to load -- openssl (LoadError)
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+        from
+        /var/lib/gems/1.8/gems/net-ssh-2.0.21/lib/net/ssh/transport/openssl.rb:1
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in
+`gem_original_require'
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+        from /var/lib/gems/1.8/gems/net-ssh-2.0.21/lib/net/ssh/buffer.rb:2
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in
+        `gem_original_require'
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+        from
+        /var/lib/gems/1.8/gems/net-ssh-2.0.21/lib/net/ssh/transport/algorithms.rb:1
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in
+`gem_original_require'
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+        from
+        /var/lib/gems/1.8/gems/net-ssh-2.0.21/lib/net/ssh/transport/session.rb:7
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in
+`gem_original_require'
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+        from /var/lib/gems/1.8/gems/net-ssh-2.0.21/lib/net/ssh.rb:10
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in
+        `gem_original_require'
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+        from /var/lib/gems/1.8/gems/sup-0.11/lib/sup/mbox/ssh-file.rb:1
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in
+        `gem_original_require'
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+        from /var/lib/gems/1.8/gems/sup-0.11/lib/sup/mbox.rb:2
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in
+        `gem_original_require'
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+        from /var/lib/gems/1.8/gems/sup-0.11/lib/sup.rb:309
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in
+        `gem_original_require'
+        from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+        from /var/lib/gems/1.8/gems/sup-0.11/bin/sup:15
+        from /var/lib/gems/1.8/bin/sup:19:in `load'
+        from /var/lib/gems/1.8/bin/sup:19
+
+I've got openssl installed
+
+# dpkg -l | grep openssl
+ii  openssl                              0.9.8g-15+lenny6           Secure Socket Layer (SSL) binary and related
+ii  openssl-blacklist                    0.4.2                      list of blacklisted OpenSSL RSA keys
+
+but I don't think that's the problem.
+
+And help getting sup-0.11 running, in any form, very much appreciated!
+
+Best,
+Neil.
+
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00785" href="msg00785.html">[sup-talk] gem install sup fail</a></strong>
+<ul><li><em>From:</em> Neil Stewart &lt;neil.stewart@warwick.ac.uk&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00785.html">[sup-talk] gem install sup fail</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01097.html">Re: [sup-talk] sent mail</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00785.html">[sup-talk] gem install sup fail</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01100.html">[sup-talk] killed threads not searchable?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00963"><strong>Date</strong></a></li>
+<li><a href="threads.html#00963"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

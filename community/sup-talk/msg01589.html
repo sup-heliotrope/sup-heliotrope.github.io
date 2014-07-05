@@ -1,0 +1,101 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Recovering a busted ferret db? -->
+<!--X-From-R13: Egrira Inygre <fgriraejnygreNtznvy.pbz> -->
+<!--X-Date: Fri, 30 Oct 2009 10:28:10 &#45;0700 (PDT) -->
+<!--X-Message-Id: e06498070910301017g57b156cclec9abb3689bde243@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Recovering a busted ferret db?</title>
+<link rev="made" href="mailto:stevenrwalter@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01547.html">Date Prev</a>][<a href="msg01679.html">Date Next</a>][<a href="msg01498.html">Thread Prev</a>][<a href="msg01786.html">Thread Next</a>][<a href="maillist.html#01589">Date Index</a>][<a href="threads.html#01589">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Recovering a busted ferret db?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Recovering a busted ferret db?</li>
+<li><em>From</em>: Steven Walter &lt;<a href="mailto:stevenrwalter%40gmail.com">stevenrwalter@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 30 Oct 2009 13:17:32 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:date:message-id:subject	:from:to:content-type;	bh=OqkJzHYm7ULrxvtw6Sfa4OjCYCH29ukDZpr1qXjcQzE=;	b=saDK8ca2tIK3jOr9DGo8bdlHxXtgWodkj4/5l/mPDS0ycMWeq2RLj3dETT3XNnG8xY	y6FWJVtUVq6kN6ctKdjRBNSCpfC2JI6L+UHXMTf1+vnrYldPBSoEbDyz/BpZ29WuyQGZ	qg6WTWZw95WadZyHEyedTwd0m9zdRD5LY5uaw=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=HMl3OEsXd/p0TW9v2uKyDy/1GDKW3bqFohrsTamoVYCmLQR8L0JiOW+GjuvBt0XQJV	MTIbHzeq5yEtQM3qe7Ah2lH70OL9PfxeJSCRGhL1B5KBUzahMkahDHC/TBmyugEfbS8Y	u/m2vZrbD45/BkbiFYaK8gppPShiha2y/3aiE=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I think my ferret db is corrupted.  Whenever I do a tag search for a
+specific tag, sup loads 2 messages and then hangs.  Actually, it's
+using 100% CPU, but I have to kill -9 it; ctrl-c doesn't work.  Is
+there any hope of fixing this without losing all my tag information?
+-- 
+-Steven Walter &lt;stevenrwalter@gmail.com&gt;
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01786" href="msg01786.html">Re: [sup-talk] Recovering a busted ferret db?</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01547.html">Re: [sup-talk] RMail chokes on broken headers</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01679.html">Re: [sup-talk] [PATCH] minor nits in exception apology message</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01498.html">Re: [sup-talk] [PATCH] change opening attachements on darwin to use	open instead of run-mailcap</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01786.html">Re: [sup-talk] Recovering a busted ferret db?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01589"><strong>Date</strong></a></li>
+<li><a href="threads.html#01589"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

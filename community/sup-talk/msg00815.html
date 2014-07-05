@@ -1,0 +1,195 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] [PATCH 4/4] Appropriate call to shell_out_async -->
+<!--X-From-R13: Dnzxhzne Dnznpunaqen <negntabaNtznvy.pbz> -->
+<!--X-Date: Sat, 10 Apr 2010 03:51:03 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1270896024&#45;sup&#45;8760@kytes -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] [PATCH 4/4] Appropriate call to shell_out_async</title>
+<link rev="made" href="mailto:artagnon@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00810.html">Date Prev</a>][<a href="msg00996.html">Date Next</a>][<a href="msg01022.html">Thread Prev</a>][<a href="msg01083.html">Thread Next</a>][<a href="maillist.html#00815">Date Index</a>][<a href="threads.html#00815">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] [PATCH 4/4] Appropriate call to shell_out_async</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] [PATCH 4/4] Appropriate call to shell_out_async</li>
+<li><em>From</em>: Ramkumar Ramachandra &lt;<a href="mailto:artagnon%40gmail.com">artagnon@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 10 Apr 2010 16:10:34 +0530</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:date:message-id:user-agent:content-transfer-encoding;	bh=b4nu9ZYbf8Knr7hahwfskrcM6paNR4AtUJRhoQET1ns=;	b=EhLoqYVRR2MpDvdZmPg+pAMmD4WJyVJMY+6u9nKAphrucA69MiqpkAbYO6K8PcGPmE	yXLaQh+XAi0LJdSGOOI6XtRI4b4my4q/9jzcy11CsS+cg7r44E2Ayohdvl6T+xOo9mAV	a4LSvnoAwf3wm5R2x8DXwB4JlzElu8NWq++sA=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=IvQZ3mAsmD9BPuIFQ09rouBbm0N2hsIwnuFlV3M8VI8QcKBXrBfVdLjG3pq4hgmlBd	Q4UqqawIIsd2onS07fXlk2N5iNDadQkf5ol7Ao3ejOt9A8cO8Y8iyUw2R09lM7eiwrKH	YVPDcRjH6BErGKH1EaQF8FkW+TWejlNDk0JGM=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Call shell_out_async instead of shell_out when the appropriate config
+option is present. Move parse_file and update out from the protected
+section.
+
+Signed-off-by: Ramkumar Ramachandra &lt;artagnon@gmail.com&gt;
+---
+ lib/sup/modes/edit-message-mode.rb |   58 +++++++++++++++++++----------------
+ 1 files changed, 31 insertions(+), 27 deletions(-)
+
+diff --git a/lib/sup/modes/edit-message-mode.rb b/lib/sup/modes/edit-message-mode.rb
+index c1537ae..3dba941 100644
+--- a/lib/sup/modes/edit-message-mode.rb
++++ b/lib/sup/modes/edit-message-mode.rb
+@@ -158,19 +158,23 @@ EOS
+     @file.close
+ 
+     editor = $config[:editor] || ENV['EDITOR'] || &quot;/usr/bin/vi&quot;
++    editor_daemon = $config[:editor_daemon]
++    if editor_daemon
++      BufferManager.shell_out_async editor_daemon, @file
++    else
++      mtime = File.mtime @file.path
++      BufferManager.shell_out &quot;#{editor} #{@file.path}&quot;
++      @edited = true if File.mtime(@file.path) &gt; mtime
+ 
+-    mtime = File.mtime @file.path
+-    BufferManager.shell_out &quot;#{editor} #{@file.path}&quot;
+-    @edited = true if File.mtime(@file.path) &gt; mtime
+-
+-    return @edited unless @edited
++      return @edited unless @edited
+ 
+-    header, @body = parse_file @file.path
+-    @header = header - NON_EDITABLE_HEADERS
+-    handle_new_text @header, @body
+-    update
++      header, @body = parse_file @file.path
++      @header = header - NON_EDITABLE_HEADERS
++      handle_new_text @header, @body
++      update
+ 
+-    @edited
++      @edited
++    end
+   end
+ 
+   def killable?
+@@ -202,6 +206,23 @@ EOS
+     end
+   end
+ 
++  def parse_file fn
++    File.open(fn) do |f|
++      header = Source.parse_raw_email_header(f).inject({}) { |h, (k, v)| h[k.capitalize] = v; h } # lousy HACK
++      body = f.readlines.map { |l| l.chomp }
++
++      header.delete_if { |k, v| NON_EDITABLE_HEADERS.member? k }
++      header.each { |k, v| header[k] = parse_header k, v }
++
++      [header, body]
++    end
++  end
++
++  def update
++    regen_text
++    buffer.mark_dirty if buffer
++  end
++
+ protected
+ 
+   def mime_encode string
+@@ -250,11 +271,6 @@ protected
+     @selector_label_width = [@selector_label_width, s.label.length].max
+   end
+ 
+-  def update
+-    regen_text
+-    buffer.mark_dirty if buffer
+-  end
+-
+   def regen_text
+     header, @header_lines = format_headers(@header - NON_EDITABLE_HEADERS) + [&quot;&quot;]
+     @text = header + [&quot;&quot;] + @body
+@@ -269,18 +285,6 @@ protected
+     end
+   end
+ 
+-  def parse_file fn
+-    File.open(fn) do |f|
+-      header = Source.parse_raw_email_header(f).inject({}) { |h, (k, v)| h[k.capitalize] = v; h } # lousy HACK
+-      body = f.readlines.map { |l| l.chomp }
+-
+-      header.delete_if { |k, v| NON_EDITABLE_HEADERS.member? k }
+-      header.each { |k, v| header[k] = parse_header k, v }
+-
+-      [header, body]
+-    end
+-  end
+-
+   def parse_header k, v
+     if MULTI_HEADERS.include?(k)
+       v.split_on_commas.map do |name|
+-- 
+1.7.0.4
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00810.html">[sup-talk] [PATCH 1/4] Add method to shell out asynchronously</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00996.html">Re: [sup-talk] [PATCH 1/4] Add method to shell out asynchronously</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01022.html">Re: [sup-talk] [PATCH 1/4] Add method to shell out asynchronously</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01083.html">[sup-talk] GPG (outgoing)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00815"><strong>Date</strong></a></li>
+<li><a href="threads.html#00815"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

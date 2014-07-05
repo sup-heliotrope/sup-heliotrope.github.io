@@ -1,0 +1,143 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] sent mail -->
+<!--X-From-R13: @rvy Egrjneg <arvy.fgrjnegNjnejvpx.np.hx> -->
+<!--X-Date: Thu, 8 Apr 2010 03:27:23 &#45;0700 (PDT) -->
+<!--X-Message-Id: alpine.DEB.1.10.1004072122250.25589@stewart.warwick.ac.uk -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] sent mail</title>
+<link rev="made" href="mailto:neil.stewart@warwick.ac.uk">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00741.html">Date Prev</a>][<a href="msg00785.html">Date Next</a>][<a href="msg00919.html">Thread Prev</a>][<a href="msg01097.html">Thread Next</a>][<a href="maillist.html#01027">Date Index</a>][<a href="threads.html#01027">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] sent mail</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: Re: [sup-talk] sent mail</li>
+<li><em>From</em>: Neil Stewart &lt;<a href="mailto:neil.stewart%40warwick.ac.uk">neil.stewart@warwick.ac.uk</a>&gt;</li>
+<li><em>Date</em>: Thu, 8 Apr 2010 11:08:31 +0100 (BST)</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Neil Stewart &lt;<a href="mailto:neil.stewart%40warwick.ac.uk">neil.stewart@warwick.ac.uk</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Alpine 1.10 (DEB 962 2008-03-14)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Hi Michael,
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Are you sure about that? mbox files can easily get very large and it's a
+pain to parse/handle them. I would really recommend maildir, you can use
+mb2md to convert an existing mbox file to a maildir folder.
+</pre></blockquote><pre style="margin: 0em;">
+
+I shall give this a serious look. Thanks for the tip.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+In sup 0.11, sent mail does not get the inbox label anymore (AFAIK). Are you
+using 0.11?
+</pre></blockquote><pre style="margin: 0em;">
+
+I'm using 0.10.2-1 from Debian testing. I've had a go at getting 0.11, but
+it's not available in Debian. I've failed to compile it several times using
+&quot;gems install sup&quot;. I finally got it to work using ruby1.9, but can't work
+out how to run sup. I tried
+
+# /var/lib/gems/1.9.0/bin/sup
+/var/lib/gems/1.9.0/gems/sup-0.11/lib/sup/util.rb:2:in `require': /var/lib/gems/1.9.0/gems/lockfile-1.4.3/lib/lockfile.rb:454: syntax error, unexpected ']' (SyntaxError)
+/var/lib/gems/1.9.0/gems/lockfile-1.4.3/lib/lockfile.rb:564: syntax error, unexpected $end, expecting keyword_end
+        from /var/lib/gems/1.9.0/gems/sup-0.11/lib/sup/util.rb:2:in `&lt;top (required)&gt;'
+        from /var/lib/gems/1.9.0/gems/sup-0.11/lib/sup.rb:277:in `require'
+        from /var/lib/gems/1.9.0/gems/sup-0.11/lib/sup.rb:277:in `&lt;top (required)&gt;'
+        from /var/lib/gems/1.9.0/gems/sup-0.11/bin/sup:15:in `require'
+        from /var/lib/gems/1.9.0/gems/sup-0.11/bin/sup:15:in `&lt;top (required)&gt;'
+        from /var/lib/gems/1.9.0/bin/sup:19:in `load'
+        from /var/lib/gems/1.9.0/bin/sup:19:in `&lt;main&gt;'
+
+which fails and
+
+# /var/lib/gems/1.9.0/gems/sup-0.11/bin/sup
+/usr/bin/env: ruby: No such file or directory
+
+which fails.
+
+I was going to try rubyforge, but it only lists 0.10.2 and earlier.
+
+Being new to ruby is not helping! I'll have a go at compiling the
+development version from the git repository.
+
+Thank you for your help.
+
+Best,
+Neil.
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01097" href="msg01097.html">Re: [sup-talk] sent mail</a></strong>
+<ul><li><em>From:</em> Richard Heycock &lt;rgh@topikality.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00741.html">[sup-talk] current state of synching upstream?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00785.html">[sup-talk] gem install sup fail</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00919.html">Re: [sup-talk] sent mail</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01097.html">Re: [sup-talk] sent mail</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01027"><strong>Date</strong></a></li>
+<li><a href="threads.html#01027"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Getting gpg to work -->
+<!--X-From-R13: [vpnu Oaqrefba <zvpnuNevfrhc.arg> -->
+<!--X-Date: Tue, 10 Nov 2009 15:57:32 &#45;0800 (PST) -->
+<!--X-Message-Id: 87fx8mkkmx.fsf@pond.riseup.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 87k5462s8q.fsf@pond.riseup.net -->
+<!--X-Reference: 1243441483&#45;sup&#45;2270@entry -->
+<!--X-Reference: 8763fkwng3.fsf@pond.riseup.net -->
+<!--X-Reference: 1243730754&#45;sup&#45;8672@entry -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Getting gpg to work</title>
+<link rev="made" href="mailto:micah@riseup.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01614.html">Date Prev</a>][<a href="msg01740.html">Date Next</a>][<a href="msg01614.html">Thread Prev</a>][<a href="msg01543.html">Thread Next</a>][<a href="maillist.html#01794">Date Index</a>][<a href="threads.html#01794">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Getting gpg to work</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: Re: [sup-talk] Getting gpg to work</li>
+<li><em>From</em>: Micah Anderson &lt;<a href="mailto:micah%40riseup.net">micah@riseup.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 10 Nov 2009 18:47:18 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Cancel-lock</em>: sha1:mfCyoDjzHLJaOKcjHpjCdSV5sfA=</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;87k5462s8q.fsf@pond.riseup.net&gt; &lt;1243441483-sup-2270@entry&gt;	&lt;8763fkwng3.fsf@pond.riseup.net&gt; &lt;1243730754-sup-8672@entry&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Gnus/5.13 (Gnus v5.13) Emacs/23.1 (gnu/linux)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>William Morgan &lt;wmorgan-sup@masanjin.net&gt; writes:
+
+&gt; Reformatted excerpts from Micah Anderson's message of 2009-05-28:
+&gt;&gt; [Fri May 29 00:17:42 -0400 2009] crypto: detected gpg binary in /usr/bin/gpg
+&gt;
+&gt; Any other obvious messages in the log about multipart/encrypted?
+
+I failed to respond to this message, partly because I think I decided to
+give up on sup at the time. But I am back now, because sup is so
+alluring, and I'm trying harder to switch this time :)
+
+This time, gpg works fine... although it is using the wrong gpg keyid
+when I try to send. I did manage to find and set the gpgkey configurable
+in the .sup/config.yaml:
+
+:accounts: 
+  :default: 
+    :signature: /home/micah/.signature
+    :email: micah@riseup.net
+    :sendmail: /usr/sbin/sendmail -oem -ti
+    :name: micah anderson
+    :gpgkey: 0xDEADBEEF
+
+but still, that key does not get used, and instead the first key in my
+keyring for my email@address gets used instead. I do not want that,
+because that key is set to expire in about a week.
+
+micah
+
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01614.html">Re: [sup-talk] Error upon starting sup</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01740.html">Re: [sup-talk] [PATCH] moved deriving the cmd for bouncing to	Account and fixed a bug in it</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01614.html">Re: [sup-talk] Error upon starting sup</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01543.html">[sup-talk] Sup not working anymore after abrupt reboot</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01794"><strong>Date</strong></a></li>
+<li><a href="threads.html#01794"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

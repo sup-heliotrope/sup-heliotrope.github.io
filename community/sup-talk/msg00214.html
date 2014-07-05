@@ -1,0 +1,141 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] exception &#45;&#45;&#45; RuntimeError from thread: poll after loading inbox -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Mon, 21 Nov 2011 14:51:14 &#45;0800 (PST) -->
+<!--X-Message-Id: 1321919182&#45;sup&#45;3332@qwerzila -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 56777.143.205.193.62.1320657425.squirrel@lavabit.com -->
+<!--X-Reference: 1320700740&#45;sup&#45;9219@tilus.net -->
+<!--X-Reference: 1929.143.205.216.123.1320746264.squirrel@lavabit.com -->
+<!--X-Reference: CABKe4Mut=UnKFBt91UxgJu5NxOJ57iQPv464K=e5mS_jQUn1tA@mail.gmail.com -->
+<!--X-Reference: 1320868149&#45;sup&#45;368@qwerzila -->
+<!--X-Reference: 55171.143.205.216.123.1321644860.squirrel@lavabit.com -->
+<!--X-Reference: 1321907728&#45;sup&#45;2094@qwerzila -->
+<!--X-Reference: 1321906110&#45;sup&#45;9788@eris -->
+<!--X-Reference: 1321910246&#45;sup&#45;8495@stapelberg.de -->
+<!--X-Reference: 1321913598&#45;sup&#45;6512@eris -->
+<!--X-Derived: binmBBzfzVcA2.bin -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00177.html">Date Prev</a>][<a href="msg00087.html">Date Next</a>][<a href="msg00177.html">Thread Prev</a>][<a href="msg00228.html">Thread Next</a>][<a href="maillist.html#00214">Date Index</a>][<a href="threads.html#00214">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup Talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;, Philipp &#xDC;berbacher &lt;<a href="mailto:hollunder%40lavabit.com">hollunder@lavabit.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 22 Nov 2011 00:48:09 +0100</li>
+<li><em>In-reply-to</em>: &lt;1321913598-sup-6512@eris&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00281.html">56777.143.205.193.62.1320657425.squirrel@lavabit.com</a>&gt; &lt;<a href="msg00278.html">1320700740-sup-9219@tilus.net</a>&gt; &lt;<a href="msg00024.html">1929.143.205.216.123.1320746264.squirrel@lavabit.com</a>&gt; &lt;CABKe4Mut=UnKFBt91UxgJu5NxOJ57iQPv464K=e5mS_jQUn1tA@mail.gmail.com&gt; &lt;1320868149-sup-368@qwerzila&gt; &lt;<a href="msg00073.html">55171.143.205.216.123.1321644860.squirrel@lavabit.com</a>&gt; &lt;1321907728-sup-2094@qwerzila&gt; &lt;1321906110-sup-9788@eris&gt; &lt;<a href="msg00050.html">1321910246-sup-8495@stapelberg.de</a>&gt; &lt;1321913598-sup-6512@eris&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Philipp &#xDC;berbacher's message of 2011-11-21 23:15:21 +0100:
+&gt; Excerpts from Michael Stapelberg's message of 2011-11-21 22:18:36 +0100:
+&gt; &gt; Hi Philipp,
+&gt; &gt; 
+&gt; &gt; Excerpts from Philipp &#xDC;berbacher's message of 2011-11-21 20:16:28 +0000:
+&gt; &gt; &gt; The last sup release definitely doesn't work with ruby 1.9.3.
+&gt; &gt; Use the git version, that works with 1.9.3, see my post at
+&gt; &gt; <a  rel="nofollow" href="http://rubyforge.org/pipermail/sup-devel/2011-November/001256.html">http://rubyforge.org/pipermail/sup-devel/2011-November/001256.html</a>
+&gt; &gt; (and replace the mangled &quot; at &quot; with @)
+&gt; &gt; 
+&gt; &gt; Best regards,
+&gt; &gt; Michael
+&gt; 
+&gt; Thanks Michael.
+&gt; Since you're on 1.9.3 I assume you're an arch user as well? If so, did
+&gt; you manage to create a PKGBUILD that uses those instructions? It's just
+&gt; that I rather have a package that I can uninstall again if necessary.
+&gt; 
+&gt; Regards,
+&gt; Philipp
+
+I used this work-around (patch attached):
+<a  rel="nofollow" href="http://stackoverflow.com/questions/4932881/gemcutter-rake-build-now-throws-undefined-method-write-for-syckemitter">http://stackoverflow.com/questions/4932881/gemcutter-rake-build-now-throws-undefined-method-write-for-syckemitter</a>
+
+which enables me to install it as normal with 'gem'.
+
+- Gaute
+</pre><p><strong>Attachment:
+<a href="binmBBzfzVcA2.bin" ><tt>0001-Require-psych-in-Rakefile-to-avoid-syck-error-when-c.patch</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00281" href="msg00281.html">[sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+<ul><li><em>From:</em> hollunder@lavabit.com</li></ul></li>
+<li><strong><a name="00278" href="msg00278.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+<li><strong><a name="00024" href="msg00024.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</a></strong>
+<ul><li><em>From:</em> hollunder@lavabit.com</li></ul></li>
+<li><strong><a name="00040" href="msg00040.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00036" href="msg00036.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00073" href="msg00073.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</a></strong>
+<ul><li><em>From:</em> hollunder@lavabit.com</li></ul></li>
+<li><strong><a name="00165" href="msg00165.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00215" href="msg00215.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+<ul><li><em>From:</em> Philipp &#xDC;berbacher &lt;hollunder@lavabit.com&gt;</li></ul></li>
+<li><strong><a name="00050" href="msg00050.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+<li><strong><a name="00177" href="msg00177.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+<ul><li><em>From:</em> Philipp &#xDC;berbacher &lt;hollunder@lavabit.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00177.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00087.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00177.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00228.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00214"><strong>Date</strong></a></li>
+<li><a href="threads.html#00214"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

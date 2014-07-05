@@ -1,0 +1,157 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Missing the save index option (patch attached) -->
+<!--X-From-R13: Wfenry Vreenvm <vfenry.ureenvmNtznvy.pbz> -->
+<!--X-Date: Sun, 17 Jan 2010 04:44:19 &#45;0800 (PST) -->
+<!--X-Message-Id: 1263731685&#45;sup&#45;8287@duck -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Missing the save index option (patch attached)</title>
+<link rev="made" href="mailto:israel.herraiz@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01205.html">Date Prev</a>][<a href="msg01291.html">Date Next</a>][<a href="msg01270.html">Thread Prev</a>][<a href="msg01325.html">Thread Next</a>][<a href="maillist.html#01463">Date Index</a>][<a href="threads.html#01463">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Missing the save index option (patch attached)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Missing the save index option (patch attached)</li>
+<li><em>From</em>: Israel Herraiz &lt;<a href="mailto:israel.herraiz%40gmail.com">israel.herraiz@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 17 Jan 2010 13:36:16 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:date:message-id:user-agent:content-transfer-encoding;	bh=qeX5qkikA0vwbg3ODmzgotgM39/JFjMhg9R2ETrskp8=;	b=gOJMXyS8OJ2umh0o+JanMRqQiLp+W+kJZ+zvSrAQ/x5reXj//2QEJBcgmdiJHfTfOf	lOg7cWBdcVMmMXmE6Bzg+mpcmc7Vi/oBo/IOEAJDqkaADjaOuAOZlCrrc8EESZRitG2L	oxxjrel6ghJ+mqMkRgMV4OKyIbEDmnfAzYVJE=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=cX6Dn2P9OZClWkuVgIGdELLbS6tR0qOzT6zcAG7CzkuFt5hmtKKJXQ3D+ynjTUrZr9	BGdiSIY6VxBODyBRlTMO1wEHjFaAedDUTpn6+tRy2J7Hn2jpLn1asUQeiNITVHbv1EDC	poUv0l2vJaGBTe3xZjzJJXiuhFy3dT3sbRlNk=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi all,
+
+since the last changes to get rid of the save option and to migrate to
+the Xapian index, I am really missing the save index option.
+
+Currently, when Sup exits, all the changes to the index are flushed,
+and in my case it takes ages because I am a heavy email load user. For
+me that is a problem, because my Sup is always open, and I usually
+suspend my laptop. From time to time, my laptop won't wake up, and I
+am forced to do an unclean reboot. When I open again Sup, all the
+changes I did (archiving threads, etc) are lost because the index was
+not flushed.
+
+I know that I can use the XAPIAN_FLUSH_THRESHOLD option, but if I use
+that option, when the threshold is reached it interrupts me while I am
+dealing with my email, and I have to wait some seconds until the index
+is flushed. This behavior is very annoying.
+
+I don't know if someone else in this list is also missing the
+possibility of flushing the index from Sup. I have done the attached
+changes to my Sup, that recovers a sort-of the old save index
+option. I am sending to the list just in case the patch is useful for
+others too. If there are not strong objections to this change, I
+suggest to merge it with Sup.
+
+Cheers,
+Israel
+
+---
+ lib/sup/modes/thread-index-mode.rb |    7 +++++++
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index a5bd344..3a1bb76 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -37,6 +37,7 @@ EOS
+     k.add :toggle_spam, &quot;Mark/unmark thread as spam&quot;, 'S'
+     k.add :toggle_deleted, &quot;Delete/undelete thread&quot;, 'd'
+     k.add :kill, &quot;Kill thread (never to be seen in inbox again)&quot;, '&amp;'
++    k.add :flush_index, &quot;Flush all changes now&quot;, '$'
+     k.add :jump_to_next_new, &quot;Jump to next new thread&quot;, :tab
+     k.add :reply, &quot;Reply to latest message in a thread&quot;, 'r'
+     k.add :reply_all, &quot;Reply to all participants of the latest message in a thread&quot;, 'G'
+@@ -449,6 +450,12 @@ EOS
+     multi_kill [t]
+   end
+ 
++  def flush_index
++    @flush_id = BufferManager.say &quot;Flushing index...&quot;
++    Index.save_index
++    BufferManager.clear @flush_id
++  end
++  
+   ## m-m-m-m-MULTI-KILL
+   def multi_kill threads
+     UndoManager.register &quot;killing #{threads.size.pluralize 'thread'}&quot; do
+-- 
+1.6.6
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01325" href="msg01325.html">Re: [sup-talk] Missing the save index option (patch attached)</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01179" href="msg01179.html">Re: [sup-talk] Missing the save index option (patch attached)</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01205.html">Re: [sup-talk] reply-from.rb troubles</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01291.html">Re: [sup-talk] Questions about offlineimap+msmtp+maildir+gmail	syncing</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01270.html">[sup-devel] [PATCH] Message#edit_labels [was: [sup-talk] Ruby	question: before-add-message.rb and adding multiple labels at once]</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01325.html">Re: [sup-talk] Missing the save index option (patch attached)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01463"><strong>Date</strong></a></li>
+<li><a href="threads.html#01463"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] exception in mainline -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Mon, 2 Nov 2009 08:08:12 &#45;0800 (PST) -->
+<!--X-Message-Id: 1257177587&#45;sup&#45;5889@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1256749083&#45;sup&#45;3681@arrakis.es.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] exception in mainline</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01605.html">Date Prev</a>][<a href="msg01760.html">Date Next</a>][<a href="msg01602.html">Thread Prev</a>][<a href="msg01714.html">Thread Next</a>][<a href="maillist.html#01776">Date Index</a>][<a href="threads.html#01776">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] exception in mainline</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] exception in mainline</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 02 Nov 2009 08:03:41 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01602.html">1256749083-sup-3681@arrakis.es.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01602.html">1256749083-sup-3681@arrakis.es.net</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Jon,
+
+Reformatted excerpts from Jon Dugan's message of 2009-10-28:
+&gt; i now get this when i start sup.  i'm running mainline.
+&gt; 
+&gt; --- RuntimeError from thread: load threads for thread-index-mode
+&gt; wrong id called on nil
+&gt; ./lib/sup.rb:17:in `id'
+&gt; ./lib/sup/modes/thread-index-mode.rb:225:in `update'
+
+I posted this workaround patch earlier. I'm working on a better solution in the
+meanwhile.
+
+diff --git a/lib/sup/modes/thread-index-mode.rb
+b/lib/sup/modes/thread-index-mode.rb
+index 82f258b..17d5836 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -222,7 +222,7 @@ EOS
+   def update
+     @mutex.synchronize do
+       ## let's see you do THIS in python
+-      @threads = @ts.threads.select { |t| !@hidden_threads[t] }.sort_by { |t| [t.date, t.first.id] }.reverse
++      @threads = @ts.threads.select { |t| !@hidden_threads[t] }.select { |t| t.first }.sort_by { |t| [t.date, t.first.id] }.reverse
+       @size_widgets = @threads.map { |t| size_widget_for_thread t }
+       @size_widget_width = @size_widgets.max_of { |w| w.display_length }
+     end
+
+&gt; ./lib/sup/hook.rb:122:in `sort_by'
+&gt; ./lib/sup/modes/thread-index-mode.rb:225:in `each'
+&gt; ./lib/sup/modes/thread-index-mode.rb:225:in `sort_by'
+&gt; ./lib/sup/modes/thread-index-mode.rb:225:in `update'
+&gt; ./lib/sup/modes/thread-index-mode.rb:223:in `synchronize'
+&gt; ./lib/sup/modes/thread-index-mode.rb:223:in `update'
+&gt; ./lib/sup/modes/thread-index-mode.rb:628:in `__unprotected_load_n_threads'
+&gt; ./lib/sup/thread.rb:334:in `load_n_threads'
+&gt; ./lib/sup/xapian_index.rb:151:in `each_id_by_date'
+&gt; ./lib/sup/xapian_index.rb:144:in `each_id'
+&gt; ./lib/sup/xapian_index.rb:144:in `each'
+&gt; ./lib/sup/xapian_index.rb:144:in `each_id'
+&gt; ./lib/sup/xapian_index.rb:151:in `each_id_by_date'
+&gt; ./lib/sup/thread.rb:328:in `load_n_threads'
+&gt; ./lib/sup/modes/thread-index-mode.rb:625:in `__unprotected_load_n_threads'
+&gt; (eval):12:in `load_n_threads'
+&gt; ./lib/sup/modes/thread-index-mode.rb:609:in `load_n_threads_background'
+&gt; ./lib/sup.rb:77:in `reporting_thread'
+&gt; ./lib/sup.rb:75:in `initialize'
+&gt; ./lib/sup.rb:75:in `new'
+&gt; ./lib/sup.rb:75:in `reporting_thread'
+&gt; ./lib/sup/modes/thread-index-mode.rb:608:in `load_n_threads_background'
+&gt; ./lib/sup/modes/thread-index-mode.rb:679:in `__unprotected_load_threads'
+&gt; (eval):12:in `load_threads'
+&gt; bin/sup:199
+&gt; 
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01602" href="msg01602.html">[sup-talk] exception in mainline</a></strong>
+<ul><li><em>From:</em> Jon Dugan &lt;jdugan@es.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01605.html">Re: [sup-talk] Completion for search queries</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01760.html">[sup-talk] &quot;Force tags to be joined&quot; doesn't save</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01602.html">[sup-talk] exception in mainline</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01714.html">[sup-talk] [PATCH] minor nits in exception apology message</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01776"><strong>Date</strong></a></li>
+<li><a href="threads.html#01776"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

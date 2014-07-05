@@ -1,0 +1,53 @@
+From 1a8e906a7e49226021d088073f40f8cc0c4d75c6 Mon Sep 17 00:00:00 2001
+From: Daniel Schoepe <daniel.schoepe@googlemail.com>
+Date: Mon, 18 Jan 2010 15:16:25 +0100
+Subject: [PATCH] Added crypto_selector to before-edit hook
+
+---
+ lib/sup/modes/edit-message-mode.rb |    9 +++++----
+ lib/sup/modes/reply-mode.rb        |    2 +-
+ 2 files changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/lib/sup/modes/edit-message-mode.rb b/lib/sup/modes/edit-message-mode.rb
+index 8849271..b991d73 100644
+--- a/lib/sup/modes/edit-message-mode.rb
++++ b/lib/sup/modes/edit-message-mode.rb
+@@ -34,8 +34,10 @@ EOS
+ Modifies message body and headers before editing a new message. Variables
+ should be modified in place.
+ Variables:
+-	header: a hash of headers. See 'signature' hook for documentation.
+-	body: an array of lines of body text.
++  header: a hash of headers. See 'signature' hook for documentation.
++  body: an array of lines of body text.
++  crypto_selector: the UI element for cryptography settings; useful for
++                   default settings. (Can be nil)
+ Return value:
+ 	none
+ EOS
+@@ -90,8 +92,7 @@ EOS
+         HorizontalSelector.new "Crypto:", [:none] + CryptoManager::OUTGOING_MESSAGE_OPERATIONS.keys, ["None"] + CryptoManager::OUTGOING_MESSAGE_OPERATIONS.values
+       end
+     add_selector @crypto_selector if @crypto_selector
+-    
+-    HookManager.run "before-edit", :header => @header, :body => @body
++    HookManager.run "before-edit", :header => @header, :body => @body, :crypto_selector => @crypto_selector
+ 
+     super opts
+     regen_text
+diff --git a/lib/sup/modes/reply-mode.rb b/lib/sup/modes/reply-mode.rb
+index 3d39a8a..1453393 100644
+--- a/lib/sup/modes/reply-mode.rb
++++ b/lib/sup/modes/reply-mode.rb
+@@ -151,7 +151,7 @@ EOS
+       end)
+ 
+     @headers.each do |k, v|
+-      HookManager.run "before-edit", :header => v, :body => body
++      HookManager.run "before-edit", :header => v, :body => body, :crypto_selector => nil
+     end
+ 
+     super :header => @headers[@type_selector.val], :body => body, :twiddles => false
+-- 
+1.6.6
+

@@ -1,0 +1,181 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] exception &#45;&#45;&#45; RuntimeError from thread: poll after loading inbox -->
+<!--X-From-R13: ubyyhaqreNyninovg.pbz -->
+<!--X-Date: Tue, 8 Nov 2011 02:05:52 &#45;0800 (PST) -->
+<!--X-Message-Id: 1929.143.205.216.123.1320746264.squirrel@lavabit.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 56777.143.205.193.62.1320657425.squirrel@lavabit.com -->
+<!--X-Reference: 1320700740&#45;sup&#45;9219@tilus.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</title>
+<link rev="made" href="mailto:hollunder@lavabit.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00278.html">Date Prev</a>][<a href="msg00125.html">Date Next</a>][<a href="msg00278.html">Thread Prev</a>][<a href="msg00040.html">Thread Next</a>][<a href="maillist.html#00024">Date Index</a>][<a href="threads.html#00024">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Sup users&quot; &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</li>
+<li><em>From</em>: <a href="mailto:hollunder%40lavabit.com">hollunder@lavabit.com</a></li>
+<li><em>Date</em>: Tue, 8 Nov 2011 04:57:44 -0500 (EST)</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; domainkeys=hardfail (test mode) header.From=<a href="mailto:hollunder%40lavabit.com">hollunder@lavabit.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; q=dns; c=nofws; s=lavabit; d=lavabit.com;	b=zWzD8uKXkkjpK3sTS/XnCk20mBc1+zI0Ko1qRrytAAk9IJkFh6/OMbOF+iB4qbJCTqvD/J6NIBYr9rqwtNjjmMm6d5DtD9Z+kD19bK/9MaV3XPynz7hVpPLNYigmWeSzl0JL9ctDiMzETscqS1V7qB+uxQUqWDx4baPoHUbLn0Q=;	h=Message-ID:In-Reply-To:References:Date:Subject:From:To:User-Agent:MIME-Version:Content-Type:Content-Transfer-Encoding;</li>
+<li><em>Domainkey-status</em>: bad (test mode)</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00278.html">1320700740-sup-9219@tilus.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00281.html">56777.143.205.193.62.1320657425.squirrel@lavabit.com</a>&gt;	&lt;<a href="msg00278.html">1320700740-sup-9219@tilus.net</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: SquirrelMail/1.4.13</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&gt; hollunder, 2011-11-07 11:17:
+&gt;&gt; I wonder what component is at fault.
+&gt;
+&gt; Looks like it fails when adding new messages from maildir to index.
+&gt; Somehow term_docids for the id of newly received message yields more
+&gt; than one documents from index.  Could it be that one of the new
+&gt; messages in your maildir has a mangled message id?
+&gt;
+&gt; I'm not familiar with offlineimap.  You might need some extra steps or
+&gt; a completely different approach here, but: You could try to (back up
+&gt; and temporarily) move new messages out of your inbox (using mutt etc)
+&gt; and then retry with sup.
+&gt;
+&gt; --
+&gt; Tero Tilus ## 050 3635 235 ## <a  rel="nofollow" href="http://tero.tilus.net/">http://tero.tilus.net/</a>
+&gt; _______________________________________________
+&gt; sup-talk mailing list
+&gt; sup-talk@rubyforge.org
+&gt; <a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+&gt;
+&gt;
+
+Thanks,
+I'll try that kind of stuff if I manage to, never used another mail reader
+than sup.
+Anyway, today a new ruby update came along and even after rebuilding
+everything I could think of, including sup, sup doesn't start anymore. Not
+sure it's the same issue.
+
+Also tried sup-git, but it doesn't seem to build at all.
+
+$ sup
+/usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require': iconv will
+be deprecated in the future, use String#encode instead.
+/usr/lib/ruby/gems/1.9.1/gems/gettext-2.1.0/lib/gettext/runtime/locale_path.rb:20:
+Use RbConfig instead of obsolete and deprecated Config.
+[2011-11-08 10:48:46 +0100] ERROR: oh crap, an exception
+----------------------------------------------------------------
+I'm very sorry. It seems that an error occurred in Sup. Please
+accept my sincere apologies. Please submit the contents of
+/home/murks/.sup/exception-log.txt and a brief report of the
+circumstances to <a  rel="nofollow" href="http://masanjin.net/sup-bugs/">http://masanjin.net/sup-bugs/</a> so that I might
+address this problem. Thank you!
+
+Sincerely,
+William
+----------------------------------------------------------------
+--- RuntimeError from thread: main
+wrong id called on
+{&quot;uri&quot;=&gt;&quot;maildir:/home/murks/.imap/lavabit_murks_local/Inbox&quot;,
+&quot;usual&quot;=&gt;true, &quot;archived&quot;=&gt;false, &quot;id&quot;=&gt;1, &quot;labels&quot;=&gt;[&quot;murks_lavabit&quot;,
+&quot;personal&quot;]}
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup.rb:18:in `id'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/source.rb:207:in `block
+(2 levels) in load_sources'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/source.rb:207:in `map'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/source.rb:207:in `block
+in load_sources'
+/usr/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/source.rb:206:in
+`load_sources'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/util.rb:609:in
+`method_missing'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/index.rb:92:in `load'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/util.rb:609:in
+`method_missing'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/bin/sup:154:in `&lt;module:Redwood&gt;'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/bin/sup:69:in `&lt;top (required)&gt;'
+/usr/bin/sup:19:in `load'
+/usr/bin/sup:19:in `&lt;main&gt;'
+
+
+
+
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00040" href="msg00040.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00281" href="msg00281.html">[sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+<ul><li><em>From:</em> hollunder@lavabit.com</li></ul></li>
+<li><strong><a name="00278" href="msg00278.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00278.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00125.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00278.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after	loading inbox</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00040.html">Re: [sup-talk] exception --- RuntimeError from thread: poll after loading inbox</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00024"><strong>Date</strong></a></li>
+<li><a href="threads.html#00024"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

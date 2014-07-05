@@ -1,0 +1,115 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Delete A Source From Ferret Index -->
+<!--X-From-R13: Xbanguna Znffbss <wbsNgurwbs.pbz> -->
+<!--X-Date: Mon, 4 Jan 2010 18:23:34 &#45;0800 (PST) -->
+<!--X-Message-Id: 1262657952&#45;sup&#45;6680@sfo.thejof.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1262573310&#45;sup&#45;6062@sfo.thejof.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Delete A Source From Ferret Index</title>
+<link rev="made" href="mailto:jof@thejof.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01388.html">Date Prev</a>][<a href="msg01476.html">Date Next</a>][<a href="msg01468.html">Thread Prev</a>][<a href="msg01315.html">Thread Next</a>][<a href="maillist.html#01187">Date Index</a>][<a href="threads.html#01187">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Delete A Source From Ferret Index</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Delete A Source From Ferret Index</li>
+<li><em>From</em>: Jonathan Lassoff &lt;<a href="mailto:jof%40thejof.com">jof@thejof.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 04 Jan 2010 18:21:34 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01468.html">1262573310-sup-6062@sfo.thejof.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01468.html">1262573310-sup-6062@sfo.thejof.com</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Jonathan Lassoff's message of Sun Jan 03 19:35:08 -0800 2010:
+&gt; Any suggestions for removing all messages from the index that belong to
+&gt; a certain source?
+
+A solution that ended up working for me:
+
+ - Start the devel console (cd ~/src/sup; ./devel/console.sh)
+ - Search for message ids from the source you want to remove and run
+   Redwood::FerretIndex#delete on each (the evil source id was 10 in my case):
+  &quot;&gt;&gt; Index.each_id(Index.parse_query(&quot;source_id:10&quot;)){|m| Index.delete(m)}; Index.save_index&quot;
+
+Cheers,
+jonathan
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01315" href="msg01315.html">Re: [sup-talk] Delete A Source From Ferret Index</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01468" href="msg01468.html">[sup-talk] Delete A Source From Ferret Index</a></strong>
+<ul><li><em>From:</em> Jonathan Lassoff &lt;jof@thejof.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01388.html">Re: [sup-talk] sent_source - singular or per-account?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01476.html">Re: [sup-talk] Moving messages between sources and generic auto	labeling hook</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01468.html">[sup-talk] Delete A Source From Ferret Index</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01315.html">Re: [sup-talk] Delete A Source From Ferret Index</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01187"><strong>Date</strong></a></li>
+<li><a href="threads.html#01187"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

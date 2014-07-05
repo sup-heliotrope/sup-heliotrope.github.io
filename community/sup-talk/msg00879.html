@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk]  xapian load issues -->
+<!--X-From-R13: srqmbe <srqmbeNtznvy.pbz> -->
+<!--X-Date: Sat, 10 Jul 2010 11:01:32 &#45;0700 (PDT) -->
+<!--X-Message-Id: B74D42D5&#45;E809&#45;446D&#45;A972&#45;2737C441C454@gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk]  xapian load issues</title>
+<link rev="made" href="mailto:fedzor@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00888.html">Date Prev</a>][<a href="msg00976.html">Date Next</a>][<a href="msg00669.html">Thread Prev</a>][<a href="msg00976.html">Thread Next</a>][<a href="maillist.html#00879">Date Index</a>][<a href="threads.html#00879">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk]  xapian load issues</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk]  xapian load issues</li>
+<li><em>From</em>: fedzor &lt;<a href="mailto:fedzor%40gmail.com">fedzor@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 10 Jul 2010 13:55:51 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:from:content-type	:content-transfer-encoding:subject:date:message-id:to:mime-version	:x-mailer; bh=pG+iM79AO+xvszRCdgQQ/vVehHWsiqnlWsQjJhfcNOs=;	b=czDGMd4jWUNwgO2bPvmMcnyYorfGl4e2wxN98sWCxg9AikUrFYIQVgCpvZbRdLJMqW	TDassjMX3JGz9LfuRCp7DfA9O0J8DoZv+MBvutl3BOugYBZGo6mZbvgVBz1LfcX6cL+9	+aGsx1bte3Dlp6Q0U9viCa2rmJdDkEPRaiC1E=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=from:content-type:content-transfer-encoding:subject:date:message-id	:to:mime-version:x-mailer;	b=lxwPhCWlvXIemFyTZ146OdGJ/vK1Gd/Uz3e0rxvycYFruxjGSebVAOVQVucs2JvAtO	rdpPEDT5hMly7K8zp1+4MUoWN/yStCKoa0nuURSjyCySNCKhKdugYEe+az6Q2igH9ewz	DU8CReE9f+eg75EOy/u1o8fIPjDFI3y+XSkaw=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello:
+
+I love sup. I have used it before (0.4) and loved it to bits, but had to stop using it because my computer was too slow.
+
+But now, I have a fast laptop and want to make sup my primary MUA. Let's give it a shot, shall we?
+
+[ari: ~] sup
+/Users/ari/.rvm/gems/ruby-1.8.7-p174/gems/xapian-full-1.1.3.4/lib/_xapian.bundle: dlopen(/Users/ari/.rvm/gems/ruby-1.8.7-p174/gems/xapian-full-1.1.3.4/lib/_xapian.bundle, 9): Library not loaded: /usr/local/lib/libxapian-1.1.3.dylib (LoadError)
+ Referenced from: /Users/ari/.rvm/gems/ruby-1.8.7-p174/gems/xapian-full-1.1.3.4/lib/_xapian.bundle
+ Reason: image not found - /Users/ari/.rvm/gems/ruby-1.8.7-p174/gems/xapian-full-1.1.3.4/lib/_xapian.bundle
+       from /Users/ari/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+       from /Users/ari/.rvm/gems/ruby-1.8.7-p174/gems/xapian-full-1.1.3.4/lib/xapian.rb:41
+       from /Users/ari/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+       from /Users/ari/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+       from /Users/ari/.rvm/gems/ruby-1.8.7-p174/gems/sup-0.11/lib/sup/index.rb:3
+       from /Users/ari/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+       from /Users/ari/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+       from /Users/ari/.rvm/gems/ruby-1.8.7-p174/gems/sup-0.11/lib/sup.rb:316
+       from /Users/ari/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+       from /Users/ari/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+       from /Users/ari/.rvm/gems/ruby-1.8.7-p174/gems/sup-0.11/bin/sup:15
+       from /Users/ari/.rvm/gems/ruby-1.8.7-p174/bin/sup:19:in `load'
+       from /Users/ari/.rvm/gems/ruby-1.8.7-p174/bin/sup:19
+[ari: ~] 
+
+
+FUUUUUUUUU. I have no idea how to fix this, and I have done mucho googling for it. Thoughts? Suggestions? Help?
+
+- Ari Brown (seydar)
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00976" href="msg00976.html">Re: [sup-talk] xapian load issues</a></strong>
+<ul><li><em>From:</em> Ben Walton &lt;bwalton@artsci.utoronto.ca&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00888.html">[sup-talk] Send Individually feature</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00976.html">Re: [sup-talk] xapian load issues</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00669.html">Re: [sup-talk] Send Individually feature</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00976.html">Re: [sup-talk] xapian load issues</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00879"><strong>Date</strong></a></li>
+<li><a href="threads.html#00879"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] sup and ruby 1.9 -->
+<!--X-From-R13: Vnzvfu R <qzvfuqNtznvy.pbz> -->
+<!--X-Date: Mon, 25 Oct 2010 16:40:04 &#45;0700 (PDT) -->
+<!--X-Message-Id: AANLkTinRQ9A+8630CnUKam1h2X5o_N_n9e6GgY_weLkQ@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] sup and ruby 1.9</title>
+<link rev="made" href="mailto:dmishd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01102.html">Date Prev</a>][<a href="msg00805.html">Date Next</a>][<a href="msg00929.html">Thread Prev</a>][<a href="msg00805.html">Thread Next</a>][<a href="maillist.html#00772">Date Index</a>][<a href="threads.html#00772">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] sup and ruby 1.9</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] sup and ruby 1.9</li>
+<li><em>From</em>: Hamish D &lt;<a href="mailto:dmishd%40gmail.com">dmishd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 26 Oct 2010 00:06:51 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:received:date:message-id	:subject:from:to:content-type;	bh=1kZi+Ter0mJP39WNLUgzU4ot5Mw+PGeEBh2gaeAU+6E=;	b=toUSYbiENZEYiKp1I345oSa6jyxDcKfKRvEVjdAEw6cL/u8dlen/ljb4DjFXharBWs	BQajBYoaZuoeI4pnF5ycGL6PlGDqxlWrb7sDlJ92nMHsf7QWHVisbNQEqBfkqt7ojD+O	jjPeyK0fqHlz7WNEc2+cWilHpNqfNU4CSh0do=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=Um4X5fjG2wPURSIeuvcYImKkyBNpVpc6jTs7q27Ki9q9Dcd0g7LZP+WNp7FWOTErnQ	uSQ1TXuqVD6Q7VjEhWBISJGEJnd+FosjcNkx3EczpPGF4H7+bGbNeUMj5wabwQix74SY	RrVhusaiq8YJVHpQFJGP4n14w64T2J2XBUV88=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello all
+
+I'm wondering what the status of sup and ruby 1.9 is. Is it stable and
+no more buggy than on ruby 1.8? Is it significantly faster than on
+ruby 1.8?
+
+If I did go for the change, can I switch back and forth between ruby
+versions? Should I reinstall all the gems that sup depends on?
+
+Thanks in advance
+Hamish
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00805" href="msg00805.html">Re: [sup-talk] sup and ruby 1.9</a></strong>
+<ul><li><em>From:</em> Philipp &#xDC;berbacher &lt;hollunder@lavabit.com&gt;</li></ul></li>
+<li><strong><a name="00753" href="msg00753.html">Re: [sup-talk] sup and ruby 1.9</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01102.html">Re: [sup-talk] deleting files from source</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00805.html">Re: [sup-talk] sup and ruby 1.9</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00929.html">Re: [sup-talk] Slow opening of threads?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00805.html">Re: [sup-talk] sup and ruby 1.9</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00772"><strong>Date</strong></a></li>
+<li><a href="threads.html#00772"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

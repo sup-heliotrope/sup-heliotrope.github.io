@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Automatic watch of IMAP folder -->
+<!--X-From-R13: [ngguvrh Dnxbgbwnban <zngguvrh.enxbgbwnbanNtznvy.pbz> -->
+<!--X-Date: Thu, 3 Apr 2014 13:13:54 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1396555234&#45;sup&#45;5195@kpad -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: pgpQWQHbSJPkh.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Automatic watch of IMAP folder</title>
+<link rev="made" href="mailto:matthieu.rakotojaona@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00238.html">Date Prev</a>][<a href="msg00232.html">Date Next</a>][<a href="msg00344.html">Thread Prev</a>][<a href="msg00232.html">Thread Next</a>][<a href="maillist.html#00058">Date Index</a>][<a href="threads.html#00058">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Automatic watch of IMAP folder</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Automatic watch of IMAP folder</li>
+<li><em>From</em>: Matthieu Rakotojaona &lt;<a href="mailto:matthieu.rakotojaona%40gmail.com">matthieu.rakotojaona@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 03 Apr 2014 22:12:38 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>;       dkim=neutral (body hash did not verify) header.i=@gmail.com;       dmarc=fail (p=NONE dis=NONE) header.from=gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20120113;	h=from:to:subject:date:message-id:user-agent	:content-transfer-encoding:mime-version:content-type;	bh=2DAF2M/S43xgPLsdKEfqmFsMzGsSrej57yS0pTXR3M4=;	b=b9yy6+v6/O3hpgwWjcmLajQ4xHf7m4sg+5buSrbR4hCtWVru/56yP/PTmJsOD/0gK7	EshoYqC71NOmKj6jlWq/qh0BVrcbRPINo1plnlZyMgQSZTkHwkhHh1DUBPxmYjJwD/HP	uWsaUEgXGDtgDfpouQkNtKUfQb+l52h95Pu3GwxuaiXkYVo/75giK+DG2YpAq613hVN9	j37HrviPPJR4jtK4TNHsDfWI5/g7J5EgP/SkvE3JNkC7pWVP5TywdLGEWHHVHDK5WgS9	H/h+ofXPBMjTber/9tXdC76+OidatoXPja1v7hatjGSv78SdRuiOCgkqPoZsozv8zD8J	7s/A==</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello suppers,
+
+I'm pretty sure some of you sync their mails from some IMAP server
+somewhere, maybe Gmail even. I've written a little script that:
+
+- allows you to watch your favorite IMAP folder (&quot;[Gmail]/All mail&quot; by
+  default)
+- on your favorite server (&quot;imaps://imap.gmail.com&quot; by default)
+- with your login/password
+- run a custom command(&quot;offlineimap -u Quiet&quot;) whenever a new mail
+  arrives (triggered by an IDLE message)
+
+The script is very simple, but should fit your needs without problems
+(feel free to make it a little bit more flexible if you want to)
+
+I've been running it in a tmux for a few days now, and it works good.
+The real magic though is done by OfflineIMAP, which makes sure your
+mails aren't eaten... and that allows me to be dirty on the details of
+external script calls.
+
+The script lives at
+<a  rel="nofollow" href="https://github.com/rakoo/idlewatch/blob/master/idlewatch.rb">https://github.com/rakoo/idlewatch/blob/master/idlewatch.rb</a>
+
+-- 
+Matthieu Rakotojaona
+</pre><p><strong>Attachment:
+<a href="pgpQWQHbSJPkh.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00232" href="msg00232.html">Re: [sup-talk] Automatic watch of IMAP folder</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00238.html">Re: [sup-talk] Getting GPG working in Sup</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00232.html">Re: [sup-talk] Automatic watch of IMAP folder</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00344.html">Re: [sup-talk] Solarized based theme for sup</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00232.html">Re: [sup-talk] Automatic watch of IMAP folder</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00058"><strong>Date</strong></a></li>
+<li><a href="threads.html#00058"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

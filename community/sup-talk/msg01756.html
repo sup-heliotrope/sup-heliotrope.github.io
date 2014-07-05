@@ -1,0 +1,135 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Sup&#45;sync exception -->
+<!--X-From-R13: [nex Oaqrefba <znexe.naqrefbaNnzq.pbz> -->
+<!--X-Date: Fri, 6 Nov 2009 12:21:43 &#45;0800 (PST) -->
+<!--X-Message-Id: 1257537789&#45;sup&#45;1961@testarossa -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1257452860&#45;sup&#45;7983@testarossa -->
+<!--X-Reference: 1257520288&#45;sup&#45;8595@onnadayr.ca -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Sup-sync exception</title>
+<link rev="made" href="mailto:markr.anderson@amd.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01746.html">Date Prev</a>][<a href="msg01797.html">Date Next</a>][<a href="msg01695.html">Thread Prev</a>][<a href="msg01797.html">Thread Next</a>][<a href="maillist.html#01756">Date Index</a>][<a href="threads.html#01756">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Sup-sync exception</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Sup-sync exception</li>
+<li><em>From</em>: Mark Anderson &lt;<a href="mailto:markr.anderson%40amd.com">markr.anderson@amd.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 6 Nov 2009 13:06:17 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01695.html">1257520288-sup-8595@onnadayr.ca</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1257452860-sup-7983@testarossa&gt; &lt;<a href="msg01695.html">1257520288-sup-8595@onnadayr.ca</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from rick.tessner's message of Fri Nov 06 08:13:19 -0700 2009:
+&gt; I had that exact same thing.  If you applied a patch that used
+&gt; Ncurses.cols rather than WRAP_LEN to determine screen width, you'll have
+&gt; that problem in the non-curses based sup applications.
+&gt; 
+&gt; The patch came from an email with the subject
+&gt; 
+&gt;     [PATCH] Use terminal width instead of hardcoded 80 as the wrap length.
+
+I had applied that previous patch, as you guessed.
+
+There was another patch that is complementary in getting the console to recognize the width of the terminal, I forget the tname, but here's what I have in my message-chunks.rb:
+
+  TERM_WIDTH = `stty size 2&gt;/dev/null`.split[1].to_i # to_i returns 0 if it fails
+  WRAP_LEN = TERM_WIDTH &gt; 0 &amp;&amp; TERM_WIDTH || 80 # wrap messages and text attachments at this width
+
+I don't know why that patch preferred `stty` to ENV[&quot;COLUMNS&quot;], since that one had worked for me.
+
+&gt; I initially didn't have any problems whatsoever with that patch until I ran
+&gt; sup-sync. I fixed it with the attached commit.
+&gt; 
+&gt; This patch just does a rescue on that call.  The patch is only
+&gt; applicable if you had applied a patch that came through previously on
+&gt; this list for using Ncurses.cols rather than WRAP_LEN in
+&gt; lib/sup/message-chunks.rb
+
+Thanks, it is much happier now.
+
+-Mark
+
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01797" href="msg01797.html">Re: [sup-talk] Sup-sync exception</a></strong>
+<ul><li><em>From:</em> Anthony Martinez &lt;pi+sup@pihost.us&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01719" href="msg01719.html">[sup-talk] Sup-sync exception</a></strong>
+<ul><li><em>From:</em> Mark Anderson &lt;markr.anderson@amd.com&gt;</li></ul></li>
+<li><strong><a name="01695" href="msg01695.html">Re: [sup-talk] Sup-sync exception</a></strong>
+<ul><li><em>From:</em> rick.tessner &lt;rick.tessner@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01746.html">[sup-talk] sup bug tracker</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01797.html">Re: [sup-talk] Sup-sync exception</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01695.html">Re: [sup-talk] Sup-sync exception</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01797.html">Re: [sup-talk] Sup-sync exception</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01756"><strong>Date</strong></a></li>
+<li><a href="threads.html#01756"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

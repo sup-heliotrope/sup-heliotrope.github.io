@@ -1,0 +1,140 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk]  Error installing gem install sup on CentOS. -->
+<!--X-From-R13: tunanfulnz <znvy.tunanfulnz.cenouhNtznvy.pbz> -->
+<!--X-Date: Fri, 23 Apr 2010 07:10:19 &#45;0700 (PDT) -->
+<!--X-Message-Id: 28337512.post@talk.nabble.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk]  Error installing gem install sup on CentOS.</title>
+<link rev="made" href="mailto:mail.ghanashyam.prabhu@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00990.html">Date Prev</a>][<a href="msg00787.html">Date Next</a>][<a href="msg00923.html">Thread Prev</a>][<a href="msg00787.html">Thread Next</a>][<a href="maillist.html#00980">Date Index</a>][<a href="threads.html#00980">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk]  Error installing gem install sup on CentOS.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk]  Error installing gem install sup on CentOS.</li>
+<li><em>From</em>: ghanashyam &lt;<a href="mailto:mail.ghanashyam.prabhu%40gmail.com">mail.ghanashyam.prabhu@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 22 Apr 2010 22:57:48 -0700 (PDT)</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Hi, 
+
+I have installed the ruby dependencies on my CentOS  2.6.18-164.11.1.el5
+system. The following are the sequence of commands that I used to download
+ruby related packages. 
+
+For installing ruby and ruby related packages 
+
+&gt;&gt; yum install -y ruby
+&gt;&gt; yum install -y ruby-devel ruby-docs ruby-ri ruby-irb ruby-rdoc 
+
+I did not have gem installed and hence i used wget to install gems  and
+untarred and installed the setup.rb
+
+&gt;&gt; wget <a  rel="nofollow" href="http://rubyforge.org/frs/download.php/45905/rubygems-1.3.1.tgz">http://rubyforge.org/frs/download.php/45905/rubygems-1.3.1.tgz</a>
+&gt;&gt; tar xzvf rubygems-1.3.1.tgz
+&gt;&gt; cd  rubygems-1.3.1.tgz
+&gt;&gt; sudo ruby ./setup.rb
+
+Once I installed this, I had gem on my system. So time for installing sup.
+
+&gt;&gt; sudo gem install sup
+Building native extensions.  This could take a while...
+
+ERROR:  Error installing sup:
+        ERROR: Failed to build gem native extension.
+
+rake RUBYARCHDIR=/usr/lib/ruby/gems/1.8/gems/xapian-full-1.1.3.4/lib
+RUBYLIBDIR=/usr/lib/ruby/gems/1.8/gems/xapian-full-1.1.3.4/lib
+sh: rake: command not found
+
+Gem files will remain installed in
+/usr/lib/ruby/gems/1.8/gems/xapian-full-1.1.3.4 for inspection.
+Results logged to
+/usr/lib/ruby/gems/1.8/gems/xapian-full-1.1.3.4/gem_make.out
+
+I got the above error.? 
+what am i missing
+Can any one help me out with this ? 
+
+-- 
+View this message in context: <a  rel="nofollow" href="http://old.nabble.com/Error-installing-gem-install-sup-on-CentOS.-tp28337512p28337512.html">http://old.nabble.com/Error-installing-gem-install-sup-on-CentOS.-tp28337512p28337512.html</a>
+Sent from the SUP Talk mailing list archive at Nabble.com.
+
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00787" href="msg00787.html">Re: [sup-talk] Error installing gem install sup on CentOS.</a></strong>
+<ul><li><em>From:</em> Mark Alexander &lt;marka@pobox.com&gt;</li></ul></li>
+<li><strong><a name="00878" href="msg00878.html">Re: [sup-talk] Error installing gem install sup on CentOS.</a></strong>
+<ul><li><em>From:</em> Matthias Guedemann &lt;matthias.guedemann@ovgu.de&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00990.html">[sup-talk] sup exception</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00787.html">Re: [sup-talk] Error installing gem install sup on CentOS.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00923.html">Re: [sup-talk] sup exception</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00787.html">Re: [sup-talk] Error installing gem install sup on CentOS.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00980"><strong>Date</strong></a></li>
+<li><a href="threads.html#00980"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

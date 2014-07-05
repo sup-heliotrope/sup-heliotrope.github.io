@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Sup Release 0.14.0 -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Thu, 15 Aug 2013 14:37:46 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1376602282&#45;sup&#45;4187@qwerzila -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1376554850&#45;sup&#45;6592@qwerzila -->
+<!--X-Reference: 1376588663&#45;sup&#45;4993@kpad -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Sup Release 0.14.0</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00116.html">Date Prev</a>][<a href="msg00187.html">Date Next</a>][<a href="msg00116.html">Thread Prev</a>][<a href="msg00187.html">Thread Next</a>][<a href="maillist.html#00324">Date Index</a>][<a href="threads.html#00324">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Sup Release 0.14.0</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Sup Release 0.14.0</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 15 Aug 2013 23:36:45 +0200</li>
+<li><em>In-reply-to</em>: &lt;1376588663-sup-4993@kpad&gt;</li>
+<li><em>References</em>: &lt;1376554850-sup-6592@qwerzila&gt; &lt;1376588663-sup-4993@kpad&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Matthieu Rakotojaona's message of 2013-08-15 20:30:52 +0200:
+&gt; Thank you !
+&gt; 
+&gt; I've tried the install sup via the gem on a naked machine and I've faced
+&gt; a few problems:
+&gt; 
+&gt; * There is a bug in rubymail as pointed in [0]. I see it hasn't been
+&gt;   merged yet and doubt it will ever be. I replaced the upstream one with
+&gt;   the one from your repo (1) and it works as needed. Can we use a
+&gt;   rmail-sup, specific to us, just for the time we use this lib, just
+&gt;   like ncursesw-sup ?
+
+Yeah, was a bit hesitant to go there, but I guess it is reasonably
+sensible fix :) I'm OK with it. I would rather see us get Mail running
+(writing this email from the use-mail branch, seamlessly using RMail on
+the same index), but it is still a while to go..
+ 
+&gt; * There was a problem with the unicode gem. I had an old version of
+&gt; gem running (you need &gt;= 2.0.2 as stated in [2] and followings). Here
+&gt; are the steps that fixed the problem:
+&gt; 
+&gt;   Update gem: $ sudo gem update --system
+&gt; 
+&gt;   Reinstall the unicode gem: $ gem uninstall unicode $ gem install
+&gt;   unicode
+
+Ah nice catch, we should put this somewhere in the wiki..! troubleshooting?
+ 
+&gt; * Those damn encoding problems struck me. We're trying to fix_encoding a
+&gt;   bunch of Strings here and there and one of them at least is a frozen
+&gt;   string so it doesn't work. See PR130 [3] for this.
+
+Nice, its extremly hackishy, but those mails and user inputs just don't
+make any sense.. :D Your PR should be good to merge.
+ 
+&gt; Apart from that, it works well. Thank you guys for the hard work !
+&gt; You're making me ashamed of not being very participative in this,
+&gt; though :)
+
+Yey, thanks!
+ 
+Cheers, Gaute
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00226" href="msg00226.html">Sup Release 0.14.0</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00116" href="msg00116.html">Re: [sup-talk] Sup Release 0.14.0</a></strong>
+<ul><li><em>From:</em> Matthieu Rakotojaona &lt;matthieu.rakotojaona@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00116.html">Re: [sup-talk] Sup Release 0.14.0</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00187.html">Fwd: Security issue with suggested configuration of sup</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00116.html">Re: [sup-talk] Sup Release 0.14.0</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00187.html">Fwd: Security issue with suggested configuration of sup</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00324"><strong>Date</strong></a></li>
+<li><a href="threads.html#00324"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,35 @@
+From 8f9cd7e38b532366e6caed6e1f790d3265bbbb90 Mon Sep 17 00:00:00 2001
+From: Ben Walton <bwalton@artsci.utoronto.ca>
+Date: Wed, 9 Jun 2010 22:27:44 -0400
+Subject: [PATCH] Conditionally add Symbol#to_proc
+
+Add a utility monkey-patch for versions of ruby that don't have the
+to_proc method for Symbols.
+
+Signed-off-by: Ben Walton <bwalton@artsci.utoronto.ca>
+---
+ lib/sup/util.rb |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/util.rb b/lib/sup/util.rb
+index 38c4eb2..27574c5 100644
+--- a/lib/sup/util.rb
++++ b/lib/sup/util.rb
+@@ -6,6 +6,14 @@ require 'set'
+ require 'enumerator'
+ 
+ ## time for some monkeypatching!
++class Symbol
++  unless method_defined? :to_proc
++    def to_proc
++      proc {  |obj, *args| obj.send(self, *args) }
++    end
++  end
++end
++
+ class Lockfile
+   def gen_lock_id
+     Hash[
+-- 
+1.7.0
+

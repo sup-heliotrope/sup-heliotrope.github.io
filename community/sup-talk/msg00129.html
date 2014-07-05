@@ -1,0 +1,233 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Solarized based theme for sup -->
+<!--X-From-R13: Znherag Xhpdhbvf <ynherag.whpdhbvfNzr.pbz> -->
+<!--X-Date: Wed, 26 Mar 2014 15:01:12 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1395867570&#45;sup&#45;7352@mbp -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Solarized based theme for sup</title>
+<link rev="made" href="mailto:laurent.jucquois@me.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00189.html">Date Prev</a>][<a href="msg00020.html">Date Next</a>][<a href="msg00238.html">Thread Prev</a>][<a href="msg00020.html">Thread Next</a>][<a href="maillist.html#00129">Date Index</a>][<a href="threads.html#00129">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Solarized based theme for sup</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Solarized based theme for sup</li>
+<li><em>From</em>: Laurent Jucquois &lt;<a href="mailto:laurent.jucquois%40me.com">laurent.jucquois@me.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 26 Mar 2014 22:00:09 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>;       dmarc=fail (p=NONE dis=NONE) header.from=me.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/0.15.4</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Good evening all,
+
+Here is a more or less solarized based theme for those of you who are
+interested. I've made it since a couple of weeks now but have not found
+the time to post it on sup's git rep or host it on mine (not so git
+experimented as I would like).
+
+Anyway here it is, feel free to used it, post it or modify it.
+
+Happy supping to yall,
+</pre><pre># Cursor
+
+:default_h:
+  :fg: 14
+  :bg: 0
+
+:inverted_h:
+  :fg: 14
+  :bg: 8
+
+
+# Index in order of appearance
+
+:tagged:
+  :highlight: inverted_h
+  :fg: 125
+  :bg: 0
+#  :attrs:
+#  - bold
+
+:tagged_h:
+  :fg: 5
+  :bg: 8
+
+:date:
+  :highlight: default_h
+  :fg: 12
+  :bg: 8
+  :attrs:
+  - bold
+
+:starred:
+  :highlight: default_h
+  :fg: 125
+  :bg: 0
+#  :attrs:
+#  - bold
+
+:size_widget:
+  :highlight: default_h
+  :fg: 244
+  :bg: 0
+
+:to_me:
+  :highlight: default_h
+  :fg: 64
+  :bg: 0
+#  :attrs:
+#  - bold
+
+
+:label:
+  :highlight: label_h
+  :fg: 5
+  :bg: 8
+#  :attrs:
+#  - bold
+:label_h:
+  :fg: 5
+  :bg: 0
+
+:index_old:
+  :highlight: default_h
+  :fg: 3
+  :bg: 8
+#  :attrs:
+#  - bold
+
+:snippet:
+  :highlight: default_h
+  :fg: 12
+  :bg: 8
+#  :attrs:
+#  - bold
+
+# New messages
+
+:index_new:
+  :highlight: index_new_h
+  :fg: 2
+  :bg: 8
+:index_new_h:
+  :fg: 2
+  :bg: 0
+
+# Subject of starred message
+
+:index_starred:
+  :highlight: index_starred_h
+  :fg: 4
+  :bg: 8
+:index_starred_h:
+  :fg: 4
+  :bg: 0
+
+# Thread-view-mode
+
+:message_patina:
+  :highlight: default_h
+  :fg: 3
+  :bg: 0
+#  :attrs:
+#  - bold
+
+:alternate_patina:
+  :highlight: inverted_h
+  :fg: 3
+  :bg: 8
+
+:attachment:
+#  :highlight:
+  :fg: 6
+  :bg: 8
+#  :attrs:
+#  - bold
+
+:text:
+  :highlight: text_h
+  :fg: 12
+  :bg: 8
+:text_h:
+  :fg: 14
+  :bg: 0
+
+# Status line
+
+:status:
+  :fg: 6
+  :bg: 0 
+</pre><pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00020" href="msg00020.html">Re: [sup-talk] Solarized based theme for sup</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00189.html">Re: [sup-talk] Getting GPG working in Sup</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00020.html">Re: [sup-talk] Solarized based theme for sup</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00238.html">Re: [sup-talk] Getting GPG working in Sup</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00020.html">Re: [sup-talk] Solarized based theme for sup</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00129"><strong>Date</strong></a></li>
+<li><a href="threads.html#00129"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

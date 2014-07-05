@@ -1,0 +1,5 @@
+DEFAULT="$HOME/widgets/Maildir"
+
+logfile "$HOME/widgets/Maildir/maildrop.log"
+
+to $DEFAULT

@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Exception when archiving thread and moving to previous	one -->
+<!--X-From-R13: Oyrknaqre Euhytva <nyrk.fuhytvaNtznvy.pbz> -->
+<!--X-Date: Thu, 11 Aug 2011 22:22:46 &#45;0700 (PDT) -->
+<!--X-Message-Id: CAM&#45;UEKQXzoq7ZtYfe9tMw=v_fj6DbK_j3XxD=f8jTs2XX9Tzxg@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Exception when archiving thread and moving to previous	one</title>
+<link rev="made" href="mailto:alex.shulgin@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00106.html">Date Prev</a>][<a href="msg00322.html">Date Next</a>][<a href="msg00338.html">Thread Prev</a>][<a href="msg00322.html">Thread Next</a>][<a href="maillist.html#00272">Date Index</a>][<a href="threads.html#00272">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Exception when archiving thread and moving to previous	one</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Exception when archiving thread and moving to previous	one</li>
+<li><em>From</em>: Alexander Shulgin &lt;<a href="mailto:alex.shulgin%40gmail.com">alex.shulgin@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 12 Aug 2011 08:20:32 +0300</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=mime-version:from:date:message-id:subject:to:content-type;	bh=np5yKc3KlAfrUABDdytxCL+F2lpAdV+cIAAHKz2eq0k=;	b=f7KfMBQ0MYcwy/O9J5dlOHwqjnFSkJLf7pmDBjszHeWcB4RM/sZp7vIfvQw5pQu6bI	p9z4geBW0k3BT41XxqYQgRJgib9IHDXa2/qNN/EV8h0oOCrDKLIMiKBcpRbzreG+98JR	HtD5WbBB8q3dWaQbThUkEpoFeiIm6dYPed4Qs=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello,
+
+Just got this exception:
+
+--- ArgumentError from thread: load messages for thread-view-mode
+buffer not on stack: #&lt;Redwood::Buffer:0x7fd0148098a0&gt;: &quot;[SnakeOil -
+Bug #12345] (New) Do some work&quot;
+/home/ash/src/sup-mainline/lib/sup/buffer.rb:440:in `kill_buffer'
+/home/ash/src/sup-mainline/lib/sup/buffer.rb:431:in `kill_buffer_safely'
+(eval):1:in `send'
+(eval):1:in `kill_buffer_safely'
+/home/ash/src/sup-mainline/lib/sup/modes/thread-view-mode.rb:647:in `dispatch'
+/home/ash/src/sup-mainline/lib/sup/modes/thread-index-mode.rb:129:in `call'
+/home/ash/src/sup-mainline/lib/sup/modes/thread-index-mode.rb:129:in `select'
+/home/ash/src/sup-mainline/lib/sup.rb:78:in `reporting_thread'
+/home/ash/src/sup-mainline/lib/sup.rb:76:in `initialize'
+/home/ash/src/sup-mainline/lib/sup.rb:76:in `new'
+/home/ash/src/sup-mainline/lib/sup.rb:76:in `reporting_thread'
+/home/ash/src/sup-mainline/lib/sup/modes/thread-index-mode.rb:109:in `select'
+/home/ash/src/sup-mainline/lib/sup/modes/thread-index-mode.rb:159:in
+`launch_another_thread'
+/home/ash/src/sup-mainline/lib/sup/modes/thread-index-mode.rb:145:in
+`launch_prev_thread_before'
+/home/ash/src/sup-mainline/lib/sup/modes/thread-view-mode.rb:654:in `dispatch'
+/home/ash/src/sup-mainline/lib/sup/modes/thread-view-mode.rb:591:in
+`archive_and_then'
+/home/ash/src/sup-mainline/lib/sup/modes/thread-view-mode.rb:584:in
+`archive_and_prev'
+/home/ash/src/sup-mainline/lib/sup/mode.rb:59:in `send'
+/home/ash/src/sup-mainline/lib/sup/mode.rb:59:in `handle_input'
+/home/ash/src/sup-mainline/lib/sup/buffer.rb:277:in `handle_input'
+/home/ash/src/sup-mainline/bin/sup:271
+
+I was browsing my morning mail, then at some point I've typed &quot;] a&quot;,
+to archive currently open mail and move to the prev. one in the inbox.
+ This appeared to be stalled for a second or two, so I've pressed &quot;x&quot;
+to kill current buffer and return to inbox.  Sup crashed :'(
+
+My version of sup is e146b1790bf3a9f231f0712e68280f726c1bd153 @
+git://gitorious.org/sup/mainline.git
+
+--
+Regards,
+Alex
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00322" href="msg00322.html">Re: [sup-talk] Exception when archiving thread and moving to	previous one</a></strong>
+<ul><li><em>From:</em> Alexander Shulgin &lt;alex.shulgin@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00106.html">Re: [sup-talk] try heliotrope!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00322.html">Re: [sup-talk] Exception when archiving thread and moving to	previous one</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00338.html">Re: [sup-devel] try heliotrope!</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00322.html">Re: [sup-talk] Exception when archiving thread and moving to	previous one</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00272"><strong>Date</strong></a></li>
+<li><a href="threads.html#00272"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

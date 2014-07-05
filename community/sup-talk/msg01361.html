@@ -1,0 +1,131 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] problem gem installing 0.10.1 -->
+<!--X-From-R13: Oagubal [negvarm <cv+fhcNcvubfg.hf> -->
+<!--X-Date: Thu, 11 Feb 2010 14:37:17 &#45;0800 (PST) -->
+<!--X-Message-Id: 1265927637&#45;sup&#45;9306@home.mrtheplague.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1265926186&#45;sup&#45;9201@enchanted -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] problem gem installing 0.10.1</title>
+<link rev="made" href="mailto:pi+sup@pihost.us">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01276.html">Date Prev</a>][<a href="msg01465.html">Date Next</a>][<a href="msg01276.html">Thread Prev</a>][<a href="msg01465.html">Thread Next</a>][<a href="maillist.html#01361">Date Index</a>][<a href="threads.html#01361">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] problem gem installing 0.10.1</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: David L.Kaplan &lt;<a href="mailto:sup-talk%40davekap.com">sup-talk@davekap.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] problem gem installing 0.10.1</li>
+<li><em>From</em>: Anthony Martinez &lt;<a href="mailto:pi%2Bsup%40pihost.us">pi+sup@pihost.us</a>&gt;</li>
+<li><em>Date</em>: Thu, 11 Feb 2010 15:34:09 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1265926186-sup-9201@enchanted&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1265926186-sup-9201@enchanted&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from David L.Kaplan's message of Thu Feb 11 15:10:10 -0700 2010:
+&gt; I can gem uninstall and install sup 0.9 no sweat, but gem update sup, as well
+&gt; as gem install sup after uninstalling all sup gems, gives me the following
+&gt; error:
+&gt; 
+&gt; gem install sup
+&gt; Updating installed gems
+&gt; Updating sup
+&gt; Building native extensions.  This could take a while...
+&gt; ERROR:  Error installing sup:
+&gt;         ERROR: Failed to build gem native extension.
+&gt; 
+&gt; /usr/bin/ruby1.8 extconf.rb
+&gt; checking for unistd.h... yes
+&gt; checking for locale.h... yes
+&gt; checking for ncurses.h... yes
+&gt; checking for wmove() in -lncursesw... no
+&gt; checking for wmove() in -lpdcurses... no
+
+Sounds like you're missing libncursesw5-dev and/or libncurses5-dev. Try
+installing both of those.
+
+&gt; Thanks for any help.
+
+HTH
+&gt; Cheers,
+&gt; David
+
+
+-- 
+| |
+\ /  Quantum  Junction
+ I   Get in both lanes
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01276" href="msg01276.html">[sup-talk] problem gem installing 0.10.1</a></strong>
+<ul><li><em>From:</em> David L.Kaplan &lt;sup-talk@davekap.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01276.html">[sup-talk] problem gem installing 0.10.1</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01465.html">[sup-talk] Ruby Ncurses Bindings</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01276.html">[sup-talk] problem gem installing 0.10.1</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01465.html">[sup-talk] Ruby Ncurses Bindings</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01361"><strong>Date</strong></a></li>
+<li><a href="threads.html#01361"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

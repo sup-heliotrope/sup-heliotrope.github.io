@@ -1,0 +1,142 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] slowly catching up -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Fri, 6 Nov 2009 05:48:08 &#45;0800 (PST) -->
+<!--X-Message-Id: 1257509523&#45;sup&#45;3428@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1256997213&#45;sup&#45;2725@masanjin.net -->
+<!--X-Reference: 80055d7c0911051838m855262bi93d149549de2da8c@mail.gmail.com -->
+<!--X-Reference: 1257476207&#45;sup&#45;3459@zyrg.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] slowly catching up</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01662.html">Date Prev</a>][<a href="msg01695.html">Date Next</a>][<a href="msg01662.html">Thread Prev</a>][<a href="msg01712.html">Thread Next</a>][<a href="maillist.html#01715">Date Index</a>][<a href="threads.html#01715">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] slowly catching up</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] slowly catching up</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 06 Nov 2009 05:47:51 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01662.html">1257476207-sup-3459@zyrg.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01633.html">1256997213-sup-2725@masanjin.net</a>&gt;	&lt;<a href="msg01660.html">80055d7c0911051838m855262bi93d149549de2da8c@mail.gmail.com</a>&gt;	&lt;<a href="msg01662.html">1257476207-sup-3459@zyrg.net</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Reformatted excerpts from Rich Lane's message of 2009-11-05:
+&gt; Rather than committing directly to mainline, I'd rather keep a public
+&gt; repo that I apply incoming patches to and that William can pull from.
+&gt; This way I could do a lot of the first-line work and he could get a
+&gt; more stable flow of patches to make releases from.
+
+That sounds good to me. I'm happy to add you to the gitorious repo, of
+course, but this is definitely more in line with the git lifestyle.
+
+We have a couple options on how to organize this, but I think the best
+would be for you to maintain one or more branches that I treat as
+integration branches, and periodically merge into master whenever you
+tell me they're ready. That's a very minimal amount of work for me. I
+can just merge it and forget it.
+
+The only things to be careful about in such a setup are not merging next
+into your branch (merging master in is fine and good to keep up with
+other stable changes), and not rebasing. And we will have to coordinate
+on releases, if nothing else so that I can make reasonable changelogs
+and release notes.
+
+How does that sound?
+
+&gt; I can imagine that a lot of William's work caused by being the central
+&gt; repository is reviewing the patches that get sent in. I'd like for
+&gt; anyone who feels interested to read through incoming patches and comment
+&gt; on them. I don't want any strict processes just yet, but I'd like to see
+&gt; a couple of positive reviews (depending on the complexity of the patch,
+&gt; etc) before things get merged.
+
+That would be great. Or heck, even an &quot;I applied it and it works for
+me&quot; is useful.
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01712" href="msg01712.html">Re: [sup-talk] slowly catching up</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01633" href="msg01633.html">[sup-talk] slowly catching up</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01660" href="msg01660.html">Re: [sup-talk] slowly catching up</a></strong>
+<ul><li><em>From:</em> Andrei Thorp &lt;garoth@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01662" href="msg01662.html">Re: [sup-talk] slowly catching up</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01662.html">Re: [sup-talk] slowly catching up</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01695.html">Re: [sup-talk] Sup-sync exception</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01662.html">Re: [sup-talk] slowly catching up</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01712.html">Re: [sup-talk] slowly catching up</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01715"><strong>Date</strong></a></li>
+<li><a href="threads.html#01715"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

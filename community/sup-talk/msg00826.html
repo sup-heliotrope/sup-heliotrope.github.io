@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Problem with lbdb and extra contacts hook -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Fri, 12 Mar 2010 01:16:38 &#45;0800 (PST) -->
+<!--X-Message-Id: 1268385173&#45;sup&#45;5542@dolk -->
+<!--X-Content-Type: multipart/signed -->
+<!--X-Reference: 1253481392&#45;sup&#45;4891@harikalardiyari -->
+<!--X-Reference: 1253488117&#45;sup&#45;4560@harikalardiyari -->
+<!--X-Reference: 1268341630&#45;sup&#45;7494@guava.lanl.gov -->
+<!--X-Derived: pgp2rb8s_95E7.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Problem with lbdb and extra contacts hook</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01096.html">Date Prev</a>][<a href="msg00930.html">Date Next</a>][<a href="msg01096.html">Thread Prev</a>][<a href="msg00930.html">Thread Next</a>][<a href="maillist.html#00826">Date Index</a>][<a href="threads.html#00826">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Problem with lbdb and extra contacts hook</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Problem with lbdb and extra contacts hook</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 12 Mar 2010 10:16:52 +0100</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01096.html">1268341630-sup-7494@guava.lanl.gov</a>&gt;</li>
+<li><em>References</em>: &lt;1253481392-sup-4891@harikalardiyari&gt; &lt;1253488117-sup-4560@harikalardiyari&gt; &lt;<a href="msg01096.html">1268341630-sup-7494@guava.lanl.gov</a>&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from John Bent's message of 2010-03-11 22:09:04 +0100:
+&gt; Excerpts from Ali Polatel's message of Sun Sep 20 17:11:04 -0600 2009:
+&gt; &gt; Ali Polatel yazm&#x131;&#x15F;:
+&gt; &gt; &gt; Hello,
+&gt; &gt; &gt; I've just started using sup and I'm really loving it.
+&gt; &gt; &gt; Thanks for the great software.
+&gt; &gt; &gt;
+&gt; &gt; &gt; I have a problem with extra-contact-addresses hook and lbdb.
+&gt; &gt; &gt; Using the hook in the wiki:
+&gt; &gt; &gt; contacts = []
+&gt; &gt; &gt; `lbdbq |awk -F&quot;\t&quot; '{print $2 , &quot;&lt;&quot;$1&quot;&gt;&quot;}'`.each { |c| contacts.push(c) }
+&gt; &gt; &gt; return contacts
+&gt; &gt;
+&gt; &gt; Answering myself, removing return from the last line works as expected!
+&gt; &gt; I'll see if I can edit the wiki.
+&gt; &gt;
+&gt; By the way, I recently used this hook as well and found it really slow
+&gt; so I rewrote it to parse the lbdb by hand instead of calling out to
+&gt; lbdb.  For me, it went from 1.5s to 0.03s.  I edited the wiki as well.
+&gt; Here's the hook:
+&gt;
+&gt; file = File.open( ENV['HOME'] + &quot;/.lbdb/m_inmail.list&quot;, &quot;r&quot; )
+&gt; contacts = []
+&gt; while file.gets
+&gt;     email,name = split(&quot;\t&quot;)
+&gt;     contacts &lt;&lt; &quot;#{name} &lt;#{email}&gt;&quot;
+&gt; end
+&gt; file.close
+&gt; contacts
+
+This doesn't do the same thou as far as I can see, your hook only uses
+the addresses returned by the module using m_inmail.list; the former one
+uses all configured modules.
+
+- gaute
+</pre><p><strong>Attachment:
+<a href="pgp2rb8s_95E7.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01096" href="msg01096.html">Re: [sup-talk] Problem with lbdb and extra contacts hook</a></strong>
+<ul><li><em>From:</em> John Bent &lt;johnbent@lanl.gov&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01096.html">Re: [sup-talk] Problem with lbdb and extra contacts hook</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00930.html">[sup-talk] Search for message by size</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01096.html">Re: [sup-talk] Problem with lbdb and extra contacts hook</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00930.html">[sup-talk] Search for message by size</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00826"><strong>Date</strong></a></li>
+<li><a href="threads.html#00826"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

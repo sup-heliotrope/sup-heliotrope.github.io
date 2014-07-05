@@ -1,0 +1,203 @@
+From 5b08d299c6df7256a81309113c494dc307a8f727 Mon Sep 17 00:00:00 2001
+From: Keith Packard <keithp@keithp.com>
+Date: Tue, 22 Sep 2009 11:23:20 -0700
+Subject: [PATCH 1/2] Allow thread index view to sort oldest first
+
+This allows the thread index view to present oldest messages first
+instead of always presenting newer messages at the top of the list.
+This can be toggled using the 'o' key.
+
+A config file option :inbox_newest_first controls whether this is
+turned on by default when viewing the inbox
+
+Refine searches inherit the order from the originating thread index.
+
+Signed-off-by: Keith Packard <keithp@keithp.com>
+---
+ bin/sup                                    |    6 +++---
+ lib/sup/modes/inbox-mode.rb                |    9 +++++++++
+ lib/sup/modes/label-search-results-mode.rb |    7 ++++---
+ lib/sup/modes/search-results-mode.rb       |    9 +++++----
+ lib/sup/modes/thread-index-mode.rb         |   16 +++++++++++++++-
+ 5 files changed, 36 insertions(+), 11 deletions(-)
+
+diff --git a/bin/sup b/bin/sup
+index 706bf7c..18a8a8c 100755
+--- a/bin/sup
++++ b/bin/sup
+@@ -206,7 +206,7 @@ begin
+   end
+ 
+   if $opts[:search]
+-    SearchResultsMode.spawn_from_query $opts[:search]
++    SearchResultsMode.spawn_from_query $opts[:search], true
+   end
+ 
+   until Redwood::exceptions.nonempty? || $die
+@@ -268,9 +268,9 @@ begin
+     when :search
+       query = BufferManager.ask :search, "search all messages: "
+       next unless query && query !~ /^\s*$/
+-      SearchResultsMode.spawn_from_query query
++      SearchResultsMode.spawn_from_query query, true
+     when :search_unread
+-      SearchResultsMode.spawn_from_query "is:unread"
++      SearchResultsMode.spawn_from_query "is:unread", InboxMode.newest_first
+     when :list_labels
+       labels = LabelManager.all_labels.map { |l| LabelManager.string_for l }
+       user_label = bm.ask_with_completions :label, "Show threads with label (enter for listing): ", labels
+diff --git a/lib/sup/modes/inbox-mode.rb b/lib/sup/modes/inbox-mode.rb
+index ba095da..1da61ec 100644
+--- a/lib/sup/modes/inbox-mode.rb
++++ b/lib/sup/modes/inbox-mode.rb
+@@ -9,10 +9,19 @@ class InboxMode < ThreadIndexMode
+     k.add :read_and_archive, "Archive thread (remove from inbox) and mark read", 'A'
+   end
+ 
++  def self.newest_first
++    if !$config[:inbox_newest_first].nil?
++      $config[:inbox_newest_first]
++    else
++      true
++    end
++  end
++
+   def initialize
+     super [:inbox, :sent, :draft], { :label => :inbox, :skip_killed => true }
+     raise "can't have more than one!" if defined? @@instance
+     @@instance = self
++    @newest_first = InboxMode.newest_first
+   end
+ 
+   def is_relevant? m; (m.labels & [:spam, :deleted, :killed, :inbox]) == Set.new([:inbox]) end
+diff --git a/lib/sup/modes/label-search-results-mode.rb b/lib/sup/modes/label-search-results-mode.rb
+index bca51d4..6899104 100644
+--- a/lib/sup/modes/label-search-results-mode.rb
++++ b/lib/sup/modes/label-search-results-mode.rb
+@@ -1,12 +1,13 @@
+ module Redwood
+ 
+ class LabelSearchResultsMode < ThreadIndexMode
+-  def initialize labels
++  def initialize labels, newest_first
+     @labels = labels
+     opts = { :labels => @labels }
+     opts[:load_deleted] = true if labels.include? :deleted
+     opts[:load_spam] = true if labels.include? :spam
+     super [], opts
++    @newest_first = newest_first
+   end
+ 
+   register_keymap do |k|
+@@ -17,7 +18,7 @@ class LabelSearchResultsMode < ThreadIndexMode
+     label_query = @labels.size > 1 ? "(#{@labels.join('||')})" : @labels.first
+     query = BufferManager.ask :search, "refine query: ", "+label:#{label_query} "
+     return unless query && query !~ /^\s*$/
+-    SearchResultsMode.spawn_from_query query
++    SearchResultsMode.spawn_from_query query, @newest_first
+   end
+ 
+   def is_relevant? m; @labels.all? { |l| m.has_label? l } end
+@@ -29,7 +30,7 @@ class LabelSearchResultsMode < ThreadIndexMode
+     when :inbox
+       BufferManager.raise_to_front InboxMode.instance.buffer
+     else
+-      b, new = BufferManager.spawn_unless_exists("All threads with label '#{label}'") { LabelSearchResultsMode.new [label] }
++      b, new = BufferManager.spawn_unless_exists("All threads with label '#{label}'") { LabelSearchResultsMode.new [label], true }
+       b.mode.load_threads :num => b.content_height if new
+     end
+   end
+diff --git a/lib/sup/modes/search-results-mode.rb b/lib/sup/modes/search-results-mode.rb
+index 121e817..da03b51 100644
+--- a/lib/sup/modes/search-results-mode.rb
++++ b/lib/sup/modes/search-results-mode.rb
+@@ -1,9 +1,10 @@
+ module Redwood
+ 
+ class SearchResultsMode < ThreadIndexMode
+-  def initialize query
++  def initialize query, newest_first
+     @query = query
+     super [], query
++    @newest_first = newest_first
+   end
+ 
+   register_keymap do |k|
+@@ -13,7 +14,7 @@ class SearchResultsMode < ThreadIndexMode
+   def refine_search
+     text = BufferManager.ask :search, "refine query: ", (@query[:text] + " ")
+     return unless text && text !~ /^\s*$/
+-    SearchResultsMode.spawn_from_query text
++    SearchResultsMode.spawn_from_query text, @newest_first
+   end
+ 
+   ## a proper is_relevant? method requires some way of asking ferret
+@@ -22,12 +23,12 @@ class SearchResultsMode < ThreadIndexMode
+   ## the message, and search against it to see if i have > 0 results,
+   ## but that seems pretty insane.
+ 
+-  def self.spawn_from_query text
++  def self.spawn_from_query text, newest_first
+     begin
+       query = Index.parse_query(text)
+       return unless query
+       short_text = text.length < 20 ? text : text[0 ... 20] + "..."
+-      mode = SearchResultsMode.new query
++      mode = SearchResultsMode.new query, newest_first
+       BufferManager.spawn "search: \"#{short_text}\"", mode
+       mode.load_threads :num => mode.buffer.content_height
+     rescue Index::ParseError => e
+diff --git a/lib/sup/modes/thread-index-mode.rb b/lib/sup/modes/thread-index-mode.rb
+index 12a76f9..521feb5 100644
+--- a/lib/sup/modes/thread-index-mode.rb
++++ b/lib/sup/modes/thread-index-mode.rb
+@@ -47,6 +47,7 @@ EOS
+     k.add :tag_matching, "Tag matching threads", 'g'
+     k.add :apply_to_tagged, "Apply next command to all tagged threads", '+', '='
+     k.add :join_threads, "Force tagged threads to be joined into the same thread", '#'
++    k.add :toggle_sort, "Toggle newest first/last sort order", 'o'
+     k.add :undo, "Undo the previous action", 'u'
+   end
+ 
+@@ -65,6 +66,8 @@ EOS
+     @hidden_labels = hidden_labels + LabelManager::HIDDEN_RESERVED_LABELS
+     @date_width = DATE_WIDTH
+ 
++    @newest_first = true
++
+     @interrupt_search = false
+ 
+     initialize_threads # defines @ts and @ts_mutex
+@@ -219,10 +222,18 @@ EOS
+     UndoManager.undo
+   end
+ 
++  def toggle_sort
++    @newest_first = !@newest_first
++    update
++  end
++
+   def update
+     @mutex.synchronize do
+       ## let's see you do THIS in python
+-      @threads = @ts.threads.select { |t| !@hidden_threads[t] }.sort_by { |t| [t.date, t.first.id] }.reverse
++      @threads = @ts.threads.select { |t| !@hidden_threads[t] }.sort_by { |t| [t.date, t.first.id] }
++      if @newest_first
++        @threads = @threads.reverse
++      end
+       @size_widgets = @threads.map { |t| size_widget_for_thread t }
+       @size_widget_width = @size_widgets.max_of { |w| w.display_length }
+     end
+@@ -664,6 +675,9 @@ EOS
+     else
+       n = opts[:num]
+     end
++    if !@newest_first
++      n = -1
++    end
+ 
+     myopts = @load_thread_opts.merge({ :when_done => (lambda do |num|
+       opts[:when_done].call(num) if opts[:when_done]
+-- 
+1.6.4.3
+

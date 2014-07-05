@@ -1,0 +1,181 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Indexing messages without ruby -->
+<!--X-From-R13: Qney Ibegu <pjbeguNpjbegu.bet> -->
+<!--X-Date: Mon, 19 Oct 2009 21:24:40 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1256009934&#45;sup&#45;9323@yoom.home.cworth.org -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 1255623468&#45;sup&#45;2284@yoom.home.cworth.org -->
+<!--X-Derived: pgp3ff2v257t5.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Indexing messages without ruby</title>
+<link rev="made" href="mailto:cworth@cworth.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01670.html">Date Prev</a>][<a href="msg01518.html">Date Next</a>][<a href="msg01621.html">Thread Prev</a>][<a href="msg01759.html">Thread Next</a>][<a href="maillist.html#01635">Date Index</a>][<a href="threads.html#01635">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Indexing messages without ruby</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Indexing messages without ruby</li>
+<li><em>From</em>: Carl Worth &lt;<a href="mailto:cworth%40cworth.org">cworth@cworth.org</a>&gt;</li>
+<li><em>Date</em>: Mon, 19 Oct 2009 21:24:21 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01621.html">1255623468-sup-2284@yoom.home.cworth.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01621.html">1255623468-sup-2284@yoom.home.cworth.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Carl Worth's message of Thu Oct 15 10:23:40 -0700 2009:
+&gt; As for performance, things look pretty good, but perhaps not as good
+&gt; as I had hoped.
+
+I know William already said he's not all that concerned with the
+performance of sup-sync since it's not a common operation, but me, I
+can't stop working on the problem.
+
+And I think that's justified, really. For one thing, the giant
+sup-sync is one of the first things a new user has to do. And I think
+that having to wait for an operation that's measured in hours before
+being able to use the program at all can be very off-putting.
+
+I think we could do better to give a good first impression.
+
+&gt; So this is preliminary, but it looks like notmuch gives a 5-10x
+&gt; performance improvement over sup, (but likely closer to the 5x end of
+&gt; that range unless you've got a very small index---at which point who
+&gt; cares how fast/slow things are?).
+
+Those numbers were off. I now believe that my original code gained
+only a 3x improvement by switching from ruby/rmail to C/GMime for mail
+parsing. But I've done a little more coding since. Here are the
+current results:
+
+  For a benchmark of ~ 45000 messages, rate in messages/sec.:
+
+  Rate    Commit ID       Significant change
+  -----   ---------       ------------------
+  41                      sup (with xapian, from next)
+  120     5fbdbeb33       Switch from ruby to C (with GMime)
+  538     9bc4253fa       Index headers only, not body
+  1050    371091139       Use custom header parser, not GMime
+
+  (Before each run the Linux disk cache was cleared with:
+          sync; echo 3 &gt; /proc/sys/vm/drop_caches
+  )
+
+So beyond the original 3x improvement, I gained a further 4x
+improvement by simply doing less work. I'm now starting off by only
+indexing message-id and thread-id data. That's obviously &quot;cheating&quot; in
+terms of comparing performance, but I think it really makes sense to
+do this.
+
+The idea is that by just computing the thread-ids and indexing those
+for a collection of email, that initial sup-sync could be performed
+very quickly. Then, later, (as a background thread while sup is
+running), the full-text indexing could be performed.
+
+Finally, I gained a final 2x improvement by not using GMime at all,
+(which constructs a data structure for the entire message, even if I
+only want a few header), and instead just rolling a simple parser for
+email headers. (Did you know you can hide nested parenthesized
+comments all over the place in email headers? I didn't.)
+
+I'm quite happy with the final result that's 25x faster than sup.  I
+can build a cold-cache index from my half-million message archive in
+less than 10 minutes, (rather than 4 hours). And performance is fairly
+IO-bound at this point, (in the 10-minute run, less than 7 minutes of
+CPU are used).
+
+Anyway, there are some ideas to consider for sup.
+
+If anyone wants to play with my code, it's here:
+
+	git clone git://notmuch.org/notmuch
+
+I won't bore the list with further developments in notmuch, if any,
+unless it's on-topic, (such as someone trying to make sup work on top
+of an index built by notmuch). And I'd be delighted to see that kind
+of thing happen.
+
+Happy hacking,
+
+-Carl
+</pre><p><strong>Attachment:
+<a href="pgp3ff2v257t5.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01759" href="msg01759.html">Re: [sup-talk] Indexing messages without ruby</a></strong>
+<ul><li><em>From:</em> Carl Worth &lt;cworth@cworth.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01621" href="msg01621.html">[sup-talk] Indexing messages without ruby</a></strong>
+<ul><li><em>From:</em> Carl Worth &lt;cworth@cworth.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01670.html">[sup-talk] Best practice for customizing keymaps?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01518.html">[sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01621.html">[sup-talk] Indexing messages without ruby</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01759.html">Re: [sup-talk] Indexing messages without ruby</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01635"><strong>Date</strong></a></li>
+<li><a href="threads.html#01635"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

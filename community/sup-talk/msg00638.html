@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Hook before&#45;add&#45;message,	any way to know if this message is in a topic I replied to ? -->
+<!--X-From-R13: Inry @nferqqvar <jnry.anferqqvarNtznvy.pbz> -->
+<!--X-Date: Mon, 20 Dec 2010 03:45:50 &#45;0800 (PST) -->
+<!--X-Message-Id: 1292845256&#45;sup&#45;6025@Phoenix -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Hook before-add-message,	any way to know if this message is in a topic I replied to ?</title>
+<link rev="made" href="mailto:wael.nasreddine@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00520.html">Date Prev</a>][<a href="msg00725.html">Date Next</a>][<a href="msg00385.html">Thread Prev</a>][<a href="msg00725.html">Thread Next</a>][<a href="maillist.html#00638">Date Index</a>][<a href="threads.html#00638">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Hook before-add-message,	any way to know if this message is in a topic I replied to ?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Hook before-add-message,	any way to know if this message is in a topic I replied to ?</li>
+<li><em>From</em>: Wael Nasreddine &lt;<a href="mailto:wael.nasreddine%40gmail.com">wael.nasreddine@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 20 Dec 2010 12:45:39 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:from:to:subject	:date:message-id:user-agent:content-transfer-encoding;	bh=+K7Jz+93tMfuyKUdolHU5f0aSZp9vnJKSsyAB1hqYCw=;	b=LmvL4ft/Rvxk1gjNmvlfTYOd/fv23adFzJLfySbisqJP1mS+ThW3VNMLCxyw6MssfF	0znAGxCx/fN/jGj2wa6Zo4nYp2TNHOm4J5UQZeHobCr/QVwVdoadVEMsOrmqWIb+qiJA	8PeHitjeje/KLvJBShNV4V/h0H3qJQ5Qyt3HA=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:from:to:subject:date:message-id:user-agent	:content-transfer-encoding;	b=siAjUBQNRm9MilnzHV2plnpJzvQJ4tQ9yNO1K2O7l8JaoWm/R43N1x7hLEzkPGLxYs	ix7k6FxQeIWwr/XauBdJ1yWL+/Axm+R6FE/LhRG/TF7GfBx/NtawGPExu8ZcvXtKuzYY	CnAcsKC5TasVJWBMlgfCCMEUCnDa9M82KjU8k=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello,
+
+I filter all email from a mailing list out of my inbox into the
+list_XXX where XXX is the name of the list, this is fine however I
+would like to see at glance emails in topic I replied to, for instance
+a reply to this email ends up in the list_sup_talk Label, which forces
+me to look for updates, what would be cool is a way to read emails to
+the list whenever I have time but replies to my questions or to any of
+answers should stay in the inbox (have the inbox label)
+
+Any way to do that? Is there any method in the message variable that
+can be called to know that?
+
+BTW, how can I run a console from within a hook with all the
+environment loaded? This actually allows me to call message.methods
+myself and interact with it..
+
+Regards,
+Wael Nasreddine
+-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          Wa&#xEB;l Nasreddine
+website    <a  rel="nofollow" href="http://wael.nasreddine.com">http://wael.nasreddine.com</a>
+Blog       <a  rel="nofollow" href="http://emxyptlk.com">http://emxyptlk.com</a>
+TechnoGate <a  rel="nofollow" href="http://technogate.fr">http://technogate.fr</a>
+mobile     06.32.94.70.13
+landline   09.70.444.236
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00725" href="msg00725.html">Re: [sup-talk] Hook before-add-message,	any way to know if this message is in a topic I replied to ?</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00520.html">Re: [sup-talk] change automagicaly inserted line in reply messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00725.html">Re: [sup-talk] Hook before-add-message,	any way to know if this message is in a topic I replied to ?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00385.html">Re: [sup-talk] Help me getting started.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00725.html">Re: [sup-talk] Hook before-add-message,	any way to know if this message is in a topic I replied to ?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00638"><strong>Date</strong></a></li>
+<li><a href="threads.html#00638"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

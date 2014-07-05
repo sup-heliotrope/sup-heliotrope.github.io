@@ -1,0 +1,176 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Xapian: Term too long -->
+<!--X-From-R13: Freb Fvyhf <grebNgvyhf.arg> -->
+<!--X-Date: Mon, 12 Oct 2009 15:42:55 &#45;0700 (PDT) -->
+<!--X-Message-Id: 20091012223449.GB31940@tilus.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Xapian: Term too long</title>
+<link rev="made" href="mailto:tero@tilus.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01767.html">Date Prev</a>][<a href="msg01802.html">Date Next</a>][<a href="msg01508.html">Thread Prev</a>][<a href="msg01594.html">Thread Next</a>][<a href="maillist.html#01542">Date Index</a>][<a href="threads.html#01542">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Xapian: Term too long</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Xapian: Term too long</li>
+<li><em>From</em>: Tero Tilus &lt;<a href="mailto:tero%40tilus.net">tero@tilus.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 13 Oct 2009 01:34:49 +0300</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:tero%40tilus.net">tero@tilus.net</a></li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mutt/1.5.18 (2008-05-17)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>sup-sync blows up like this
+
+/home/terotil/src/sup/lib/sup/xapian_index.rb:446:in `replace_document': InvalidArgumentError: Term too long (&gt; 245): Lfwd: =?iso-8859-1?q?tekij=e4n_oikeudet=5d?= (ArgumentError)
+x-enigmail-version: 0.92.0.0
+content-type: multipart/mixed;
+ boundary=&quot;------------010606010007070802040301&quot;
+x-virus-scanned: amavisd-new at cc.jyu.fi
+x-spam-status: no, hits=-2.373 required=5 tests=[awl=0.226, bayes_00=-2.599
+        from /home/terotil/src/sup/lib/sup/xapian_index.rb:446:in `sync_message'
+        from /usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+        from /home/terotil/src/sup/lib/sup/xapian_index.rb:363:in `synchronize'
+        from /home/terotil/src/sup/lib/sup/xapian_index.rb:440:in `sync_message'
+        from /home/terotil/src/sup/lib/sup/xapian_index.rb:92:in `add_message'
+        from /home/terotil/src/sup/bin/sup-sync:211
+	...
+
+Relevant part of the problematic mail looks like this
+
+User-Agent: Debian Thunderbird 1.0.6 (X11/20050802)
+X-Accept-Language: en-us, en
+MIME-Version: 1.0
+To: mutikainen@iki.fi
+Subject: [Fwd: =?ISO-8859-1?Q?tekij=E4n_oikeudet=5D?=
+X-Enigmail-Version: 0.92.0.0
+Content-Type: multipart/mixed;
+ boundary=&quot;------------010606010007070802040301&quot;
+X-Virus-Scanned: amavisd-new at cc.jyu.fi
+X-Spam-Status: No, hits=-2.373 required=5 tests=[AWL=0.226, BAYES_00=-2.599]
+X-Spam-Level: 
+X-Sorted: Whitelist
+Content-Length: 11892
+
+This is how I solved it for me, for now
+
+diff --git a/lib/sup/xapian_index.rb b/lib/sup/xapian_index.rb
+index ad45b0e..d3b3e25 100644
+--- a/lib/sup/xapian_index.rb
++++ b/lib/sup/xapian_index.rb
+@@ -443,7 +443,11 @@ EOS
+         warn &quot;docid underflow, dropping #{m.id.inspect}&quot;
+         return
+       end
+-      @xapian.replace_document docid, doc
++      begin
++        @xapian.replace_document docid, doc
++      rescue StandardError =&gt; err
++        warn &quot;Failed to add message #{m.id.inspect} to Xapian index: #{err}&quot;
++      end
+     end
+ 
+     m.labels.each { |l| LabelManager &lt;&lt; l }
+
+Looks like lib/sup/xapian_index.rb tries to override
+Xapian::Document#add_term with a version which is wired to ditch too
+long terms.  Only that you can't override methods just by including a
+module.  Methods of the including class override methods in included
+module.
+
+terotil@sotka:~$ irb
+&gt; class Foo; def bar; :bar; end; end
+=&gt; nil
+&gt; module Baz; def bar; :baz; end; end
+=&gt; nil
+&gt; class Foo; include Baz; end
+=&gt; Foo
+&gt; Foo.new.bar
+=&gt; :bar
+&gt; Foo.ancestors
+=&gt; [Foo, Baz, Object, Kernel]  # Foo before Baz, methods in Foo take priority
+
+It is still Foo#bar being called, not Baz#bar.  You need to open up
+Xapian::Document and then do alias method chaining to override
+methods.  Or you could do tricks like
+<a  rel="nofollow" href="http://coderrr.wordpress.com/2008/10/29/secure-alias-method-chaining/">http://coderrr.wordpress.com/2008/10/29/secure-alias-method-chaining/</a>
+
+-- 
+Tero Tilus ## 050 3635 235 ## <a  rel="nofollow" href="http://tero.tilus.net/">http://tero.tilus.net/</a>
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01594" href="msg01594.html">Re: [sup-talk] Xapian: Term too long</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01518" href="msg01518.html">[sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01502" href="msg01502.html">[sup-talk] [PATCH] xapian: replace DocumentMethods module with	plain monkeypatching</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01767.html">Re: [sup-talk] Feature Request: Collecting Lines in Index Mode</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01802.html">Re: [sup-talk] [PATCH] Allow thread index view to sort oldest first</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01508.html">Re: [sup-talk] [PATCH] more inline GPG madness</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01594.html">Re: [sup-talk] Xapian: Term too long</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01542"><strong>Date</strong></a></li>
+<li><a href="threads.html#01542"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

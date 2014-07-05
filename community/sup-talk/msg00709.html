@@ -1,0 +1,145 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Exception crashing sup -->
+<!--X-From-R13: [nep Vnegfgrva <znep.unegfgrvaNnyhz.inffne.rqh> -->
+<!--X-Date: Tue, 26 Apr 2011 10:57:48 &#45;0700 (PDT) -->
+<!--X-Message-Id: BANLkTikmgj+kTR6+6OKHo03car9j5nGdrg@mail.gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Exception crashing sup</title>
+<link rev="made" href="mailto:marc.hartstein@alum.vassar.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00718.html">Date Prev</a>][<a href="msg00409.html">Date Next</a>][<a href="msg00031.html">Thread Prev</a>][<a href="msg00443.html">Thread Next</a>][<a href="maillist.html#00709">Date Index</a>][<a href="threads.html#00709">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Exception crashing sup</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Exception crashing sup</li>
+<li><em>From</em>: Marc Hartstein &lt;<a href="mailto:marc.hartstein%40alum.vassar.edu">marc.hartstein@alum.vassar.edu</a>&gt;</li>
+<li><em>Date</em>: Tue, 26 Apr 2011 13:03:19 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:sender:date:x-google-sender-auth	:message-id:subject:from:to:content-type;	bh=iUhLDBUHVyMHWKdGOHDDTQvSnWXwZTmW9NjBLIM15y0=;	b=H7/+e0atm4eoYhT83RIUv+oShBVGU905rqdJDHNgA3ngAUzgf85XFFB0Cbe4dn5xO1	LkYIWqWtA7RM4QzDhoncRrrUmpg83FwG/ZNGb+YoLA++36YltbHCT4WeE4Y5uyqhsH8N	fZir+gbC3QmZtjbKn5W35Av3ib3C038UebtNA=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:sender:date:x-google-sender-auth:message-id:subject	:from:to:content-type;	b=fsP4s2BtL9hgyl8m22dao8DkBxs/3k3JI+667I3gnkFB/tHLG7rYvrSmFVdR+io+Bp	g5IbRxSL5yyMLHqvu5j6Cv8pU9WO9IplaIMWzNrQacpmG0TJO8G1Jos1l2RSRcClD5aq	fJpxcTIxFIdsJ3cGAkDPTUyjz+Ntc99gj1+Bg=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Something happened causing sup to crash, and now I get this exception
+every time I try to start. I'm currently tracking master.
+
+I tried (afterward) doing a dump/sync --restore cycle, which didn't
+fix it. I thought maybe the message which had been being sent when it
+first crashed had gotten corrupted in sent.mbox, so I went in with
+mutt and deleted that manually. After another sync after that, sup
+started up fine and I was able to use it for a bit, but then it
+crashed again. It felt like it was as it tried to load more messages
+to the inbox view, so I'm now thinking the reason it was briefly
+working was just that enough messages had come in over a couple of
+days to push the culprit past what was getting loaded at startup.
+
+The log doesn't look like it will be much help, but I'm attaching it ayway.
+
+Any ideas?
+</pre><pre>--- RuntimeError from thread: load threads for thread-index-mode
+
+/home/magus/src/sup/lib/sup/index.rb:555:in `find_docid'
+/home/magus/src/sup/lib/sup/index.rb:560:in `find_doc'
+/home/magus/src/sup/lib/sup/index.rb:570:in `get_entry'
+/home/magus/src/sup/lib/sup/index.rb:200:in `build_message'
+/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+/home/magus/src/sup/lib/sup/index.rb:579:in `synchronize'
+/home/magus/src/sup/lib/sup/index.rb:200:in `build_message'
+/home/magus/src/sup/lib/sup/index.rb:194:in `each_message_in_thread_for'
+/home/magus/src/sup/lib/sup/thread.rb:349:in `call'
+/home/magus/src/sup/lib/sup/thread.rb:349:in `load_thread_for_message'
+/home/magus/src/sup/lib/sup/index.rb:194:in `each_message_in_thread_for'
+/home/magus/src/sup/lib/sup/index.rb:194:in `each'
+/home/magus/src/sup/lib/sup/index.rb:194:in `each_message_in_thread_for'
+/home/magus/src/sup/lib/sup/thread.rb:347:in `load_thread_for_message'
+/home/magus/src/sup/lib/sup/thread.rb:339:in `load_n_threads'
+/home/magus/src/sup/lib/sup/index.rb:155:in `each_id_by_date'
+/home/magus/src/sup/lib/sup/index.rb:250:in `each_id'
+/home/magus/src/sup/lib/sup/index.rb:250:in `each'
+/home/magus/src/sup/lib/sup/index.rb:250:in `each_id'
+/home/magus/src/sup/lib/sup/index.rb:155:in `each_id_by_date'
+/home/magus/src/sup/lib/sup/thread.rb:334:in `load_n_threads'
+/home/magus/src/sup/lib/sup/modes/thread-index-mode.rb:640:in `__unprotected_load_n_threads'
+(eval):12:in `load_n_threads'
+/home/magus/src/sup/lib/sup/modes/thread-index-mode.rb:624:in `load_n_threads_background'
+/home/magus/src/sup/lib/sup.rb:78:in `reporting_thread'
+/home/magus/src/sup/lib/sup.rb:76:in `initialize'
+/home/magus/src/sup/lib/sup.rb:76:in `new'
+/home/magus/src/sup/lib/sup.rb:76:in `reporting_thread'
+/home/magus/src/sup/lib/sup/modes/thread-index-mode.rb:623:in `load_n_threads_background'
+/home/magus/src/sup/lib/sup/modes/thread-index-mode.rb:694:in `__unprotected_load_threads'
+(eval):12:in `load_threads'
+/home/magus/src/sup/bin/sup:223
+</pre><pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00443" href="msg00443.html">Re: [sup-talk] Exception crashing sup</a></strong>
+<ul><li><em>From:</em> Marc Hartstein &lt;marc.hartstein@alum.vassar.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00718.html">Re: [sup-talk] git co old version</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00409.html">Re: [sup-talk] git co old version</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00031.html">Re: [sup-talk] git co old version</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00443.html">Re: [sup-talk] Exception crashing sup</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00709"><strong>Date</strong></a></li>
+<li><a href="threads.html#00709"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

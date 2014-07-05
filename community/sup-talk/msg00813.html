@@ -1,0 +1,451 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] sup with ruby 1.9.2 patches (was: Arch Linux sup now	failing.) -->
+<!--X-From-R13: Oyrk Vhafnxre <onqnyrkNtznvy.pbz> -->
+<!--X-Date: Thu, 9 Sep 2010 10:24:56 &#45;0700 (PDT) -->
+<!--X-Message-Id: AANLkTi=EKfpn6wT_eb&#45;8kNDKUB4cDrZ0WqyAJR6yDPuo@mail.gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] sup with ruby 1.9.2 patches (was: Arch Linux sup now	failing.)</title>
+<link rev="made" href="mailto:badalex@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00863.html">Date Prev</a>][<a href="msg00944.html">Date Next</a>][<a href="msg01018.html">Thread Prev</a>][<a href="msg00944.html">Thread Next</a>][<a href="maillist.html#00813">Date Index</a>][<a href="threads.html#00813">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] sup with ruby 1.9.2 patches (was: Arch Linux sup now	failing.)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] sup with ruby 1.9.2 patches (was: Arch Linux sup now	failing.)</li>
+<li><em>From</em>: Alex Hunsaker &lt;<a href="mailto:badalex%40gmail.com">badalex@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 9 Sep 2010 11:24:21 -0600</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:mime-version:received:from:date	:message-id:subject:to:content-type;	bh=tjUb2gDORB0ZVzQyLrMBJLbKyETtOjSS+936nSoI2FM=;	b=c9EaUdWj35h6Gx78wBWYSAN8po6XIe3IeZGD0Z099bZPAEGHpsdKZ6r6hzRZU2hJBF	TmpDZRSZigkOF0gchTYQzy+hYi9Cov81wGllguJ87uCFxPoWBmjPBrhVA/E1QfvOSqJA	KqRWIdx1+lZoxxlIOYlux5oDSyzoC7g98StKg=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:from:date:message-id:subject:to:content-type;	b=wAJhBI/9aZ/QytE+3abbm6QAXi61WrPhUXoNkawBuvzVE/JREQNsJpwL3+recaI2AG	W5udtGg/yau/BXodhdqWRF8lkVAjeZJXOtSoDaxkoW1V7rqh8qG3mQlhQfyqC+4pH0zT	kWHZbgYY9XtmbQNLskqZKzxEslwj5m3fdPeu4=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Here are the 2 patches Im using to get sup to work with ruby 1.9.2
+
+The first is against ncursesw and fixes the STR2CSTR issues.
+The 2nd is against sup and fixes the tmpfile issue when trying to
+reply/create a new message or viewing an attachment.
+
+With both of these I dont have to run to mutt to send mail anymore :-)
+</pre><pre>Common subdirectories: nc/examples and nc_new//examples
+diff -u nc/form_wrap.c nc_new//form_wrap.c
+--- nc/form_wrap.c	1969-12-31 17:00:00.000000000 -0700
++++ nc_new//form_wrap.c	2010-09-03 10:09:05.307316831 -0600
+@@ -623,7 +623,8 @@
+ 		char** list = ALLOC_N(char*, n+1);
+ 		int i;
+ 		for (i = 0; i &lt; n; i++) {
+-		  list[i] = STR2CSTR(rb_ary_entry(arg3, (long)i));
++		  VALUE tmp = rb_ary_entry(arg3, (long)i);
++		  list[i] = StringValuePtr(tmp);
+ 		}
+ 		list[n] = NULL;
+ 		return INT2NUM(set_field_type(field, ftype, 
+@@ -652,7 +653,7 @@
+ 	 if (argc != 2)
+ 		rb_raise(rb_eArgError, &quot;TYPE_REGEXP requires one additional argument&quot;);
+ 	 return INT2NUM(set_field_type(field, ftype, 
+-											 STR2CSTR(arg3)));
++											 StringValuePtr(arg3)));
+   }
+   else if (ftype == TYPE_IPV4){	
+ 	 if (argc != 1)
+@@ -740,7 +741,7 @@
+  */
+ static VALUE rbncurs_c_set_field_buffer(VALUE rb_field, VALUE buf, VALUE value) {
+   FIELD* field = get_field(rb_field);
+-  return INT2NUM(set_field_buffer(field, NUM2INT(buf), STR2CSTR(value)));
++  return INT2NUM(set_field_buffer(field, NUM2INT(buf), StringValuePtr(value)));
+ }
+ static VALUE rbncurs_m_set_field_buffer(VALUE dummy, VALUE rb_field, VALUE buf, VALUE value)
+ { return rbncurs_c_set_field_buffer(rb_field, buf, value); }
+@@ -1050,7 +1051,7 @@
+ { return rbncurs_c_form_request_name(request); }
+ 
+ static VALUE rbncurs_c_form_request_by_name(VALUE name) {
+-  return INT2NUM(form_request_by_name(STR2CSTR(name)));
++  return INT2NUM(form_request_by_name(StringValuePtr(name)));
+ }
+ static VALUE rbncurs_m_form_request_by_name(VALUE dummy, VALUE name)
+ { return rbncurs_c_form_request_by_name(name); }
+Only in nc_new/: form_wrap.c~
+Only in nc_new/: form_wrap.c.b
+Only in nc_new/: form_wrap.o
+Common subdirectories: nc/lib and nc_new//lib
+Only in nc_new/: Makefile
+diff -u nc/menu_wrap.c nc_new//menu_wrap.c
+--- nc/menu_wrap.c	1969-12-31 17:00:00.000000000 -0700
++++ nc_new//menu_wrap.c	2010-09-03 10:08:23.820022211 -0600
+@@ -370,7 +370,7 @@
+  * Item creation/destruction functions - mitem_new(3X) man page
+  */
+ static VALUE rbncurs_m_new_item(VALUE dummy, VALUE name, VALUE description)
+-{ return wrap_item(new_item(STR2CSTR(name), STR2CSTR(description))); }
++{ return wrap_item(new_item(StringValuePtr(name), StringValuePtr(description))); }
+ 
+ static VALUE rbncurs_c_free_item(VALUE rb_item)
+ {
+@@ -668,7 +668,7 @@
+ 
+ static VALUE rbncurs_c_menu_request_by_name(VALUE name)
+ {
+-  return INT2NUM(menu_request_by_name(STR2CSTR(name)));
++  return INT2NUM(menu_request_by_name(StringValuePtr(name)));
+ }
+ static VALUE rbncurs_m_menu_request_by_name(VALUE dummy, VALUE name)
+ { return rbncurs_c_menu_request_by_name(name); }
+@@ -907,7 +907,7 @@
+ static VALUE rbncurs_c_set_menu_mark(VALUE rb_menu, VALUE value)
+ {
+   MENU *menu = get_menu(rb_menu);
+-  return INT2NUM(set_menu_mark(menu, STR2CSTR(value)));
++  return INT2NUM(set_menu_mark(menu, StringValuePtr(value)));
+ }
+ static VALUE rbncurs_m_set_menu_mark(VALUE dummy, VALUE rb_field, VALUE value)
+ { return rbncurs_c_set_menu_mark(rb_field, value); }
+@@ -927,7 +927,7 @@
+ static VALUE rbncurs_c_set_menu_pattern(VALUE rb_menu, VALUE pattern)
+ {
+   MENU *menu = get_menu(rb_menu);
+-  return INT2NUM(set_menu_pattern(menu, STR2CSTR(pattern)));
++  return INT2NUM(set_menu_pattern(menu, StringValuePtr(pattern)));
+ }
+ static VALUE rbncurs_m_set_menu_pattern(VALUE dummy, VALUE rb_menu, VALUE pattern)
+ { return rbncurs_c_set_menu_pattern(rb_menu, pattern); }
+Only in nc_new/: menu_wrap.c.b
+Only in nc_new/: menu_wrap.o
+Only in nc_new/: mkmf.log
+Only in nc_new/: ncursesw_bin.so
+diff -u nc/ncurses_wrap.c nc_new//ncurses_wrap.c
+--- nc/ncurses_wrap.c	1969-12-31 17:00:00.000000000 -0700
++++ nc_new//ncurses_wrap.c	2010-09-03 10:10:07.433260547 -0600
+@@ -475,7 +475,7 @@
+ static VALUE rbncurs_define_key(VALUE dummy, VALUE definition, VALUE keycode)
+ {
+     return INT2NUM(define_key((definition != Qnil)
+-                              ? STR2CSTR(definition)
++                              ? StringValuePtr(definition)
+                               : (char*)(NULL),
+                               NUM2INT(keycode)));
+ }
+@@ -580,10 +580,10 @@
+     return return_value;
+ }
+ static VALUE rbncurs_addnstr(VALUE dummy, VALUE arg1, VALUE arg2) {
+-    return INT2NUM(addnstr(STR2CSTR(arg1),  NUM2INT(arg2)));
++    return INT2NUM(addnstr(StringValuePtr(arg1),  NUM2INT(arg2)));
+ }
+ static VALUE rbncurs_addstr(VALUE dummy, VALUE arg1) {
+-    return INT2NUM(addstr(STR2CSTR(arg1)));
++    return INT2NUM(addstr(StringValuePtr(arg1)));
+ }
+ static VALUE rbncurs_attroff(VALUE dummy, VALUE arg1) {
+     return INT2NUM(attroff(NUM2ULONG(arg1)));
+@@ -1011,10 +1011,10 @@
+     return INT2NUM(insertln());
+ }
+ static VALUE rbncurs_insnstr(VALUE dummy, VALUE arg1, VALUE arg2) {
+-    return INT2NUM(insnstr(STR2CSTR(arg1),  NUM2INT(arg2)));
++    return INT2NUM(insnstr(StringValuePtr(arg1),  NUM2INT(arg2)));
+ }
+ static VALUE rbncurs_insstr(VALUE dummy, VALUE arg1) {
+-    return INT2NUM(insstr(STR2CSTR(arg1)));
++    return INT2NUM(insstr(StringValuePtr(arg1)));
+ }
+ #ifdef HAVE_INTRFLUSH
+ static VALUE rbncurs_intrflush(VALUE dummy, VALUE arg1, VALUE arg2) {
+@@ -1070,10 +1070,10 @@
+     return return_value;
+ }
+ static VALUE rbncurs_mvaddnstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4) {
+-    return INT2NUM(mvaddnstr(NUM2INT(arg1),  NUM2INT(arg2),  STR2CSTR(arg3),  NUM2INT(arg4)));
++    return INT2NUM(mvaddnstr(NUM2INT(arg1),  NUM2INT(arg2),  StringValuePtr(arg3),  NUM2INT(arg4)));
+ }
+ static VALUE rbncurs_mvaddstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3) {
+-    return INT2NUM(mvaddstr(NUM2INT(arg1),  NUM2INT(arg2),  STR2CSTR(arg3)));
++    return INT2NUM(mvaddstr(NUM2INT(arg1),  NUM2INT(arg2),  StringValuePtr(arg3)));
+ }
+ #ifdef HAVE_MVCHGAT
+ static VALUE rbncurs_mvchgat(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4, VALUE arg5, VALUE arg6) {
+@@ -1106,10 +1106,10 @@
+     return INT2NUM(mvinsch(NUM2INT(arg1),  NUM2INT(arg2),  NUM2ULONG(arg3)));
+ }
+ static VALUE rbncurs_mvinsnstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4) {
+-    return INT2NUM(mvinsnstr(NUM2INT(arg1),  NUM2INT(arg2),  STR2CSTR(arg3),  NUM2INT(arg4)));
++    return INT2NUM(mvinsnstr(NUM2INT(arg1),  NUM2INT(arg2),  StringValuePtr(arg3),  NUM2INT(arg4)));
+ }
+ static VALUE rbncurs_mvinsstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3) {
+-    return INT2NUM(mvinsstr(NUM2INT(arg1),  NUM2INT(arg2),  STR2CSTR(arg3)));
++    return INT2NUM(mvinsstr(NUM2INT(arg1),  NUM2INT(arg2),  StringValuePtr(arg3)));
+ }
+ #ifdef HAVE_MVVLINE
+ static VALUE rbncurs_mvvline(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4) {
+@@ -1137,10 +1137,10 @@
+     return return_value;
+ }
+ static VALUE rbncurs_mvwaddnstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4, VALUE arg5) {
+-    return INT2NUM(mvwaddnstr(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3),  STR2CSTR(arg4),  NUM2INT(arg5)));
++    return INT2NUM(mvwaddnstr(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3),  StringValuePtr(arg4),  NUM2INT(arg5)));
+ }
+ static VALUE rbncurs_mvwaddstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4) {
+-    return INT2NUM(mvwaddstr(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3),  STR2CSTR(arg4)));
++    return INT2NUM(mvwaddstr(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3),  StringValuePtr(arg4)));
+ }
+ #ifdef HAVE_MVWCHGAT
+ static VALUE rbncurs_mvwchgat(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4, VALUE arg5, VALUE arg6, VALUE arg7) {
+@@ -1171,10 +1171,10 @@
+     return INT2NUM(mvwinsch(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3),  NUM2ULONG(arg4)));
+ }
+ static VALUE rbncurs_mvwinsnstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4, VALUE arg5) {
+-    return INT2NUM(mvwinsnstr(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3),  STR2CSTR(arg4),  NUM2INT(arg5)));
++    return INT2NUM(mvwinsnstr(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3),  StringValuePtr(arg4),  NUM2INT(arg5)));
+ }
+ static VALUE rbncurs_mvwinsstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4) {
+-    return INT2NUM(mvwinsstr(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3),  STR2CSTR(arg4)));
++    return INT2NUM(mvwinsstr(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3),  StringValuePtr(arg4)));
+ }
+ #ifdef HAVE_MVWVLINE
+ static VALUE rbncurs_mvwvline(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3, VALUE arg4, VALUE arg5) {
+@@ -1238,7 +1238,7 @@
+ }
+ #ifdef HAVE_PUTP
+ static VALUE rbncurs_putp(VALUE dummy, VALUE arg1) {
+-    return INT2NUM(putp(STR2CSTR(arg1)));
++    return INT2NUM(putp(StringValuePtr(arg1)));
+ }
+ #endif
+ #ifdef HAVE_QIFLUSH
+@@ -1271,12 +1271,12 @@
+ }
+ #ifdef HAVE_SCR_DUMP
+ static VALUE rbncurs_scr_dump(VALUE dummy, VALUE arg1) {
+-    return INT2NUM(scr_dump(STR2CSTR(arg1)));
++    return INT2NUM(scr_dump(StringValuePtr(arg1)));
+ }
+ #endif
+ #ifdef HAVE_SCR_INIT
+ static VALUE rbncurs_scr_init(VALUE dummy, VALUE arg1) {
+-    return INT2NUM(scr_init(STR2CSTR(arg1)));
++    return INT2NUM(scr_init(StringValuePtr(arg1)));
+ }
+ #endif
+ static VALUE rbncurs_scrl(VALUE dummy, VALUE arg1) {
+@@ -1290,12 +1290,12 @@
+ }
+ #ifdef HAVE_SCR_RESTORE
+ static VALUE rbncurs_scr_restore(VALUE dummy, VALUE arg1) {
+-    return INT2NUM(scr_restore(STR2CSTR(arg1)));
++    return INT2NUM(scr_restore(StringValuePtr(arg1)));
+ }
+ #endif
+ #ifdef HAVE_SCR_SET
+ static VALUE rbncurs_scr_set(VALUE dummy, VALUE arg1) {
+-    return INT2NUM(scr_set(STR2CSTR(arg1)));
++    return INT2NUM(scr_set(StringValuePtr(arg1)));
+ }
+ #endif
+ static VALUE rbncurs_setscrreg(VALUE dummy, VALUE arg1, VALUE arg2) {
+@@ -1352,7 +1352,7 @@
+     return INT2NUM(slk_restore());
+ }
+ static VALUE rbncurs_slk_set(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3) {
+-    return INT2NUM(slk_set(NUM2INT(arg1),  STR2CSTR(arg2),  NUM2INT(arg3)));
++    return INT2NUM(slk_set(NUM2INT(arg1),  StringValuePtr(arg2),  NUM2INT(arg3)));
+ }
+ static VALUE rbncurs_slk_touch(VALUE dummy) {
+     return INT2NUM(slk_touch());
+@@ -1383,17 +1383,17 @@
+ }
+ #ifdef HAVE_TIGETFLAG
+ static VALUE rbncurs_tigetflag(VALUE dummy, VALUE arg1) {
+-    return INT2NUM(tigetflag(STR2CSTR(arg1)));
++    return INT2NUM(tigetflag(StringValuePtr(arg1)));
+ }
+ #endif
+ #ifdef HAVE_TIGETNUM
+ static VALUE rbncurs_tigetnum(VALUE dummy, VALUE arg1) {
+-    return INT2NUM(tigetnum(STR2CSTR(arg1)));
++    return INT2NUM(tigetnum(StringValuePtr(arg1)));
+ }
+ #endif
+ #ifdef HAVE_TIGETSTR
+ static VALUE rbncurs_tigetstr(VALUE dummy, VALUE arg1) {
+-    return rb_str_new2(tigetstr(STR2CSTR(arg1)));
++    return rb_str_new2(tigetstr(StringValuePtr(arg1)));
+ }
+ #endif
+ static VALUE rbncurs_timeout(VALUE dummy, VALUE arg1) {
+@@ -1438,10 +1438,10 @@
+     return return_value;
+ }
+ static VALUE rbncurs_waddnstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3) {
+-    return INT2NUM(waddnstr(get_window(arg1),  STR2CSTR(arg2),  NUM2INT(arg3)));
++    return INT2NUM(waddnstr(get_window(arg1),  StringValuePtr(arg2),  NUM2INT(arg3)));
+ }
+ static VALUE rbncurs_waddstr(VALUE dummy, VALUE arg1, VALUE arg2) {
+-    return INT2NUM(waddstr(get_window(arg1),  STR2CSTR(arg2)));
++    return INT2NUM(waddstr(get_window(arg1),  StringValuePtr(arg2)));
+ }
+ static VALUE rbncurs_wattron(VALUE dummy, VALUE arg1, VALUE arg2) {
+     return INT2NUM(wattron(get_window(arg1),  NUM2INT(arg2)));
+@@ -1514,10 +1514,10 @@
+     return INT2NUM(winsertln(get_window(arg1)));
+ }
+ static VALUE rbncurs_winsnstr(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3) {
+-    return INT2NUM(winsnstr(get_window(arg1),  STR2CSTR(arg2),  NUM2INT(arg3)));
++    return INT2NUM(winsnstr(get_window(arg1),  StringValuePtr(arg2),  NUM2INT(arg3)));
+ }
+ static VALUE rbncurs_winsstr(VALUE dummy, VALUE arg1, VALUE arg2) {
+-    return INT2NUM(winsstr(get_window(arg1),  STR2CSTR(arg2)));
++    return INT2NUM(winsstr(get_window(arg1),  StringValuePtr(arg2)));
+ }
+ static VALUE rbncurs_wmove(VALUE dummy, VALUE arg1, VALUE arg2, VALUE arg3) {
+     return INT2NUM(wmove(get_window(arg1),  NUM2INT(arg2),  NUM2INT(arg3)));
+@@ -1619,7 +1619,7 @@
+ { return rb_str_new2(unctrl(NUM2ULONG(ch))); }
+ static VALUE rbncurs_newterm(VALUE dummy, VALUE rb_type, VALUE rb_outfd, VALUE rb_infd)
+ {
+-    char * type = (rb_type == Qnil) ? (char*)0 : STR2CSTR(rb_type);
++    char * type = (rb_type == Qnil) ? (char*)0 : StringValuePtr(rb_type);
+     int outfd = NUM2INT(rb_funcall(rb_outfd, rb_intern(&quot;to_i&quot;), 0));
+     int infd  = NUM2INT(rb_funcall(rb_infd, rb_intern(&quot;to_i&quot;), 0));
+     VALUE rb_screen =
+@@ -2277,7 +2277,7 @@
+ #ifdef HAVE_MCPRINT
+ static VALUE rbncurs_mcprint(VALUE dummy, VALUE data, VALUE len)
+ {
+-    return INT2NUM(mcprint(STR2CSTR(data), NUM2INT(len)));
++    return INT2NUM(mcprint(StringValuePtr(data), NUM2INT(len)));
+ }
+ #endif
+ #ifdef HAVE_HAS_KEY
+@@ -2378,9 +2378,11 @@
+                  &quot; and a String&quot;);
+         return Qnil;
+     }
++	VALUE tmp = rb_funcall3(rb_mKernel, rb_intern(&quot;sprintf&quot;), argc-1,
++                              argv + 1);
++
+     wprintw(get_window(argv[0]), &quot;%s&quot;,
+-            STR2CSTR(rb_funcall3(rb_mKernel, rb_intern(&quot;sprintf&quot;), argc-1,
+-                              argv + 1)));
++            (VALUE)StringValuePtr(tmp));
+     return Qnil;
+ }
+ 
+@@ -2394,14 +2396,14 @@
+         return Qnil;
+     }
+     _tracef(&quot;%s&quot;,
+-            STR2CSTR(funcall3(rb_mKernel, rb_intern(&quot;sprintf&quot;), argc, argv)));
++            StringValuePtr(funcall3(rb_mKernel, rb_intern(&quot;sprintf&quot;), argc, argv)));
+     return Qnil;
+ }
+ #endif /* HAVE__TRACEF */
+ #ifdef HAVE__TRACEDUMP
+ static VALUE rbncurs_tracedump(VALUE dummy, VALUE rb_label, VALUE rb_win)
+ {
+-    _tracedump(STR2CSTR(rb_label), get_window(rb_win));
++    _tracedump(StringValuePtr(rb_label), get_window(rb_win));
+ }
+ #endif /* HAVE__TRACEDUMP */
+ #ifdef HAVE__TRACEATTR
+@@ -2706,7 +2708,7 @@
+ 
+ #ifdef HAVE_LOCALE_H
+ static VALUE rbncurs_setlocale(VALUE dummy, VALUE category, VALUE locale)
+-{   return rb_str_new2(setlocale(NUM2INT(category), STR2CSTR(locale)));}
++{   return rb_str_new2(setlocale(NUM2INT(category), StringValuePtr(locale)));}
+ #endif
+ 
+ static void init_safe_functions(void)
+Only in nc_new/: ncurses_wrap.c~
+Only in nc_new/: ncurses_wrap.c.b
+Only in nc_new/: ncurses_wrap.o
+Only in nc_new/: panel_wrap.c.b
+Only in nc_new/: panel_wrap.o
+</pre><pre>diff --git a/lib/sup/message-chunks.rb b/lib/sup/message-chunks.rb
+index c275f41..b0f934e 100644
+--- a/lib/sup/message-chunks.rb
++++ b/lib/sup/message-chunks.rb
+@@ -34,7 +34,11 @@ require 'tempfile'
+ ## monkey-patch time: make temp files have the right extension
+ class Tempfile
+   def make_tmpname basename, n
+-    sprintf '%d-%d-%s', $$, n, basename
++    if n
++      sprintf '%d-%d-%s', $$, n, basename
++    else
++      sprintf '%d-%s', $$, basename
++    end
+   end
+ end
+ 
+</pre><pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00863.html">Re: [sup-talk] Behavior for sent messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00944.html">[sup-talk] exception</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01018.html">[sup-talk] sent mail labeling</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00944.html">[sup-talk] exception</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00813"><strong>Date</strong></a></li>
+<li><a href="threads.html#00813"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

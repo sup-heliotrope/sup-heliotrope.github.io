@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] before&#45;poll.rb does not appear to be run. Where is	PollManager defined? -->
+<!--X-From-R13: Dhguneq Pnhqnpu <egueqNjro.qr> -->
+<!--X-Date: Wed, 1 Jun 2011 05:03:23 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1306928873&#45;sup&#45;3234@PrxServer3 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: BANLkTikaFJ1B3DrsDyERJvmhU5QH&#45;fwk1Q@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] before-poll.rb does not appear to be run. Where is	PollManager defined?</title>
+<link rev="made" href="mailto:rthrd@web.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00014.html">Date Prev</a>][<a href="msg00204.html">Date Next</a>][<a href="msg00014.html">Thread Prev</a>][<a href="msg00204.html">Thread Next</a>][<a href="maillist.html#00015">Date Index</a>][<a href="threads.html#00015">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] before-poll.rb does not appear to be run. Where is	PollManager defined?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] before-poll.rb does not appear to be run. Where is	PollManager defined?</li>
+<li><em>From</em>: Ruthard Baudach &lt;<a href="mailto:rthrd%40web.de">rthrd@web.de</a>&gt;</li>
+<li><em>Date</em>: Wed, 01 Jun 2011 13:52:40 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00014.html">BANLkTikaFJ1B3DrsDyERJvmhU5QH-fwk1Q@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00014.html">BANLkTikaFJ1B3DrsDyERJvmhU5QH-fwk1Q@mail.gmail.com</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&gt; === Andrew Farrell schrieb am 2011-06-01 05:54: === &lt;
+&gt; I'm trying to add a before-poll.rb hook, but this appears not to be run.
+&gt; At least, it is not running offlineIMAP and if I insert a divide-by-zero,
+&gt; nothing explodes.
+To create a hook, you have to put the hook-name.rb file in the
+.sup/hooks folder, and it should be executed when the hook is called.
+
+No need to go source diving.
+
+You've got a log-line in your before-poll.rb, so you should see it's
+activity in the log buffer.
+
+Just hit ; in inbox-mode, navigate to the line saying log-mode and hit
+&lt;Enter&gt; to view the log buffer.
+
+If your message shows up, the before-poll hook is executed, and does not
+work. Happy debugging (I used to know no Ruby as well when I started
+using sup, and it's still a foreign language to me)
+
+&gt; - I'm inferring that &quot;require 'sup' &quot; is the equivalent of python's &quot;from
+&gt; sup import *&quot;
+Yes, it is.
+
+Ruthard
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00204" href="msg00204.html">Re: [sup-talk] before-poll.rb does not appear to be run. Where is PollManager defined?</a></strong>
+<ul><li><em>From:</em> Andrew Farrell &lt;afarrell@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00014" href="msg00014.html">[sup-talk] before-poll.rb does not appear to be run. Where is	PollManager defined?</a></strong>
+<ul><li><em>From:</em> Andrew Farrell &lt;afarrell@MIT.EDU&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00014.html">[sup-talk] before-poll.rb does not appear to be run. Where is	PollManager defined?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00204.html">Re: [sup-talk] before-poll.rb does not appear to be run. Where is PollManager defined?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00014.html">[sup-talk] before-poll.rb does not appear to be run. Where is	PollManager defined?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00204.html">Re: [sup-talk] before-poll.rb does not appear to be run. Where is PollManager defined?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00015"><strong>Date</strong></a></li>
+<li><a href="threads.html#00015"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

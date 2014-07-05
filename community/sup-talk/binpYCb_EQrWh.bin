@@ -1,0 +1,135 @@
+From c981c69ebb163a88bef9dabb7fcf9db7c569f005 Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Sun, 18 Oct 2009 00:14:37 +0200
+Subject: [PATCH] Implement inline GPG
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+The SIG_PATTERN had to be changed because GPG, when clearsigning (which
+is what happens when you send inline GPG messages), kind of escapes
+lines beginning with dashes (so that the -----BEGIN PGP MESSAGE-----
+lines don’t get messed up). Therefore, signatures, starting with "-- "
+will be escaped as "- -- ". The manpage of GPG states that the process
+of clearsigning is not reversible. Thus, there is no method in GPG to
+get the original message.
+---
+ lib/sup/crypto.rb  |   31 +++++++++++++++++++++----------
+ lib/sup/message.rb |   31 ++++++++++++++++++++++++++++++-
+ 2 files changed, 51 insertions(+), 11 deletions(-)
+
+diff --git a/lib/sup/crypto.rb b/lib/sup/crypto.rb
+index 64429a3..a410760 100644
+--- a/lib/sup/crypto.rb
++++ b/lib/sup/crypto.rb
+@@ -78,18 +78,24 @@ class CryptoManager
+     encrypt from, to, payload, true
+   end
+ 
+-  def verify payload, signature # both RubyMail::Message objects
++  def verify payload, signature, detached=true # both RubyMail::Message objects
+     return unknown_status(cant_find_binary) unless @cmd
+ 
+-    payload_fn = Tempfile.new "redwood.payload"
+-    payload_fn.write format_payload(payload)
+-    payload_fn.close
++    if detached
++      payload_fn = Tempfile.new "redwood.payload"
++      payload_fn.write format_payload(payload)
++      payload_fn.close
++    end
+ 
+     signature_fn = Tempfile.new "redwood.signature"
+     signature_fn.write signature.decode
+     signature_fn.close
+ 
+-    output = run_gpg "--verify #{signature_fn.path} #{payload_fn.path}"
++    if detached
++      output = run_gpg "--verify #{signature_fn.path} #{payload_fn.path}"
++    else
++      output = run_gpg "--verify #{signature_fn.path}"
++    end
+     output_lines = output.split(/\n/)
+ 
+     if output =~ /^gpg: (.* signature from .*$)/
+@@ -104,7 +110,7 @@ class CryptoManager
+   end
+ 
+   ## returns decrypted_message, status, desc, lines
+-  def decrypt payload # a RubyMail::Message object
++  def decrypt payload, armor=false # a RubyMail::Message object
+     return unknown_status(cant_find_binary) unless @cmd
+ 
+     payload_fn = Tempfile.new "redwood.payload"
+@@ -141,10 +147,15 @@ class CryptoManager
+       # required. This causes for the part not to be detected as multipart,
+       # hence being shown as an attachment. If we detect this is happening,
+       # we force the decrypted payload to be interpreted as MIME.
+-      msg = RMail::Parser.read(decrypted_payload)
+-      if msg.header.content_type =~ %r{^multipart/} and not msg.multipart?
+-        decrypted_payload = "MIME-Version: 1.0\n" + decrypted_payload
+-        msg = RMail::Parser.read(decrypted_payload)
++      if !armor
++	msg = RMail::Parser.read(decrypted_payload)
++	if msg.header.content_type =~ %r{^multipart/} and not msg.multipart?
++	  decrypted_payload = "MIME-Version: 1.0\n" + decrypted_payload
++	  msg = RMail::Parser.read(decrypted_payload)
++	end
++      else
++        msg = RMail::Message.new
++        msg.body = decrypted_payload
+       end
+       notice = Chunk::CryptoNotice.new :valid, "This message has been decrypted for display"
+       [notice, sig, msg]
+diff --git a/lib/sup/message.rb b/lib/sup/message.rb
+index a147c42..1d0a2c4 100644
+--- a/lib/sup/message.rb
++++ b/lib/sup/message.rb
+@@ -26,7 +26,7 @@ class Message
+ 
+   QUOTE_PATTERN = /^\s{0,4}[>|\}]/
+   BLOCK_QUOTE_PATTERN = /^-----\s*Original Message\s*----+$/
+-  SIG_PATTERN = /(^-- ?$)|(^\s*----------+\s*$)|(^\s*_________+\s*$)|(^\s*--~--~-)|(^\s*--\+\+\*\*==)/
++  SIG_PATTERN = /(^(- )*-- ?$)|(^\s*----------+\s*$)|(^\s*_________+\s*$)|(^\s*--~--~-)|(^\s*--\+\+\*\*==)/
+ 
+   MAX_SIG_DISTANCE = 15 # lines from the end
+   DEFAULT_SUBJECT = ""
+@@ -508,6 +508,35 @@ private
+         ## this ensures that the body is normalized to avoid non-displayable
+         ## characters
+         body = Iconv.easy_decode($encoding, m.charset || $encoding, m.decode) if m.body
++	lines = body.split("\n")
++
++	## Check for inline-PGP
++	if body =~ /-----BEGIN PGP SIGNED MESSAGE-----/
++	  sign_start = lines.index("-----BEGIN PGP SIGNED MESSAGE-----")
++	  sign_end = lines.index("-----END PGP SIGNED MESSAGE-----") || lines.count
++	  msg = RMail::Message.new
++	  msg.body = lines[sign_start, sign_end+1].join("\n")
++
++	  sign_end = lines.index("-----BEGIN PGP SIGNATURE-----") || sign_end
++	  payload = RMail::Message.new
++	  payload.body = lines[sign_start+1, sign_end-1].join("\n")
++	  return [CryptoManager.verify(nil, msg, false), message_to_chunks(payload)].flatten.compact
++	end
++
++	if body =~ /-----BEGIN PGP MESSAGE-----/
++	  signstart = lines.index("-----BEGIN PGP MESSAGE-----")
++	  signend = lines.index("-----END PGP MESSAGE-----") || lines.count
++	  msg = RMail::Message.new
++	  msg.body = lines[signstart, signend+1].join("\n")
++	  notice, sig, decryptedm = CryptoManager.decrypt msg, true
++	  if decryptedm # managed to decrypt
++	    children = message_to_chunks(decryptedm, true)
++	    return [notice, sig].compact + children
++	  else
++	    return [notice]
++	  end
++	end
++
+         text_to_chunks((body || "").normalize_whitespace.split("\n"), encrypted)
+       end
+     end
+-- 
+1.6.3.3
+

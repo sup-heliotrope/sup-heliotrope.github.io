@@ -1,0 +1,152 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Release 0.15.0 -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Thu, 07 Nov 2013 07:05:58 &#45;0800 (PST) -->
+<!--X-Message-Id: 1383836355&#45;sup&#45;568@qwerzila -->
+<!--X-Content-Type: multipart/signed -->
+<!--X-Derived: pgp6DHC07xHov.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Release 0.15.0</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00110.html">Date Prev</a>][<a href="msg00208.html">Date Next</a>][<a href="msg00110.html">Thread Prev</a>][<a href="msg00208.html">Thread Next</a>][<a href="maillist.html#00136">Date Index</a>][<a href="threads.html#00136">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Release 0.15.0</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;, sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Release 0.15.0</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 07 Nov 2013 16:04:36 +0100</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi all,
+
+Sup 0.15.0 is out, get it at rubygems:
+
+
+
+  $ gem install sup
+
+
+(detailed installation instructions in the wiki [1])
+
+
+News, please at least skim through:
+
+  * Maildir Syncback has now been merged into main sup! This is a
+    long-time waiting feature initially developed by Damien Leone,
+    then picked up by Edward Z. Yang who continued development. Additionally
+    several others have been contributing.
+
+    Eventually, recently, Eric Weikl has picked up this branch, modernized
+    it to current sup, maintained it and gotten it ready for release.
+
+    Main authors:
+
+    Damien Leone
+    Edward Z. Yang
+    Eric Weikl
+
+    Not all of the features initially proposed have been included. This is
+    to maintain compatibility with more operating systems and wait with
+    the more daring features to make sure sup is stable-ish.
+
+    This is a big change since sup now can modify your mail (!), please
+    back up your mail and your configuration before using the maildir
+    syncback feature. For instructions on how to migrate an existing
+    maildir source or how to set up a new one, refer to the wiki:
+
+    <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Using-sup-with-other-clients">https://github.com/sup-heliotrope/sup/wiki/Using-sup-with-other-clients</a>
+
+    It is possible to both disable maildir syncback globally (default:
+    disabled) and per-source (default: enabled).
+
+  * Sup on Ruby 2.0.0 now works - but beware, this has not been very throughly
+    tested. Patches are welcome.
+
+  * We are now using our own rmail-sup gem with fixes for Ruby 2.0.0 and
+    various warnings fixed.
+
+  * sup-sync-back has been renamed to sup-sync-back-mbox to conform with
+    the other sync-back scripts.
+
+  * You can now save attachments to directories without specifying the full
+    filename (default filename is used).
+
+  * Various encoding fixes and minor bug fixes
+
+
+Important: If you are upgrading from a Sup version prior to 0.14.0
+please read the migration instructions in the wiki [0].
+
+Please report any issues you encounter to our GitHub issue tracker [2].
+
+Thanks to all who have contributed to sup either with code [3] or
+testing!
+
+Cheers, Gaute
+
+
+[0] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Migration-0.13-to-0.14">https://github.com/sup-heliotrope/sup/wiki/Migration-0.13-to-0.14</a>
+[1] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki">https://github.com/sup-heliotrope/sup/wiki</a>
+[2] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/issues">https://github.com/sup-heliotrope/sup/issues</a>
+[3] <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/blob/release-0.15.0/CONTRIBUTORS">https://github.com/sup-heliotrope/sup/blob/release-0.15.0/CONTRIBUTORS</a>
+
+</pre><p><strong>Attachment:
+<a href="pgp6DHC07xHov.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00110.html">Security advisory, releases 0.13.2.1 and 0.14.1.1</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00208.html">sup release 0.15.1</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00110.html">Security advisory, releases 0.13.2.1 and 0.14.1.1</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00208.html">sup release 0.15.1</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00136"><strong>Date</strong></a></li>
+<li><a href="threads.html#00136"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

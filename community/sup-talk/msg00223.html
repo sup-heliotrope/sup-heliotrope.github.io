@@ -1,0 +1,164 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] [sup&#45;devel]  sup: Fix for an UndefinedMethodError -->
+<!--X-From-R13: [ngguvrh Dnxbgbwnban <zngguvrh.enxbgbwnbanNtznvy.pbz> -->
+<!--X-Date: Tue, 16 Apr 2013 14:29:24 &#45;0700 (PDT) -->
+<!--X-Message-Id: 20130416212145.GB2339@kpad.otokar.looc2011.eu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: CAOxvSbfuBUYc7fTS=Ov2gBi6JtCkhmy8YVP3iUXwENnmLdzH3Q@mail.gmail.com -->
+<!--X-Reference: 51692285.8000709@gaute.vetsj.com -->
+<!--X-Reference: CAHsqw9ue9AqTO4OxVDUzb&#45;3u7GShxZRmjPDNzwJQVtsZi_3icw@mail.gmail.com -->
+<!--X-Reference: 51695AF1.2070701@gaute.vetsj.com -->
+<!--X-Reference: CAHsqw9v46_d+n=XUeg76zmws+kjtit3SfQ59NZtTxMYrJ8F1Vg@mail.gmail.com -->
+<!--X-Reference: 5169925C.1060701@gaute.vetsj.com -->
+<!--X-Reference: 516997BD.7010409@gaute.vetsj.com -->
+<!--X-Reference: 1365938152&#45;sup&#45;6420@mint -->
+<!--X-Reference: 516A9BA0.7040906@gaute.vetsj.com -->
+<!--X-Reference: 1366143381&#45;sup&#45;8459@mint -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] [sup-devel]  sup: Fix for an UndefinedMethodError</title>
+<link rev="made" href="mailto:matthieu.rakotojaona@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00239.html">Date Prev</a>][<a href="msg00176.html">Date Next</a>][<a href="msg00239.html">Thread Prev</a>][<a href="msg00271.html">Thread Next</a>][<a href="maillist.html#00223">Date Index</a>][<a href="threads.html#00223">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] [sup-devel]  sup: Fix for an UndefinedMethodError</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] [sup-devel]  sup: Fix for an UndefinedMethodError</li>
+<li><em>From</em>: Matthieu Rakotojaona &lt;<a href="mailto:matthieu.rakotojaona%40gmail.com">matthieu.rakotojaona@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 16 Apr 2013 23:21:45 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com;       spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>;       dkim=neutral (bad format) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20120113;	h=x-received:date:from:to:subject:message-id:references:mime-version	:content-type:content-disposition:in-reply-to:x-pgp-key:user-agent;	bh=FTMpfKGNiqsBmllUmDI9ed731yBhHu/j95MNOr+Nc9s=;	b=zosM5pYxKmwCFSyiQVEojMS6g9xrE4BsQCi7qBGVFjWPkB6BExC1vTjMG8pDP41DY0	fSOmetnjKhq+39oZgG6KWm/xD+xTv8VOT3lBKQ21s6NTMcQMv/ik6HkQij373fgZIqRI	psi6nQbUSc+ue9pM39HV6a3WUgGAZWtxDmtm46AFIN/XtI4EcBDEB87boslZLgqAb7K0	3zHoopVUedGc8SO9v/o9YQfl3dLfqIRJB7HXN5cth8Lm0fihhXbbCPgEGIrCAvsOCPGr	JTmL4Z3Ydja4RbUEOgDuGKHs3dgIcK2rGZ4B2zxO8BKeUgSlqZxHnqo8TS2nhPBo8FTg	MmxQ==</li>
+<li><em>In-reply-to</em>: &lt;1366143381-sup-8459@mint&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;CAOxvSbfuBUYc7fTS=Ov2gBi6JtCkhmy8YVP3iUXwENnmLdzH3Q@mail.gmail.com&gt;	&lt;<a href="msg00243.html">51692285.8000709@gaute.vetsj.com</a>&gt;	&lt;<a href="msg00005.html">CAHsqw9ue9AqTO4OxVDUzb-3u7GShxZRmjPDNzwJQVtsZi_3icw@mail.gmail.com</a>&gt;	&lt;<a href="msg00041.html">51695AF1.2070701@gaute.vetsj.com</a>&gt;	&lt;CAHsqw9v46_d+n=XUeg76zmws+kjtit3SfQ59NZtTxMYrJ8F1Vg@mail.gmail.com&gt;	&lt;<a href="msg00117.html">5169925C.1060701@gaute.vetsj.com</a>&gt;	&lt;<a href="msg00122.html">516997BD.7010409@gaute.vetsj.com</a>&gt; &lt;1365938152-sup-6420@mint&gt;	&lt;<a href="msg00067.html">516A9BA0.7040906@gaute.vetsj.com</a>&gt; &lt;1366143381-sup-8459@mint&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mutt/1.5.21 (2010-09-15)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On 04/16, Eric Weikl wrote:
+&gt; Hi everyone,
+&gt; 
+&gt; I created a new branch with all the commits from Damien Leone and Edward
+&gt; Yang related to maildir syncback and put it here:
+&gt; 
+&gt; <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/tree/maildir-sync">https://github.com/sup-heliotrope/sup/tree/maildir-sync</a>
+&gt; 
+&gt; I skipped some advanced stuff like Edward's inotify support for now. We
+&gt; can add that later.
+&gt; 
+&gt; I performed some basic testing, but it would be great if some more people
+&gt; could give it a try. There's some documentation in the wiki:
+&gt; 
+&gt; <a  rel="nofollow" href="https://github.com/sup-heliotrope/sup/wiki/Maildir-Syncback">https://github.com/sup-heliotrope/sup/wiki/Maildir-Syncback</a>
+&gt; 
+&gt; Cheers,
+&gt; Eric
+
+Fantastic. Not being able to sync back was what prevented me from using
+it. After much work and discouragement with heliotrope, I will gladly
+try this !
+
+On a longer-term note, syncing back to maildir has the limitation that
+non-standard flags (i.e labels) will not be handled, unless we start
+defining some custom way of storing them or modifying the original
+emails, which I highly dislike (this is how mu[0] works). But that's
+just something to keep in mind for future times, when we have a stable,
+up-to-date sup release. Let's do this ! =]
+
+[0] <a  rel="nofollow" href="http://www.djcbsoftware.nl/code/mu/">http://www.djcbsoftware.nl/code/mu/</a>
+
+-- 
+Matthieu Rakotojaona
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00271" href="msg00271.html">Re: [sup-talk] [sup-devel]  sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00268" href="msg00268.html">Re: [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00243" href="msg00243.html">Re: [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00005" href="msg00005.html">Re: [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Jonathan Lassoff &lt;jof@thejof.com&gt;</li></ul></li>
+<li><strong><a name="00041" href="msg00041.html">Re: [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00139" href="msg00139.html">Re: [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Jonathan Lassoff &lt;jof@thejof.com&gt;</li></ul></li>
+<li><strong><a name="00117" href="msg00117.html">Re: [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00122" href="msg00122.html">Re: [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00190" href="msg00190.html">Re: [sup-devel] [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Eric Weikl &lt;eric.weikl@gmx.net&gt;</li></ul></li>
+<li><strong><a name="00067" href="msg00067.html">Re: [sup-devel] [sup-talk] sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00239" href="msg00239.html">Re: [sup-talk] [sup-devel]  sup: Fix for an UndefinedMethodError</a></strong>
+<ul><li><em>From:</em> Eric Weikl &lt;eric.weikl@gmx.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00239.html">Re: [sup-talk] [sup-devel]  sup: Fix for an UndefinedMethodError</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00176.html">Re: [sup-talk] [sup-devel] sup: Fix for an UndefinedMethodError</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00239.html">Re: [sup-talk] [sup-devel]  sup: Fix for an UndefinedMethodError</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00271.html">Re: [sup-talk] [sup-devel]  sup: Fix for an UndefinedMethodError</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00223"><strong>Date</strong></a></li>
+<li><a href="threads.html#00223"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

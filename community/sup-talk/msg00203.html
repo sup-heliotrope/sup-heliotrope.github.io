@@ -1,0 +1,155 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] any testimonials from users who transitioned from	mutt? -->
+<!--X-From-R13: Wpb <fhcNmrii.ay> -->
+<!--X-Date: Thu, 20 Sep 2012 04:32:22 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1348123080&#45;sup&#45;7217@pruts.nl -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 20120919211500.GH48050@armakuni.lastninja.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] any testimonials from users who transitioned from	mutt?</title>
+<link rev="made" href="mailto:sup@zevv.nl">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00196.html">Date Prev</a>][<a href="msg00198.html">Date Next</a>][<a href="msg00196.html">Thread Prev</a>][<a href="msg00198.html">Thread Next</a>][<a href="maillist.html#00203">Date Index</a>][<a href="threads.html#00203">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] any testimonials from users who transitioned from	mutt?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Naveen Nathan &lt;<a href="mailto:naveen%40lastninja.net">naveen@lastninja.net</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] any testimonials from users who transitioned from	mutt?</li>
+<li><em>From</em>: Ico &lt;<a href="mailto:sup%40zevv.nl">sup@zevv.nl</a>&gt;</li>
+<li><em>Date</em>: Thu, 20 Sep 2012 08:43:53 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 50.56.192.79 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00134.html">20120919211500.GH48050@armakuni.lastninja.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00134.html">20120919211500.GH48050@armakuni.lastninja.net</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&gt; Mutt and mail savvy user here. It's my daily use client, I use a lot of
+&gt; it's features such as threading, tagging, header caching (for imap).
+&gt; 
+&gt; What it truly lacks, even though slightly supported by IMAP, is full-body
+&gt; search of email, indexing, etc.
+
+I've been a long time mutt user before switching to sup a few years ago. Mutt
+indeed lacks proper searching and indexing, but for this I found mairix [1],
+which with some scripting [2], .muttrc [3] configuration and a cronjob [4] can
+be integrated into mutt pretty seamless.
+
+I eventually switched to sup not mainly for of the indexing/searching, but
+because of the unique way sup keeps track of threads.
+
+Now that sup is pretty much dead I find myself poking around in the
+source more and more often, but maybe it is about time to switch back to
+mutt for more stability :(
+
+
+
+1. <a  rel="nofollow" href="http://www.rpcurnow.force9.co.uk/mairix/">http://www.rpcurnow.force9.co.uk/mairix/</a>
+
+2. ~/bin/searchmail
+
+   #!/bin/sh
+   
+   echo -n &quot;Search for: &quot;
+   read expr
+   
+   echo $expr
+   
+   if [ &quot;$expr&quot; = &quot;&quot; ]; then
+           clear
+           mairix --help
+           read
+           exit
+   fi
+   
+   mairix $expr
+
+3. .muttrc
+
+   macro index &lt;esc&gt;s !searchmail\nc=searched\n
+   macro pager &lt;esc&gt;s !searchmail\nc=searched\n
+
+4. crontab
+ 
+   */10 * * * *   ~/bin/mairix
+
+-- 
+:wq
+^X^Cy^K^X^C^C^C^C
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00198" href="msg00198.html">Re: [sup-talk] any testimonials from users who transitioned from	mutt?</a></strong>
+<ul><li><em>From:</em> Steven Hum &lt;sdothum@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00134" href="msg00134.html">[sup-talk] any testimonials from users who transitioned from mutt?</a></strong>
+<ul><li><em>From:</em> Naveen Nathan &lt;naveen@lastninja.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00196.html">Re: [sup-talk] any testimonials from users who transitioned from	mutt?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00198.html">Re: [sup-talk] any testimonials from users who transitioned from	mutt?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00196.html">Re: [sup-talk] any testimonials from users who transitioned from	mutt?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00198.html">Re: [sup-talk] any testimonials from users who transitioned from	mutt?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00203"><strong>Date</strong></a></li>
+<li><a href="threads.html#00203"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

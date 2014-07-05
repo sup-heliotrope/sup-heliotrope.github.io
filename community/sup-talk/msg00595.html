@@ -1,0 +1,119 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] illegible encoding when exiting vim -->
+<!--X-From-R13: Freb Fvyhf <grebNgvyhf.arg> -->
+<!--X-Date: Sat, 29 Jan 2011 14:47:03 &#45;0800 (PST) -->
+<!--X-Message-Id: 1296340383&#45;sup&#45;5241@tilus.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 20110129092038.6798sdxsmc04oko8@webmail.plecavalier.com -->
+<!--X-Reference: 1296327468&#45;sup&#45;4848@tilus.net -->
+<!--X-Reference: 20110129141920.nfxc8118ysss0840@webmail.plecavalier.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] illegible encoding when exiting vim</title>
+<link rev="made" href="mailto:tero@tilus.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00633.html">Date Prev</a>][<a href="msg00702.html">Date Next</a>][<a href="msg00633.html">Thread Prev</a>][<a href="msg00530.html">Thread Next</a>][<a href="maillist.html#00595">Date Index</a>][<a href="threads.html#00595">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] illegible encoding when exiting vim</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup users &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] illegible encoding when exiting vim</li>
+<li><em>From</em>: Tero Tilus &lt;<a href="mailto:tero%40tilus.net">tero@tilus.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 30 Jan 2011 00:46:27 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;20110129141920.nfxc8118ysss0840@webmail.plecavalier.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00546.html">20110129092038.6798sdxsmc04oko8@webmail.plecavalier.com</a>&gt;	&lt;<a href="msg00633.html">1296327468-sup-4848@tilus.net</a>&gt;	&lt;20110129141920.nfxc8118ysss0840@webmail.plecavalier.com&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Philippe LeCavalier, 2011-01-29 22:19:
+&gt; See attached.
+
+Holy crap!  That's most likely a jpeg image right there.  At the top
+you can see a snippet of XMP metadata.  After that there's app data
+segment, which apparently contains embedded ICC profile.
+
+How did you do that?!  :-O
+
+You could do some more debugging.  Save the message in vim, check the
+filename, but do not exit.  Go check the contents of the file using
+another editor or a pager.  What do you see?
+
+If you re-enter vim from reply-mode, does the (supposedly raw jpeg
+image) garbage appear in editor?
+
+-- 
+Tero Tilus ## 050 3635 235 ## <a  rel="nofollow" href="http://tero.tilus.net/">http://tero.tilus.net/</a>
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00546" href="msg00546.html">[sup-talk] illegible encoding when exiting vim</a></strong>
+<ul><li><em>From:</em> Philippe LeCavalier &lt;support@plecavalier.com&gt;</li></ul></li>
+<li><strong><a name="00633" href="msg00633.html">Re: [sup-talk] illegible encoding when exiting vim</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00633.html">Re: [sup-talk] illegible encoding when exiting vim</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00702.html">Re: [sup-talk] gpg-options.rb: how to set always_trust</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00633.html">Re: [sup-talk] illegible encoding when exiting vim</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00530.html">[sup-talk] crypto-mode hook fragment to sign if from address can be	signed</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00595"><strong>Date</strong></a></li>
+<li><a href="threads.html#00595"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

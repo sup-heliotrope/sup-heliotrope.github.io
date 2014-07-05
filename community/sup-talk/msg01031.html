@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Warning with mainline version -->
+<!--X-From-R13: [nevnab [nen <znevnab.znenNtznvy.pbz> -->
+<!--X-Date: Tue, 23 Nov 2010 06:22:38 &#45;0800 (PST) -->
+<!--X-Message-Id: 1290518444&#45;sup&#45;4196@kafka -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Warning with mainline version</title>
+<link rev="made" href="mailto:mariano.mara@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00801.html">Date Prev</a>][<a href="msg00800.html">Date Next</a>][<a href="msg00801.html">Thread Prev</a>][<a href="msg00800.html">Thread Next</a>][<a href="maillist.html#01031">Date Index</a>][<a href="threads.html#01031">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Warning with mainline version</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Warning with mainline version</li>
+<li><em>From</em>: Mariano Mara &lt;<a href="mailto:mariano.mara%40gmail.com">mariano.mara@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 23 Nov 2010 10:23:38 -0300</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:date:message-id:user-agent:content-transfer-encoding;	bh=Uq4FRRu25YKxuMf+LDyIu9PO/mNSe9pxTJTgtaxZQH4=;	b=ZPigJvIFQW5eSYJ5w9F/6PER7Yu0Wbw/eQn7d8Kq6tZ5VswIuOOGAgxp1qrTI2FhgD	NLAFGmDn+RJOlwjYWAOVoqczrkQ+hYLptCgX8IgQopWedkEROYWh+worOdvRkTxP62hX	sXShU8Y/snqhonTUw9bOWhcW3Lszkyh9alQxE=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=wpOlvzfafOGVyXwZULv+AZTUDEdl2LuBFB9AjAY3BAtA1BjK/GRRnTJgDWtBsRCirA	N9874tUojP3VzH84LI0oHJbJyiZ6j2KprUekKl71mg9qEZ6k/Xliv7cueXeEguuA+Uun	Fr9/35MTcASPBj3/o1DkwPjtYXRvBzTbaIQaY=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi. I downloaded git mainline version after using 0.11 for a long time. 
+I'm getting the following warning every time the before poll hook is
+executed:
+.sup/hooks/before-poll.rb:2: warning: method redefined; discarding old
+offlineimap_run
+
+This is waht I have in before-poll.rb:
+# <a  rel="nofollow" href="http://sup.rubyforge.org/wiki/wiki.pl?Hooks">http://sup.rubyforge.org/wiki/wiki.pl?Hooks</a>
+def offlineimap_run()
+  cmd = &quot;offlineimap -o -l ~/.offlineimap.log&quot;
+  `#{cmd} 2&gt;&amp;1`
+end
+
+if (@last_fetch || Time.at(0)) &lt; Time.now - 120 
+  say &quot;Running offlineimap...&quot;
+  log offlineimap_run()
+  say &quot;Finished offlineimap.&quot;
+end
+@last_fetch = Time.now
+
+I'm really bad with ruby, can somebody help me to get rid of this
+warning?
+
+TIA,
+Mariano
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00801.html">[sup-talk] sup not finding old messages</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00800.html">[sup-talk] ncursesw encoding</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00801.html">[sup-talk] sup not finding old messages</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00800.html">[sup-talk] ncursesw encoding</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01031"><strong>Date</strong></a></li>
+<li><a href="threads.html#01031"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

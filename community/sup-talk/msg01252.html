@@ -1,0 +1,95 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Moving messages between sources and generic auto	labeling hook -->
+<!--X-From-R13: Epbgg Vrafba <fpbggNsbbyvfucevqr.bet> -->
+<!--X-Date: Sun, 3 Jan 2010 17:42:02 &#45;0800 (PST) -->
+<!--X-Message-Id: 6c0c31751001031741t59b5352aifacb67dcf51ebd3b@mail.gmail.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Moving messages between sources and generic auto	labeling hook</title>
+<link rev="made" href="mailto:scott@foolishpride.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01138.html">Date Prev</a>][<a href="msg01468.html">Date Next</a>][<a href="msg01476.html">Thread Prev</a>][<a href="msg01340.html">Thread Next</a>][<a href="maillist.html#01252">Date Index</a>][<a href="threads.html#01252">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Moving messages between sources and generic auto	labeling hook</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Moving messages between sources and generic auto	labeling hook</li>
+<li><em>From</em>: Scott Henson &lt;<a href="mailto:scott%40foolishpride.org">scott@foolishpride.org</a>&gt;</li>
+<li><em>Date</em>: Sun, 3 Jan 2010 20:41:49 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<div>Is it possible to have sup move messages between sources? &#xA0;I have only so</div><div>much storage on my mail server (work related) and if I don&#39;t expire messages</div><div>out of my inbox, I hit the limit on a regular basis. &#xA0;I have offlineimap</div>
+<div>syncing the email down to local maildirs. &#xA0;I would like to have sup move</div><div>mails from the INBOX source to an archive source. &#xA0;Is this possible? &#xA0;It</div><div>would be nice if the archive source was a group of sources according to year</div>
+<div>and month, but that would be gravy.</div><div><br></div><div>I&#39;ve found a python script that will do this for me on the Maildir, but I&#39;m</div><div>not sure what this will do to the sup index. &#xA0;Would I be able to do this on</div>
+<div>a nightly basis and then do a full rescan on the INBOX source and the</div><div>archive sources? &#xA0;Would the messages keep their labels?</div><div><br></div><div>My second question revolves around labeling. &#xA0;I see the before add hook is</div>
+<div>what is supposed to be used for labeling. &#xA0;Does everyone just write ruby in</div><div>that hook or does someone have a simpler syntax for filtering that a generic</div><div>before add hook that uses it? &#xA0;I&#39;m thinking the simplest would be yaml, but</div>
+<div>this being ruby I would think creating a DSL for filtering would be pretty</div><div>easy and make autolabeling an easier affair than writing straight ruby.</div><div><br></div><div>Any help would be much appreciated. &#xA0;Thanks.</div>
+<br>-- <br>Scott Henson<br>
+<pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01138.html">Re: [sup-talk] Ferret to Xapian conversion</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01468.html">[sup-talk] Delete A Source From Ferret Index</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01476.html">Re: [sup-talk] Moving messages between sources and generic auto	labeling hook</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01340.html">[sup-talk] Exception when syncing mailbox.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01252"><strong>Date</strong></a></li>
+<li><a href="threads.html#01252"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Exception when syncing mailbox. -->
+<!--X-From-R13: Yevfgvna Zneffba <xyyNfjvc.arg> -->
+<!--X-Date: Sun, 3 Jan 2010 14:12:23 &#45;0800 (PST) -->
+<!--X-Message-Id: 20091225173041.GA9253@swip.net -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Exception when syncing mailbox.</title>
+<link rev="made" href="mailto:kll@swip.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01462.html">Date Prev</a>][<a href="msg01439.html">Date Next</a>][<a href="msg01252.html">Thread Prev</a>][<a href="msg01120.html">Thread Next</a>][<a href="maillist.html#01340">Date Index</a>][<a href="threads.html#01340">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Exception when syncing mailbox.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Exception when syncing mailbox.</li>
+<li><em>From</em>: Kristian Larsson &lt;<a href="mailto:kll%40swip.net">kll@swip.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 25 Dec 2009 18:30:41 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mutt/1.5.18 (2008-05-17)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello!
+
+I'm a long time mutt user and just recently heard of sup,
+reading its homepage I got hooked just at &quot;If you're the
+type of person who treats email as an extension of your
+long-term memory, Sup is for you.&quot; and so I thought I would
+give it a spin.
+
+After installing all the binaries and downloading 0.9, I ran
+sup-config to configure the client. A very nice way to get
+started, much more so than the config file of mutt which
+offers quite a steep entry for usage.
+
+When starting sup, I've noticed some character encoding
+problems which I have yet to identify the details of, more
+on that when I'll get the client up and running properly.
+You see after &quot;a while&quot;, it dies by throwing an exception
+and it is due to this exception that I write to this list.
+Find the exception-log attached. All I've done is configure
+the client and try to sync my mailbox, sup will sync som 375
+threads and then throw the exception.
+
+What can I do to troubleshoot? Try some later HEAD branch or
+something?
+
+Kind regards,
+    Kristian.
+
+-- 
+Kristian Larsson                                        KLL-RIPE
+Network Engineer / Internet Core        Tele2 / SWIPnet [AS1257]
++46 704 264511                                      kll@swip.net
+</pre><pre>/usr/lib/ruby/1.8/ferret/index.rb:421:in `[]'
+/usr/lib/ruby/1.8/ferret/index.rb:421:in `[]'
+/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+/usr/lib/ruby/1.8/ferret/index.rb:413:in `[]'
+./sup/ferret_index.rb:257:in `build_message'
+/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+./sup/ferret_index.rb:256:in `build_message'
+../bin/sup-sync:149
+./sup/poll.rb:151:in `each_message_from'
+./sup/imap.rb:197:in `each'
+./sup/imap.rb:185:in `upto'
+./sup/imap.rb:185:in `each'
+./sup/util.rb:560:in `send'
+./sup/util.rb:560:in `__pass'
+./sup/util.rb:547:in `method_missing'
+./sup/poll.rb:139:in `each_message_from'
+./sup/util.rb:520:in `send'
+./sup/util.rb:520:in `method_missing'
+../bin/sup-sync:146
+../bin/sup-sync:141:in `each'
+../bin/sup-sync:141
+</pre><pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01120" href="msg01120.html">Re: [sup-talk] Exception when syncing mailbox.</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01462.html">[sup-talk] unread status</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01439.html">Re: [sup-talk] unread status</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01252.html">[sup-talk] Moving messages between sources and generic auto	labeling hook</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01120.html">Re: [sup-talk] Exception when syncing mailbox.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01340"><strong>Date</strong></a></li>
+<li><a href="threads.html#01340"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

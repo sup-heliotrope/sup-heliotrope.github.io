@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'thread'
+
+o = Thread.new {
+  count = 0
+  while count < 3 do
+    puts "ohai from #{Process.pid}"
+    sleep 1
+    count = count + 1
+  end
+}
+
+Thread.critical = true
+
+# This does not work:
+pid = system "sleep 2; echo done"
+
+# This does work (output does not get interrupted):
+#count = 0
+#while count < 5 do
+#  puts "wait!"
+#  count = count + 1
+#  sleep 2
+#end
+
+Thread.critical = false

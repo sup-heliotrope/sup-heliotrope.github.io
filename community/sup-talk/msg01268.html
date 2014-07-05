@@ -1,0 +1,119 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Crash report -->
+<!--X-From-R13: Hvyyr Ybinpf <ivyyr.xbinpfNtznvy.pbz> -->
+<!--X-Date: Sat, 19 Dec 2009 11:00:46 &#45;0800 (PST) -->
+<!--X-Message-Id: 43da20c0912060653l33fca60avcea69533da3da56@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Crash report</title>
+<link rev="made" href="mailto:ville.kovacs@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01110.html">Date Prev</a>][<a href="msg01364.html">Date Next</a>][<a href="msg01123.html">Thread Prev</a>][<a href="msg01364.html">Thread Next</a>][<a href="maillist.html#01268">Date Index</a>][<a href="threads.html#01268">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Crash report</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Crash report</li>
+<li><em>From</em>: Ville Kovacs &lt;<a href="mailto:ville.kovacs%40gmail.com">ville.kovacs@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 6 Dec 2009 16:53:31 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:date:message-id:subject	:from:to:content-type;	bh=L8jRSex5j3H4FiB+eesod4YTdn87s8cqIRKLWjucmtM=;	b=HKk7dx21wqIe7qqnC8PVkr9BK3n+tmlRjZ4SWBlQWV7ahixlLQps5C905nKIJpwL9I	+F8CzSZC/A2NLhnW6kzo1vXwi5QrTlZRLPkzzIv/8fz0oJ8uUTE76UXnCv5Xz4Z+3Qd3	kXFXoJEUOWMKRadSmd1g6HHnLXHRQ1qz9sWtw=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=CcgWoY/epSymH5P3zFO92GhcmW9MmBi+JT3VvgKR+uzd7I2MiMHTLgm+lEzSETvGxZ	5VkJegdgnY0BjnSGEj/GNIsqY3dZpejKea1dhG57edV9O8A2HsOzzNhbH0u8y/LXB3S/	EHtEl53wCsWNayNFM7788HbTdGkpOXw+ePROA=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello
+
+I get this error when running sup with one gmail address added as a
+source. First i ran sup-config and then sup itself, this is a fresh
+install of sup on this machine.
+
+I used this PKGBUILD to install: <a  rel="nofollow" href="http://aur.archlinux.org/packages.php?ID=26439">http://aur.archlinux.org/packages.php?ID=26439</a>
+
+Thank you!
+
+--- NoMethodError from thread: poll after loading inbox
+undefined method `&gt;=' for true:TrueClass
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/source.rb:88:in `done?'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/util.rb:560:in `__pass'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/util.rb:547:in `method_missing'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/poll.rb:84:in `block (2
+levels) in do_poll'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/poll.rb:81:in `each'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/poll.rb:81:in `block in do_poll'
+&lt;internal:prelude&gt;:8:in `synchronize'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/poll.rb:80:in `do_poll'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/util.rb:520:in `method_missing'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/modes/poll-mode.rb:15:in `poll'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/poll.rb:48:in `poll'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup/util.rb:520:in `method_missing'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/bin/sup:196:in `block (2 levels)
+in &lt;module:Redwood&gt;'
+/usr/lib/ruby/gems/1.9.1/gems/sup-0.9/lib/sup.rb:77:in `block in
+reporting_thread'
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01110.html">[sup-talk] sup crash after a reply</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01364.html">[sup-talk] Sent mail in inbox view</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01123.html">Re: [sup-talk] sup crash after a reply</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01364.html">[sup-talk] Sent mail in inbox view</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01268"><strong>Date</strong></a></li>
+<li><a href="threads.html#01268"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

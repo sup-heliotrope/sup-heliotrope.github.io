@@ -1,0 +1,166 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] [PATCH 2/4] Poll for editor status -->
+<!--X-From-R13: Dnzxhzne Dnznpunaqen <negntabaNtznvy.pbz> -->
+<!--X-Date: Sat, 10 Apr 2010 03:41:49 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1270895932&#45;sup&#45;2620@kytes -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] [PATCH 2/4] Poll for editor status</title>
+<link rev="made" href="mailto:artagnon@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01009.html">Date Prev</a>][<a href="msg00807.html">Date Next</a>][<a href="msg00775.html">Thread Prev</a>][<a href="msg00807.html">Thread Next</a>][<a href="maillist.html#01008">Date Index</a>][<a href="threads.html#01008">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] [PATCH 2/4] Poll for editor status</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] [PATCH 2/4] Poll for editor status</li>
+<li><em>From</em>: Ramkumar Ramachandra &lt;<a href="mailto:artagnon%40gmail.com">artagnon@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 10 Apr 2010 16:09:04 +0530</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:date:message-id:user-agent:content-transfer-encoding;	bh=TsOEJBsVbZICOlboyrutssduFpS6PrTEi+V4PBfA/wM=;	b=SQltc/Ye7JQ8LG9RNG/nqONtkafHyj/SADbT/ETjpMsnNkO43TYnjnOkJ74Z4idn+g	MR7FgWmUtRxaCg6KC8MjFdnxi5Mv9//OVUb7mS/cZ1Cuc5Bd91snQZrRfHiis/ftdKi0	MVAuwlGHqmnjB2PV3f6nbTrmWX0akAHl4e3t4=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=RhQGT8Tlrtd82+ZQtHWGzmzvJZz02iMKCXvl7tKAN2UYnlIh+UzBc/VXnZTwnF157D	bXx8BweZZA80jb9ppS66Q2T9tOWPzB0W6iHyoFFo4v8F4p2BdKv2gKxrv9AIgnbABx4G	JCSVuTJ2FYX5ACJiYq6LwI/+qCiMu6tPuYflc=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Write a second loop in PollManager to poll and check if the
+asynchronously spawned editor has finished. If finished, fire a
+callback.
+
+Signed-off-by: Ramkumar Ramachandra &lt;artagnon@gmail.com&gt;
+---
+ lib/sup/poll.rb |   31 ++++++++++++++++++++++++++++++-
+ 1 files changed, 30 insertions(+), 1 deletions(-)
+
+diff --git a/lib/sup/poll.rb b/lib/sup/poll.rb
+index 582cd4d..0fabb87 100644
+--- a/lib/sup/poll.rb
++++ b/lib/sup/poll.rb
+@@ -38,6 +38,13 @@ EOS
+     @poll_sources = nil
+     @mode = nil
+     @should_clear_running_totals = false
++    
++    # For async editing
++    @editor_thread = nil
++    @edit_in_progress = false
++    @editor_file = nil
++    @edit_mtime = nil
++
+     clear_running_totals # defines @running_totals
+     UpdateManager.register self
+   end
+@@ -71,6 +78,20 @@ EOS
+     [num, numi]
+   end
+ 
++  def poll_editor
++    return if @polling
++    return if not @edit_in_progress
++    @polling = true
++    if @editor_thread.alive?
++      BufferManager.flash &quot;Edit in progress...&quot;
++    else
++      BufferManager.flash &quot;Edit finished!&quot;
++      @edit_in_progress = false
++      ComposeMode.edit_message_callback @editor_file, @editor_mtime
++    end
++    @polling = false
++  end
++
+   def poll_unusual
+     return if @polling
+     @polling = true
+@@ -83,8 +104,9 @@ EOS
+   def start
+     @thread = Redwood::reporting_thread(&quot;periodic poll&quot;) do
+       while true
+-        sleep DELAY / 2
++        sleep 1
+         poll if @last_poll.nil? || (Time.now - @last_poll) &gt;= DELAY
++        poll_editor if @last_poll.nil? || (Time.now - @last_poll) &gt;= 2
+       end
+     end
+   end
+@@ -192,6 +214,13 @@ EOS
+     UpdateManager.relay self, :added, m
+   end
+ 
++  def editor_loop_init pthread, file, mtime
++    @editor_thread = pthread
++    @edit_in_progress = true
++    @editor_file = file
++    @editor_mtime = mtime
++  end
++
+   def handle_idle_update sender, idle_since; @should_clear_running_totals = false; end
+   def handle_unidle_update sender, idle_since; @should_clear_running_totals = true; clear_running_totals; end
+   def clear_running_totals; @running_totals = {:num =&gt; 0, :numi =&gt; 0, :loaded_labels =&gt; Set.new}; end
+-- 
+1.7.0.4
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01009.html">Re: [sup-talk] sent mail</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00807.html">[sup-talk] [PATCH 3/4] Callback to compose</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00775.html">Re: [sup-talk] killed threads not searchable?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00807.html">[sup-talk] [PATCH 3/4] Callback to compose</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01008"><strong>Date</strong></a></li>
+<li><a href="threads.html#01008"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

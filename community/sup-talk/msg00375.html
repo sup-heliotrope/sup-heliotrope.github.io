@@ -1,0 +1,127 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Endless loop when using chronic extension straight from	git -->
+<!--X-From-R13: Egnavfyni Apubgavpxl <fbpubgavpxlNerqung.pbz> -->
+<!--X-Date: Fri, 18 Mar 2011 00:57:25 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1300429882&#45;sup&#45;6298@sochotnicky.usersys.redhat.com -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: pgpXOwS2ggBWS.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Endless loop when using chronic extension straight from	git</title>
+<link rev="made" href="mailto:sochotnicky@redhat.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00624.html">Date Prev</a>][<a href="msg00535.html">Date Next</a>][<a href="msg00406.html">Thread Prev</a>][<a href="msg00535.html">Thread Next</a>][<a href="maillist.html#00375">Date Index</a>][<a href="threads.html#00375">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Endless loop when using chronic extension straight from	git</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Endless loop when using chronic extension straight from	git</li>
+<li><em>From</em>: Stanislav Ochotnicky &lt;<a href="mailto:sochotnicky%40redhat.com">sochotnicky@redhat.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 18 Mar 2011 07:32:31 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/0.12.1</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I encountered this weird endless loop when I was trying to hack on sup
+a bit and using it at the same time.
+
+I have a shell script that looks more-less like this:
+-------------------
+#!/bin/sh
+export SUP_LOG_LEVEL=debug
+cd ~/projects/sup
+ruby -I lib bin/sup
+----------------
+
+Normal usage/searching is OK, but when I run sup like that and do
+query like &quot;after:(2 days ago)&quot; sup goes into endless loop (with ruby
+CPU use going to 100%). I also have to kill off the remaining ruby
+process (as in -SIGKILL). When I try to do the same with sup already
+installed with &quot;gem install sup&quot; everything works as expected.
+
+Note that I can reproduce this even with 0.12.1 tag checked out in git
+so it's not my changes that are causing this.
+
+It seems like I am doing something terribly wrong here. Any idea what
+that might be?
+
+--
+Stanislav Ochotnicky &lt;sochotnicky@redhat.com&gt;
+Software Engineer - Base Operating Systems Brno
+
+PGP: 7B087241
+Red Hat Inc.                               <a  rel="nofollow" href="http://cz.redhat.com">http://cz.redhat.com</a>
+</pre><p><strong>Attachment:
+<a href="pgpXOwS2ggBWS.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+<pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00535" href="msg00535.html">Re: [sup-talk] Endless loop when using chronic extension straight	from git</a></strong>
+<ul><li><em>From:</em> Paul Grove &lt;paul.a.grove@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00624.html">Re: [sup-talk] background or queue msg sending</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00535.html">Re: [sup-talk] Endless loop when using chronic extension straight	from git</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00406.html">[sup-talk] New user/adopter: Hello</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00535.html">Re: [sup-talk] Endless loop when using chronic extension straight	from git</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00375"><strong>Date</strong></a></li>
+<li><a href="threads.html#00375"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

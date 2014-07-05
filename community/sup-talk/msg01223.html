@@ -1,0 +1,128 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] reply&#45;from.rb troubles -->
+<!--X-From-R13: Freb Fvyhf <grebNgvyhf.arg> -->
+<!--X-Date: Fri, 15 Jan 2010 10:43:03 &#45;0800 (PST) -->
+<!--X-Message-Id: 1263580522&#45;sup&#45;1905@tilus.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1263571025&#45;sup&#45;73@tw -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] reply-from.rb troubles</title>
+<link rev="made" href="mailto:tero@tilus.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01231.html">Date Prev</a>][<a href="msg01266.html">Date Next</a>][<a href="msg01118.html">Thread Prev</a>][<a href="msg01318.html">Thread Next</a>][<a href="maillist.html#01223">Date Index</a>][<a href="threads.html#01223">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] reply-from.rb troubles</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] reply-from.rb troubles</li>
+<li><em>From</em>: Tero Tilus &lt;<a href="mailto:tero%40tilus.net">tero@tilus.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 15 Jan 2010 20:41:15 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1263571025-sup-73@tw&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1263571025-sup-73@tw&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Philipp &#xDC;berbacher, 2010-01-15 18:03:
+&gt; It currently looks like this:
+&gt; 
+&gt; if message.has_label?(:mailinglists)
+&gt;   Person.from_address(&quot;&lt;hollunder@lavabit.com&gt;&quot;)
+&gt; elsif message.has_label?(:murks_lavabit)
+&gt;   Person.from_address(&quot;&lt;murks@lavabit.com&gt;&quot;)
+&gt; end
+&gt; 
+&gt; Yet it replies to messages with label mailinglists using murks@.
+
+Have you tried[1] what Person.from_address(&quot;&lt;hollunder@lavabit.com&gt;&quot;)
+actually returns?  I bet its nil and thus sup uses default address.
+You can try it interactively for example using sup console, it is your
+dearest friend when you debug.
+
+Iirc #from_address expects plain email address.  Try
+
+if message.has_label?(:mailinglists)
+  Person.from_address(&quot;hollunder@lavabit.com&quot;)
+elsif message.has_label?(:murks_lavabit)
+  Person.from_address(&quot;murks@lavabit.com&quot;)
+end
+
+-- 
+Tero Tilus ## 050 3635 235 ## <a  rel="nofollow" href="http://tero.tilus.net/">http://tero.tilus.net/</a>
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01318" href="msg01318.html">Re: [sup-talk] reply-from.rb troubles</a></strong>
+<ul><li><em>From:</em> Philipp &#xDC;berbacher &lt;hollunder@lavabit.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01118" href="msg01118.html">[sup-talk] reply-from.rb troubles</a></strong>
+<ul><li><em>From:</em> Philipp &#xDC;berbacher &lt;hollunder@lavabit.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01231.html">Re: [sup-talk] Ruby question: before-add-message.rb and adding	multiple labels at once</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01266.html">Re: [sup-talk] curses exception</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01118.html">[sup-talk] reply-from.rb troubles</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01318.html">Re: [sup-talk] reply-from.rb troubles</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01223"><strong>Date</strong></a></li>
+<li><a href="threads.html#01223"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

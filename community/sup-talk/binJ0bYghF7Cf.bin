@@ -1,0 +1,41 @@
+From 5998fa6f683af85f0ae90b2beec04d780f871b14 Mon Sep 17 00:00:00 2001
+From: Ben Walton <bwalton@artsci.utoronto.ca>
+Date: Tue, 2 Mar 2010 14:22:03 -0500
+Subject: [PATCH] Remember the previous directory used to save attachments
+
+This patch teaches the thread view mode to remember the last directory
+that an attachment was saved in, making it the default for the next
+save operation.
+
+Signed-off-by: Ben Walton <bwalton@artsci.utoronto.ca>
+---
+ lib/sup/modes/thread-view-mode.rb |   12 ++++++++----
+ 1 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/lib/sup/modes/thread-view-mode.rb b/lib/sup/modes/thread-view-mode.rb
+index 63fe211..ca34458 100644
+--- a/lib/sup/modes/thread-view-mode.rb
++++ b/lib/sup/modes/thread-view-mode.rb
+@@ -357,11 +357,15 @@ EOS
+     chunk = @chunk_lines[curpos] or return
+     case chunk
+     when Chunk::Attachment
+-      default_dir = $config[:default_attachment_save_dir]
+-      default_dir = ENV["HOME"] if default_dir.nil? || default_dir.empty?
+-      default_fn = File.expand_path File.join(default_dir, chunk.filename)
++      cd = $config[:default_attachment_save_dir]
++      default_dir = ((cd.nil? || cd.empty?) ? ENV["HOME"] : cd)
++      @last_save_dir ||= default_dir
++      default_fn = File.expand_path File.join(@last_save_dir, chunk.filename)
+       fn = BufferManager.ask_for_filename :filename, "Save attachment to file: ", default_fn
+-      save_to_file(fn) { |f| f.print chunk.raw_content } if fn
++      if fn
++        save_to_file(fn) { |f| f.print chunk.raw_content }
++        @last_save_dir = File.dirname(fn)
++      end
+     else
+       m = @message_lines[curpos]
+       fn = BufferManager.ask_for_filename :filename, "Save message to file: "
+-- 
+1.7.0
+

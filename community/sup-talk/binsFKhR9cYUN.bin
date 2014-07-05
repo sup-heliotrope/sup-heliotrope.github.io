@@ -1,0 +1,23 @@
+# from http://sup.rubyforge.org/wiki/wiki.pl?TriggeringMailCollection
+def offlineimap(*folders)
+    cmd = "offlineimap -q -u Noninteractive.Basic"
+    cmd << " -f #{folders * ','}" unless folders.compact.empty?
+    `#{cmd} 2>&1`
+end
+
+def folder_names(sources)
+    sources.map { |s| s.uri.split('/').last }
+end
+
+def inbox_sources(sources = SourceManager.sources)
+    sources.find_all { |s| !s.archived? }.sort_by {|s| s.id }
+end
+
+if (@last_fetch || Time.at(0)) < Time.now - 120
+    say "Running offlineimap..."
+    # only check non-auto-archived sources on the first run
+    log offlineimap(@last_fetch ? nil : folder_names(inbox_sources))
+    File.open("~/touched", 'w') {|f| f.write("hello") } 
+    say "Finished offlineimap run."
+end
+@last_fetch = Time.now

@@ -1,0 +1,135 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] More before&#45;add hook issues -->
+<!--X-From-R13: Buvyvccr ZrQninyvre <fhccbegNcyrpninyvre.pbz> -->
+<!--X-Date: Wed, 16 Feb 2011 07:00:05 &#45;0800 (PST) -->
+<!--X-Message-Id: 1297865749&#45;sup&#45;514@plc.intranet.plecavalier.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1297780499&#45;sup&#45;4885@plc.intranet.plecavalier.com -->
+<!--X-Reference: 1297848161&#45;sup&#45;8178@tilus.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] More before-add hook issues</title>
+<link rev="made" href="mailto:support@plecavalier.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00386.html">Date Prev</a>][<a href="msg00597.html">Date Next</a>][<a href="msg00656.html">Thread Prev</a>][<a href="msg00570.html">Thread Next</a>][<a href="maillist.html#00580">Date Index</a>][<a href="threads.html#00580">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] More before-add hook issues</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Tero Tilus &lt;<a href="mailto:tero%40tilus.net">tero@tilus.net</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] More before-add hook issues</li>
+<li><em>From</em>: Philippe LeCavalier &lt;<a href="mailto:support%40plecavalier.com">support@plecavalier.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 16 Feb 2011 09:35:00 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: Sup users &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00656.html">1297848161-sup-8178@tilus.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00381.html">1297780499-sup-4885@plc.intranet.plecavalier.com</a>&gt;	&lt;<a href="msg00656.html">1297848161-sup-8178@tilus.net</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/0.12.1</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Tero.
+Excerpts from Tero Tilus's message of Wed Feb 16 04:31:17 -0500 2011:
+&gt; Philippe LeCavalier, 2011-02-15 16:55:
+&gt; &gt; 8 if ! addressfile.grep(/#{message.list_address.email}/).empty?
+&gt; 
+&gt; Try
+&gt; 
+&gt; if message.list_address &amp;&amp; !addressfile.grep(/#{message.list_address.email}/).empty?
+&gt; 
+It worked! Thanks Tero. Just for everyone's benefit this is what the complete rule looks like:
+
+  7   if message.list_address &amp;&amp;
+  8   addressfile = File.open(&quot;/home/plecavalier/.sup/hooks/label.list&quot;,&quot;r&quot;)
+  9   !addressfile.grep(/#{message.list_address.email}/).empty?
+ 10  message.add_label :list
+ 11 end
+
+Tero, I'm assuming this is what you expected me to do!? Would I be able to add more functions:
+
+i) read a list of addresses in a second file ie label.list.sup against list-post header from each list and label accordingly ie if it's sup-talk@rubyforge assign label: sup if it's cups-&gt;cups...and so on?
+ii) lastly, remove :inbox
+
+I'm asking in that fashion because in my experience thus far if I go and build rules for each list to:
+a) label :list
+b) label :&lt;list_name&gt;
+c) -label :inbox
+d) wash, rinse and repeat for each list
+
+the hook dies. So it's apparent to me that all functions need to occur in the same invocation. ie multiple, separate functions on the same msg fails. I found a post somewhere(which I can't seem to find anymore) where someone stated multiple invocations on the same msg isn't possible but there must be a workaround...Someone must be applying more than one label to a msg at the same time. Isn't there someone out there succeeding at this?
+
+
+-- 
+Thanks,
+Phil
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00381" href="msg00381.html">[sup-talk] More before-add hook issues</a></strong>
+<ul><li><em>From:</em> Philippe LeCavalier &lt;support@plecavalier.com&gt;</li></ul></li>
+<li><strong><a name="00656" href="msg00656.html">Re: [sup-talk] More before-add hook issues</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00386.html">Re: [sup-talk] Error: no &quot;view&quot; mailcap rules found for type	&quot;text/plain&quot;</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00597.html">Re: [sup-talk] Error: no &quot;view&quot; mailcap rules found for type	&quot;text/plain&quot;</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00656.html">Re: [sup-talk] More before-add hook issues</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00570.html">[sup-talk] Label Display; Sorting Alphabetically</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00580"><strong>Date</strong></a></li>
+<li><a href="threads.html#00580"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

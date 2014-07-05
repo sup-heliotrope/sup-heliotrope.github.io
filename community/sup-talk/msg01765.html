@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] BUG: Sup crashes on startup (bisected) -->
+<!--X-From-R13: Yvevyy Ezryxbi <xveeNynaqnh.culf.fcoh.eh> -->
+<!--X-Date: Sun, 18 Oct 2009 05:14:32 &#45;0700 (PDT) -->
+<!--X-Message-Id: 20091018114959.GA11630@roro3.zxlink -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] BUG: Sup crashes on startup (bisected)</title>
+<link rev="made" href="mailto:kirr@landau.phys.spbu.ru">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01508.html">Date Prev</a>][<a href="msg01753.html">Date Next</a>][<a href="msg01673.html">Thread Prev</a>][<a href="msg01753.html">Thread Next</a>][<a href="maillist.html#01765">Date Index</a>][<a href="threads.html#01765">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] BUG: Sup crashes on startup (bisected)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] BUG: Sup crashes on startup (bisected)</li>
+<li><em>From</em>: Kirill Smelkov &lt;<a href="mailto:kirr%40landau.phys.spbu.ru">kirr@landau.phys.spbu.ru</a>&gt;</li>
+<li><em>Date</em>: Sun, 18 Oct 2009 15:50:00 +0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Organization</em>: St.Petersburg State University</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mutt/1.5.20 (2009-06-14)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello up there.
+
+I'm using sup master from git, and after recent upgrade, sup began
+crashing on startup. Here is the backtrace:
+
+--- NoMethodError from thread: main
+undefined method `title' for nil:NilClass
+/home/kirr/src/tools/mail/sup/lib/sup/buffer.rb:772:in `get_status_and_title'
+/home/kirr/src/tools/mail/sup/lib/sup/buffer.rb:305:in `draw_screen'
+/home/kirr/src/tools/mail/sup/lib/sup/buffer.rb:726:in `flash'
+/home/kirr/src/tools/mail/sup/lib/sup/util.rb:520:in `send'
+/home/kirr/src/tools/mail/sup/lib/sup/util.rb:520:in `method_missing'
+/home/kirr/src/tools/mail/sup/lib/sup/colormap.rb:203:in `populate_colormap'
+/home/kirr/src/tools/mail/sup/bin/sup:169
+
+
+Just to give you some help (no ruby knowledge here at the moment, sorry):
+
+Does not crash:     95eaf6
+Crashes at startup: 2dfd37
+Bisected to:        723e22 (rewrite logging to have multiple levels:
+                            debug, info, etc)
+                            
+                            
+Thanks beforehand,
+Kirill
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01508.html">Re: [sup-talk] [PATCH] more inline GPG madness</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01753.html">[sup-talk] Arch Linux Sup Package (Ruby 1.9.1 + Sup 0.9)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01673.html">sup-talk Digest, Vol 30, Issue 1</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01753.html">[sup-talk] Arch Linux Sup Package (Ruby 1.9.1 + Sup 0.9)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01765"><strong>Date</strong></a></li>
+<li><a href="threads.html#01765"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

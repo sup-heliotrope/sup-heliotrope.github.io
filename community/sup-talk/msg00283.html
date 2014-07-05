@@ -1,0 +1,175 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] reproducable crashing / encoding problem -->
+<!--X-From-R13: wbzng+fhc&#45;gnyxNwzg.te -->
+<!--X-Date: Mon, 5 Dec 2011 12:17:27 &#45;0800 (PST) -->
+<!--X-Message-Id: 1323113200&#45;sup&#45;9566@v2.zyria.de -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1323106615&#45;sup&#45;792@localhost -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] reproducable crashing / encoding problem</title>
+<link rev="made" href="mailto:jomat+sup-talk@jmt.gr">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00248.html">Date Prev</a>][<a href="msg00333.html">Date Next</a>][<a href="msg00248.html">Thread Prev</a>][<a href="msg00251.html">Thread Next</a>][<a href="maillist.html#00283">Date Index</a>][<a href="threads.html#00283">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] reproducable crashing / encoding problem</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] reproducable crashing / encoding problem</li>
+<li><em>From</em>: <a href="mailto:jomat%2Bsup-talk%40jmt.gr">jomat+sup-talk@jmt.gr</a></li>
+<li><em>Date</em>: Mon, 05 Dec 2011 19:36:28 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;1323106615-sup-792@localhost&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1323106615-sup-792@localhost&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from John Wyzer's message of 2011-12-05 17:45:24 +0000:
+&gt; I'm on sup/mainline:master (commit aaa852fbe513291144301bb31af50558177f891c) 
+
+Same here: aaa852fbe513291144301bb31af50558177f891c
+
+&gt; Opening one specific thread, sup always crashes with the attached trace.
+&gt; Best regards! :-)
+&gt; 
+&gt; ----------------------------------------------------------------
+&gt; --- Encoding::CompatibilityError from thread: load messages for thread-view-mode
+&gt; incompatible character encodings: UTF-8 and ASCII-8BIT
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:789:in `message_patina_lines'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:863:in `chunk_to_lines'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:721:in `block in regen_text'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:68:in `block in each'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:176:in `block (2 levels) in each_with_stuff'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:176:in `block (2 levels) in each_with_stuff'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:174:in `each_with_stuff'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:176:in `block in each_with_stuff'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:175:in `each'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:175:in `each_with_stuff'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:176:in `block in each_with_stuff'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:175:in `each'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:175:in `each_with_stuff'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/thread.rb:67:in `each'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:710:in `regen_text'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-view-mode.rb:172:in `buffer='
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/buffer.rb:388:in `spawn'
+&gt; (eval):1:in `spawn'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/modes/thread-index-mode.rb:120:in `block in select'
+&gt; /usr/lib/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup.rb:79:in `block in reporting_thread'
+
+Could be related to a problem I recently encountered when forwarding a
+specific message. Upon pressing 'y' to send it, sup does this:
+
+[2011-12-05 19:21:16 +0000] ERROR: oh crap, an exception
+----------------------------------------------------------------
+I'm very sorry. It seems that an error occurred in Sup. Please
+accept my sincere apologies. Please submit the contents of
+/home/jomat/.sup/exception-log.txt and a brief report of the 
+circumstances to <a  rel="nofollow" href="http://masanjin.net/sup-bugs/">http://masanjin.net/sup-bugs/</a> so that I might
+address this problem. Thank you!
+                           
+Sincerely,                 
+William                    
+----------------------------------------------------------------
+--- Encoding::CompatibilityError from thread: main
+incompatible character encodings: UTF-8 and ASCII-8BIT
+/var/lib/gems/1.9.1/gems/rmail-1.0.0/lib/rmail/serialize.rb:112:in
+`serialize_low'
+/var/lib/gems/1.9.1/gems/rmail-1.0.0/lib/rmail/serialize.rb:99:in `block
+in serialize_low'
+/var/lib/gems/1.9.1/gems/rmail-1.0.0/lib/rmail/message.rb:155:in `block in
+each_part'
+/var/lib/gems/1.9.1/gems/rmail-1.0.0/lib/rmail/message.rb:154:in `each'
+/var/lib/gems/1.9.1/gems/rmail-1.0.0/lib/rmail/message.rb:154:in
+`each_part'
+/var/lib/gems/1.9.1/gems/rmail-1.0.0/lib/rmail/serialize.rb:96:in
+`serialize_low'
+/var/lib/gems/1.9.1/gems/rmail-1.0.0/lib/rmail/serialize.rb:63:in
+`serialize'
+/var/lib/gems/1.9.1/gems/rmail-1.0.0/lib/rmail/message.rb:146:in `to_s'
+/home/jomat/sup/lib/sup/modes/edit-message-mode.rb:455:in `puts'
+/home/jomat/sup/lib/sup/modes/edit-message-mode.rb:455:in `block in
+send_message'
+/home/jomat/sup/lib/sup/modes/edit-message-mode.rb:455:in `popen'
+/home/jomat/sup/lib/sup/modes/edit-message-mode.rb:455:in `send_message'
+/home/jomat/sup/lib/sup/mode.rb:59:in `handle_input'
+/home/jomat/sup/lib/sup/buffer.rb:278:in `handle_input'
+./bin/sup:271:in `&lt;module:Redwood&gt;'
+./bin/sup:80:in `&lt;main&gt;
+
+
+Didn't find time yet to remove the sensible stuff of the message to attach
+it to the report, but it contains umlauts.
+
+cu,
+jomat
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00248" href="msg00248.html">[sup-talk] reproducable crashing / encoding problem</a></strong>
+<ul><li><em>From:</em> John Wyzer &lt;john.wyzer@gmx.de&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00248.html">[sup-talk] reproducable crashing / encoding problem</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00333.html">[sup-talk] (no subject)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00248.html">[sup-talk] reproducable crashing / encoding problem</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00251.html">[sup-talk] Sup crashes when loading a message</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00283"><strong>Date</strong></a></li>
+<li><a href="threads.html#00283"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

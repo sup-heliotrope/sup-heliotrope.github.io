@@ -1,0 +1,176 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] sup install error -->
+<!--X-From-R13: Dvpu Znar <eynarNpyho.pp.pzh.rqh> -->
+<!--X-Date: Wed, 3 Mar 2010 14:23:31 &#45;0800 (PST) -->
+<!--X-Message-Id: 1267654880&#45;sup&#45;4875@zyrg.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1267478622&#45;sup&#45;2939@tangerine.lanl.gov -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] sup install error</title>
+<link rev="made" href="mailto:rlane@club.cc.cmu.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01483.html">Date Prev</a>][<a href="msg01237.html">Date Next</a>][<a href="msg01239.html">Thread Prev</a>][<a href="msg01237.html">Thread Next</a>][<a href="maillist.html#01148">Date Index</a>][<a href="threads.html#01148">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] sup install error</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: John Bent &lt;<a href="mailto:johnbent%40lanl.gov">johnbent@lanl.gov</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] sup install error</li>
+<li><em>From</em>: Rich Lane &lt;<a href="mailto:rlane%40club.cc.cmu.edu">rlane@club.cc.cmu.edu</a>&gt;</li>
+<li><em>Date</em>: Wed, 03 Mar 2010 17:23:06 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01185.html">1267478622-sup-2939@tangerine.lanl.gov</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01185.html">1267478622-sup-2939@tangerine.lanl.gov</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from John Bent's message of 2010-03-01 16:26:09 -0500:
+&gt; I've been using an old PowerPC Mac.  I got a new Intel one running
+&gt; Leopard (10.6.2) but got an error trying to install sup.  Everything is
+&gt; a fresh install.  The only thing I've done is install the Xcode tools.
+&gt; The error (below sig) looks like a problem with ncurses.  Looking around
+&gt; at the mkmf.log file (attached), I see more issues with curses: no
+&gt; wmove(), no libpdcurses.
+&gt; 
+&gt; The ruby installed is 1.8.7.  gem is 1.3.1.
+&gt; 
+&gt; I recreated this by copying the little test program with the wmove() in
+&gt; it.  When I tried to build it with -lncursesw, it failed because that
+&gt; lib doesn't exist but it did work with -lncurses (without the 'w').  So
+&gt; I just made a symlink:
+&gt; 
+&gt; guava:/usr/lib&gt;ln -s /usr/lib/libncurses.dylib /usr/lib/libncursesw.dylib
+&gt; 
+&gt; That works.  Now gem install sup works.  But I'm not sure that's the
+&gt; best fix.  Anyway, it looks like the problem is in gem install ncursesw
+&gt; and not in gem install sup but I thought you might like to know about
+&gt; this.
+&gt;  
+&gt; Thanks,
+&gt; 
+&gt; John 
+&gt; 
+&gt; guava:~&gt;gem install sup
+&gt; Building native extensions.  This could take a while...
+&gt; ERROR:  Error installing sup:
+&gt;     ERROR: Failed to build gem native extension.
+&gt; 
+&gt; /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
+&gt; extconf.rb install sup
+&gt; checking for unistd.h... yes
+&gt; checking for locale.h... yes
+&gt; checking for ncurses.h... yes
+&gt; checking for wmove() in -lncursesw... no
+&gt; checking for wmove() in -lpdcurses... no
+&gt; *** extconf.rb failed ***
+&gt; Could not create Makefile due to some reason, probably lack of
+&gt; necessary libraries and/or headers.  Check the mkmf.log file for more
+&gt; details.  You may need configuration options.
+&gt; 
+&gt; Provided configuration options:
+&gt;     --with-opt-dir
+&gt;     --without-opt-dir
+&gt;     --with-opt-include
+&gt;     --without-opt-include=${opt-dir}/include
+&gt;     --with-opt-lib
+&gt;     --without-opt-lib=${opt-dir}/lib
+&gt;     --with-make-prog
+&gt;     --without-make-prog
+&gt;     --srcdir=.
+&gt;     --curdir
+&gt;     --ruby=/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
+&gt;     --with-ncurseswlib
+&gt;     --without-ncurseswlib
+&gt;     --with-pdcurseslib
+&gt;     --without-pdcurseslib
+&gt; extconf.rb:46: ncurses library not found (RuntimeError)
+&gt; 
+&gt; 
+&gt; Gem files will remain installed in
+&gt; /Library/Ruby/Gems/1.8/gems/ncursesw-1.2.4.1 for inspection.
+&gt; Results logged to /Library/Ruby/Gems/1.8/gems/ncursesw-1.2.4.1/gem_make.out
+
+I'm thinking about changing the gem dependency from ncursesw back to
+plain ncurses to avoid these install failures. Anyone have thoughts on
+this?
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01237" href="msg01237.html">Re: [sup-talk] sup install error</a></strong>
+<ul><li><em>From:</em> John Bent &lt;johnbent@lanl.gov&gt;</li></ul></li>
+<li><strong><a name="01116" href="msg01116.html">Re: [sup-talk] sup install error</a></strong>
+<ul><li><em>From:</em> Mark Alexander &lt;marka@pobox.com&gt;</li></ul></li>
+<li><strong><a name="01455" href="msg01455.html">Re: [sup-talk] sup install error</a></strong>
+<ul><li><em>From:</em> Helge Titlestad &lt;helgedt@tihlde.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01185" href="msg01185.html">[sup-talk] sup install error</a></strong>
+<ul><li><em>From:</em> John Bent &lt;johnbent@lanl.gov&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01483.html">Re: [sup-talk] [PATCH] Remove use of Object tap method</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01237.html">Re: [sup-talk] sup install error</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01239.html">Re: [sup-talk] sup install error</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01237.html">Re: [sup-talk] sup install error</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01148"><strong>Date</strong></a></li>
+<li><a href="threads.html#01148"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

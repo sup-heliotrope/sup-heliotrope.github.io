@@ -1,0 +1,9 @@
+#File : .fetchmailrc
+set postmaster "myusername"
+
+poll pop.gmail.com with proto POP3 and options no dns
+  user 'gmailuser@gmail.com' there with password 'gmailpasswd' is 'myusername' here options ssl keep
+  mda "/usr/bin/maildrop"
+
+poll imap.widgets.com protocol imap user widgetuser@widgets.com pass widgetpasswd fetchall
+  mda "/usr/bin/maildrop /home/myusername/.mailfilter.widgets"

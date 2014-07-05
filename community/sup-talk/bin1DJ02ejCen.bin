@@ -1,0 +1,17 @@
+DEFAULT="$HOME/Maildir/inbox"
+FRIEND="$HOME/Maildir/friend"
+WOTD="$HOME/Maildir/wotd"
+
+logfile "$HOME/Maildir/maildrop.log"
+
+if (/^From:.*friend@example\.com/)
+{
+  to $FRIEND
+}
+
+if (/^From:.*word@m-w\.com/)
+{
+  to $WOTD
+}
+
+to $DEFAULT

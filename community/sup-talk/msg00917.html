@@ -1,0 +1,135 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] printing emails (but not attachments) -->
+<!--X-From-R13: Xbua Prag <wbuaoragNynay.tbi> -->
+<!--X-Date: Wed, 17 Mar 2010 12:28:00 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1268853590&#45;sup&#45;9103@guava.lanl.gov -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Reference: 1268341771&#45;sup&#45;2631@guava.lanl.gov -->
+<!--X-Derived: binAS6ujs9vv0.bin -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] printing emails (but not attachments)</title>
+<link rev="made" href="mailto:johnbent@lanl.gov">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00953.html">Date Prev</a>][<a href="msg00865.html">Date Next</a>][<a href="msg00846.html">Thread Prev</a>][<a href="msg00865.html">Thread Next</a>][<a href="maillist.html#00917">Date Index</a>][<a href="threads.html#00917">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] printing emails (but not attachments)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] printing emails (but not attachments)</li>
+<li><em>From</em>: John Bent &lt;<a href="mailto:johnbent%40lanl.gov">johnbent@lanl.gov</a>&gt;</li>
+<li><em>Date</em>: Wed, 17 Mar 2010 13:25:02 -0600</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00846.html">1268341771-sup-2631@guava.lanl.gov</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00846.html">1268341771-sup-2631@guava.lanl.gov</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/0.10.2</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from John Bent's message of Thu Mar 11 14:11:21 -0700 2010:
+&gt; I've been piping emails into muttprint which works well unless there's
+&gt; a binary attachment.  When there's a binary attachment, muttprint
+&gt; prints it and it usually takes tens and tens of pages.  Whoops.
+&gt; 
+&gt; Anyone else figure out how to print emails but not attachments?
+&gt; 
+Well, I'm sure I've once again reinvented the wheel but I wrote my own
+script to print emails without printing binary attachments.  It reads an
+email, pipes the headers to muttprint, then pipes text/plain and
+text/html through w3m into muttprint, for everything else it pipes &quot;#
+Attachment: filename (type).&quot;  It requires w3m and muttprint to be in
+the user's path.
+
+I'm sorry that it's horribly in violation of sup philosophy but I wrote
+it in python. :(  Sorry but my ruby is just barely good enough to do
+'if' statements in my hooks.
+
+It's attached in case anyone else wants it.  I'm scared I really did
+just reinvent the wheel, otherwise I'd add it to the wiki.  To print an
+email from sup using this, hit '|' in thread-view-mode to open a pipe
+and then just type sup-print (assuming you've put this attachment in
+your path).  I believe all the python imports it uses come standard.
+-- 
+Thanks,
+
+John 
+</pre><p><strong>Attachment:
+<a href="binAS6ujs9vv0.bin" ><tt>sup-print</tt></a></strong><br>
+<em>Description:</em> Binary data</p>
+<pre>_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00865" href="msg00865.html">Re: [sup-talk] printing emails (but not attachments)</a></strong>
+<ul><li><em>From:</em> Michael McDermott &lt;mmcdermott@mad-computer-scientist.com&gt;</li></ul></li>
+<li><strong><a name="00886" href="msg00886.html">Re: [sup-talk] printing emails (but not attachments)</a></strong>
+<ul><li><em>From:</em> John Bent &lt;johnbent@lanl.gov&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00846" href="msg00846.html">[sup-talk] printing emails (but not attachments)</a></strong>
+<ul><li><em>From:</em> John Bent &lt;johnbent@lanl.gov&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00953.html">Re: [sup-talk] Search for message by size</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00865.html">Re: [sup-talk] printing emails (but not attachments)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00846.html">[sup-talk] printing emails (but not attachments)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00865.html">Re: [sup-talk] printing emails (but not attachments)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00917"><strong>Date</strong></a></li>
+<li><a href="threads.html#00917"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

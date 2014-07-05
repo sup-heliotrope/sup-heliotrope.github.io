@@ -1,0 +1,35 @@
+diff --git a/lib/sup/maildir.rb b/lib/sup/maildir.rb
+index 0852576..899625d 100644
+--- a/lib/sup/maildir.rb
++++ b/lib/sup/maildir.rb
+@@ -34,6 +34,12 @@ class Maildir < Source
+     #is a worthwhile effort
+     @mtimes = { 'cur' => Time.at(0), 'new' => Time.at(0) }.merge(mtimes || {})
+     @dir_ids = { 'cur' => [], 'new' => [] }
++    if RUBY_VERSION < "1.9"
++      @bin = ''
++    else
++      @bin = ':BINARY'
++    end
++
+   end
+ 
+   def file_path; @dir end
+@@ -59,7 +65,7 @@ class Maildir < Source
+         File.stat(tmp_path)
+       rescue Errno::ENOENT #this is what we want.
+         begin
+-          File.open(tmp_path, 'wb:BINARY') do |f|
++          File.open(tmp_path, "wb#{@bin}") do |f|
+             yield f #provide a writable interface for the caller
+             f.fsync
+           end
+@@ -207,7 +213,7 @@ private
+   def with_file_for id
+     fn = @ids_to_fns[id] or raise OutOfSyncSourceError, "No such id: #{id.inspect}."
+     begin
+-      File.open(fn, 'rb:BINARY') { |f| yield f }
++      File.open(fn, "rb#{@bin}") { |f| yield f }
+     rescue SystemCallError, IOError => e
+       raise FatalSourceError, "Problem reading file for id #{id.inspect}: #{fn.inspect}: #{e.message}."
+     end

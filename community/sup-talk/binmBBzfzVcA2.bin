@@ -1,0 +1,25 @@
+From 8e6f7552ca5e3b3b0ecd56990098feff417ba0d5 Mon Sep 17 00:00:00 2001
+From: Gaute Hope <eg@gaute.vetsj.com>
+Date: Tue, 22 Nov 2011 00:26:27 +0100
+Subject: [PATCH] Require psych in Rakefile to avoid syck error when compiling
+ gem
+
+---
+ Rakefile |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/Rakefile b/Rakefile
+index cdf2273..e041c1b 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -30,6 +30,7 @@ task :upload_report do |t|
+ end
+ 
+ $:.push "lib"
++require 'psych'
+ require 'rubygems'
+ require_relative "sup-files"
+ require_relative "sup-version"
+-- 
+1.7.7.3
+

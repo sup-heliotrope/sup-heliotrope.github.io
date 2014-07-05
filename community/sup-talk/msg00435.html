@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Can't start Sup, allegedly because of a locked index. -->
+<!--X-From-R13: [vpunry Egncryoret <zvpunry+fhcNfgncryoret.qr> -->
+<!--X-Date: Thu, 2 Dec 2010 05:49:55 &#45;0800 (PST) -->
+<!--X-Message-Id: 1291294755&#45;sup&#45;8801@midna.zekjur.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: AANLkTi=0mcFSCJyJJSqvRuZw60GA9A0aX3MmVRp8hEsP@mail.gmail.com -->
+<!--X-Reference: 1291287153&#45;sup&#45;8966@midna.zekjur.net -->
+<!--X-Reference: AANLkTinRRBOHh=zp3DQXSWvXBnYeABJ6zO1My+SNBfCj@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Can't start Sup, allegedly because of a locked index.</title>
+<link rev="made" href="mailto:michael+sup@stapelberg.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00457.html">Date Prev</a>][<a href="msg00518.html">Date Next</a>][<a href="msg00540.html">Thread Prev</a>][<a href="msg00554.html">Thread Next</a>][<a href="maillist.html#00435">Date Index</a>][<a href="threads.html#00435">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Can't start Sup, allegedly because of a locked index.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Can't start Sup, allegedly because of a locked index.</li>
+<li><em>From</em>: Michael Stapelberg &lt;<a href="mailto:michael%2Bsup%40stapelberg.de">michael+sup@stapelberg.de</a>&gt;</li>
+<li><em>Date</em>: Thu, 02 Dec 2010 14:00:01 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;AANLkTinRRBOHh=zp3DQXSWvXBnYeABJ6zO1My+SNBfCj@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;AANLkTi=0mcFSCJyJJSqvRuZw60GA9A0aX3MmVRp8hEsP@mail.gmail.com&gt;	&lt;<a href="msg00660.html">1291287153-sup-8966@midna.zekjur.net</a>&gt;	&lt;AANLkTinRRBOHh=zp3DQXSWvXBnYeABJ6zO1My+SNBfCj@mail.gmail.com&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Shadowfirebird,
+
+Excerpts from Shadowfirebird's message of 2010-12-02 13:36:21 +0100:
+&gt; Relevant last few lines pasted below.   Note, three from the bottom,
+&gt; &quot;kill(18723, SIGTERM)&quot;.   18723 is the *current* process number, so if I'm
+&gt; reading this right, it's self-destructing.
+Heh, right. Passing 0 as pid to kill() is not such a good idea.
+
+In your case, I would suggest deleting the lock files manually (use ls -la
+.sup/xapian to find them)
+
+Best regards,
+Michael
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00477" href="msg00477.html">[sup-talk] Can't start Sup, allegedly because of a locked index.</a></strong>
+<ul><li><em>From:</em> Shadowfirebird &lt;shadowfirebird@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00660" href="msg00660.html">Re: [sup-talk] Can't start Sup, allegedly because of a locked index.</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+<li><strong><a name="00468" href="msg00468.html">Re: [sup-talk] Can't start Sup, allegedly because of a locked index.</a></strong>
+<ul><li><em>From:</em> Shadowfirebird &lt;shadowfirebird@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00457.html">Re: [sup-talk] Can't start Sup, allegedly because of a locked index.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00518.html">[sup-talk] run sup (or sup-sync) as daemon Hello everybody,</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00540.html">Re: [sup-talk] Can't start Sup, allegedly because of a locked index.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00554.html">Re: [sup-talk] Can't start Sup, allegedly because of a locked index.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00435"><strong>Date</strong></a></li>
+<li><a href="threads.html#00435"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

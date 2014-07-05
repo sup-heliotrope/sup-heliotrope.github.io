@@ -1,0 +1,114 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: updated before&#45;poll hook for offlineimap -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Wed, 09 Sep 2009 01:49:06 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1252485986&#45;sup&#45;4958@qwerzila -->
+<!--X-Content-Type: multipart/signed -->
+<!--X-Derived: pgpEVM93yQYNI.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>updated before-poll hook for offlineimap</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01533.html">Date Prev</a>][<a href="msg01562.html">Date Next</a>][<a href="msg01533.html">Thread Prev</a>][<a href="msg01562.html">Thread Next</a>][<a href="maillist.html#01737">Date Index</a>][<a href="threads.html#01737">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>updated before-poll hook for offlineimap</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Sup Talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: updated before-poll hook for offlineimap</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 09 Sep 2009 10:49:21 +0200</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Greetings,
+
+Here's an updated before-poll.rb hook for offlineimap working with
+latest git. I'm suppressing some nasty python deprecation errors as
+well.
+
+before-poll.rb:
+def offlineimap(*folders)
+  cmd = &quot;offlineimap -u Noninteractive.Basic 2&gt;&amp;1&quot;
+  cmd &lt;&lt; &quot; -f #{folders * ','}&quot; unless folders.compact.empty?
+  `#{cmd}`
+end
+
+def folder_names(sources)
+  sources.map { |s| s.uri.split('/').last }
+end
+
+def inbox_sources(sources = SourceManager.sources)
+  sources.find_all { |s| !s.archived? }.sort_by {|s| s.id }
+end
+
+if (@last_fetch || Time.at(0)) &lt; Time.now - 120
+  say &quot;Running offlineimap...&quot;
+  # only check non-auto-archived sources on the first run
+  log offlineimap(@last_fetch ? nil : folder_names(inbox_sources))
+  say &quot;Finished offlineimap.&quot;
+end
+@last_fetch = Time.now
+
+Cheers, Gaute
+</pre><p><strong>Attachment:
+<a href="pgpEVM93yQYNI.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01562" href="msg01562.html">Re: updated before-poll hook for offlineimap</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01533.html">Exception when trying to open console view</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01562.html">Re: updated before-poll hook for offlineimap</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01533.html">Exception when trying to open console view</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01562.html">Re: updated before-poll hook for offlineimap</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01737"><strong>Date</strong></a></li>
+<li><a href="threads.html#01737"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

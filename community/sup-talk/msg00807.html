@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] [PATCH 3/4] Callback to compose -->
+<!--X-From-R13: Dnzxhzne Dnznpunaqen <negntabaNtznvy.pbz> -->
+<!--X-Date: Sat, 10 Apr 2010 03:42:14 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1270895977&#45;sup&#45;1231@kytes -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] [PATCH 3/4] Callback to compose</title>
+<link rev="made" href="mailto:artagnon@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01008.html">Date Prev</a>][<a href="msg00885.html">Date Next</a>][<a href="msg01008.html">Thread Prev</a>][<a href="msg00885.html">Thread Next</a>][<a href="maillist.html#00807">Date Index</a>][<a href="threads.html#00807">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] [PATCH 3/4] Callback to compose</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] [PATCH 3/4] Callback to compose</li>
+<li><em>From</em>: Ramkumar Ramachandra &lt;<a href="mailto:artagnon%40gmail.com">artagnon@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 10 Apr 2010 16:09:43 +0530</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:content-type:subject:from:to	:date:message-id:user-agent:content-transfer-encoding;	bh=oV9zZnrD6gnBCkoMpavaXGi3AQkbGskYNGQ/bqiQ4KU=;	b=bJWGaXxw3umi42IEmoZvE7mleryvUREfCK1rJhxbX5teawZH5bSriVFEVpQOnskm+/	T+vNQHrG7NoUtoYmWNND5KpqJA+QSEgp8fbOXla1GCXQyzDZwKx4HeNVk4bOJJmE7w/D	2c0R7hQOMGaoCg6AvfJlHtB1VfoHC7D0Qd9+0=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=content-type:subject:from:to:date:message-id:user-agent	:content-transfer-encoding;	b=quXBKxICdvN7agbHEQHCz9i8dazZJmyki8AgcxXMJBUtZ84DH2Rsasoh7kTDmBZZYZ	9UT3lzdvCjwTsEzrtPyEsFpsZlwf7GROEp5w2JrIOhFGGitedLfNhJhp1YYkgyzWfAgv	NRS5A9wSsDbkG1caeVbOcS7NpoO78BdDbObJc=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Write a callback to parse the file and fill in the parsed contents
+into a newly spawned buffer.
+
+Signed-off-by: Ramkumar Ramachandra &lt;artagnon@gmail.com&gt;
+---
+ lib/sup/modes/compose-mode.rb |   17 +++++++++++++++++
+ 1 files changed, 17 insertions(+), 0 deletions(-)
+
+diff --git a/lib/sup/modes/compose-mode.rb b/lib/sup/modes/compose-mode.rb
+index f0d1e23..a19c294 100644
+--- a/lib/sup/modes/compose-mode.rb
++++ b/lib/sup/modes/compose-mode.rb
+@@ -20,6 +20,23 @@ class ComposeMode &lt; EditMessageMode
+     edited
+   end
+ 
++  def parse_file fn
++    super fn
++  end
++
++  def self.edit_message_callback file, mtime
++    edited = File.mtime(file.path) &gt; mtime ? true : false
++
++    return edited unless edited
++
++    mode = ComposeMode.new
++    header, body = mode.parse_file file.path
++    header -= NON_EDITABLE_HEADERS
++    mode.header, mode.body = header, body
++    BufferManager.spawn &quot;New Message&quot;, mode
++    mode.update
++  end
++
+   def self.spawn_nicely opts={}
+     to = opts[:to] || (BufferManager.ask_for_contacts(:people, &quot;To: &quot;, [opts[:to_default]]) or return if ($config[:ask_for_to] != false))
+     cc = opts[:cc] || (BufferManager.ask_for_contacts(:people, &quot;Cc: &quot;) or return if $config[:ask_for_cc])
+-- 
+1.7.0.4
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01008.html">[sup-talk] [PATCH 2/4] Poll for editor status</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00885.html">[sup-talk] [PATCH 0/4] Read and compose simultaneously</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01008.html">[sup-talk] [PATCH 2/4] Poll for editor status</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00885.html">[sup-talk] [PATCH 0/4] Read and compose simultaneously</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00807"><strong>Date</strong></a></li>
+<li><a href="threads.html#00807"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

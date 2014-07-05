@@ -1,0 +1,119 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Problem undefined symbol -->
+<!--X-From-R13: "Zhvf B. [raqrf" <yhvfyhcrNtznvy.pbz> -->
+<!--X-Date: Tue, 25 Jan 2011 16:38:50 &#45;0800 (PST) -->
+<!--X-Message-Id: AANLkTik+UZqxkFb3KpWR93+5b=BX4YrvwqFtwSUZTic7@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Problem undefined symbol</title>
+<link rev="made" href="mailto:luislupe@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00568.html">Date Prev</a>][<a href="msg00441.html">Date Next</a>][<a href="msg00585.html">Thread Prev</a>][<a href="msg00441.html">Thread Next</a>][<a href="maillist.html#00437">Date Index</a>][<a href="threads.html#00437">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Problem undefined symbol</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] Problem undefined symbol</li>
+<li><em>From</em>: &quot;Luis P. Mendes&quot; &lt;<a href="mailto:luislupe%40gmail.com">luislupe@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 26 Jan 2011 00:00:38 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:date:message-id:subject:from:to	:content-type; bh=4vDOiFvvb4CSfMgeT+27UCYPMoUNzg0QOgEnoCG0RX4=;	b=TyG7NI8V6AMD/E8flZ8lJnMuCt6fRlSSjQ8QeM6/+nqMonE4qPE9p0LAjLRm2KK8Si	MOkhcsPYuQRqP6h7eS0S37ooJKGwlbe4Y/AUUj0lgUDFR+vEB2jQxmKQ/2dbz4gFDdeO	elzomOJiz0LlJZkWJ9631vCfSzw/csqDYl+eM=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=Cn4zHjwv7JctwP6t0f4MYKMo+YhImmS0rQfXlXP9vgcIOmOvw4/wVt4B2RH+DuifTU	2gN4pJz9TjE4RWMaeQ8FLLn4kqUgxf9rR0ma3t2WEj7zgkTnQyy45UEZmMzez+27Fv4+	hN0Pjd5XLBK/auSRasguEGZqEBIuHsW6n1qWc=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi,
+
+I installed sup version 12.1 and tried to run it.
+I'm using Slackware64 13.1 and had sup V 0.11 installed before.
+
+$ sup
+[2011-01-25 23:52:33 +0000] WARNING: can't find character set by using
+locale, defaulting to utf-8
+/usr/bin/ruby: symbol lookup error:
+/usr/lib64/ruby/1.9.1/x86_64-linux/dl.so: undefined symbol:
+rb_dl_init_callbacks_5
+
+$ cat sup-exception-log.txt
+/usr/lib64/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/index.rb:113:in `load_index'
+/usr/lib64/ruby/gems/1.9.1/gems/sup-0.12.1/lib/sup/index.rb:93:in `load'
+/usr/lib64/ruby/gems/1.9.1/gems/sup-0.12.1/bin/sup-sync:100:in `&lt;top
+(required)&gt;'
+/usr/bin/sup-sync:19:in `load'
+/usr/bin/sup-sync:19:in `&lt;main&gt;'
+
+What can I do to have sup running in my box?
+
+
+Luis
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00441" href="msg00441.html">Re: [sup-talk] Problem undefined symbol</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00568.html">Re: [sup-talk] un-archiving an archived mail</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00441.html">Re: [sup-talk] Problem undefined symbol</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00585.html">Re: [sup-talk] un-archiving an archived mail</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00441.html">Re: [sup-talk] Problem undefined symbol</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00437"><strong>Date</strong></a></li>
+<li><a href="threads.html#00437"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

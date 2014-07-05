@@ -1,0 +1,127 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] [PATCH] xapian: do less work for update_message_state -->
+<!--X-From-R13: Ayyl Prggf <byylNfheirk.pbz> -->
+<!--X-Date: Wed, 17 Feb 2010 18:28:04 &#45;0800 (PST) -->
+<!--X-Message-Id: slrnhnp9bq.2sa.olly@msgid.survex.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1252867449&#45;30734&#45;1&#45;git&#45;send&#45;email&#45;rlane@club.cc.cmu.edu -->
+<!--X-Reference: 1254339542&#45;sup&#45;886@masanjin.net -->
+<!--X-Reference: 1254341186&#45;sup&#45;4357@zyrg.net -->
+<!--X-Reference: 1254404707&#45;sup&#45;9253@masanjin.net -->
+<!--X-Reference: 1254416360&#45;sup&#45;8957@zyrg.net -->
+<!--X-Reference: slrnhcbck3.5ah.olly@msgid.survex.com -->
+<!--X-Reference: loom.20100204T042813&#45;620@post.gmane.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] [PATCH] xapian: do less work for update_message_state</title>
+<link rev="made" href="mailto:olly@survex.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01383.html">Date Prev</a>][<a href="msg01258.html">Date Next</a>][<a href="msg01263.html">Thread Prev</a>][<a href="msg01245.html">Thread Next</a>][<a href="maillist.html#01401">Date Index</a>][<a href="threads.html#01401">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] [PATCH] xapian: do less work for update_message_state</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: Re: [sup-talk] [PATCH] xapian: do less work for update_message_state</li>
+<li><em>From</em>: Olly Betts &lt;<a href="mailto:olly%40survex.com">olly@survex.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 18 Feb 2010 02:27:04 +0000 (UTC)</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;1252867449-30734-1-git-send-email-rlane@club.cc.cmu.edu&gt;	&lt;1254339542-sup-886@masanjin.net&gt; &lt;1254341186-sup-4357@zyrg.net&gt;	&lt;1254404707-sup-9253@masanjin.net&gt; &lt;1254416360-sup-8957@zyrg.net&gt;	&lt;slrnhcbck3.5ah.olly@msgid.survex.com&gt;	&lt;<a href="msg01263.html">loom.20100204T042813-620@post.gmane.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: slrn/pre1.0.0-11 (Linux)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On 2010-02-04, Olly Betts &lt;olly@survex.com&gt; wrote:
+&gt; Olly Betts writes:
+&gt;&gt; On 2009-10-01, Rich Lane &lt;rlane@club.cc.cmu.edu&gt; wrote:
+&gt;&gt; &gt; Excerpts from William Morgan's message of Thu Oct 01 09:46:20 -0400 2009:
+&gt;&gt; &gt;&gt; Reformatted excerpts from Rich Lane's message of 2009-09-30:
+&gt;&gt; &gt;&gt; &gt; They're about 3 times faster on my machine with this patch. An
+&gt;&gt; &gt;&gt; &gt; optimization the Xapian devs have been planning to make (and that this
+&gt;&gt; &gt;&gt; &gt; patch is necessary to take advantage of) should increase performance
+&gt;&gt; &gt;&gt; &gt; much more.
+&gt;&gt; &gt;&gt; 
+&gt;&gt; &gt;&gt; Awesome. Out of curiousity, what's the optimization?
+&gt;&gt; &gt;
+&gt;&gt; &gt; replace_document currently deletes all the old postings and inserts new
+&gt;&gt; &gt; ones. It can be optimized to make the minimal set of modifications.
+&gt;&gt; 
+&gt;&gt; This is the ticket for it:
+&gt;&gt; 
+&gt;&gt; <a  rel="nofollow" href="http://trac.xapian.org/ticket/250">http://trac.xapian.org/ticket/250</a>
+
+This fix went into the recent Xapian 1.0.18 release (and also in 1.1.4, which
+is a release candidate for 1.2.0).
+
+Cheers,
+    Olly
+
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01263" href="msg01263.html">Re: [sup-talk]	[PATCH] xapian: do less work for update_message_state</a></strong>
+<ul><li><em>From:</em> Olly Betts &lt;olly@survex.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01383.html">Re: [sup-talk] Ruby Ncurses Bindings</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01258.html">Re: [sup-talk] curses pinentry woes (still)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01263.html">Re: [sup-talk]	[PATCH] xapian: do less work for update_message_state</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01245.html">[sup-talk] Fixing broken attachment mimetypes</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01401"><strong>Date</strong></a></li>
+<li><a href="threads.html#01401"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

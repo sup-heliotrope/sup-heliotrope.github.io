@@ -1,0 +1,134 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] ncursesw encoding -->
+<!--X-From-R13: [bevgm @rro <arroNxcia.qr> -->
+<!--X-Date: Wed, 24 Nov 2010 10:01:13 &#45;0800 (PST) -->
+<!--X-Message-Id: 4CED5155.3080502@kpvn.de -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] ncursesw encoding</title>
+<link rev="made" href="mailto:neeb@kpvn.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01031.html">Date Prev</a>][<a href="msg00757.html">Date Next</a>][<a href="msg01031.html">Thread Prev</a>][<a href="msg00757.html">Thread Next</a>][<a href="maillist.html#00800">Date Index</a>][<a href="threads.html#00800">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] ncursesw encoding</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] ncursesw encoding</li>
+<li><em>From</em>: Moritz Neeb &lt;<a href="mailto:neeb%40kpvn.de">neeb@kpvn.de</a>&gt;</li>
+<li><em>Date</em>: Wed, 24 Nov 2010 18:54:29 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mozilla-Thunderbird 2.0.0.24 (X11/20100328)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Hello everyone,
+
+
+William Morgan wrote:
+[sup-talk] System encoding versus messages encoding
+Tue Apr 22 19:18:00 EDT 2008
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+The good news is that I've just made it slightly simpler, at least if
+you're running from git. I've published an &quot;ncursesw&quot; branch that
+contains a hacked ncurses-0.9.1 and a dirty script to install it into
+your ../lib/ directory. If you use that AND you run from git next,
+you'll see wide characters. It works!
+
+So, just a &quot;few&quot; &quot;simple&quot; commands:
+$ git branch --track ncursesw origin/ncursesw
+$ git checkout ncursesw
+$ cd ncurses-0.9.1/
+</pre><tt>$ ./run-this-for-sup.sh 
+</tt><tt>$ cd ..
+</tt><pre style="margin: 0em;">
+$ git checkout next
+$ ruby -Ilib bin/sup
+
+... and you should see wide characters, assuming your terminal is
+capable. If make dies, you probably need to install some kind of
+ncursesw development library. On my Debian system it's
+a package called libncursesw5-dev.
+</pre></blockquote><pre style="margin: 0em;">
+
+
+</pre><tt>Is the suggested approach up to date? I am not really into git stuff, 
+</tt><tt>but I think the &quot;next&quot; repository is not in a state, that the commands 
+</tt><tt>below have the same effect than they had two years ago. Can you help me, 
+</tt><tt>to get this working? Is there another approach to get the 
+</tt><tt>message-encoding correctly displayed?
+</tt><pre style="margin: 0em;">
+
+--
+Moritz Neeb
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00757" href="msg00757.html">Re: [sup-talk] ncursesw encoding</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01031.html">[sup-talk] Warning with mainline version</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00757.html">Re: [sup-talk] ncursesw encoding</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01031.html">[sup-talk] Warning with mainline version</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00757.html">Re: [sup-talk] ncursesw encoding</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00800"><strong>Date</strong></a></li>
+<li><a href="threads.html#00800"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

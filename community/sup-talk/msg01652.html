@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Bug: Xapian exception after having polled -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Tue, 06 Oct 2009 06:34:37 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1254835794&#45;sup&#45;6000@qwerzila -->
+<!--X-Content-Type: multipart/signed -->
+<!--X-Reference: 25727581.post@talk.nabble.com -->
+<!--X-Reference: 1254594099&#45;sup&#45;719@zyrg.net -->
+<!--X-Reference: 20091004101550.GA7330@qwerzila.bluecom.no -->
+<!--X-Reference: 1254681739&#45;sup&#45;4089@zyrg.net -->
+<!--X-Reference: 5a5b14cf0910041156q7e755931w4fb75ce57f9f4339@mail.gmail.com -->
+<!--X-Reference: 1254682966&#45;sup&#45;6629@zyrg.net -->
+<!--X-Reference: 5a5b14cf0910041220p26a4c830va172df0e33542480@mail.gmail.com -->
+<!--X-Reference: 1254780036&#45;sup&#45;3214@qwerzila -->
+<!--X-Reference: 1e5fdab70910060314i6a4cce5ck92e7605ec54f98a1@mail.gmail.com -->
+<!--X-Derived: pgp51jZL4BfNk.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Bug: Xapian exception after having polled</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01493.html">Date Prev</a>][<a href="msg01726.html">Date Next</a>][<a href="msg01595.html">Thread Prev</a>][<a href="msg01726.html">Thread Next</a>][<a href="maillist.html#01652">Date Index</a>][<a href="threads.html#01652">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Bug: Xapian exception after having polled</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Bug: Xapian exception after having polled</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 06 Oct 2009 15:34:51 +0200</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01595.html">1e5fdab70910060314i6a4cce5ck92e7605ec54f98a1@mail.gmail.com</a>&gt;</li>
+<li><em>References</em>: &lt;25727581.post@talk.nabble.com&gt; &lt;<a href="msg01645.html">1254594099-sup-719@zyrg.net</a>&gt; &lt;<a href="msg01516.html">20091004101550.GA7330@qwerzila.bluecom.no</a>&gt; &lt;<a href="msg01488.html">1254681739-sup-4089@zyrg.net</a>&gt; &lt;<a href="msg01772.html">5a5b14cf0910041156q7e755931w4fb75ce57f9f4339@mail.gmail.com</a>&gt; &lt;<a href="msg01598.html">1254682966-sup-6629@zyrg.net</a>&gt; &lt;<a href="msg01678.html">5a5b14cf0910041220p26a4c830va172df0e33542480@mail.gmail.com</a>&gt; &lt;1254780036-sup-3214@qwerzila&gt; &lt;<a href="msg01595.html">1e5fdab70910060314i6a4cce5ck92e7605ec54f98a1@mail.gmail.com</a>&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Guillaume Quintard's message of ty. okt. 06 12:14:43 +0200 2009:
+&gt; On Tue, Oct 6, 2009 at 12:01 AM, Gaute Hope &lt;eg@gaute.vetsj.com&gt; wrote:
+&gt; &gt; Did a 'sup-sync --changed -o' and the problem seems to be gone.
+
+&gt; --- RuntimeError from thread: load threads for thread-index-mode
+&gt; wrong id called on nil
+&gt; ./lib/sup.rb:17:in `id'
+
+I was getting a slightly different error:
+
+--- RuntimeError from thread: poll after loading inbox
+@id nil
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/message.rb:254:in
+`load_from_source!'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/message.rb:342:in
+`build_from_source'
+/home/gaute/.gem/ruby/1.8/gems/sup-999/lib/sup/poll.rb:160:in
+`each_message_from'
+
+- gaute
+</pre><p><strong>Attachment:
+<a href="pgp51jZL4BfNk.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01645" href="msg01645.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01516" href="msg01516.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01488" href="msg01488.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01772" href="msg01772.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01598" href="msg01598.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Rich Lane &lt;rlane@club.cc.cmu.edu&gt;</li></ul></li>
+<li><strong><a name="01678" href="msg01678.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01514" href="msg01514.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="01595" href="msg01595.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+<ul><li><em>From:</em> Guillaume Quintard &lt;guillaume.quintard@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01493.html">Re: [sup-talk] Crash, bad index, and ensuing misery</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01726.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01595.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01726.html">Re: [sup-talk] Bug: Xapian exception after having polled</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01652"><strong>Date</strong></a></li>
+<li><a href="threads.html#01652"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

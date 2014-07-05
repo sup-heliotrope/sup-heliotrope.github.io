@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;devel] sup v2 progress report -->
+<!--X-From-R13: Wpb Rbbearxnzc <fhcNmrii.ay> -->
+<!--X-Date: Thu, 14 Apr 2011 01:08:14 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1302767233&#45;sup&#45;1329@pruts.nl -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1301257195&#45;sup&#45;9486@masanjin.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-devel] sup v2 progress report</title>
+<link rev="made" href="mailto:sup@zevv.nl">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00652.html">Date Prev</a>][<a href="msg00566.html">Date Next</a>][<a href="msg00652.html">Thread Prev</a>][<a href="msg00515.html">Thread Next</a>][<a href="maillist.html#00496">Date Index</a>][<a href="threads.html#00496">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-devel] sup v2 progress report</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-devel] sup v2 progress report</li>
+<li><em>From</em>: Ico Doornekamp &lt;<a href="mailto:sup%40zevv.nl">sup@zevv.nl</a>&gt;</li>
+<li><em>Date</em>: Thu, 14 Apr 2011 09:51:50 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Cc</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;, sup-devel &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00649.html">1301257195-sup-9486@masanjin.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00649.html">1301257195-sup-9486@masanjin.net</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>* On Sun Mar 27 22:41:59 +0200 2011, William Morgan wrote:
+ 
+&gt; Heliotrope, the server component, is close to ready for a version 1 release.
+&gt; You can find it at <a  rel="nofollow" href="https://github.com/wmorgan/heliotrope/">https://github.com/wmorgan/heliotrope/</a>.
+
+Here's another crash, but I've not been able yet to find out what exactly is
+happening. The problem seems to be caused by a mismatch of multipart mime
+boundary strings. 
+
+/home/ico/external/heliotrope/lib/heliotrope/message.rb:151:in `decode_mime_parts': undefined method `multipart?' for nil:NilClass (NoMethodError)
+	from /home/ico/external/heliotrope/lib/heliotrope/message.rb:154:in `decode_mime_parts'
+	from /home/ico/external/heliotrope/lib/heliotrope/message.rb:130:in `mime_parts'
+	from /home/ico/external/heliotrope/lib/heliotrope/message.rb:116:in `has_attachment?'
+	from /home/ico/external/heliotrope/lib/heliotrope/index.rb:77:in `add_message'
+	from bin/heliotrope-add:113:in `&lt;main&gt;'
+You have new mail in /home/ico/Maildir
+
+
+I've stripped the offending mail down to the following minimal mbox which causes the crash:
+
+
+&gt;From foo@bar.com  Tue May  9 11:22:38 2006
+Date: Tue, 09 May 2006 02:22:18 -0800
+From: foo@bar.com
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary=&quot;one&quot;
+Message-Id: &lt;1&gt;
+
+--two
+
+Part 
+
+--three
+
+
+
+-- 
+:wq
+^X^Cy^K^X^C^C^C^C
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00649" href="msg00649.html">[sup-devel] sup v2 progress report</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00652.html">Re: [sup-talk] [sup-devel] sup v2 progress report</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00566.html">Re: [sup-talk] Archive Emails to Different Source</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00652.html">Re: [sup-talk] [sup-devel] sup v2 progress report</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00515.html">[sup-talk] searching _F_rom header</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00496"><strong>Date</strong></a></li>
+<li><a href="threads.html#00496"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

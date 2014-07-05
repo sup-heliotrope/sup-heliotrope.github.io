@@ -1,0 +1,119 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Tuning Ruby's GC params for faster `sup` -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Sat, 21 Jun 2014 10:55:51 &#45;0700 (PDT) -->
+<!--X-Message-Id: CABKe4MuExtbYOdiwUpx7hBeakQV+aW9pQ5LhxerfBHyECmx6uA@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: CANsdhjcovLg&#45;C7aM7ZMYh83h5pXVmXMGNRZBJkb5OboWz8Po4g@mail.gmail.com -->
+<!--X-Reference: 1403344734&#45;sup&#45;985@pruts.nl -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Tuning Ruby's GC params for faster `sup`</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00150.html">Date Prev</a>][<a href="msg00335.html">Date Next</a>][<a href="msg00150.html">Thread Prev</a>][<a href="msg00335.html">Thread Next</a>][<a href="maillist.html#00303">Date Index</a>][<a href="threads.html#00303">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Tuning Ruby's GC params for faster `sup`</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Ico Doornekamp &lt;<a href="mailto:sup%40zevv.nl">sup@zevv.nl</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Tuning Ruby's GC params for faster `sup`</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 21 Jun 2014 19:55:51 +0200</li>
+<li><em>Cc</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00150.html">1403344734-sup-985@pruts.nl</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00179.html">CANsdhjcovLg-C7aM7ZMYh83h5pXVmXMGNRZBJkb5OboWz8Po4g@mail.gmail.com</a>&gt;	&lt;<a href="msg00150.html">1403344734-sup-985@pruts.nl</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<div dir="ltr"><div class="gmail_extra"><div class="gmail_quote">On Sat, Jun 21, 2014 at 11:59 AM, Ico Doornekamp <span dir="ltr">&lt;<a rel="nofollow" href="mailto:sup@zevv.nl" target="_blank">sup@zevv.nl</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
+Hi,<br>
+<div class=""><br>
+* On 2014-06-13 02:04:11 +0200, Aravind Narayanan wrote:<br>
+<br>
+&gt; Hey everyone,<br>
+&gt;<br>
+&gt; I&#39;m sharing this to see if any else does this, and whether or not it makes<br>
+&gt; sense to include in the defaults.<br>
+&gt;<br>
+&gt; `sup` was kind of slow for me, and sometimes took a few seconds to open up<br>
+&gt; an (albeit large) email thread. I ran `perftools.rb` on it to see what was<br>
+&gt; taking up so much time, and was surprised to find that ~ 60% of wallclock<br>
+&gt; time was spent in GC.<br>
+&gt;<br>
+&gt; So, I tuned Ruby&#39;s GC to not run so often, resulting in GC now taking only<br>
+&gt; 13% of wall clock time. Anecdotally, I also noticed that threads loaded<br>
+&gt; much much faster. The params I set were<br>
+&gt; <a rel="nofollow" href="https://gist.github.com/rvnd/756d6a5e82d1bba9fbb9" target="_blank">https://gist.github.com/rvnd/756d6a5e82d1bba9fbb9</a>.<br>
+<br>
+</div>I can confirm this makes a *huge* difference. I&#39;m running sup on a<br>
+pretty big machine, but at times it&#39;s so creeping slow I&#39;m considering<br>
+moving back to mutt.<br>
+<br>
+Using the parameters you suggested speeds up things considerably,<br>
+loading big threads is now fast enough to be usable without getting<br>
+annoyed.<br>
+<br>
+Thank your *very* much for pointing this out. I hope Sup will pick this<br>
+up and integrate it in the default application in some way.<br>
+<span class=""></span></blockquote><div><br></div><div>Yup - that could be a possibility, would be happy to review a suggestion on how to do it. This has always been a problem for Sup.<br><br></div><div>I would think either, a) suggest to the user to set the variables or b) set them on start up (does ruby require them to be set beforehand? or is there an interface to the GC?).<br>
+</div><div><br></div><div>- gaute <br></div></div><br></div></div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00179" href="msg00179.html">[sup-talk] Tuning Ruby's GC params for faster `sup`</a></strong>
+<ul><li><em>From:</em> Aravind Narayanan &lt;a.cyberian@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00150" href="msg00150.html">Re: [sup-talk] Tuning Ruby's GC params for faster `sup`</a></strong>
+<ul><li><em>From:</em> Ico Doornekamp &lt;sup@zevv.nl&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00150.html">Re: [sup-talk] Tuning Ruby's GC params for faster `sup`</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00335.html">New mailinglist - replacing the old: supmua@googlegroups.com</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00150.html">Re: [sup-talk] Tuning Ruby's GC params for faster `sup`</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00335.html">New mailinglist - replacing the old: supmua@googlegroups.com</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00303"><strong>Date</strong></a></li>
+<li><a href="threads.html#00303"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

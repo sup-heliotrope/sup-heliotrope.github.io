@@ -1,0 +1,123 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] sup leaves unencrypted emails in /tmp -->
+<!--X-From-R13: Qnzreba [ngurfba <pnz+fhcNpnzzhavfz.bet> -->
+<!--X-Date: Sat, 4 Dec 2010 00:30:40 &#45;0800 (PST) -->
+<!--X-Message-Id: 1291445874&#45;sup&#45;7444@cammunism.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: AANLkTikzfKZ9573c+NOiYA3UWjFhWpohhcGroS0Zz19F@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] sup leaves unencrypted emails in /tmp</title>
+<link rev="made" href="mailto:cam+sup@cammunism.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00355.html">Date Prev</a>][<a href="msg00564.html">Date Next</a>][<a href="msg00404.html">Thread Prev</a>][<a href="msg00477.html">Thread Next</a>][<a href="maillist.html#00368">Date Index</a>][<a href="threads.html#00368">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] sup leaves unencrypted emails in /tmp</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] sup leaves unencrypted emails in /tmp</li>
+<li><em>From</em>: Cameron Matheson &lt;<a href="mailto:cam%2Bsup%40cammunism.org">cam+sup@cammunism.org</a>&gt;</li>
+<li><em>Date</em>: Sat, 04 Dec 2010 00:16:22 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00404.html">AANLkTikzfKZ9573c+NOiYA3UWjFhWpohhcGroS0Zz19F@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00404.html">AANLkTikzfKZ9573c+NOiYA3UWjFhWpohhcGroS0Zz19F@mail.gmail.com</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Hamish D's message of Wed Dec 01 17:18:08 -0700 2010:
+&gt; I noticed that sup appears to leave the unencrypted contents of emails
+&gt; in /tmp - at least it did on my system. This is a pretty serious issue
+&gt; on shared computers. I'm not sure why - my attempts at a quick fix
+&gt; failed. The files are created using Tempfile.new and close is called,
+&gt; but after that the files are written to by gpg. I'm not sure if this
+&gt; means that the tempfile system then doesn't delete them later for some
+&gt; reason.
+
+Tempfile is interesting because the file is not deleted until the object
+is garbage-collected.  From the Tempfile.close rdoc:
+
+     If you don't explicitly unlink the temporary file, the removal will
+     be delayed until the object is finalized.
+
+So if I'm understanding this correctly, the tempfiles may or may not be
+cleaned up, depending on when the garbage collector runs (e.g., if the
+GC runs before gpg is run, the original tempfile will have already been
+deleted, and the new file created by gpg will live on indefinitely).
+
+I was going to write a patch, but I don't do anything use gpg often so
+it wasn't convenient to test.  I think an easy solution would just be to
+add a 'File.unlink whatever.path' call after each call to gpg (this
+would need to be done in encrypt/decrypt/sign/etc.).
+
+Cam
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00404" href="msg00404.html">[sup-talk] sup leaves unencrypted emails in /tmp</a></strong>
+<ul><li><em>From:</em> Hamish D &lt;dmishd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00355.html">Re: [sup-talk] run sup (or sup-sync) as daemon Hello everybody,</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00564.html">[sup-talk] search '-label:' fails</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00404.html">[sup-talk] sup leaves unencrypted emails in /tmp</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00477.html">[sup-talk] Can't start Sup, allegedly because of a locked index.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00368"><strong>Date</strong></a></li>
+<li><a href="threads.html#00368"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

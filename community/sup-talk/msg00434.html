@@ -1,0 +1,200 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] DatabaseCorruptError -->
+<!--X-From-R13: Oaqerj Bvzybgg <naqerjNcvzybgg.arg> -->
+<!--X-Date: Fri, 6 May 2011 15:45:50 &#45;0700 (PDT) -->
+<!--X-Message-Id: 20110506220650.GA23223@pimlott.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] DatabaseCorruptError</title>
+<link rev="made" href="mailto:andrew@pimlott.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00622.html">Date Prev</a>][<a href="msg00488.html">Date Next</a>][<a href="msg00622.html">Thread Prev</a>][<a href="msg00648.html">Thread Next</a>][<a href="maillist.html#00434">Date Index</a>][<a href="threads.html#00434">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] DatabaseCorruptError</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] DatabaseCorruptError</li>
+<li><em>From</em>: Andrew Pimlott &lt;<a href="mailto:andrew%40pimlott.net">andrew@pimlott.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 6 May 2011 15:06:50 -0700</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@pimlott.net</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=pimlott.net;	s=default; 	h=Content-Type:MIME-Version:Message-ID:Subject:To:From:Date;	bh=RoT/XmA/RuJUYfdfqjsOVuWi1Axi5EztTw6YrnIc2fA=; 	b=n++KdEL6siKf5fqlyEWsFEEWc458sCFOY38Vfux/yb1L3IyluzXhLR/pMEb0Pq+Ovs+xhsUSkbRVuyFlEaYrCmA18heLAA+0vPxZZokkHjW83JlbKzlA2BbCnsVbrKuZBIckjV+fpRQaqsSPJSAq2FQniuB/NKu9cxNMhe9NP6A=;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mutt/1.5.21 (2010-09-15)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Sup had been running for a while, and I just came back to my terminal to
+find it dead:
+
+--- IOError from thread: periodic poll
+DatabaseError: Error reading block 4279173482: got end of file
+./lib/sup/index.rb:271:in `_dangerous_allterms_begin'
+./lib/sup/index.rb:271:in `each_prefixed_term'
+./lib/sup/index.rb:284:in `each_source_info'
+./lib/sup/mbox.rb:147:in `each'
+./lib/sup/mbox.rb:147:in `map'
+./lib/sup/mbox.rb:147:in `last_indexed_message'
+./lib/sup/util.rb:204:in `call'
+./lib/sup/util.rb:204:in `benchmark'
+/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+./lib/sup/util.rb:204:in `benchmark'
+./lib/sup/mbox.rb:147:in `last_indexed_message'
+./lib/sup/mbox.rb:152:in `first_new_message'
+./lib/sup/mbox.rb:124:in `poll'
+./lib/sup/poll.rb:154:in `poll_from'
+./lib/sup/poll.rb:113:in `do_poll'
+./lib/sup/poll.rb:103:in `each'
+./lib/sup/poll.rb:103:in `do_poll'
+./lib/sup/poll.rb:102:in `synchronize'
+./lib/sup/poll.rb:102:in `do_poll'
+./lib/sup/util.rb:609:in `send'
+./lib/sup/util.rb:609:in `method_missing'
+./lib/sup/modes/poll-mode.rb:15:in `poll'
+./lib/sup/poll.rb:49:in `poll_with_sources'
+./lib/sup/poll.rb:68:in `poll'
+./lib/sup/poll.rb:86:in `start'
+./lib/sup.rb:78:in `reporting_thread'
+./lib/sup.rb:76:in `initialize'
+./lib/sup.rb:76:in `new'
+./lib/sup.rb:76:in `reporting_thread'
+./lib/sup/poll.rb:83:in `start'
+./lib/sup/util.rb:609:in `send'
+./lib/sup/util.rb:609:in `method_missing'
+bin/sup:222
+
+I tried to start it again, and got
+
+--- IOError from thread: poll after loading inbox
+DatabaseCorruptError: Db block overwritten - are there multiple writers?
+/usr/lib/ruby/1.8/xapian.rb:259:in `_dangerous_postlist_begin'
+/usr/lib/ruby/1.8/xapian.rb:259:in `postlist'
+./lib/sup/index.rb:530:in `term_docids'
+./lib/sup/index.rb:717:in `index_message_threading'
+./lib/sup/index.rb:633:in `sync_message'
+./lib/sup/util.rb:609:in `send'
+./lib/sup/util.rb:609:in `method_missing'
+./lib/sup/poll.rb:168:in `poll_from'
+./lib/sup/mbox.rb:127:in `poll'
+./lib/sup/poll.rb:154:in `poll_from'
+./lib/sup/poll.rb:113:in `do_poll'
+./lib/sup/poll.rb:103:in `each'
+./lib/sup/poll.rb:103:in `do_poll'
+./lib/sup/poll.rb:102:in `synchronize'
+./lib/sup/poll.rb:102:in `do_poll'
+./lib/sup/util.rb:609:in `send'
+./lib/sup/util.rb:609:in `method_missing'
+./lib/sup/modes/poll-mode.rb:15:in `poll'
+./lib/sup/poll.rb:49:in `poll_with_sources'
+./lib/sup/poll.rb:68:in `poll'
+./lib/sup/util.rb:609:in `send'
+./lib/sup/util.rb:609:in `method_missing'
+bin/sup:212
+./lib/sup.rb:78:in `reporting_thread'
+./lib/sup.rb:76:in `initialize'
+./lib/sup.rb:76:in `new'
+./lib/sup.rb:76:in `reporting_thread'
+bin/sup:212
+./lib/sup/modes/thread-index-mode.rb:684:in `call'
+./lib/sup/modes/thread-index-mode.rb:684:in `__unprotected_load_threads'
+./lib/sup/modes/thread-index-mode.rb:625:in `call'
+./lib/sup/modes/thread-index-mode.rb:625:in `load_n_threads_background'
+./lib/sup.rb:78:in `reporting_thread'
+./lib/sup.rb:76:in `initialize'
+./lib/sup.rb:76:in `new'
+./lib/sup.rb:76:in `reporting_thread'
+./lib/sup/modes/thread-index-mode.rb:623:in `load_n_threads_background'
+./lib/sup/modes/thread-index-mode.rb:694:in `__unprotected_load_threads'
+(eval):12:in `load_threads'
+bin/sup:212
+
+My xapian dir looks like:
+
+total 334396
+-rw------- 1 andrew andrew         0 May  6 14:43 flintlock
+-rw-rw-r-- 1 andrew andrew        12 May 31  2010 iamflint
+-rw-rw-r-- 1 andrew andrew 103014400 May  6 13:09 position.DB
+-rw-rw-r-- 1 andrew andrew      1594 May  6 11:22 position.baseA
+-rw-rw-r-- 1 andrew andrew 161333248 May  6 13:29 postlist.DB
+-rw-rw-r-- 1 andrew andrew      2475 May  6 11:22 postlist.baseA
+-rw-rw-r-- 1 andrew andrew  20807680 May  6 13:04 record.DB
+-rw-rw-r-- 1 andrew andrew       339 May  6 11:22 record.baseA
+-rw-rw-r-- 1 andrew andrew  50692096 May  6 13:29 termlist.DB
+-rw-rw-r-- 1 andrew andrew       795 May  6 11:22 termlist.baseA
+-rw-rw-r-- 1 andrew andrew   6184960 May  6 13:04 value.DB
+-rw-rw-r-- 1 andrew andrew       115 May  6 11:22 value.baseA
+
+I'm running an old git pull from next, commit 1bafcf6 dated 2010-10-12.
+Anything I should do to try to diagnose and recover this?  Or just load
+from sup-dump?
+
+Andrew
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00648" href="msg00648.html">Re: [sup-talk] DatabaseCorruptError</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00622.html">[sup-talk] nvalid number of options error msg</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00488.html">[sup-talk] Word wrap for quoted lines</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00622.html">[sup-talk] nvalid number of options error msg</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00648.html">Re: [sup-talk] DatabaseCorruptError</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00434"><strong>Date</strong></a></li>
+<li><a href="threads.html#00434"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

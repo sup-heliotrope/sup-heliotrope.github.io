@@ -1,0 +1,146 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Sup crash at startup -->
+<!--X-From-R13: Wpb Rbbearxnzc <fhcNmrii.ay> -->
+<!--X-Date: Wed, 16 Feb 2011 06:04:54 &#45;0800 (PST) -->
+<!--X-Message-Id: 1297863697&#45;sup&#45;612@pruts.nl -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Sup crash at startup</title>
+<link rev="made" href="mailto:sup@zevv.nl">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00573.html">Date Prev</a>][<a href="msg00402.html">Date Next</a>][<a href="msg00641.html">Thread Prev</a>][<a href="msg00497.html">Thread Next</a>][<a href="maillist.html#00550">Date Index</a>][<a href="threads.html#00550">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Sup crash at startup</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Sup crash at startup</li>
+<li><em>From</em>: Ico Doornekamp &lt;<a href="mailto:sup%40zevv.nl">sup@zevv.nl</a>&gt;</li>
+<li><em>Date</em>: Wed, 16 Feb 2011 14:43:10 +0100</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Out of nowhere my sup started crasing on me. Running latest version from git.
+Any ideas, any more info I can provide to diagnose this problem ?
+
+Thanks,
+
+Ico
+
+
+[Wed Feb 16 14:31:56 +0100 2011] ERROR: oh crap, an exception                                                                  
+----------------------------------------------------------------
+I'm very sorry. It seems that an error occurred in Sup. Please
+accept my sincere apologies. Please submit the contents of
+/home/ico/.sup/exception-log.txt and a brief report of the
+circumstances to <a  rel="nofollow" href="http://masanjin.net/sup-bugs/">http://masanjin.net/sup-bugs/</a> so that I might
+address this problem. Thank you!
+
+Sincerely,
+William
+----------------------------------------------------------------
+--- RuntimeError from thread: load threads for thread-index-mode
+
+./lib/sup/index.rb:556:in `find_docid'
+./lib/sup/index.rb:561:in `find_doc'
+./lib/sup/index.rb:571:in `get_entry'
+./lib/sup/index.rb:201:in `build_message'
+/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+./lib/sup/index.rb:580:in `synchronize'
+./lib/sup/index.rb:201:in `build_message'
+./lib/sup/index.rb:195
+./lib/sup/thread.rb:349:in `call'
+./lib/sup/thread.rb:349:in `load_thread_for_message'
+./lib/sup/index.rb:195:in `each_message_in_thread_for'
+./lib/sup/index.rb:195:in `each'
+./lib/sup/index.rb:195:in `each_message_in_thread_for'
+./lib/sup/thread.rb:347:in `load_thread_for_message'
+./lib/sup/thread.rb:339:in `load_n_threads'
+./lib/sup/index.rb:156:in `each_id_by_date'
+./lib/sup/index.rb:251:in `each_id'
+./lib/sup/index.rb:251:in `each'
+./lib/sup/index.rb:251:in `each_id'
+./lib/sup/index.rb:156:in `each_id_by_date'
+./lib/sup/thread.rb:334:in `load_n_threads'
+./lib/sup/modes/thread-index-mode.rb:640:in `__unprotected_load_n_threads'
+(eval):12:in `load_n_threads'
+./lib/sup/modes/thread-index-mode.rb:624:in `load_n_threads_background'
+./lib/sup.rb:78:in `reporting_thread'
+./lib/sup.rb:76:in `initialize'
+./lib/sup.rb:76:in `new'
+./lib/sup.rb:76:in `reporting_thread'
+./lib/sup/modes/thread-index-mode.rb:623:in `load_n_threads_background'
+./lib/sup/modes/thread-index-mode.rb:694:in `__unprotected_load_threads'
+(eval):12:in `load_threads'
+bin/sup:223
+
+-- 
+:wq
+^X^Cy^K^X^C^C^C^C
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00573.html">Re: [sup-talk] Label Display; Sorting Alphabetically</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00402.html">Re: [sup-talk] renaming label woes</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00641.html">Re: [sup-talk] Error: no &quot;view&quot; mailcap rules found for type	&quot;text/plain&quot;</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00497.html">[sup-talk] tiny patch re: editor (vim)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00550"><strong>Date</strong></a></li>
+<li><a href="threads.html#00550"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

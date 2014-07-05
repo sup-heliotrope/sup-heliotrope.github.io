@@ -1,0 +1,232 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] [PATCH] mutt&#45;style pipe to interactive process support -->
+<!--X-From-R13: [nep Vnegfgrva <znep.unegfgrvaNnyhz.inffne.rqh> -->
+<!--X-Date: Sat, 26 Jun 2010 09:40:54 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1277569807&#45;12085&#45;1&#45;git&#45;send&#45;email&#45;marc.hartstein@alum.vassar.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] [PATCH] mutt-style pipe to interactive process support</title>
+<link rev="made" href="mailto:marc.hartstein@alum.vassar.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00874.html">Date Prev</a>][<a href="msg01035.html">Date Next</a>][<a href="msg00874.html">Thread Prev</a>][<a href="msg01035.html">Thread Next</a>][<a href="maillist.html#00797">Date Index</a>][<a href="threads.html#00797">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] [PATCH] mutt-style pipe to interactive process support</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] [PATCH] mutt-style pipe to interactive process support</li>
+<li><em>From</em>: Marc Hartstein &lt;<a href="mailto:marc.hartstein%40alum.vassar.edu">marc.hartstein@alum.vassar.edu</a>&gt;</li>
+<li><em>Date</em>: Sat, 26 Jun 2010 12:30:07 -0400</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:sender:received:from:to:cc	:subject:date:message-id:x-mailer;	bh=/YA9sfJ8hzQZ7ExomCMwi4lqTGxN/LiTjZvaKh7J1ys=;	b=ukXB7/B8spb1SnQbdLqnmLo04Hg6+l+lIGJ6NQqUW+MXNXNAjwP5P18qxWZR3fSD4J	EjNnIa3/+FKgVXABARoXmSnDmrDqpL3lrX5JWQYYsJy9LsmtjbCthxEQLCnomTxx5luZ	jOWtCJ0GX+eN6aZCos1Cbb4+dxJ+My/I1jAHE=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=sender:from:to:cc:subject:date:message-id:x-mailer;	b=mq1nexjsQVSvNxpGQ6NooZkWF9BziUoFdd3R772I0RYszP8bJcL6xmNUJuO2Hhtl56	IuA3Sgn9D7MjPacH42gUWEoTO3LbWeYQmdQLZ50AsMY8xWGQBNZVgTxx/rtEnuyXq9e2	BcNyRoacusxrK/E/oY5sxIfm/Lc+t1pqw/lnY=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Adds a new method maybe_interactive_pipe_message to ThreadViewMode which will
+pipe a message to a process in the same manner as the mutt mutt_pipe_message
+command, allowing interactive tools such as 'urlview' to reopen the tty for
+IO.
+
+Terminating your pipe command with the pipe character ('|') for &quot;pipe back to
+sup&quot; will use the original behavior, capturing the output of the pipeline for
+display in a sup buffer. Calling maybe_interactive_pipe_message with
+maybe_interactive=false, or calling pipe_message will always use the old
+behavior.
+
+No keymap is provided in this patch. It is recommended to replace pipe_message
+on '|' in keybindings.rb using a line like:
+
+Redwood::ThreadViewMode::keymap.add! :maybe_interactive_pipe_message, &quot;Pipe
+message or attachment to an interactive shell command&quot;, '|'
+---
+ lib/sup/mode.rb                   |   32 ++++++++++++++++++++++++
+ lib/sup/modes/thread-view-mode.rb |   48 +++++++++++++++++++++++++++++-------
+ 2 files changed, 70 insertions(+), 10 deletions(-)
+
+diff --git a/lib/sup/mode.rb b/lib/sup/mode.rb
+index f5aee1c..8d6197d 100644
+--- a/lib/sup/mode.rb
++++ b/lib/sup/mode.rb
+@@ -101,6 +101,38 @@ EOS
+     end
+   end
+ 
++  def pipe_to_interactive_process command
++    read, write = IO.pipe
++
++    child_pid = fork
++    if child_pid
++      # main process
++      begin
++        read.close
++        yield write
++      rescue
++        warn &quot;error writing to #{command}: #{$!}&quot;
++        BufferManager.flash &quot;error writing to #{command}: #{$!}&quot;
++      ensure
++        write.close
++        Process.waitpid(child_pid)
++      end
++    else
++      # child
++      begin
++        write.close
++        $stdin.reopen(read)
++        exec(command)
++      rescue
++        # Can't access logger from child process, but can flash an error
++        BufferManager.flash &quot;error running #{command}: #{$!}&quot;
++      ensure
++        read.close
++        Kernel.exit!(127)
++      end
++    end
++  end
++
+   def pipe_to_process command
+     Open3.popen3(command) do |input, output, error|
+       err, data, * = IO.select [error], [input], nil
+diff --git a/lib/sup/modes/thread-view-mode.rb b/lib/sup/modes/thread-view-mode.rb
+index 088529b..bd7908c 100644
+--- a/lib/sup/modes/thread-view-mode.rb
++++ b/lib/sup/modes/thread-view-mode.rb
+@@ -661,6 +661,10 @@ EOS
+   private :dispatch
+ 
+   def pipe_message
++    maybe_interactive_pipe_message false
++  end
++
++  def maybe_interactive_pipe_message maybe_interactive=true
+     chunk = @chunk_lines[curpos]
+     chunk = nil unless chunk.is_a?(Chunk::Attachment)
+     message = @message_lines[curpos] unless chunk
+@@ -669,20 +673,44 @@ EOS
+ 
+     command = BufferManager.ask(:shell, &quot;pipe command: &quot;)
+     return if command.nil? || command.empty?
++    if maybe_interactive and command[-1,1]==&quot;|&quot;
++      command = command.chop.strip
++      return if command.empty?
++      interactive = false
++    else
++      interactive = maybe_interactive
++    end
++
++    if interactive
++      pipe_to_interactive_process(command) do |stream|
++        if chunk
++          stream.print chunk.raw_content
++        else
++          message.each_raw_message_line { |l| 
++            begin
++              stream.print l
++            rescue
++              warn &quot;error writing to #{command}: #{$!}&quot;
++              BufferManager.flash &quot;error writing to #{command}: #{$!}&quot;
++              break
++            end }
++        end
++      end
++    else
++      output = pipe_to_process(command) do |stream|
++        if chunk
++          stream.print chunk.raw_content
++        else
++          message.each_raw_message_line { |l| stream.print l }
++        end
++      end
+ 
+-    output = pipe_to_process(command) do |stream|
+-      if chunk
+-        stream.print chunk.raw_content
++      if output
++        BufferManager.spawn &quot;Output of '#{command}'&quot;, TextMode.new(output.ascii)
+       else
+-        message.each_raw_message_line { |l| stream.print l }
++        BufferManager.flash &quot;'#{command}' done!&quot;
+       end
+     end
+-
+-    if output
+-      BufferManager.spawn &quot;Output of '#{command}'&quot;, TextMode.new(output.ascii)
+-    else
+-      BufferManager.flash &quot;'#{command}' done!&quot;
+-    end
+   end
+ 
+ private
+-- 
+1.6.4.4
+
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01035" href="msg01035.html">Re: [sup-talk] [PATCH] mutt-style pipe to interactive process	support</a></strong>
+<ul><li><em>From:</em> Marc Hartstein &lt;marc.hartstein@alum.vassar.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00874.html">Re: [sup-talk] Sup packaged for Fedora</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01035.html">Re: [sup-talk] [PATCH] mutt-style pipe to interactive process	support</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00874.html">Re: [sup-talk] Sup packaged for Fedora</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01035.html">Re: [sup-talk] [PATCH] mutt-style pipe to interactive process	support</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00797"><strong>Date</strong></a></li>
+<li><a href="threads.html#00797"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

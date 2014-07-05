@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] [patch] Add crypto_selector variable to before&#45;edit -->
+<!--X-From-R13: Unhgr Vbcr <rtNtnhgr.irgfw.pbz> -->
+<!--X-Date: Fri, 12 Mar 2010 14:34:02 &#45;0800 (PST) -->
+<!--X-Message-Id: 1268433226&#45;sup&#45;8467@dolk -->
+<!--X-Content-Type: multipart/signed -->
+<!--X-Reference: 1263824428&#45;sup&#45;6466@nemesis.home -->
+<!--X-Reference: 1264251144&#45;sup&#45;4056@masanjin.net -->
+<!--X-Reference: 1264521165&#45;sup&#45;9898@nemesis.home -->
+<!--X-Reference: 1268130450&#45;sup&#45;8181@dolk -->
+<!--X-Reference: 1268431172&#45;sup&#45;9482@nemesis.home -->
+<!--X-Derived: pgpEvAJRDavuf.pgp -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] [patch] Add crypto_selector variable to before-edit</title>
+<link rev="made" href="mailto:eg@gaute.vetsj.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00891.html">Date Prev</a>][<a href="msg01019.html">Date Next</a>][<a href="msg00891.html">Thread Prev</a>][<a href="msg01356.html">Thread Next</a>][<a href="maillist.html#01091">Date Index</a>][<a href="threads.html#01091">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] [patch] Add crypto_selector variable to before-edit</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] [patch] Add crypto_selector variable to before-edit</li>
+<li><em>From</em>: Gaute Hope &lt;<a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 12 Mar 2010 23:34:16 +0100</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00891.html">1268431172-sup-9482@nemesis.home</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01168.html">1263824428-sup-6466@nemesis.home</a>&gt; &lt;<a href="msg01300.html">1264251144-sup-4056@masanjin.net</a>&gt; &lt;<a href="msg01394.html">1264521165-sup-9898@nemesis.home</a>&gt; &lt;1268130450-sup-8181@dolk&gt; &lt;<a href="msg00891.html">1268431172-sup-9482@nemesis.home</a>&gt;</li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Excerpts from Daniel Schoepe's message of 2010-03-12 23:03:03 +0100:
+&gt; Excerpts from Gaute Hope's message of Tue Mar 09 11:29:13 +0100 2010:
+&gt; &gt; Could someone be so kind and provide an example for setting it to i.e.
+&gt; &gt; 'Sign' by default, given a specific from address?
+&gt; &gt; 
+&gt; &gt; - gaute
+&gt; 
+&gt; Something like this should work:
+&gt; 
+&gt; crypto_selector.set_to :sign if header[&quot;From&quot;] == &quot;foo@ba.r&quot;
+&gt; 
+&gt; (You might need to use e.g. a regex if the header also contains the name,
+&gt; as in &quot;Foo Bar &lt;mail&gt;&quot;)
+
+Thanks, that did it!
+
+- gaute
+</pre><p><strong>Attachment:
+<a href="pgpEvAJRDavuf.pgp" ><tt>signature.asc</tt></a></strong><br>
+<em>Description:</em> PGP signature</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01168" href="msg01168.html">[sup-talk] [patch] Add crypto_selector variable to before-edit</a></strong>
+<ul><li><em>From:</em> Daniel Schoepe &lt;daniel.schoepe@googlemail.com&gt;</li></ul></li>
+<li><strong><a name="01300" href="msg01300.html">Re: [sup-talk] [patch] Add crypto_selector variable to before-edit</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01394" href="msg01394.html">Re: [sup-talk] [patch] Add crypto_selector variable to before-edit</a></strong>
+<ul><li><em>From:</em> Daniel Schoepe &lt;daniel.schoepe@googlemail.com&gt;</li></ul></li>
+<li><strong><a name="01470" href="msg01470.html">Re: [sup-talk] [patch] Add crypto_selector variable to before-edit</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+<li><strong><a name="00891" href="msg00891.html">Re: [sup-talk] [patch] Add crypto_selector variable to before-edit</a></strong>
+<ul><li><em>From:</em> Daniel Schoepe &lt;daniel.schoepe@googlemail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00891.html">Re: [sup-talk] [patch] Add crypto_selector variable to before-edit</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01019.html">Re: [sup-talk] index options, by addressee instead of by sender</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00891.html">Re: [sup-talk] [patch] Add crypto_selector variable to before-edit</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01356.html">Re: [sup-talk] [sup-devel] Problems Syncing</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01091"><strong>Date</strong></a></li>
+<li><a href="threads.html#01091"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

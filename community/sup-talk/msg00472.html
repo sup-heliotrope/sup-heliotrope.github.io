@@ -1,0 +1,147 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;devel] sup&#45;server revisited -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Mon, 21 Feb 2011 13:39:49 &#45;0800 (PST) -->
+<!--X-Message-Id: 1298320404&#45;sup&#45;5972@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-devel] sup-server revisited</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00692.html">Date Prev</a>][<a href="msg00512.html">Date Next</a>][<a href="msg00692.html">Thread Prev</a>][<a href="msg00411.html">Thread Next</a>][<a href="maillist.html#00472">Date Index</a>][<a href="threads.html#00472">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-devel] sup-server revisited</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>, <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-devel] sup-server revisited</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 21 Feb 2011 21:02:28 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-devel">http://rubyforge.org/pipermail/sup-devel</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=help">mailto:sup-devel-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: Sup developer discussion &lt;sup-devel.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-devel@rubyforge.org">mailto:sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=subscribe">mailto:sup-devel-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-devel">http://rubyforge.org/mailman/options/sup-devel</a>&gt;,	&lt;<a href="mailto:sup-devel-request@rubyforge.org?subject=unsubscribe">mailto:sup-devel-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Sup developer discussion &lt;<a href="mailto:sup-devel%40rubyforge.org">sup-devel@rubyforge.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-devel-bounces%40rubyforge.org">sup-devel-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello Sup fans,
+
+As I alluded to in an earlier email to sup-devel, I have been working recently
+on the ancient goal of splitting Sup functionality out into separate client and
+server programs. This will have many advantages; in particular it will remove
+email lock-in by making it possible to have non-Sup clients interact with Sup.
+
+I've tried various approaches to this goal at various times, without much
+success. But with the release of Whistlepig, I have been making a lot of
+progress in a short amount of time.
+
+I wanted to lay out my general plan in this email, so that everyone can follow
+along and try things out if they feel inclined.
+
+I'm focusing on the server component first. My specific goals are:
+
+- Encapsulate all storage and indexing logic.
+- Formalize the notion of labels and state, and the relationship between them,
+  messages, and threads. Currently these relationships are fuzzy in Sup, and
+  things suffer for it.
+- Precompute threads, so that search requires only moderate effort, instead of
+  the large effort it does now. This will make search much, much faster, at the
+  expense of a little more effort at index time.
+- Allow concurrent access from multiple clients.
+- Provide something that is transparent and easy to modify without having to go
+  through an ncurses client.
+
+You can find the work in progress here: <a  rel="nofollow" href="https://github.com/wmorgan/heliotrope">https://github.com/wmorgan/heliotrope</a>
+Currently it is not actually a server, but accomplishes many of the goals
+above. Run bin/email-indexer and then bin/email-searcher to play around with
+a simple preview of things to come. Stay tuned for more on this.
+
+Once the server is in a reasonable state, my goals for the curses client reboot
+are:
+
+- Move to an event-based model rather than the polling + many threads +
+  observable model we have now. Dump all events into one big queue,
+  and block on it.
+- Have one, and only one, non-main thread, which it to communicate with the
+  server. No more mutex insanity.
+- Work from the ground up with Ruby 1.9, which means finding the many sources
+  of encoding errors and punishing them.
+- Require the console and ncurses gems so that i18n works out of the box.
+- Borrow as much code as possible from the current Sup, because I sure as shit
+  don't want to have to rewrite it all.
+
+I haven't started on this at all.
+
+So stay tuned, and check out heliotrope if you are so inclined.
+
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+Sup-devel mailing list
+Sup-devel@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-devel">http://rubyforge.org/mailman/listinfo/sup-devel</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00411" href="msg00411.html">Re: [sup-devel] sup-server revisited</a></strong>
+<ul><li><em>From:</em> Nicolas Pouillard &lt;nicolas.pouillard@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00692.html">Removing :draft label</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00512.html">[sup-talk] Correct way to sync index between two machines?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00692.html">Removing :draft label</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00411.html">Re: [sup-devel] sup-server revisited</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00472"><strong>Date</strong></a></li>
+<li><a href="threads.html#00472"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

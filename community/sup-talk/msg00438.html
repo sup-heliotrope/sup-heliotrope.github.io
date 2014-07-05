@@ -1,0 +1,109 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk]  Adding Sources -->
+<!--X-From-R13: srqmbe <srqmbeNtznvy.pbz> -->
+<!--X-Date: Sat, 29 Jan 2011 09:47:46 &#45;0800 (PST) -->
+<!--X-Message-Id: 9E351CF2&#45;F2A4&#45;4CDB&#45;8E88&#45;0AEEACF9BB8A@gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk]  Adding Sources</title>
+<link rev="made" href="mailto:fedzor@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00530.html">Date Prev</a>][<a href="msg00460.html">Date Next</a>][<a href="msg00420.html">Thread Prev</a>][<a href="msg00460.html">Thread Next</a>][<a href="maillist.html#00438">Date Index</a>][<a href="threads.html#00438">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk]  Adding Sources</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk]  Adding Sources</li>
+<li><em>From</em>: fedzor &lt;<a href="mailto:fedzor%40gmail.com">fedzor@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 29 Jan 2011 12:47:16 -0500</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a>; dkim=neutral (body hash did not verify) header.i=@gmail.com</li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:from:content-type:content-transfer-encoding	:subject:date:message-id:to:mime-version:x-mailer;	bh=19UWo4apRmjTCeccACgiis7PPrcuiiKjMBmhkNhdxuA=;	b=WtoBtl4TQxFVgGiLSmOQJjTk4WGOX7pdaIbkAutKE/oWvNkK1D8QSBInQZwQlfU9U8	ti6pjCFqzs97rciyClDXF10WXC3D3yu6j74EMckbL2KscTExHG3gwcuRJTCTi2TLd4fg	jL0po7mmhAgveX6gbeJpBXuSlPVWCaSOLmXXE=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=from:content-type:content-transfer-encoding:subject:date:message-id	:to:mime-version:x-mailer;	b=fR95aya3LGB9MJKYv9Ogt7DBMJiUHeisg0AOGzPt2IHawtg0sLIOXf43FXvfpnFmD1	rESJTw3k/Qi1r+u/j9xceECzZT1G7aqYTFimtUHemoar1ifj2jkDLkqrR4/bjzg80nbl	tegn7yFjUu6AxLfRLuxibbKVI6uGc77VJEJOw=</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hey,
+
+I got sup to work finally. It took me a while because xapian and xapian-full weren't playing well together. I feel like just dropping it for a couple months was really good because it feels like the two libraries took that time to work out their differences and come to an agreement.
+
+Now, it's time to add sources. But sup has changed since I last used it! I read my email from four IMAP boxes. In my experience, IMAP is incredibly shitty and servers bug out all the fucking time and they just kinda do whatever they want. According to the source code, William has a similar sentiment.
+
+Despite my frustrations with it, I was still surprised not to see an IMAP option for sup-config.
+
+What's the recommended way to read my IMAP mailboxes?
+
+Thanks,
+Ari Brown
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00460" href="msg00460.html">Re: [sup-talk] Adding Sources</a></strong>
+<ul><li><em>From:</em> Michael Stapelberg &lt;michael+sup@stapelberg.de&gt;</li></ul></li>
+<li><strong><a name="00694" href="msg00694.html">Re: [sup-talk] Adding Sources</a></strong>
+<ul><li><em>From:</em> Tero Tilus &lt;tero@tilus.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00530.html">[sup-talk] crypto-mode hook fragment to sign if from address can be	signed</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00460.html">Re: [sup-talk] Adding Sources</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00420.html">Re: [sup-talk] crypto-mode hook fragment to sign if from address	can be signed</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00460.html">Re: [sup-talk] Adding Sources</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00438"><strong>Date</strong></a></li>
+<li><a href="threads.html#00438"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] exception on first IMAPS load in 0.8.1&#45;1 -->
+<!--X-From-R13: Egrssna Rnivrf <fgrssNfgrss.anzr> -->
+<!--X-Date: Mon, 25 Jan 2010 12:16:01 &#45;0800 (PST) -->
+<!--X-Message-Id: 20100123151414.GB2294@steff.name -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] exception on first IMAPS load in 0.8.1-1</title>
+<link rev="made" href="mailto:steff@steff.name">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01430.html">Date Prev</a>][<a href="msg01449.html">Date Next</a>][<a href="msg01404.html">Thread Prev</a>][<a href="msg01189.html">Thread Next</a>][<a href="maillist.html#01135">Date Index</a>][<a href="threads.html#01135">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] exception on first IMAPS load in 0.8.1-1</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>Subject</em>: [sup-talk] exception on first IMAPS load in 0.8.1-1</li>
+<li><em>From</em>: Steffan Davies &lt;<a href="mailto:steff%40steff.name">steff@steff.name</a>&gt;</li>
+<li><em>Date</em>: Sat, 23 Jan 2010 15:14:14 +0000</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Mutt/1.5.17+20080114 (2008-01-14)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Got this while sup was inhaling my 60+k-item mailbox. Xubuntu Karmic,
+loading from Dovecot across an idle gigabit ethernet.
+
+S 
+
+cat ~/.sup/exception-log.txt
+--- NoMethodError from thread: poll after loading inbox
+undefined method `to_indexable_s' for nil:NilClass
+/usr/lib/ruby/1.8/sup/index.rb:243:in `sync_message'
+/usr/lib/ruby/1.8/sup/util.rb:513:in `send'
+/usr/lib/ruby/1.8/sup/util.rb:513:in `method_missing'
+/usr/lib/ruby/1.8/sup/poll.rb:161:in `add_messages_from'
+/usr/lib/ruby/1.8/sup/imap.rb:187:in `each'
+/usr/lib/ruby/1.8/sup/imap.rb:175:in `upto'
+/usr/lib/ruby/1.8/sup/imap.rb:175:in `each'
+/usr/lib/ruby/1.8/sup/util.rb:552:in `send'
+/usr/lib/ruby/1.8/sup/util.rb:552:in `__pass'
+/usr/lib/ruby/1.8/sup/util.rb:539:in `method_missing'
+/usr/lib/ruby/1.8/sup/poll.rb:141:in `add_messages_from'
+/usr/lib/ruby/1.8/sup/poll.rb:98:in `do_poll'
+/usr/lib/ruby/1.8/sup/poll.rb:86:in `each'
+/usr/lib/ruby/1.8/sup/poll.rb:86:in `do_poll'
+/usr/lib/ruby/1.8/sup/poll.rb:85:in `synchronize'
+/usr/lib/ruby/1.8/sup/poll.rb:85:in `do_poll'
+/usr/lib/ruby/1.8/sup/util.rb:513:in `send'
+/usr/lib/ruby/1.8/sup/util.rb:513:in `method_missing'
+/usr/lib/ruby/1.8/sup/modes/poll-mode.rb:17:in `poll'
+/usr/lib/ruby/1.8/sup/poll.rb:53:in `poll'
+/usr/lib/ruby/1.8/sup/util.rb:513:in `send'
+/usr/lib/ruby/1.8/sup/util.rb:513:in `method_missing'
+/usr/bin/sup-mail:204
+/usr/lib/ruby/1.8/sup.rb:70:in `reporting_thread'
+/usr/lib/ruby/1.8/sup.rb:68:in `initialize'
+/usr/lib/ruby/1.8/sup.rb:68:in `new'
+/usr/lib/ruby/1.8/sup.rb:68:in `reporting_thread'
+/usr/bin/sup-mail:204
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:663:in `call'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:663:in
+`__unprotected_load_threads'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:605:in `call'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:605:in
+`load_n_threads_background'
+/usr/lib/ruby/1.8/sup.rb:70:in `reporting_thread'
+/usr/lib/ruby/1.8/sup.rb:68:in `initialize'
+/usr/lib/ruby/1.8/sup.rb:68:in `new'
+/usr/lib/ruby/1.8/sup.rb:68:in `reporting_thread'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:603:in
+`load_n_threads_background'
+/usr/lib/ruby/1.8/sup/modes/thread-index-mode.rb:673:in
+`__unprotected_load_threads'
+(eval):12:in `load_threads'
+/usr/bin/sup-mail:204
+
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01189" href="msg01189.html">Re: [sup-talk] exception on first IMAPS load in 0.8.1-1</a></strong>
+<ul><li><em>From:</em> William Morgan &lt;wmorgan-sup@masanjin.net&gt;</li></ul></li>
+<li><strong><a name="01188" href="msg01188.html">Re: [sup-talk] exception on first IMAPS load in 0.8.1-1</a></strong>
+<ul><li><em>From:</em> Ben Walton &lt;bwalton@artsci.utoronto.ca&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01430.html">Re: [sup-talk] [ANN] Sup 0.10 released</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01449.html">Re: [sup-talk] Libnotify popups with sup</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01404.html">[sup-talk] Warning on sup startup</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01189.html">Re: [sup-talk] exception on first IMAPS load in 0.8.1-1</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01135"><strong>Date</strong></a></li>
+<li><a href="threads.html#01135"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: Re: [sup&#45;talk] Ruby 1.9: encodings -->
+<!--X-From-R13: Ivyyvnz [betna <jzbetna&#45;fhcNznfnawva.arg> -->
+<!--X-Date: Sat, 19 Dec 2009 10:41:19 &#45;0800 (PST) -->
+<!--X-Message-Id: 1261246544&#45;sup&#45;7566@masanjin.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 80055d7c0911061922w64ef7cb0qf0c7bed008cc728c@mail.gmail.com -->
+<!--X-Reference: 5a5b14cf0912180737n600fc2acx30fa14028d4a7662@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [sup-talk] Ruby 1.9: encodings</title>
+<link rev="made" href="mailto:wmorgan-sup@masanjin.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01366.html">Date Prev</a>][<a href="msg01160.html">Date Next</a>][<a href="msg01390.html">Thread Prev</a>][<a href="msg01412.html">Thread Next</a>][<a href="maillist.html#01194">Date Index</a>][<a href="threads.html#01194">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [sup-talk] Ruby 1.9: encodings</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [sup-talk] Ruby 1.9: encodings</li>
+<li><em>From</em>: William Morgan &lt;<a href="mailto:wmorgan-sup%40masanjin.net">wmorgan-sup@masanjin.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 19 Dec 2009 10:34:22 -0800</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01390.html">5a5b14cf0912180737n600fc2acx30fa14028d4a7662@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01739.html">80055d7c0911061922w64ef7cb0qf0c7bed008cc728c@mail.gmail.com</a>&gt;	&lt;<a href="msg01390.html">5a5b14cf0912180737n600fc2acx30fa14028d4a7662@mail.gmail.com</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/git</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Reformatted excerpts from Gaute Hope's message of 2009-12-18:
+&gt; I just tried.. im getting the same, afraid im not skilled enough to
+&gt; figure out what is wrong thou..
+
+Do the errors still occur if you apply this patch?
+
+diff --git a/lib/sup/util.rb b/lib/sup/util.rb
+index f99e1c1..92aaff4 100644
+--- a/lib/sup/util.rb
++++ b/lib/sup/util.rb
+@@ -176,13 +176,7 @@ end
+ class String
+   ## nasty multibyte hack for ruby 1.8. if it's utf-8, split into chars using
+   ## the utf8 regex and count those. otherwise, use the byte length.
+-  def display_length
+-    if $encoding == &quot;UTF-8&quot; || $encoding == &quot;utf8&quot;
+-      scan(/./u).size
+-    else
+-      size
+-    end
+-  end
++  def display_length; length end
+ 
+   def camel_to_hyphy
+     self.gsub(/([a-z])([A-Z0-9])/, '\1-\2').downcase
+
+-- 
+William &lt;wmorgan-sup@masanjin.net&gt;
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01412" href="msg01412.html">Re: [sup-talk] Ruby 1.9: encodings</a></strong>
+<ul><li><em>From:</em> Andrei Thorp &lt;garoth@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01739" href="msg01739.html">[sup-talk]  Ruby 1.9: encodings</a></strong>
+<ul><li><em>From:</em> Andrei Thorp &lt;garoth@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01390" href="msg01390.html">Re: [sup-talk] Ruby 1.9: encodings</a></strong>
+<ul><li><em>From:</em> Gaute Hope &lt;eg@gaute.vetsj.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01366.html">Re: [sup-talk] exception after polling</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01160.html">Re: [sup-talk] phantom unread messages &amp; address book autocomplete</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01390.html">Re: [sup-talk] Ruby 1.9: encodings</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01412.html">Re: [sup-talk] Ruby 1.9: encodings</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01194"><strong>Date</strong></a></li>
+<li><a href="threads.html#01194"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

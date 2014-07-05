@@ -1,0 +1,127 @@
+<!-- MHonArc v2.6.18 -->
+<!--X-Subject: [sup&#45;talk] Maildir support -->
+<!--X-From-R13: qgx <q.g.xNtzk.qr> -->
+<!--X-Date: Mon, 11 Apr 2011 01:49:53 &#45;0700 (PDT) -->
+<!--X-Message-Id: 1302508168&#45;sup&#45;3103@minibox -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[sup-talk] Maildir support</title>
+<link rev="made" href="mailto:d.t.k@gmx.de">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00442.html">Date Prev</a>][<a href="msg00571.html">Date Next</a>][<a href="msg00442.html">Thread Prev</a>][<a href="msg00571.html">Thread Next</a>][<a href="maillist.html#00424">Date Index</a>][<a href="threads.html#00424">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[sup-talk] Maildir support</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: sup-talk &lt;<a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>Subject</em>: [sup-talk] Maildir support</li>
+<li><em>From</em>: dtk &lt;<a href="mailto:d.t.k%40gmx.de">d.t.k@gmx.de</a>&gt;</li>
+<li><em>Date</em>: Mon, 11 Apr 2011 10:08:52 +0200</li>
+<li><em>Authentication-results</em>: mx.google.com; spf=pass (google.com: domain of <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a> designates 205.234.109.19 as permitted sender) smtp.mail=<a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:eg%40gaute.vetsj.com">eg@gaute.vetsj.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:sup-talk%40rubyforge.org">sup-talk@rubyforge.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://rubyforge.org/pipermail/sup-talk">http://rubyforge.org/pipermail/sup-talk</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=help">mailto:sup-talk-request@rubyforge.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: User &amp; developer discussion of Sup &lt;sup-talk.rubyforge.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:sup-talk@rubyforge.org">mailto:sup-talk@rubyforge.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=subscribe">mailto:sup-talk-request@rubyforge.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://rubyforge.org/mailman/options/sup-talk">http://rubyforge.org/mailman/options/sup-talk</a>&gt;,	&lt;<a href="mailto:sup-talk-request@rubyforge.org?subject=unsubscribe">mailto:sup-talk-request@rubyforge.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:sup-talk-bounces%40rubyforge.org">sup-talk-bounces@rubyforge.org</a></li>
+<li><em>User-agent</em>: Sup/0.12.1</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi all,
+
+I've been using sup for a few days now, and I have to say, I'm absolutely in
+love with the concept!! I'm only getting used to archiving threads immediately
+and trusting sup to bring it back up when something new happens, but my mail
+processing has never been that efficient. Thank you very much!
+
+There is one niggle though, that bothers me. I am using offlineimap to sync an
+IMAP server with the local maildir that sup works on. That works rather nicely
+for one direction (IMAP -&gt; local), but when I work on my local maildir (read
+mails, delete them, mark them as spam), changes don't get propagated back to the
+server.
+I think this might be due to the fact that my sup doesn't seems to move mail
+from the new/ to the cur/ dir of mein mailbox and therefor never any flags
+(Seen, Thrashed) are added?
+This is quite unpleasant to me, since that means that the inbox on the mail
+server (that other clients like a web mailer and a thunderbird at work use)
+stays cluttered with the usual bunch of mails arriving.
+So I enjoy being able to efficiently organize my mail when working from my box,
+but everytime I am away from it and I therefor have to use another client, I am
+presented with a mailbox that not only intermingles my legitimate mail with the
+occasional spam getting through and the mail I already dismissed (deleted), it
+not even has the mails I already processed marked as read.
+This is a pretty huge deal for me.
+
+I do imagine though that quite a few of you are using a similar setup. Can you
+please tell me how you handle the situation? Why doesn't my sup add the correct
+maildir flags? Am I holding it wrong? -.-
+
+tia for you support!
+dtk
+_______________________________________________
+sup-talk mailing list
+sup-talk@rubyforge.org
+<a  rel="nofollow" href="http://rubyforge.org/mailman/listinfo/sup-talk">http://rubyforge.org/mailman/listinfo/sup-talk</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00571" href="msg00571.html">Re: [sup-talk] Maildir support</a></strong>
+<ul><li><em>From:</em> Damien Leone &lt;damien.leone@fensalir.fr&gt;</li></ul></li>
+<li><strong><a name="00711" href="msg00711.html">Re: [sup-talk] Maildir support</a></strong>
+<ul><li><em>From:</em> Ruthard Baudach &lt;rthrd@web.de&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00442.html">Re: [sup-talk] coloring tagged threads</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00571.html">Re: [sup-talk] Maildir support</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00442.html">Re: [sup-talk] coloring tagged threads</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00571.html">Re: [sup-talk] Maildir support</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00424"><strong>Date</strong></a></li>
+<li><a href="threads.html#00424"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>
