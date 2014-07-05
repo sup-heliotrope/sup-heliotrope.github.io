@@ -24,6 +24,7 @@
         <a href="/history/" class="btn">History</a>
         <a href="/screenshots/" class="btn">Screenshots</a>
         <a href="https://github.com/sup-heliotrope/sup-colors" class="btn">Color schemes</a>
+        <a href="/community/" class="btn">Community</a>
         </section>
       </div>
     </header>
