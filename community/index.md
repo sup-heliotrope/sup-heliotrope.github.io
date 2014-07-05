@@ -20,9 +20,9 @@ You can follow discussions and development on sup as well as ask for help on our
 
 #### Old mailing lists
 
-  - [sup-talk](sup-talk/threads.html)
-  - [sup-devel](sup-devel/threads.html)
-  - [sup-announce](sup-announce/threads.html)
+  - [sup-talk](sup-talk/threads.html) ([mbox](sup-talk.mbox))
+  - [sup-devel](sup-devel/threads.html) ([mbox](sup-devel.mbox))
+  - [sup-announce](sup-announce/threads.html) ([mbox](sup-announce.mbox))
 
 (regenerated as of from approx. 2009)
 
