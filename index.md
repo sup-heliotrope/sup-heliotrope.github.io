@@ -36,6 +36,7 @@ More documentation on getting started [is available in the wiki.](https://github
  * Instantaneously search over your entire email collection. Search over body text, or use a query language to combine search predicates in any way.
  * Handle multiple accounts. Replying to email sent to a particular account will use the correct SMTP server, signature, and from address.
  * Add custom code to handle certain types of messages or to handle certain types of text within messages.
+ * Take care of your privacy with full support of gpg.
  * Organize email with user-defined labels, automatically track recent contacts, and much more!
 
 ### Resources
