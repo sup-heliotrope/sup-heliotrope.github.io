@@ -14,7 +14,7 @@
       <div class="container">
         <a href="/">
           <h1>sup</h1>
-          <h2>The hacker's Mail User Agent</h2>
+          <h2>A curses threads-with-tags style email client</h2>
         </a>
 
         <section id="links">
